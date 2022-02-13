@@ -117,9 +117,37 @@ Below is a table of opportunities/problems that could potentially be included wi
 
 #### Current Features
 
+The following is the list of features that will be included within the MVP of the application with reasons as to why:
+
+- Account Management
+    - Important data relating to the user such as their portfolios, account details and billing information will need to be tied to their account, making this an integral feature within the application.
+
+- Purchase of Portfolio Licenses
+    - The purchase of portfolio licenses is what will achieve the application's business goals. Without it, in a realistic setting the application is not financially viable, therefore it's important to be present within the MVP of the application.
+
+- Responsive Design
+    - The application should be available to all possible users, no matter what device they have available to them. Although users are more likely to use desktop devices when using the application, focusing on this group would lessen the financial gains the application could potentially receive. For this reason and because it's expected by most users in this day and age, this feature should be present within the MVP of the application.
+
+- Portfolio Viewer
+    - For the application to be useful to the target audience, their potential employers need to be able to view their portfolio's (provided they have a license). Without this, it would render the application as useless to the target audience, therefore it's integral that it should be present within the MVP of the application.
+
+- Creation Suite
+    - The user will need to add content to their portfolio's, therefore a creation suite of sorts where they're able to add text content, links, images etc. will be absolutely necessary. For this reason, it's important that this feature makes it into the MVP of the application.
+
 #### Future Features
 
+The following is a list of features that will be left for future release of the application with reason as to why:
+
+- Keyword Checklist
+   - The keyword checklist feature is where a customer can paste a job description into a text area and the feature will extract the keywords from the job description and add them to a checklist. The user is then able to view this checklist when creating their portfolio, making sure they address all the job criteria.
+    - Although useful, this is essentially an additional time saving feature and is not integral to the application's core functionality. For this reason, this will be left for a later update of the application.
+
+- Themes
+    - The themes feature allows the user to further personalize their portfolio with a particular styling of their choice.
+    - Although this would help the user differentiate themselves, it's not integral to the core functionality of the application. For this reason, it will be left for a future update of the application.
+
 ### Structure
+
 
 ### Skeleton
 
