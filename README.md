@@ -99,7 +99,25 @@ As an employer interested in the developer, I want to be able to:
 - Focus solely on the content that I'm interested in.
 - Promptly know how I can contact them.
 
+#### Potential Features
+
+Below is a table of opportunities/problems that could potentially be included within the MVP of the application:
+
+| Opportunities/Problem       | Importance | Feasibility |
+|-----------------------------|------------|-------------|
+| Account Management          | 5          | 5           |
+| Purchase Portfolio Licenses | 5          | 4           |
+| Responsive Design           | 4          | 5           |
+| Keyword Checklist           | 2          | 3           |
+| Portfolio Viewer            | 5          | 5           |
+| Themes                      | 2          | 3           |
+| Creation Suite              | 5          | 4           |
+
 ### Scope
+
+#### Current Features
+
+#### Future Features
 
 ### Structure
 
