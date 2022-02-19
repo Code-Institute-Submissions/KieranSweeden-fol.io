@@ -150,9 +150,11 @@ The following is a list of features that will be left for future release of the 
 
 In order to gain a better understanding as to how the application will be divided in terms of user scope, core functionality & it's contained apps, a spreadsheet was created which can be viewed here: https://docs.google.com/spreadsheets/d/1DoUd4K2EvncLdwspScBpB-SKJV1YkRlqaxTjj5FSsyo/edit?usp=sharing.
 
-Although this spreadsheet is analysing the application at a high level, the structure is visually clear which will help maintain focus on the core aspects of the application during development.
+Although this spreadsheet is analyzing the application at a high level, the structure is visually clear which will help maintain focus on the core aspects of the application during development.
 
-Regarding information architecture, the chosen nagivational schema is the Tree Structure, due to it's reduction of complexity and it's familiarity with most users which will aid in learnability.
+Regarding information architecture, the chosen navigational schema is the Tree Structure, due to its reduction of complexity, and it's familiarity with most users which will aid in learnability.
+
+Click below to view this tree structure:
 
 <details>
 
@@ -162,9 +164,9 @@ Regarding information architecture, the chosen nagivational schema is the Tree S
 
 </details>
 
+The tree structure presents the core pages that are closely tied to user objectives. These pages will of course be expanded into multiple, however the tree structure will remain despite this.
 
-
-
+Following common practice, along with the tree structure there will be top navigation that will collapse within a hamburger menu for mobile users. Taking advantage of this industry standard will help make the application's UX friendly and approachable to the user.
 
 ### Skeleton
 
