@@ -148,6 +148,23 @@ The following is a list of features that will be left for future release of the 
 
 ### Structure
 
+In order to gain a better understanding as to how the application will be divided in terms of user scope, core functionality & it's contained apps, a spreadsheet was created which can be viewed here: https://docs.google.com/spreadsheets/d/1DoUd4K2EvncLdwspScBpB-SKJV1YkRlqaxTjj5FSsyo/edit?usp=sharing.
+
+Although this spreadsheet is analysing the application at a high level, the structure is visually clear which will help maintain focus on the core aspects of the application during development.
+
+Regarding information architecture, the chosen nagivational schema is the Tree Structure, due to it's reduction of complexity and it's familiarity with most users which will aid in learnability.
+
+<details>
+
+<summary>View Tree Structure of Application</summary>
+
+<img src="readme/images/structure/folio-tree-structure.png">
+
+</details>
+
+
+
+
 
 ### Skeleton
 
@@ -160,6 +177,14 @@ The following is a list of features that will be left for future release of the 
 ### Libraries & Frameworks
 
 ### Applications
+
+The following applications listed were utilized during the development of fol.io:
+
+- [Gitpod](https://www.gitpod.io/)
+    - Gitpod was used as the IDE of choice for the development of fol.io.
+
+- [draw.io](https://github.com/jgraph/drawio-desktop/releases/tag/v16.5.1)
+    - draw.io was used to create the flowchart for fol.io's structure in its MVP state.
 
 ## Testing
 
