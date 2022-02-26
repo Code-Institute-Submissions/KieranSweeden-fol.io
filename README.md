@@ -1,4 +1,4 @@
-# fol.io
+# <img src="readme/images/general/fol.io-short-logo-readme-header.png" height="25"> fol.io
 
 *image of index page on multiple devices*
 
@@ -50,7 +50,7 @@ It's also common place to tailor a CV for a particular job, so that what the emp
 Taking these points into consideration, the application should aim to:
 
 - Highlight the strengths & skills of self-taught developers.
-    - The content developers create regarding themselves should be front & center, acting as the focal point and the application itself should take a backseat when the content is being viewed from employers.
+    - The content developers create regarding themselves should be front & centre, acting as the focal point and the application itself should take a backseat when the content is being viewed from employers.
 - Position itself stylistically alongside other alternative hiring sources.
     - The application should sport a UI that's familiar to these existing platforms, utilizing the conventions these platforms have created to make the application's UI easily learnable.
 - Be a speedy & easy way for aspiring developers to update what they've previously done, what they're currently up to and their future goals.
@@ -73,7 +73,7 @@ As a self-taught and aspiring developer, I want to be able to:
 - Log in to the account I've registered.
 - Change my account details.
 - Reset my password.
-- See the amount of portfolio licenses I have and when they were purchased.
+- See the amount of portfolio licences I have and when they were purchased.
 
 **Portfolio Management**
 
@@ -85,8 +85,8 @@ As a self-taught and aspiring developer, I want to be able to:
 **Billing**
 
 - Insert my billing details and have them be saved to my account.
-- Select & change the amount of portfolio licenses I'd like to purchase.
-- Receive a confirmation e-mail confirming the purchase of portfolio licenses.
+- Select & change the amount of portfolio licences I'd like to purchase.
+- Receive a confirmation e-mail confirming the purchase of portfolio licences.
 
 As an employer interested in the developer, I want to be able to:
 
@@ -106,7 +106,7 @@ Below is a table of opportunities/problems that could potentially be included wi
 | Opportunities/Problem       | Importance | Feasibility |
 |-----------------------------|------------|-------------|
 | Account Management          | 5          | 5           |
-| Purchase Portfolio Licenses | 5          | 4           |
+| Purchase Portfolio Licences | 5          | 4           |
 | Responsive Design           | 4          | 5           |
 | Keyword Checklist           | 2          | 3           |
 | Portfolio Viewer            | 5          | 5           |
@@ -123,13 +123,13 @@ The following is the list of features that will be included within the MVP of th
     - Important data relating to the user such as their portfolios, account details and billing information will need to be tied to their account, making this an integral feature within the application.
 
 - Purchase of Portfolio Licenses
-    - The purchase of portfolio licenses is what will achieve the application's business goals. Without it, in a realistic setting the application is not financially viable, therefore it's important to be present within the MVP of the application.
+    - The purchase of portfolio licences is what will achieve the application's business goals. Without it, in a realistic setting the application is not financially viable, therefore it's important to be present within the MVP of the application.
 
 - Responsive Design
     - The application should be available to all possible users, no matter what device they have available to them. Although users are more likely to use desktop devices when using the application, focusing on this group would lessen the financial gains the application could potentially receive. For this reason and because it's expected by most users in this day and age, this feature should be present within the MVP of the application.
 
 - Portfolio Viewer
-    - For the application to be useful to the target audience, their potential employers need to be able to view their portfolio's (provided they have a license). Without this, it would render the application as useless to the target audience, therefore it's integral that it should be present within the MVP of the application.
+    - For the application to be useful to the target audience, their potential employers need to be able to view their portfolio's (provided they have a licence). Without this, it would render the application as useless to the target audience, therefore it's integral that it should be present within the MVP of the application.
 
 - Creation Suite
     - The user will need to add content to their portfolio's, therefore a creation suite of sorts where they're able to add text content, links, images etc. will be absolutely necessary. For this reason, it's important that this feature makes it into the MVP of the application.
@@ -150,7 +150,7 @@ The following is a list of features that will be left for future release of the 
 
 In order to gain a better understanding as to how the application will be divided in terms of user scope, core functionality & it's contained apps, a spreadsheet was created which can be viewed here: https://docs.google.com/spreadsheets/d/1DoUd4K2EvncLdwspScBpB-SKJV1YkRlqaxTjj5FSsyo/edit?usp=sharing.
 
-Although this spreadsheet is analyzing the application at a high level, the structure is visually clear which will help maintain focus on the core aspects of the application during development.
+Although this spreadsheet is analysing the application at a high level, the structure is visually clear which will help maintain focus on the core aspects of the application during development.
 
 Regarding information architecture, the chosen navigational schema is the Tree Structure, due to its reduction of complexity, and it's familiarity with most users which will aid in learnability.
 
@@ -172,6 +172,34 @@ Following common practice, along with the tree structure there will be top navig
 
 ### Surface
 
+#### Visual Language
+
+A visual language is integral to conveying additional context to the user, about a given piece of text or action. Given that this is considered good practise in UX design, fol.io will have this integrated within it's design philosophy.
+
+Throughout the application, it will present primary, secondary & tertiary actions with each sporting a unique respective design. This will allow for easy learning of the UI, making the application approachable within a short period of time.
+
+Fol.io will also utilize various typography styles to represent a sense of structural hierarchy within the application. Providing the styling is consistent throughout the application, this will provide a sense of comfort to the user as they will be familiar as to where they are within the application.
+
+##### Colour
+
+First and foremost, fol.io's goal is to highlight its users, so its colour palette should reflect this in not being too vibrant or distracting to employers. With this in mind, fol.io's colour palette should be largely conservative, only containing a black, white and feature colour, that will be used to provide context within the application such as what page they're currently on.
+
+Considering the applications users would be aspiring/current developers who are likely comfortable with modern IDE's sporting a dark mode and recruiters within companies who are looking at screens for large portions of time, the background of the application should be the black within the colour palette, making the application comfortable to view for its users.
+
+In terms of the feature colour, after researching colour psychology and the power colour has on people's emotions and impressions when viewing a product, I decided the feature colour should be within yellow & orange. This is due yellow's optimistic nature, which connects nicely with the goals that fol.io has and orange's energetic feel which also feeds into fol.io's goals well. The feature colour containing yellow will also be useful due to its ability in grabbing the user's attention, which makes it a perfect fit as the colour that'll support primary actions within the application.
+
+After experimenting with [Coolors](https://coolors.co/), the final colour palette is as follows:
+
+<img src="readme/images/surface/colour-palette.png">
+
+As can be seen, the intensity of the black & white colours have been decreased slightly to make text more readable within the application. Speaking of readability, according to [Colour Contrast Checker](https://colourcontrast.cc/), the yellow/orange colour passes all WCAG guidelines when contrasted with the black colour, as can be seen below:
+
+<img src="readme/images/surface/yellow-black-wcag-contrast.png">
+
+This was a calculated decision, given that the feature colour will be used for buttons and feature text within the application. With this in mind, it was important that the guidelines were followed for accessibility reasons.
+
+##### Typography
+
 ## Technology
 
 ### Languages
@@ -187,6 +215,9 @@ The following applications listed were utilized during the development of fol.io
 
 - [draw.io](https://github.com/jgraph/drawio-desktop/releases/tag/v16.5.1)
     - draw.io was used to create the flowchart for fol.io's structure in its MVP state.
+
+- [Coolors](https://coolors.co/)
+    - The colour palette generator within Coolors was used to create the colour palette for fol.io.
 
 ## Testing
 
@@ -206,7 +237,7 @@ The following applications listed were utilized during the development of fol.io
     - This article presented information regarding the fact that despite the increasing trend of removing degree requirements, experts still recommend it within the tech field.
 
 - [6 Reasons Why You Should Hire Self-Taught Developers](https://www.codingame.com/work/blog/tech-recruiting/why-you-should-hire-self-taught-developers/) by Nathalie Figuière.
-    - This article presented a variety of strength's self-taught developers have, which was useful in discerning what should be front and center for a user's portfolio.
+    - This article presented a variety of strength's self-taught developers have, which was useful in discerning what should be front and centre for a user's portfolio.
 
 - [RIGHT FOR THE ROLE: 5 WAYS TO TAILOR YOUR CV TO THE JOB DESCRIPTION](https://jobhelp.campaign.gov.uk/right-for-the-role-5-ways-to-tailor-your-cv-to-the-job-description/)
     - This post presents 5 ways in which resumes should be changed to target a particular job, which was useful in deciding which portfolio elements should be able to moved within the portfolio.

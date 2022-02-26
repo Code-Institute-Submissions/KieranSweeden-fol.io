@@ -1,0 +1,3 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qfol.io\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qdraw.io\ndraw.io was used to create the flowchart for fol.io's structure in its MVP state.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QGitpod\nGitpod was used as the IDE of choice for the development of fol.io.\\E$"}
