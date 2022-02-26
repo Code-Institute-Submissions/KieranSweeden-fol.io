@@ -200,6 +200,44 @@ This was a calculated decision, given that the feature colour will be used for b
 
 ##### Typography
 
+Taking into account that the intention of fol.io is to be integrated within the hiring processes in IT recruitment, its typography should communicate that it's users immediately. With this in mind, a serif font would be suitable as it's often used in formal environments due to its elegant & classic feel. On the contrary to this however, the IT industry is modern, which suggests a sans-serif font should be utilized due to their minimal & modern feel.
+
+Taking both of these points into account, fol.io will utilize two fonts, one being serif and the other being sans-serif. This allows fol.io to position itself as a modern application that's visually comfortable in formal environments.
+
+What's important however, is that the use of the fonts is calculated and followed within a typography system. This will help prevent the application from being visually unappealing and provide a sense of structure & contextual hierarchy throughout the application.
+
+After experimenting with various fonts within the [Google Font Library](https://fonts.google.com/), I ended up with [Libre Baskerville](https://fonts.google.com/specimen/Libre+Baskerville#standard-styles) as the serif font and [Inter](https://fonts.google.com/specimen/Inter) as the sans-serif font.
+
+Taking into account the chosen colour palette and fonts, the typography system that will be followed throughout the site will be as follows:
+
+<img src="readme/images/surface/typography-system.png">
+<sub><sup>The buttons below represent the buttons in their regular state. The buttons above represent the buttons in their active state.</sup></sub>
+
+As can be seen from the image above, the following will be followed:
+
+- Headings will sport the Libre Baskerville serif font.
+- Body text will be presented using the Inter sans-serif font.
+- The link representing the current page will be bolder than the other links and sport an underline featuring the feature colour. This will clearly communicate to the user what page they're currently on.
+- The primary button will sport the main feature colour as intended.
+- The secondary button will sport the white colour.
+- The tertiary button will simply have an underline to seperate itself from the body text.
+
+##### Imagery & Identity
+
+It's integral that fol.io is consistent with its imagery, as it all contributes to the overall brand of fol.io.
+
+With this in mind, fol.io will sport "programming-isms" in its design philosophy. Minor details such as the removal of capitalization within its headings, relating to syntax within programming which is often lowercase.
+
+Another relation to programming fol.io presents is the name fol.io in of itself. Programming names are often shortened for conciseness, hence going from portfolio to folio and the .io is coincidentally an opportunity that presented itself as it could easily be inserted within folio. This minor addition immediately informs the user that fol.io is very much a tech-oriented application.
+
+With this taken into account, the logo will be as follows:
+
+<img src="readme/images/surface/folio-readme-header.png">
+
+The logo shown on mobile devices which will also be used as a favicon will be as follows:
+
+<img src="readme/images/surface/fol.io-short-logo-readme-header.png">
+
 ## Technology
 
 ### Languages
@@ -218,6 +256,12 @@ The following applications listed were utilized during the development of fol.io
 
 - [Coolors](https://coolors.co/)
     - The colour palette generator within Coolors was used to create the colour palette for fol.io.
+
+- [Colour Contrast Checker](https://colourcontrast.cc/)
+    - The Colour Contrast Checker application was used to check the colour contrast between the colours in fol.io's colour palette.
+
+- [Google Fonts](https://fonts.google.com/)
+    - Google Fonts was used to select the fonts utilized by fol.io.
 
 ## Testing
 
