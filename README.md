@@ -174,7 +174,7 @@ Following common practice, along with the tree structure there will be top navig
 
 During the Skeleton phase of this UX section, I created a bunch of wireframes using [Balsamiq](https://balsamiq.com/) in order to gain a better understanding of how certain pages would be presented.
 
-These wireframes can be viewed from a seperate markdown file [here]().
+These wireframes can be viewed from a seperate markdown file [here](WIREFRAMES.md).
 
 ### Surface
 
@@ -268,6 +268,9 @@ The following applications listed were utilized during the development of fol.io
 
 - [Google Fonts](https://fonts.google.com/)
     - Google Fonts was used to select the fonts utilized by fol.io.
+
+- [Balsamiq](https://balsamiq.com/)
+    - Balsamiq was used to create wireframes during the skeleton phase of fol.io
 
 ## Testing
 
