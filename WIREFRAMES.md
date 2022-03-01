@@ -14,27 +14,19 @@ The following wireframes are for pages which are "external", meaning they're ava
 
 <img src="readme/images/skeleton/wireframe-home.png">
 
-<br>
-
 ### Sign In
 
 <img src="readme/images/skeleton/wireframe-sign-in.png">
 
-<br>
-
 ### Register
 
 <img src="readme/images/skeleton/wireframe-register.png">
-
-<br>
 
 ### View Folio
 
 This view folio page is only available if the author of the folio has 
 
 <img src="readme/images/skeleton/wireframe-view-folio-contact-external.png">
-
-<br>
 
 ## Internal
 
