@@ -3,3 +3,4 @@
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QGitpod\nGitpod was used as the IDE of choice for the development of fol.io.\\E$"}
 {"rule":"PHRASE_REPETITION","sentence":"^\\QGoogle Fonts\nGoogle Fonts was used to\\E$"}
 {"rule":"PHRASE_REPETITION","sentence":"^\\QGoogle Fonts\nGoogle Fonts was used to select the fonts utilized by fol.io.\\E$"}
+{"rule":"LICENCE_LICENSE_NOUN_SINGULAR","sentence":"^\\QLicence Store - Purchase License\\E$"}
