@@ -170,6 +170,12 @@ Following common practice, along with the tree structure there will be top navig
 
 ### Skeleton
 
+#### Wireframes
+
+During the Skeleton phase of this UX section, I created a bunch of wireframes using [Balsamiq](https://balsamiq.com/) in order to gain a better understanding of how certain pages would be presented.
+
+These wireframes can be viewed from a seperate markdown file [here]().
+
 ### Surface
 
 #### Visual Language
