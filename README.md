@@ -172,9 +172,44 @@ Following common practice, along with the tree structure there will be top navig
 
 #### Wireframes
 
-During the Skeleton phase of this UX section, I created a bunch of wireframes using [Balsamiq](https://balsamiq.com/) in order to gain a better understanding of how certain pages would be presented.
+During the Skeleton phase of this UX section, I created a set of wireframes using [Balsamiq](https://balsamiq.com/) in order to gain a better understanding of how certain pages would be presented.
 
 These wireframes can be viewed from a seperate markdown file [here](WIREFRAMES.md).
+
+#### Database Schema
+
+In order to gain a better understanding as to what the models would be along with their relationships within folio's databases, a database schema was created with [dbdiagram.io](https://dbdiagram.io/home) which can be viewed below:
+
+<details>
+
+<summary>View Database Schema</summary>
+
+<img src="readme/images/skeleton/folio-database-schema.png">
+
+</details>
+
+Unfortunately, dbdiagram.io does not support many to many relationships at the time of writing. I attempted a workaround, however it has led to the database schema looking messy. So a clarification of the relationships between the models are present below:
+
+- The user model has a <b>one to many</b> relationship with the folio model. This is because a user can have many folios, however a folio can only have one author user.
+
+- The user model has a <b>one to many</b> relationship with the following models:
+    - Projects
+    - Skills
+    - About Me Profiles
+  
+  This is because a user can contain many of these snippets however they will only have on author user.
+
+- The folio model has a <b>many to many</b> relationship with the following models:
+    - Projects
+    - Skills
+    - About Me Profiles
+   
+  This is because a folio can contain multiple project, skill, profile snippets within it and project, skill, profile snippets can be contained within multiple folios.
+
+-
+
+- The licence purchase model has a <b>many to one</b> relationship with the user model. This is because a licence purchase can only have one user, whereas a user can have many licence purchases.
+
 
 ### Surface
 
