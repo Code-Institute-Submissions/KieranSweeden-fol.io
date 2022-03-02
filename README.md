@@ -206,8 +206,6 @@ Unfortunately, dbdiagram.io does not support many to many relationships at the t
    
   This is because a folio can contain multiple project, skill, profile snippets within it and project, skill, profile snippets can be contained within multiple folios.
 
--
-
 - The licence purchase model has a <b>many to one</b> relationship with the user model. This is because a licence purchase can only have one user, whereas a user can have many licence purchases.
 
 
