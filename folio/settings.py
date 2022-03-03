@@ -147,5 +147,28 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# tells allauth that we want to allow authentication
+# using either usernames or emails
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+
+# make emails required with verification &
+# make user enter email twice to reduce likelihood of typos
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+
+# a minimum username length
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+
+# url when logging in
+LOGIN_URL = '/accounts/login/'
+
+# url to be redirected to when logged in
+LOGIN_REDIRECT_URL = '/'
+
+WSGI_APPLICATION = 'folio.wsgi.application'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 CSRF_TRUSTED_ORIGINS = [('https://*8000-kieransweeden-folio-jpgshgnar0y'
                          '.ws-eu34xl.gitpod.io/')]
