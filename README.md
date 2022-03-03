@@ -307,6 +307,8 @@ The following applications listed were utilized during the development of fol.io
 
 ## Testing
 
+All information regarding bugs and testing during the development of folio was documented within the [TESTING.md](TESTING.md) file.
+
 ## Deployment
 
 ## Credits
