@@ -1,0 +1,58 @@
+/* CSS Variables */
+
+:root {
+    --folio-feature-color: hsla(40, 89%, 56%, 1);
+    --folio-black-color: hsla(0, 0%, 12%, 1);
+    --folio-white-color: hsla(0, 0%, 92%, 1);
+}
+
+/* Base Styling */
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--folio-white-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Libre Baskerville', serif;
+}
+
+/* Colour Classes */
+
+.text-feature-color {
+    color: var(--folio-feature-color);
+}
+
+.text-black-color {
+    color: var(--folio-black-color);
+}
+
+.text-white-color {
+    color: var(--folio-white-color);
+}
+
+.bg-feature-color {
+    color: var(--folio-feature-color);
+}
+
+.bg-black-color {
+    color: var(--folio-black-color);
+}
+
+.bg-white-color {
+    color: var(--folio-white-color);
+}
+
+/* Navigation Styling */
+
+.navbar {
+    height: 3.5rem;
+}
+
+.nav-link {
+    font-weight: 200;
+}
+
+#navbar-buffer {
+    height: 3.5rem;
+}
