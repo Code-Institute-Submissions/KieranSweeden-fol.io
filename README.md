@@ -303,7 +303,10 @@ The following applications listed were utilized during the development of fol.io
     - Google Fonts was used to select the fonts utilized by fol.io.
 
 - [Balsamiq](https://balsamiq.com/)
-    - Balsamiq was used to create wireframes during the skeleton phase of fol.io
+    - Balsamiq was used to create wireframes during the skeleton phase of fol.io.
+
+- [favicon.io](https://favicon.io/favicon-converter/)
+    - favicon.io was used to create favicon icons for this project.
 
 ## Testing
 
