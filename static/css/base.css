@@ -4,6 +4,7 @@
     --folio-feature-color: hsla(40, 89%, 56%, 1);
     --folio-black-color: hsla(0, 0%, 12%, 1);
     --folio-white-color: hsla(0, 0%, 92%, 1);
+    --folio-white-faded-color: hsla(0, 0%, 92%, 0.8);
 }
 
 /* Base Styling */
@@ -46,6 +47,28 @@ h1, h2, h3, h4, h5, h6,
 .bg-white-color {
     background-color: var(--folio-white-color);
     --bs-bg-opacity: 1;
+}
+
+/* Button Styling */
+
+.btn {
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: .1rem .5rem;
+}
+
+.btn-primary {
+    color: var(--folio-black-color);
+    background-color: var(--folio-feature-color);
+    border-color: var(--folio-feature-color);
+    border-width: 0.2rem;
+}
+
+.btn-primary:hover {
+    color: var(--folio-feature-color);
+    background-color: transparent;
+    border-color: var(--folio-feature-color);
 }
 
 /* Navigation Styling */
@@ -97,6 +120,25 @@ h1, h2, h3, h4, h5, h6,
 
 .second-menu-icon {
     opacity: 0;
+}
+
+.navbar-dark .navbar-nav a.nav-link {
+    color: var(--folio-white-faded-color);
+}
+
+.navbar-dark .navbar-nav a.nav-link:hover {
+    color: var(--folio-white-color);
+}
+
+.navbar-dark .navbar-nav a.nav-link.active {
+    color: var(--folio-white-color);
+    text-decoration: underline;
+    text-decoration-color: var(--folio-feature-color);
+    text-decoration-thickness: .15rem;
+}
+
+.nav-item {
+    margin: 0 1rem;
 }
 
 #navbar-buffer {
