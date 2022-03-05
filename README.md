@@ -281,7 +281,31 @@ The logo shown on mobile devices which will also be used as a favicon will be as
 
 ### Languages
 
+The following languages were used during the development of fol.io:
+
+- HTML
+- CSS
+- JavaScript
+- Python
+
 ### Libraries & Frameworks
+
+The following libraries & applications were utilized during the development of fo.io:
+
+- [Django](https://www.djangoproject.com/)
+    - The Django python framework was utilized to quickly create and manage fol.io.
+
+- [Bootstrap 5](https://getbootstrap.com/)
+    - The Bootstrap 5 CSS framework was utilized to quickly create element & component designs during the development of fol.io.
+
+- [Google Fonts](https://fonts.google.com/)
+    - Google Fonts was used to import the fonts utilized by fol.io.
+
+- [Google Material Icons](https://fonts.google.com/icons)
+    - Google Material Icons was used to import visual icons utilized by fol.io.
+
+- [animate.css](https://animate.style/)
+    - animate.css was used to quickly create animations within fol.io.
 
 ### Applications
 
@@ -298,9 +322,6 @@ The following applications listed were utilized during the development of fol.io
 
 - [Colour Contrast Checker](https://colourcontrast.cc/)
     - The Colour Contrast Checker application was used to check the colour contrast between the colours in fol.io's colour palette.
-
-- [Google Fonts](https://fonts.google.com/)
-    - Google Fonts was used to select the fonts utilized by fol.io.
 
 - [Balsamiq](https://balsamiq.com/)
     - Balsamiq was used to create wireframes during the skeleton phase of fol.io.
