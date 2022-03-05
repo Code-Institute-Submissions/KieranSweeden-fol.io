@@ -1,28 +1,28 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-          <h1 class="mb-0 fs-3">fol<span class="text-feature-color">.</span>io</h1>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <button class="btn btn-outline-success" type="submit">Try</button>
-        </form>
-      </div>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black-color">
+    <div class="container-fluid justify-content-between bg-black-color">
+        <a class="navbar-brand" href="#">
+            <h1 class="mb-0 fs-2">fol<span class="text-feature-color">.</span>io</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="material-icons-sharp display-4 mobile-menu-icon first-menu-icon">menu</span>
+            <span class="material-icons-sharp display-4 mobile-menu-icon second-menu-icon">close</span>
+        </button>
+        <div class="collapse navbar-collapse mt-3 mt-md-0" id="navbarCollapse">
+            <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">log in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">register</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-success" type="submit">Try</button>
+            </form>
+        </div>
     </div>
 </nav>
 
+<!-- Buffer so elements beneath do not appear underneath navbar -->
 <div id="navbar-buffer"></div>

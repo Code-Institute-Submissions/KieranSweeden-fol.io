@@ -13,8 +13,10 @@ body {
     color: var(--folio-white-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+.nav-link {
     font-family: 'Libre Baskerville', serif;
+    color: var(--folio-white-color);
 }
 
 /* Colour Classes */
@@ -32,15 +34,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-feature-color {
-    color: var(--folio-feature-color);
+    background-color: var(--folio-feature-color);
+    --bs-bg-opacity: 1;
 }
 
 .bg-black-color {
-    color: var(--folio-black-color);
+    background-color: var(--folio-black-color);
+    --bs-bg-opacity: 1;
 }
 
 .bg-white-color {
-    color: var(--folio-white-color);
+    background-color: var(--folio-white-color);
+    --bs-bg-opacity: 1;
 }
 
 /* Navigation Styling */
@@ -49,8 +54,49 @@ h1, h2, h3, h4, h5, h6 {
     height: 3.5rem;
 }
 
-.nav-link {
-    font-weight: 200;
+.navbar-dark .navbar-nav .nav-link a {
+    color: var(--folio-white-color);
+}
+
+.navbar-toggler {
+    border-radius: 0;
+    position: relative;
+    height: 2.5rem;
+    width: 3rem;
+}
+
+.navbar-toggler[aria-expanded="false"] .first-menu-icon {
+    opacity: 1;
+    transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+}
+
+.navbar-toggler[aria-expanded="true"] .first-menu-icon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(270deg);
+    transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+}
+
+.navbar-toggler[aria-expanded="false"] .second-menu-icon {
+    opacity: 0;
+    transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+}
+
+.navbar-toggler[aria-expanded="true"] .second-menu-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(270deg);
+    transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+}
+
+.mobile-menu-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+}
+
+.second-menu-icon {
+    opacity: 0;
 }
 
 #navbar-buffer {
