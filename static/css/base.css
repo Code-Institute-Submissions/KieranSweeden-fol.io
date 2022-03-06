@@ -2,6 +2,7 @@
 
 :root {
     --folio-feature-color: hsla(40, 89%, 56%, 1);
+    --folio-bg-black-color: hsla(0, 0%, 10%, 1);
     --folio-black-color: hsla(0, 0%, 12%, 1);
     --folio-white-color: hsla(0, 0%, 92%, 1);
     --folio-white-faded-color: hsla(0, 0%, 92%, 0.8);
@@ -12,6 +13,7 @@
 body {
     font-family: 'Inter', sans-serif;
     color: var(--folio-white-color);
+    background-color: var(--folio-bg-black-color);
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -137,10 +139,7 @@ h1, h2, h3, h4, h5, h6,
     text-decoration-thickness: .15rem;
 }
 
-.nav-item {
-    margin: 0 1rem;
-}
-
 #navbar-buffer {
     height: 3.5rem;
+    width: 100%;
 }
