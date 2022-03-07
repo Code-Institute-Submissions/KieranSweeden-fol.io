@@ -55,7 +55,17 @@
   <div id="navbar-buffer"></div>
 
   <header class="container">
-    {% block header %}{% endblock %}
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="h3 mt-5">
+          {% block header_title %}{% endblock %}
+        </h1>
+      </div>
+      {% include 'includes/external-header-nav.html' %}
+      <div class="col-6 offset-3">
+          <hr>
+      </div>
+    </div>
   </header>
 
   <main class="container">

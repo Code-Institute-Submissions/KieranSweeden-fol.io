@@ -1,0 +1,13 @@
+<div class="col-12 text-center">
+    <div class="btn-group mt-3">
+        <a href="{% url 'account_login' %}"
+            class="btn btn-primary {% if request.resolver_match.url_name == 'account_login' %}active{% endif %}"
+            aria-current="page">
+            Log In
+        </a>
+        <a href="{% url 'account_signup' %}"
+            class="btn btn-primary {% if request.resolver_match.url_name == 'account_signup' %}active{% endif %}">
+            Register
+        </a>
+    </div>
+</div>

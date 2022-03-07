@@ -67,8 +67,14 @@ h1, h2, h3, h4, h5, h6,
     border-width: 0.2rem;
 }
 
+.btn-primary.active {
+    color: var(--folio-white-color);
+    background-color: transparent;
+    border-color: var(--folio-feature-color);
+}
+
 .btn-primary:hover {
-    color: var(--folio-feature-color);
+    color: var(--folio-white-color);
     background-color: transparent;
     border-color: var(--folio-feature-color);
 }

@@ -1,5 +1,5 @@
 <div class="container-fluid justify-content-between bg-black-color">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="{% url 'home' %}">
         <h1 class="mb-0 fs-2">fol<span class="d-inline-block text-feature-color animate__animated animate__bounce">.</span>io</h1>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -10,11 +10,11 @@
     <div class="collapse navbar-collapse mt-3 mt-md-0" id="navbarCollapse">
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
             <li class="nav-item">
-                <a class="nav-link px-0 {% if request.resolver_match.url_name == 'account_login' %}active{% endif %}" aria-current="page" href="/accounts/login/">log in</a>
+                <a class="nav-link px-0 {% if request.resolver_match.url_name == 'account_login' %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">log in</a>
             </li>
             <li class="d-flex justify-content-center align-items-center mx-3"><span class="text-feature-color">|</span></li>
             <li class="nav-item">
-                <a class="nav-link px-0 {% if request.resolver_match.url_name == 'account_signup' %}active{% endif %}" href="/accounts/signup/">register</a>
+                <a class="nav-link px-0 {% if request.resolver_match.url_name == 'account_signup' %}active{% endif %}" href="{% url 'account_signup' %}">register</a>
             </li>
             <li class="d-flex justify-content-center align-items-center mx-3"><span class="text-feature-color">|</span></li>
         </ul>
