@@ -46,9 +46,17 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
+    # required by crispy forms
+    'crispy_forms',
+    'crispy_bootstrap5',
+
     # fol.io specific apps
     'home',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
