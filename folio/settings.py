@@ -172,13 +172,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # tells allauth that we want to allow authentication
 # using either usernames or emails
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 # make emails required with verification &
 # make user enter email twice to reduce likelihood of typos
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_UNIQUE_EMAIL = True
 
 # a minimum username length
 ACCOUNT_USERNAME_MIN_LENGTH = 4

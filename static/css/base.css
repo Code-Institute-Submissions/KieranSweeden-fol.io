@@ -68,16 +68,38 @@ h1, h2, h3, h4, h5, h6,
     transition: color 400ms ease-in-out, background-color 400ms ease-in-out;
 }
 
+.btn-primary:focus {
+    color: var(--folio-black-color);
+    background-color: var(--folio-feature-color);
+    border-color: var(--folio-feature-color);
+    box-shadow: none;
+}
+
+.btn-primary:active {
+    color: var(--folio-black-color);
+    background-color: var(--folio-feature-color);
+    border-color: var(--folio-feature-color);
+}
+
+.btn-primary:active:focus {
+    box-shadow: none;
+}
+
 .btn-primary.active {
     color: var(--folio-white-color);
     background-color: transparent;
     border-color: var(--folio-feature-color);
 }
 
+.btn-primary.active:focus {
+    box-shadow: none;
+}
+
 .btn-primary:hover {
     color: var(--folio-white-color);
     background-color: transparent;
     border-color: var(--folio-feature-color);
+    box-shadow: none;
 }
 
 a.btn-tertiary {
@@ -180,7 +202,7 @@ input.form-control,
 input.form-control:focus,
 input.form-control:focus-visible {
     border-color: var(--folio-feature-color);
-    box-shadow: var(--folio-feature-color);
+    box-shadow: 0 0 0 .2rem var(--folio-feature-color);
     background-color: var(--folio-white-color);
 }
 
@@ -189,8 +211,9 @@ input.form-control:focus-visible {
     font-size: 14px;
 }
 
-.form-check-input {
-    /* background-color: var(--folio-white-color); */
+#div_id_login:focus-within label,
+#div_id_password:focus-within label {
+    color: var(--folio-feature-color);
 }
 
 .form-check-input:focus {
