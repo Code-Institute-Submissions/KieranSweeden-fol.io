@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% load i18n %}
 {% load account socialaccount %}
@@ -9,42 +10,56 @@
 
 {% block content %}
 
-  <h3 class="h4 text-center m-3">Welcome Back</h3>
-
-  {% get_providers as socialaccount_providers %}
-
-  {% if socialaccount_providers %}
-  <p>{% blocktrans with site.name as site_name %}Please sign in with one
-  of your existing third party accounts. Or, <a class="btn-tertiary" href="{{ signup_url }}">sign up</a>
-  for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-  <div class="socialaccount_ballot">
-
-    <ul class="socialaccount_providers">
-      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-    </ul>
-
-    <div class="login-or">{% trans 'or' %}</div>
-
-  </div>
-
-  {% include "socialaccount/snippets/login_extra.html" %}
-
-  {% else %}
-  <p class="small text-center">{% blocktrans %}If you have not created an account yet, then please
-  <a class="btn-tertiary" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-  {% endif %}
-
-  <form class="login" method="POST" action="{% url 'account_login' %}">
-    {% csrf_token %}
-    {{ form|crispy }}
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-    {% endif %}
-    <div class="d-flex justify-content-between align-items-center">
-      <a class="small button btn-tertiary" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-      <button class="primaryAction btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+<div class="row">
+    <div class="d-none d-md-flex col-6 justify-content-center align-items-center">
+        <div id="scene" class="card overflow-hidden">
+            <img data-depth="0.1" src="{% static 'images/developer-table-laptop.jpg' %}" alt="A software engineer working on their laptop." class="w-100">
+        </div>
     </div>
-  </form>
+    <div class="d-flex col-12 col-md-6 justify-content-center align-items-center">
+        <div class="card p-4 d-flex justify-content-center align-items-center">
+            <div class="card-body d-flex flex-column justify-content-around align-items-center">
+                <h3 class="h4 text-center m-3">{% trans "Welcome Back!" %}</h3>
+
+                {% get_providers as socialaccount_providers %}
+
+                {% if socialaccount_providers %}
+                <p>{% blocktrans with site.name as site_name %}Please sign in with one
+                    of your existing third party accounts. Or, <a class="btn-tertiary" href="{{ signup_url }}">sign up</a>
+                    for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+                <div class="socialaccount_ballot">
+
+                    <ul class="socialaccount_providers">
+                        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                    </ul>
+
+                    <div class="login-or">{% trans 'or' %}</div>
+
+                </div>
+
+                {% include "socialaccount/snippets/login_extra.html" %}
+
+                {% else %}
+                <p class="small text-center">{% blocktrans %}If you have not created an account yet, then please
+                    <a class="btn-tertiary" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+                </p>
+                {% endif %}
+
+                <form class="login" method="POST" action="{% url 'account_login' %}">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="small button btn-tertiary" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?"%}</a>
+                        <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
