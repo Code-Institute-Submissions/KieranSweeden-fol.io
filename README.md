@@ -357,4 +357,13 @@ All information regarding bugs and testing during the development of folio was d
 - [RIGHT FOR THE ROLE: 5 WAYS TO TAILOR YOUR CV TO THE JOB DESCRIPTION](https://jobhelp.campaign.gov.uk/right-for-the-role-5-ways-to-tailor-your-cv-to-the-job-description/)
     - This post presents 5 ways in which resumes should be changed to target a particular job, which was useful in deciding which portfolio elements should be able to moved within the portfolio.
 
+### Media
+
+#### Photos
+
+##### Log-in Page
+
+- [Woman using MacBook and wearing headphones image](https://unsplash.com/photos/AHfRjkk8QcE)
+    - Image author: [Christina @ wocintechchat.com](https://unsplash.com/@wocintechchat)
+
 ## Acknowledgements
