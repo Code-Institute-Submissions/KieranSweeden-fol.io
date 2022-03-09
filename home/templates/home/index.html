@@ -1,4 +1,103 @@
 {% extends "base.html" %}
+{% load static %}
+{% load i18n %}
 
 {% block extra_title %}Welcome{% endblock %}
 
+{% block header_title %}{% trans "Welcome" %}{% endblock %}
+
+{% block extra_js %}
+    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+    <script src="{% static 'js/parallax/parallax.js' %}"></script>
+{% endblock %}
+
+{% block header_content %}
+
+<div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+    <p class="text-center">Quickly move your tech career forward with fol<span class="text-feature-color">.</span>io.</p>
+</div>
+<div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center p-4">
+    <div class="mb-4">
+        <a href="" class="btn btn-primary me-4">Try Now</a>
+        <a href="{% url 'account_signup' %}" class="btn btn-secondary">Register</a>
+    </div>
+    <a href="{% url 'account_login' %}" class="btn btn-tertiary">Sign In</a>
+</div>
+
+<div class="col-10 offset-1">
+    <hr>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+    <div class="card card-cover overflow-hidden animate__animated animate__fadeInLeft">
+        <img class="card-bg-image" src="{% static '/images/woman-happy-phone.jpg' %}" alt="">
+        <div class="d-flex justify-content-start align-items-end h-100">
+          <h3 class="card-cover-text text-black-color h1 fw-bold">within an instant</h3>
+        </div>
+    </div>
+</div>
+<div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center">
+    <div class="card-cover d-flex flex-column justify-content-center align-items-center animate__animated animate__fadeInRight">
+        <span class="material-icons-sharp display-2 text-feature-color mb-3">co_present</span>
+        <p class="text-center">Be resourceful with your time. <br> Let fol<span class="text-feature-color">.</span>io present your talents.</p>
+    </div>
+</div>
+
+<div class="col-10 offset-1 d-lg-none">
+    <hr>
+</div>
+
+<div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center">
+    <div class="card-cover d-flex flex-column justify-content-center align-items-center animate__animated animate__fadeInLeft">
+        <span class="material-icons-sharp display-2 text-feature-color mb-3">lightbulb</span>
+        <p class="text-center">Devote your previous time in developing more insightful projects that better showcase your potential.</p>
+    </div>
+</div>
+<div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+    <div class="card card-cover overflow-hidden animate__animated animate__fadeInRight">
+        <img class="card-bg-image" src="{% static '/images/woman-happy-phone.jpg' %}" alt="">
+        <div class="d-flex justify-content-start align-items-end h-100">
+          <h3 class="card-cover-text text-black-color h1 fw-bold">within an instant</h3>
+        </div>
+    </div>
+</div>
+
+<div class="col-10 offset-1 d-lg-none">
+    <hr>
+</div>
+
+<div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+    <div class="card card-cover overflow-hidden animate__animated animate__fadeInLeft">
+        <img class="card-bg-image" src="{% static '/images/woman-happy-phone.jpg' %}" alt="">
+        <div class="d-flex justify-content-start align-items-end h-100">
+          <h3 class="card-cover-text text-black-color h1 fw-bold">within an instant</h3>
+        </div>
+    </div>
+</div>
+<div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center">
+    <span class="material-icons-sharp display-2 text-feature-color mb-3">library_books</span>
+    <p class="text-center">Create your own personal collection of portfolio snippets, which you can add & modify to your heart's content.</p>
+</div>
+
+<div class="col-10 offset-1 d-lg-none">
+    <hr>
+</div>
+
+<div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center">
+    <span class="material-icons-sharp display-2 text-feature-color mb-3">checklist</span>
+    <p class="text-center">With this snippet collection, speed up the tailoring process in targeting specific requirements found within various job descriptions.</p>
+</div>
+<div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+    <div class="card card-cover overflow-hidden">
+        <img class="card-bg-image" src="{% static '/images/woman-happy-phone.jpg' %}" alt="">
+        <div class="d-flex justify-content-start align-items-end h-100">
+          <h3 class="card-cover-text text-black-color h1 fw-bold">within an instant</h3>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

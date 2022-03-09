@@ -55,9 +55,7 @@ h1, h2, h3, h4, h5, h6,
 
 .btn {
     border-radius: 0;
-    text-transform: uppercase;
     font-weight: 600;
-    padding: .1rem .5rem;
 }
 
 .btn-primary {
@@ -102,12 +100,60 @@ h1, h2, h3, h4, h5, h6,
     box-shadow: none;
 }
 
-a.btn-tertiary {
+.btn-primary,
+.btn-secondary {
+    text-transform: uppercase;
+    padding: .1rem 1rem;
+}
+
+.btn-secondary {
+    color: var(--folio-black-color);
+    background-color: var(--folio-white-color);
+    border-color: var(--folio-white-color);
+    border-width: 0.2rem;
+    transition: color 400ms ease-in-out, background-color 400ms ease-in-out;
+}
+
+.btn-secondary:focus {
+    color: var(--folio-black-color);
+    background-color: var(--folio-white-color);
+    border-color: var(--folio-white-color);
+    box-shadow: none;
+}
+
+.btn-secondary:active {
+    color: var(--folio-black-color);
+    background-color: var(--folio-white-color);
+    border-color: var(--folio-white-color);
+}
+
+.btn-secondary:active:focus {
+    box-shadow: none;
+}
+
+.btn-secondary.active {
+    color: var(--folio-white-color);
+    background-color: transparent;
+    border-color: var(--folio-white-color);
+}
+
+.btn-secondary.active:focus {
+    box-shadow: none;
+}
+
+.btn-secondary:hover {
+    color: var(--folio-white-color);
+    background-color: transparent;
+    border-color: var(--folio-white-color);
+    box-shadow: none;
+}
+
+.btn-tertiary {
     color: var(--folio-feature-color);
     transition: color 400ms ease-in-out;
 }
 
-a.btn-tertiary:hover {
+.btn-tertiary:hover {
     color: var(--folio-white-color);
 }
 
@@ -213,7 +259,8 @@ input.form-control:focus-visible {
     transition: color 400ms ease-in-out;
 }
 
-[id*="div_id_"]:focus-within label {
+/* Add text color to all inputs except checkbox */
+[id*="div_id_"]:focus-within label:not([for$="remember"]) {
     color: var(--folio-feature-color);
 }
 
@@ -225,4 +272,26 @@ input.form-control:focus-visible {
 .form-check-input:checked {
     background-color: var(--folio-feature-color);
     border-color: var(--folio-feature-color);
+}
+
+/* Home/Welcome page styling */
+
+.card-cover {
+    height: 17.5rem;
+    width: 32.5rem;
+}
+
+.card-bg-image {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+}
+
+.card-cover-text {
+    z-index: 2;
 }

@@ -55,7 +55,7 @@
   <div id="navbar-buffer"></div>
 
   <header class="container">
-    <div class="row py-5">
+    <div class="row py-5 gx-0 animate__animated animate__fadeIn">
       <div class="col-12 text-center">
         <h2 class="h3 mb-3">
           {% block header_title %}{% endblock %}
@@ -66,9 +66,9 @@
   </header>
 
   <main class="container mt-5">
-    {% block content %}
-
-    {% endblock %}
+    <div class="row">
+      {% block content %}{% endblock %}
+    </div>
   </main>
 
   </body>
