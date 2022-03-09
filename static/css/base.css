@@ -213,8 +213,7 @@ input.form-control:focus-visible {
     transition: color 400ms ease-in-out;
 }
 
-#div_id_login:focus-within label,
-#div_id_password:focus-within label {
+[id*="div_id_"]:focus-within label {
     color: var(--folio-feature-color);
 }
 
