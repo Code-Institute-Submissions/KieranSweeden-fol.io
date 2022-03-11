@@ -6,6 +6,8 @@
     --folio-black-color: hsla(0, 0%, 12%, 1);
     --folio-white-color: hsla(0, 0%, 92%, 1);
     --folio-white-faded-color: hsla(0, 0%, 92%, 0.8);
+    --folio-sans-font: 'Libre Baskerville', serif;
+    --folio-sans-serif-font: 'Inter', sans-serif;
 }
 
 /* Base Styling */
@@ -151,6 +153,10 @@ h1, h2, h3, h4, h5, h6,
 .btn-tertiary {
     color: var(--folio-feature-color);
     transition: color 400ms ease-in-out;
+    font-family: var(--folio-sans-font);
+    text-decoration: underline;
+    font-weight: 400;
+    text-transform: lowercase;
 }
 
 .btn-tertiary:hover {
@@ -294,4 +300,18 @@ input.form-control:focus-visible {
 
 .card-cover-text {
     z-index: 2;
+}
+
+/* Animate.css custom CSS variables */
+
+.animate__second {
+    --animate-duration: 1.25s;
+}
+
+.animate__third {
+    --animate-duration: 1.5s;
+}
+
+.animate__fourth {
+    --animate-duration: 1.75s;
 }

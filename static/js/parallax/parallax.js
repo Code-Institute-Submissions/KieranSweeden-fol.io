@@ -5,11 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     switch(pageHeader) {
         case "Welcome":
-            let images = document.querySelectorAll('img');
-            new simpleParallax(images, {
-                delay: .6,
-	            transition: 'cubic-bezier(0,0,0,1)'
-            });
+            setupParallaxForHomePage();
             break;
         case "Log in":
         case "Register":
@@ -18,4 +14,25 @@ window.addEventListener('DOMContentLoaded', () => {
             break;
       }
 });
+
+function setupParallaxForHomePage () {
+    let images = [...document.getElementsByClassName('parallax-image')];
+
+    for (let [index, image] of images.entries()) {
+        if (index % 2 !== 0){
+            applyParallaxToImage(image, 1.6, 'cubic-bezier(0,0,0,1)', 'right', 1.05);
+        } else {
+            applyParallaxToImage(image, 1.6, 'cubic-bezier(0,0,0,1)', 'left', 1.05);
+        }
+    }
+}
+
+function applyParallaxToImage(image, delay, transition, orientation, scale) {
+    new simpleParallax(image, {
+        delay: delay,
+        transition: transition,
+        orientation: orientation,
+        scale, scale
+    });
+}
 
