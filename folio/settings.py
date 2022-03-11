@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     # fol.io specific apps
     'home',
+    'library',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -189,7 +190,7 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 
 # url to be redirected to when logged in
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/library/'
 
 WSGI_APPLICATION = 'folio.wsgi.application'
 
