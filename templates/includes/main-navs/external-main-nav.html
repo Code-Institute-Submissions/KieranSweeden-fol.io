@@ -12,11 +12,11 @@
             <li class="nav-item">
                 <a class="nav-link px-0 {% if request.resolver_match.url_name == 'account_login' %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">log in</a>
             </li>
-            <li class="d-flex justify-content-center align-items-center mx-3"><span class="text-feature-color">|</span></li>
+            <li class="d-none d-lg-flex justify-content-center align-items-center mx-3"><span class="text-feature-color">|</span></li>
             <li class="nav-item">
                 <a class="nav-link px-0 {% if request.resolver_match.url_name == 'account_signup' %}active{% endif %}" href="{% url 'account_signup' %}">register</a>
             </li>
-            <li class="d-flex justify-content-center align-items-center mx-3"><span class="text-feature-color">|</span></li>
+            <li class="d-none d-lg-flex justify-content-center align-items-center mx-3"><span class="text-feature-color">|</span></li>
         </ul>
         <form class="d-flex">
             <button class="btn btn-primary" type="submit">TRY</button>
