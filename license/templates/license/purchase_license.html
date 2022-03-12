@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block extra_title %}{% trans "Purchase License" %}{% endblock %}
+
+{% block header_title %}{% trans "Purchase License" %}{% endblock %}
+
+{% block main_nav %}
+    {% include 'includes/main-navs/internal-main-nav.html' with active_nav_link='license_store' %}
+{% endblock %}
+
+{% block header_content %}
+    {% include 'includes/header-navs/license-header-nav.html' with active_tab='purchase_license' %}
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
