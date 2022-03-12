@@ -1,5 +1,5 @@
 """
-URL for the pages related to the user's folio library
+URL's for the pages related to the user's folio library
 """
 
 from django.urls import path

@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # fol.io specific apps
     'home',
     'library',
+    'suite',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

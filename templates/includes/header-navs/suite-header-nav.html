@@ -1,0 +1,20 @@
+<div class="col-12 text-center">
+    <div class="btn-group mt-3">
+        <a href="{% url 'view_folio_projects' %}"
+            class="btn btn-primary {% if request.resolver_match.view_name == 'view_folio_projects' %}active{% endif %}">
+            Projects
+        </a>
+        <a href="{% url 'view_folio_skills' %}"
+            class="btn btn-primary {% if request.resolver_match.view_name == 'view_folio_skills' %}active{% endif %}">
+            Skills
+        </a>
+        <a href="{% url 'view_folio_profile' %}"
+            class="btn btn-primary {% if request.resolver_match.view_name == 'view_folio_profile' %}active{% endif %}">
+            Profile
+        </a>
+        <a href="{% url 'view_folio_contact' %}"
+            class="btn btn-primary {% if request.resolver_match.view_name == 'view_folio_contact' %}active{% endif %}">
+            Contact
+        </a>
+    </div>
+</div>
