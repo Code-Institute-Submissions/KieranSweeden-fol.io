@@ -34,6 +34,56 @@ Once I inserted this setting within my settings.py file with my respective URL, 
 
 </details>
 
+#### django.core.exceptions.ImproperlyConfigured: Application labels aren't unique
+
+When adding the account app to the folio project, I encountered an issue where django would not accept applications with labels that are identical. It became apparent that naming an app 'account' was problematic due to an app already existing with that name (which I assume to be the allauth account app).
+
+<details>
+
+<summary>Read Fix</summary>
+
+Numerous Stack Overflow posts were made regarding this problem in Django. The one's I found most helped were the following:
+
+- https://stackoverflow.com/a/24319562/15607265
+- https://stackoverflow.com/a/59377036/15607265
+
+To fix this issue, the app itself needed to be configured using the __init__.py file. Within this file, using the AppConfig class provided by Django, the name & label of the app was changed so Django's loader would interpret it as unique. This can be seen below:
+
+```python
+
+    class AccountConfig(AppConfig):
+        """
+        Changes the label for this app as the account name already
+        exists within django. Without this, django will throw an
+        ImproperlyConfigured error.
+        """
+        name = 'account'
+        label = 'folio_account'
+
+```
+
+To use this class, we then needed to inform Django that the default configuration for the account app is the AccountConfig class show above, using the DEFAULT_APP_CONFIG variable shown below:
+
+```python
+
+    DEFAULT_APP_CONFIG = 'account.__init__.AccountConfig'
+
+```
+
+With the app configuration completed, all that was left to do was to include this config file within the INSTALLED_APPS list within folio's settings.py file.
+
+```python
+
+    INSTALLED_APPS = [
+        ...
+        'account.__init__.AccountConfig'
+        ...
+    ]
+
+```
+
+</details>
+
 
 
 
