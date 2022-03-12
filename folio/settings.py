@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'home',
     'library',
     'suite',
+    'license',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
