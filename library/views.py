@@ -16,4 +16,3 @@ def view_library(request):
     """
 
     return render(request, "library/view_library.html")
-
