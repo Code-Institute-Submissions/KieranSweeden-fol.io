@@ -1,19 +1,19 @@
 <div class="col-12 text-center">
     <div class="btn-group mt-3">
         <a href="{% url 'view_folio_projects' %}"
-            class="btn btn-primary {% if request.resolver_match.view_name == 'view_folio_projects' %}active{% endif %}">
+            class="btn btn-primary {% if active_tab == 'projects' %}active{% endif %}">
             Projects
         </a>
         <a href="{% url 'view_folio_skills' %}"
-            class="btn btn-primary {% if request.resolver_match.view_name == 'view_folio_skills' %}active{% endif %}">
+            class="btn btn-primary {% if active_tab == 'skills' %}active{% endif %}">
             Skills
         </a>
         <a href="{% url 'view_folio_profile' %}"
-            class="btn btn-primary {% if request.resolver_match.view_name == 'view_folio_profile' %}active{% endif %}">
+            class="btn btn-primary {% if active_tab == 'profile' %}active{% endif %}">
             Profile
         </a>
         <a href="{% url 'view_folio_contact' %}"
-            class="btn btn-primary {% if request.resolver_match.view_name == 'view_folio_contact' %}active{% endif %}">
+            class="btn btn-primary {% if active_tab == 'contact' %}active{% endif %}">
             Contact
         </a>
     </div>

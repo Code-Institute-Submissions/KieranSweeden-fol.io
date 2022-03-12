@@ -49,7 +49,7 @@
 <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black-color">
     {% if user.is_authenticated %}
-      {% include 'includes/main-navs/internal-main-nav.html' %}
+      {% block main_nav %}{% endblock %}
     {% else %}
       {% include 'includes/main-navs/external-main-nav.html' %}
     {% endif %}
