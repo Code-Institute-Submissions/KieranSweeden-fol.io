@@ -175,7 +175,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # tells allauth that we want to allow authentication
-# using either usernames or emails
+# using only emails
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 # make emails required with verification &
@@ -183,6 +183,7 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_UNIQUE_EMAIL = True
 
@@ -201,3 +202,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CSRF_TRUSTED_ORIGINS = [('https://*8000-kieransweeden-folio-jpgshgnar0y'
                          '.ws-eu34.gitpod.io/')]
+
+AUTH_USER_MODEL = 'auth.User'
