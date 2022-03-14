@@ -4,8 +4,6 @@
 
 {% block extra_title %}Welcome{% endblock %}
 
-{% block header_title %}{% trans "Welcome" %}{% endblock %}
-
 {% block extra_js %}
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
     <script src="{% static 'js/parallax/parallax.js' %}"></script>
@@ -24,11 +22,9 @@
     <a href="{% url 'account_login' %}" class="btn btn-tertiary">Log In</a>
 </div>
 
-<div class="col-10 offset-1">
-    <hr>
-</div>
-
 {% endblock %}
+
+{% block header_title %}{% trans "Introducing fol.io" %}{% endblock %}
 
 {% block content %}
 

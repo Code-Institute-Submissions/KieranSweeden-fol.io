@@ -15,6 +15,8 @@ def account_details(request):
     and presents then within the library page
     """
 
+
+
     return render(request, "account/account_details.html")
 
 
