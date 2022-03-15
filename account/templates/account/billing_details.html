@@ -20,7 +20,7 @@
 <div class="col-8 offset-2 d-flex justify-content-center">
     <div class="card p-4">
         <div class="card-body">
-            <form class="login" method="POST" action="{% url 'account_login' %}">
+            <form class="login" method="POST" action="{% url 'billing_details' %}">
                 {% csrf_token %}
                 {{ form|crispy }}
                 {% if redirect_field_value %}

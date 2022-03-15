@@ -48,7 +48,16 @@ def billing_details(request):
 
     profile = get_object_or_404(UserAccount, user=request.user)
 
-    form = BillingDetailsForm(instance=profile)
+    if request.method == "POST":
+
+        form = BillingDetailsForm(request.POST, instance=profile)
+
+        if form.is_valid():
+            form.save()
+
+    else:
+
+        form = BillingDetailsForm(instance=profile)
 
     template = "account/billing_details.html"
 
