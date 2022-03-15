@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 {% load i18n %}
 
 {% block extra_title %}{% trans "Billing Details" %}{% endblock %}
@@ -14,5 +16,22 @@
 {% endblock %}
 
 {% block content %}
+
+<div class="col-8 offset-2 d-flex justify-content-center">
+    <div class="card p-4">
+        <div class="card-body">
+            <form class="login" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <div class="d-flex justify-content-end align-items-center">
+                    <button class="btn btn-primary" type="submit">{% trans "Update" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

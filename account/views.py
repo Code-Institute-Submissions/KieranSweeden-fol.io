@@ -5,7 +5,7 @@ Views for the pages related to the user's account
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import UserAccount
-from .forms import AccountDetailsForm
+from .forms import AccountDetailsForm, BillingDetailsForm
 
 # Create your views here.
 
@@ -37,4 +37,14 @@ def billing_details(request):
     and presents then within the library page
     """
 
-    return render(request, "account/billing_details.html")
+    profile = get_object_or_404(UserAccount, user=request.user)
+
+    form = BillingDetailsForm(instance=profile)
+
+    template = "account/billing_details.html"
+
+    context = {
+        "form": form
+    }
+
+    return render(request, template, context)

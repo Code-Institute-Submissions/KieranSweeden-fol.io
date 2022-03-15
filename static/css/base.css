@@ -58,6 +58,7 @@ h1, h2, h3, h4, h5, h6,
 .btn {
     border-radius: 0;
     font-weight: 600;
+    display: inline-block;
 }
 
 .btn-primary {
@@ -244,7 +245,7 @@ h1, h2, h3, h4, h5, h6,
     border-radius: 0;
     background-color: var(--folio-black-color);
     max-width: 25rem;
-    height: 30rem;
+    min-height: min-content;
 }
 
 /* Form Styling */
