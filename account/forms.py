@@ -6,7 +6,7 @@ from django import forms
 from .models import UserAccount
 
 
-class UserAccountForm(forms.ModelForm):
+class AccountDetailsForm(forms.ModelForm):
     """
     The form which covers the user's general info
     & default billing information
@@ -17,7 +17,15 @@ class UserAccountForm(forms.ModelForm):
         Associate form with UserAccount model
         """
         model = UserAccount
-        exclude = ('user',)
+        exclude = (
+            'user',
+            'default_street_address1',
+            'default_street_address2',
+            'default_town_or_city',
+            'default_postcode',
+            'default_county',
+            'default_country'
+        )
 
     # Customize the form
     def __init__(self, *args, **kwargs):
@@ -31,6 +39,8 @@ class UserAccountForm(forms.ModelForm):
 
         # Prepare placeholders
         placeholders = {
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
             'default_phone_number': 'Phone Number',
             'default_postcode': 'Postal Code',
             'default_town_or_city': 'Town or City',

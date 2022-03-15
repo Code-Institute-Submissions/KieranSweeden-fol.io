@@ -5,7 +5,7 @@ Views for the pages related to the user's account
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import UserAccount
-from .forms import UserAccountForm
+from .forms import AccountDetailsForm
 
 # Create your views here.
 
@@ -19,7 +19,7 @@ def account_details(request):
 
     profile = get_object_or_404(UserAccount, user=request.user)
 
-    form = UserAccountForm(instance=profile)
+    form = AccountDetailsForm(instance=profile)
 
     template = "account/account_details.html"
 
