@@ -19,7 +19,16 @@ def account_details(request):
 
     profile = get_object_or_404(UserAccount, user=request.user)
 
-    form = AccountDetailsForm(instance=profile)
+    if request.method == "POST":
+
+        form = AccountDetailsForm(request.POST, instance=profile)
+
+        if form.is_valid():
+            form.save()
+
+    else:       
+
+        form = AccountDetailsForm(instance=profile)
 
     template = "account/account_details.html"
 
