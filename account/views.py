@@ -2,8 +2,10 @@
 Views for the pages related to the user's account
 """
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from .models import UserAccount
+from .forms import UserAccountForm
 
 # Create your views here.
 
@@ -15,9 +17,17 @@ def account_details(request):
     and presents then within the library page
     """
 
+    profile = get_object_or_404(UserAccount, user=request.user)
 
+    form = UserAccountForm(instance=profile)
 
-    return render(request, "account/account_details.html")
+    template = "account/account_details.html"
+
+    context = {
+        "form": form
+    }
+
+    return render(request, template, context)
 
 
 @login_required
