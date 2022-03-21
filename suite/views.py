@@ -5,8 +5,6 @@ Views for the pages related to the folio suite
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-
 
 @login_required
 def view_folio_projects(request):
@@ -15,7 +13,8 @@ def view_folio_projects(request):
     folio to the user.
     """
 
-    return render(request, "suite/folio_projects.html")
+    return render(request, "suite/edit_projects.html")
+
 
 @login_required
 def view_folio_skills(request):
@@ -24,7 +23,8 @@ def view_folio_skills(request):
     folio to the user.
     """
 
-    return render(request, "suite/folio_skills.html")
+    return render(request, "suite/edit_skills.html")
+
 
 @login_required
 def view_folio_profile(request):
@@ -33,7 +33,7 @@ def view_folio_profile(request):
     folio to the user.
     """
 
-    return render(request, "suite/folio_profile.html")
+    return render(request, "suite/edit_profile.html")
 
 @login_required
 def view_folio_contact(request):
@@ -42,5 +42,5 @@ def view_folio_contact(request):
     folio to the user.
     """
 
-    return render(request, "suite/folio_contact.html")
+    return render(request, "suite/edit_contact.html")
 
