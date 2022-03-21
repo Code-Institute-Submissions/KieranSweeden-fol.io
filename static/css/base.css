@@ -168,6 +168,21 @@ h1, h2, h3, h4, h5, h6,
     box-shadow: none;
 }
 
+.btn-icon {
+    background-color: transparent;
+    color: var(--folio-white-color);
+    display: inline-flex;
+    padding: 0.2rem;
+}
+
+.btn-icon:hover {
+    color: var(--folio-feature-color);
+}
+
+.btn-icon::after {
+    display: none;
+}
+
 /* Navigation Styling */
 
 .navbar {
@@ -188,23 +203,27 @@ h1, h2, h3, h4, h5, h6,
 .navbar-toggler[aria-expanded="false"] .first-menu-icon {
     opacity: 1;
     transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+    color: var(--folio-white-color);
 }
 
 .navbar-toggler[aria-expanded="true"] .first-menu-icon {
     opacity: 0;
     transform: translate(-50%, -50%) rotate(270deg);
     transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+    color: var(--folio-white-color);
 }
 
 .navbar-toggler[aria-expanded="false"] .second-menu-icon {
     opacity: 0;
     transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+    color: var(--folio-feature-color);
 }
 
 .navbar-toggler[aria-expanded="true"] .second-menu-icon {
     opacity: 1;
     transform: translate(-50%, -50%) rotate(270deg);
     transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+    color: var(--folio-feature-color);
 }
 
 .mobile-menu-icon {
@@ -247,6 +266,31 @@ h1, h2, h3, h4, h5, h6,
     max-width: 25rem;
     min-height: min-content;
 }
+
+.folio-card {
+    border-radius: 0;
+    background-color: var(--folio-black-color);
+    min-height: min-content;
+}
+
+/* Dropdown Styling */
+
+.dropdown-menu {
+    background-color: var(--folio-bg-black-color);
+    color: var(--folio-feature-color);
+    border-radius: 0;
+}
+
+.dropdown-item {
+    background-color: transparent;
+    color: var(--folio-white-color);
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+    color: var(--folio-feature-color);
+}
+
 
 /* Form Styling */
 
