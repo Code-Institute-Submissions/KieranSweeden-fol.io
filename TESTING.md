@@ -84,7 +84,31 @@ With the app configuration completed, all that was left to do was to include thi
 
 </details>
 
+#### Class "UserAccount" has no objects member
 
+When referring to the UserAccount model and the objects within it, a linting error would appear informing me that the class doesn't contain an objects member.
+
+<details>
+
+<summary>Read Fix</summary>
+
+Despite being a relatively minor problem as it was a linting issue, this was likely going to be a common error found within the linting reports. For this reason, I thought to fix it within the early stages of development.
+
+The solution was found after reading over this Stack Overflow post:
+
+- https://stackoverflow.com/questions/45135263/class-has-no-objects-member
+
+The issue was promptly fixed after applying the following argument within the workspace settings:
+
+```json
+
+ "python.linting.pylintArgs": [
+    "--load-plugins=pylint_django",
+    ]
+
+```
+
+</details>
 
 
 ### Known
