@@ -5,6 +5,16 @@ Views for the pages related to the folio suite
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
+@login_required
+def select_folio(request):
+    """
+    If a folio has not been selected when
+    entering the suite, this view will prompt
+    the user to select a folio from their library,
+    """
+
+    return render(request, "suite/select_folio.html")
+
 
 @login_required
 def view_folio_projects(request):
