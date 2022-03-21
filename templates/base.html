@@ -60,12 +60,9 @@
 
   <header class="container">
     <div class="row py-5 animate__animated animate__fadeIn">
-      <!-- <div class="col-12 text-center">
-        <h2 class="h3 mb-5">
-          
-        </h2>
-      </div> -->
-      {% block header_content %}{% endblock %}
+      <div class="col-12 col-md-8 offset-md-2">
+        {% block header_content %}{% endblock %}
+      </div>
     </div>
     <div class="row">
       <div class="col-4 offset-2 animate__animated animate__fadeIn">
@@ -82,9 +79,11 @@
     </div>
   </header>
 
-  <main class="container mt-5">
-    <div class="row" >
-      {% block content %}{% endblock %}
+  <main class="container">
+    <div class="row">
+      <div class="col-12 col-md-8 offset-md-2">
+        {% block content %}{% endblock %}
+      </div>
     </div>
   </main>
 

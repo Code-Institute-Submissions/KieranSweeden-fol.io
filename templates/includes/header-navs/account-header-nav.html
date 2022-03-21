@@ -1,12 +1,14 @@
-<div class="col-12 text-center">
-    <div class="btn-group mt-3">
-        <a href="{% url 'account_details' %}"
-            class="btn btn-primary {% if active_tab == 'account_details' %}active{% endif %}">
-            Account Details
-        </a>
-        <a href="{% url 'billing_details' %}"
-            class="btn btn-primary {% if active_tab == 'billing_details' %}active{% endif %}">
-            Billing Details
-        </a>
+<div class="row">
+    <div class="col-12 text-center">
+        <div class="btn-group mt-3">
+            <a href="{% url 'account_details' %}"
+                class="btn btn-primary {% if active_tab == 'account_details' %}active{% endif %}">
+                Account Details
+            </a>
+            <a href="{% url 'billing_details' %}"
+                class="btn btn-primary {% if active_tab == 'billing_details' %}active{% endif %}">
+                Billing Details
+            </a>
+        </div>
     </div>
 </div>

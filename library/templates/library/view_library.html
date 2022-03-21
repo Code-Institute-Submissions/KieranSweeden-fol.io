@@ -10,5 +10,16 @@
 {% block header_title %}{% trans "Library" %}{% endblock %}
 
 {% block content %}
+    <div class="row">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <p>
+                Number of licenses: 1234
+            </p>
+            <button class="btn btn-primary">
+                New Folio
+            </button>
+        </div>
+    </div>
+    {% include "./includes/list_of_folios.html" %}
 
 {% endblock %}
