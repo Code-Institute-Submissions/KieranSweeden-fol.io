@@ -16,3 +16,10 @@ def view_library(request):
     """
 
     return render(request, "library/view_library.html")
+
+
+@login_required
+def create_folio(request):
+    """
+    Creates a brand new folio when called
+    """

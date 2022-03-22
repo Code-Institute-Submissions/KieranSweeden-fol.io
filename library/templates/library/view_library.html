@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load crispy_forms_tags %}
 
 {% block extra_title %}{% trans "Library" %}{% endblock %}
 
@@ -8,8 +9,6 @@
 {% endblock %}
 
 {% block header_title %}{% trans "Library" %}{% endblock %}
-
-
 
 {% block content %}
     <div class="row">
@@ -23,5 +22,5 @@
         </div>
     </div>
     {% include "./includes/list_of_folios.html" %}
-    {% include 'includes/modal/modal_template.html' with size=".modal-sm" id="create_folio" %}
+    {% include 'includes/modal/modal_template.html' with size=undefined type="create_folio" %}
 {% endblock %}

@@ -173,6 +173,8 @@ h1, h2, h3, h4, h5, h6,
     color: var(--folio-white-color);
     display: inline-flex;
     padding: 0.2rem;
+    border: none;
+    transition: color 400ms ease-in-out;
 }
 
 .btn-icon:hover {
@@ -292,6 +294,23 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Modal styling */
+
+.modal-content {
+    border-radius: 0;
+    background-color: var(--folio-bg-black-color);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--folio-feature-color);
+}
+
+.modal-title {
+    color: var(--folio-white-color);
+}
+
+/* button[data-bs-dismiss="modal"] {
+    background: none;
+} */
 
 
 /* Form Styling */
