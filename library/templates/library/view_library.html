@@ -9,17 +9,19 @@
 
 {% block header_title %}{% trans "Library" %}{% endblock %}
 
+
+
 {% block content %}
     <div class="row">
         <div class="col-12 d-flex justify-content-between align-items-center">
             <p>
                 Number of licenses: 1234
             </p>
-            <button class="btn btn-primary">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_folio_modal">
                 New Folio
             </button>
         </div>
     </div>
     {% include "./includes/list_of_folios.html" %}
-
+    {% include 'includes/modal/modal_template.html' with size=".modal-sm" id="create_folio" %}
 {% endblock %}

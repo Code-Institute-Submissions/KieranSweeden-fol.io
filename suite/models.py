@@ -21,8 +21,8 @@ class Folio(models.Model):
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateField(auto_now=True)
 
-    # Folio-oriented details
-    name = models.CharField(max_length=50, null=True, blank=True)
+    # Folio-oriented details - name is required
+    name = models.CharField(max_length=50)
     description = models.CharField(max_length=100, null=True, blank=True)
     tagline = models.CharField(max_length=80, null=True, blank=True)
 
