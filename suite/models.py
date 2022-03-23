@@ -3,6 +3,7 @@ Models related to the suite & folios within the application
 """
 
 from django.db import models
+from django.contrib.auth.models import User
 from account.models import UserAccount
 
 
@@ -15,7 +16,7 @@ class Folio(models.Model):
     """
 
     # If author is deleted, remove the author's folios
-    author_id = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
+    author_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # Date related fields
     date_created = models.DateField(auto_now_add=True)

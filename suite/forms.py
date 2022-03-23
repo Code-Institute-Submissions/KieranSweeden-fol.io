@@ -14,7 +14,6 @@ class FolioContactForm(forms.ModelForm):
     """
 
     class Meta:
-
         # Meta options inform django what model
         # this class will be associated with
         model = Folio
