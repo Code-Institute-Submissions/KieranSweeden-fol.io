@@ -1,10 +1,10 @@
 <div class="row">
-
+  {% for folio in folios %}
     <div class="col-12 col-lg-6 mt-2">
         <div class="folio-card">
             <div class="card-header d-flex justify-content-between align-items-center">
               <h3 class="h5 mb-0 d-inline-block">
-                  JavaScript oriented
+                  {{ folio.name }}
               </h3>
               <div class="dropdown">
                 <button class="btn btn-icon dropdown-toggle" type="button" id="folio-dropdown-button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
@@ -19,57 +19,11 @@
               </div>
             </div>
             <div class="card-body">
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <p class="card-text">
+                {{ folio.description }}
+              </p>
             </div>
         </div>
     </div>
-
-    <div class="col-12 col-lg-6 mt-2">
-        <div class="folio-card">
-            <div class="card-header d-flex justify-content-between align-items-center">
-              <h3 class="h5 mb-0 d-inline-block">
-                  JavaScript oriented
-              </h3>
-              <div class="dropdown">
-                <button class="btn btn-icon dropdown-toggle" type="button" id="folio-dropdown-button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                    <span class="material-icons-sharp">more_vert</span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="folio-dropdown-button">
-                  <li><a class="dropdown-item" href="#">Open in Suite</a></li>
-                  <li><a class="dropdown-item" href="#">Edit Details</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Delete Folio</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body">
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-lg-6 mt-2">
-        <div class="folio-card">
-            <div class="card-header d-flex justify-content-between align-items-center">
-              <h3 class="h5 mb-0 d-inline-block">
-                  JavaScript oriented
-              </h3>
-              <div class="dropdown">
-                <button class="btn btn-icon dropdown-toggle" type="button" id="folio-dropdown-button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                    <span class="material-icons-sharp">more_vert</span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="folio-dropdown-button">
-                  <li><a class="dropdown-item" href="#">Open in Suite</a></li>
-                  <li><a class="dropdown-item" href="#">Edit Details</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Delete Folio</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body">
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            </div>
-        </div>
-    </div>
-
+  {% endfor %}
 </div>

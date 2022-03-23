@@ -20,13 +20,18 @@ def view_library(request):
     and presents then within the library page
     """
 
-    # get profile for the current user
-    profile = get_object_or_404(UserAccount, user=request.user)
+    # Get folios
+    folios = Folio.objects.filter(
+        author_id=request.user
+    )
 
-    form = CreateFolioForm(instance=profile)
+    print(folios)
+
+    form = CreateFolioForm()
 
     context = {
-        "form": form
+        "form": form,
+        "folios": folios
     }
 
     return render(request, "library/view_library.html", context=context)
@@ -45,12 +50,15 @@ def create_folio(request):
 
         # If form is valid, save & send success message
         if form.is_valid():
-
+            
+            # Partially save the form, as author_id
+            # will need to be provided
             folio = form.save(commit=False)
 
+            # Apply current user to author_id
             folio.author_id = request.user
-
-            print(folio)
+            
+            # Save the newly created folio
             folio.save()
     
     return redirect("view_library")
