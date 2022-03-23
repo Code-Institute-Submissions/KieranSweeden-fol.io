@@ -25,8 +25,6 @@ def view_library(request):
         author_id=request.user
     )
 
-    print(folios)
-
     form = CreateFolioForm()
 
     context = {
@@ -61,4 +59,20 @@ def create_folio(request):
             # Save the newly created folio
             folio.save()
     
+    return redirect("view_library")
+
+
+@login_required
+def delete_folio(request, folio_id):
+    """
+    Deletes a user's folio when called
+    """
+
+    # Get the folio using the folio id provided
+    folio = get_object_or_404(Folio, pk=folio_id)
+
+    # Delete the folio
+    folio.delete()
+
+    # Redirect the user to the view library page
     return redirect("view_library")

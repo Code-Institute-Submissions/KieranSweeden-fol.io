@@ -14,7 +14,7 @@
                   <li><a class="dropdown-item" href="#">Open in Suite</a></li>
                   <li><a class="dropdown-item" href="#">Edit Details</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Delete Folio</a></li>
+                  <li><a class="dropdown-item" href="{% url 'delete_folio' folio.id %}">Delete Folio</a></li>
                 </ul>
               </div>
             </div>
@@ -24,6 +24,11 @@
               </p>
             </div>
         </div>
+    </div>
+  {% empty %}
+    <div class="col-12 text-center">
+      <p>Uh oh...</p>
+      <p>You have no folios!</p>
     </div>
   {% endfor %}
 </div>
