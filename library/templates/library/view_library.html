@@ -16,11 +16,11 @@
             <p>
                 Number of licenses: 1234
             </p>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_folio_modal">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_create_folio">
                 New Folio
             </button>
         </div>
     </div>
     {% include "./includes/list_of_folios.html" %}
-    {% include './includes/modals/create_folio.html' with size=undefined type="create_folio" %}
+    {% include './includes/modals/create_folio.html' with size=undefined id="create_folio" %}
 {% endblock %}

@@ -20,7 +20,7 @@ def view_library(request):
     and presents then within the library page
     """
 
-    # Get folios
+    # Get the user's folios
     folios = Folio.objects.filter(
         author_id=request.user
     )
@@ -83,7 +83,16 @@ def update_folio(request, folio_id):
             form.save()
 
             return redirect("view_library")
+    else:
 
+        form = CreateFolioForm(instance=folio_in_db)
+
+        context = {
+            "form": form,
+            "folio": folio_in_db
+        }
+
+        return render(request, "library/update_folio.html", context=context)
 
 
 @login_required

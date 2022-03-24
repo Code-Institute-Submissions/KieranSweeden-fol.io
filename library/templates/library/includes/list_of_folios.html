@@ -12,7 +12,7 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="folio-dropdown-button">
                   <li><a class="dropdown-item" href="#">Open in Suite</a></li>
-                  <li><a class="dropdown-item" href="#">Edit Details</a></li>
+                  <li><a class="dropdown-item" href="{% url 'update_folio' folio.id %}">Edit Details</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{% url 'delete_folio' folio.id %}">Delete Folio</a></li>
                 </ul>
