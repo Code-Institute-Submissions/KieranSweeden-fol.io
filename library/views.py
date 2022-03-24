@@ -2,7 +2,7 @@
 Views for the pages related to the user's folio library
 """
 
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 
 from account.models import UserAccount
@@ -59,7 +59,16 @@ def create_folio(request):
             # Save the newly created folio
             folio.save()
     
-    return redirect("view_library")
+    # Direct user to page depending on which
+    # button they selected
+    if "submit_only" in request.POST:
+
+        return redirect("view_library")
+    
+    elif "submit_and_suite" in request.POST:
+
+        return redirect(reverse("view_folio_projects",
+                                kwargs={"folio_id": folio.id}))
 
 
 @login_required
