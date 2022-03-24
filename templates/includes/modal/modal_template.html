@@ -1,10 +1,11 @@
-{% load crispy_forms_tags %}
 <!-- Modal -->
 <div class="modal fade" id="{{ type }}_modal" tabindex="-1" aria-labelledby="{{ type }}_modal_label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered {% if size %}{{ size }}{% endif %}">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="{{ type }}_modal_label">Modal title</h5>
+                <h5 class="modal-title" id="{{ type }}_modal_label">
+                    {% block modal_title %}{% endblock %}
+                </h5>
                 <button type="button" class="btn-icon" data-bs-dismiss="modal" aria-label="Close">
                     <span class="material-icons-sharp">
                         close
@@ -12,19 +13,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                {% if type == "create_folio" %}
-                    <form action="{% url 'create_folio' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-12">
-                                {{ form|crispy }}
-                            </div>
-                            <div class="col-12 d-flex justify-content-end align-items-center">
-                                <button type="submit" class="btn btn-primary">Create</button>
-                            </div>
-                        </div>
-                    </form>
-                {% endif %}
+                {% block modal_body %}{% endblock %}
             </div>
         </div>
     </div>

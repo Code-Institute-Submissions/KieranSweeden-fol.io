@@ -1,0 +1,19 @@
+{% extends 'includes/modal/modal_template.html' %}
+{% load crispy_forms_tags %}
+
+{% block modal_title %}Create New Folio{% endblock %}
+
+{% block modal_body %}
+<form action="{% url 'create_folio' %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-12">
+            {{ form|crispy }}
+        </div>
+        <div class="col-12 d-flex justify-content-end align-items-center">
+            <button type="submit" class="btn btn-primary">Create & Open in Suite</button>
+            <button type="submit" class="btn btn-secondary">Create</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

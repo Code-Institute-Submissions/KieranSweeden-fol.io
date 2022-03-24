@@ -63,6 +63,30 @@ def create_folio(request):
 
 
 @login_required
+def update_folio(request, folio_id):
+    """
+    Updates an existing folio when called
+    """
+
+    # Get the folio using the folio id provided
+    folio_in_db = get_object_or_404(Folio, pk=folio_id)
+
+    # If the request is post
+    if request.method == "POST":
+        
+        form = CreateFolioForm(request.POST, instance=folio_in_db)
+
+        # If the form is valid
+        if form.is_valid():
+
+            # Save the updated form
+            form.save()
+
+            return redirect("view_library")
+
+
+
+@login_required
 def delete_folio(request, folio_id):
     """
     Deletes a user's folio when called
