@@ -37,16 +37,26 @@ def select_folio(request):
     the user to select a folio from their library,
     """
 
-    # Get the users folios
-    folios = Folio.objects.filter(
-        author_id=request.user
-    )
+    if request.method == "POST":
 
-    context = {
-        "folios": folios
-    }
+        # Get the id from request
+        folio_id = request.POST.get('folio_selected')
 
-    return render(request, "suite/select_folio.html", context=context)
+        # Direct user to suite using folio_id
+        return redirect(reverse("view_folio_projects",
+                        kwargs={"folio_id": folio_id}))
+
+    else:
+        # Get the users folios
+        folios = Folio.objects.filter(
+            author_id=request.user
+        )
+
+        context = {
+            "folios": folios
+        }
+
+        return render(request, "suite/select_folio.html", context=context)
 
 
 @login_required
