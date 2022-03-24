@@ -14,7 +14,7 @@
                   <li><a class="dropdown-item" href="#">Open in Suite</a></li>
                   <li><a class="dropdown-item" href="{% url 'update_folio' folio.id %}">Edit Details</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="{% url 'delete_folio' folio.id %}">Delete Folio</a></li>
+                  <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal_{{ folio.id }}">Delete Folio</button></li>
                 </ul>
               </div>
             </div>
@@ -25,6 +25,7 @@
             </div>
         </div>
     </div>
+    {% include './modals/delete_folio.html' with size=undefined id=folio.id folio=folio %}
   {% empty %}
     <div class="col-12 text-center">
       <p>Uh oh...</p>

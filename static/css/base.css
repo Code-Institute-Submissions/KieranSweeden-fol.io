@@ -6,6 +6,7 @@
     --folio-black-color: hsla(0, 0%, 12%, 1);
     --folio-white-color: hsla(0, 0%, 92%, 1);
     --folio-white-faded-color: hsla(0, 0%, 92%, 0.8);
+    --folio-delete-color: hsla(9, 57%, 41%, 1);
     --folio-sans-font: 'Libre Baskerville', serif;
     --folio-sans-serif-font: 'Inter', sans-serif;
 }
@@ -165,6 +166,48 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .btn-tertiary:focus {
+    box-shadow: none;
+}
+
+.btn-delete {
+    color: var(--folio-white-color);
+    background-color: var(--folio-delete-color);
+    border-color: var(--folio-delete-color);
+    border-width: 0.2rem;
+    transition: color 400ms ease-in-out, background-color 400ms ease-in-out;
+}
+
+.btn-delete:focus {
+    color: var(--folio-black-color);
+    background-color: var(--folio-white-color);
+    border-color: var(--folio-white-color);
+    box-shadow: none;
+}
+
+.btn-delete:active {
+    color: var(--folio-black-color);
+    background-color: var(--folio-white-color);
+    border-color: var(--folio-white-color);
+}
+
+.btn-delete:active:focus {
+    box-shadow: none;
+}
+
+.btn-delete.active {
+    color: var(--folio-white-color);
+    background-color: transparent;
+    border-color: var(--folio-white-color);
+}
+
+.btn-delete.active:focus {
+    box-shadow: none;
+}
+
+.btn-delete:hover {
+    color: var(--folio-white-color);
+    background-color: transparent;
+    border-color: var(--folio-delete-color);
     box-shadow: none;
 }
 
