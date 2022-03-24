@@ -20,12 +20,22 @@
         <div class="card-body">
             <form class="login" method="POST" action="{% url 'select_folio' %}">
                 {% csrf_token %}
-                
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
-                <div class="d-flex justify-content-end align-items-center">
-                    <button class="btn btn-primary" type="submit">Open in Suite</button>
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center align-items-center flex-column text-center">
+                        <p>To enter the folio suite you must first select a folio.</p>
+                        <p>Please select from your library below.</p>
+                        
+                        <select class="form-select" name="folio_selected" id="folio_selected">
+                            {% for folio in folios %}
+                                <option value="{{ folio.id }}">
+                                    {{ folio.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <div class="d-flex justify-content-end align-items-center">
+                            <button class="btn btn-primary" type="submit">Open in Suite</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>

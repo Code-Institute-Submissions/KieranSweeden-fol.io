@@ -4,6 +4,7 @@ Views for the pages related to the folio suite
 
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
+from suite.models import Folio
 
 
 @login_required
@@ -36,7 +37,16 @@ def select_folio(request):
     the user to select a folio from their library,
     """
 
-    return render(request, "suite/select_folio.html")
+    # Get the users folios
+    folios = Folio.objects.filter(
+        author_id=request.user
+    )
+
+    context = {
+        "folios": folios
+    }
+
+    return render(request, "suite/select_folio.html", context=context)
 
 
 @login_required
