@@ -67,7 +67,7 @@ def create_folio(request):
     
     elif "submit_and_suite" in request.POST:
 
-        return redirect(reverse("view_folio_projects",
+        return redirect(reverse("edit_folio_projects",
                                 kwargs={"folio_id": folio.id}))
 
 
