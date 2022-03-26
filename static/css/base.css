@@ -435,14 +435,13 @@ input.form-control:focus-visible {
 
 /* Tooltip styling */
 
-.folio-tooltip {
-    display: none;
-    opacity: 0;
-    transition: opacity 1000ms ease-in-out;
+.tooltip-inner {
+    background-color: var(--folio-feature-color);
+    color: var(--folio-bg-black-color);
+    border-radius: 0;
+    font-weight: bold;
 }
 
-.folio-tooltip[data-show] {
-    display: block;
-    opacity: 1;
-    transition: opacity 1000ms ease-in-out;
+.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: var(--folio-feature-color);
 }
