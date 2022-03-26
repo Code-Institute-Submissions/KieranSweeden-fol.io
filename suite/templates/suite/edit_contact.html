@@ -3,14 +3,24 @@
 
 {% block extra_title %}Editing Folio Contact{% endblock %}
 
-{% block header_title %}{{ folio.name }}{% endblock %}
-
 {% block main_nav %}
     {% include 'includes/main-navs/internal-main-nav.html' with active_nav_link='suite' %}
 {% endblock %}
 
 {% block header_content %}
     {% include 'includes/header-navs/suite-header-nav.html' with active_tab='contact' %}
+{% endblock %}
+
+{% block header_title %}{{ folio.name }}{% endblock %}
+
+{% block additional_header_content %}
+<div class="d-flex justify-content-end align-items-center h-100">
+    <a class="btn btn-icon" href="#" target="_blank">
+        <span class="material-icons-sharp">
+            open_in_new
+        </span>
+    </a>
+</div>
 {% endblock %}
 
 {% block content %}
