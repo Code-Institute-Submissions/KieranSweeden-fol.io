@@ -2,9 +2,10 @@
 Views for the pages related to the folio suite
 """
 
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from suite.models import Folio
+from suite.functions import id_has_been_provided
 
 
 @login_required
@@ -17,7 +18,7 @@ def open_suite(request, folio_id):
     """
 
     # Assess whether folio_id has been provided
-    if folio_id:
+    if id_has_been_provided(folio_id):
         # If it has, direct the user to folio view
         # attaching the folio id as an argument
         # return redirect('view_folio_projects', folio_id=folio_id)
@@ -25,7 +26,7 @@ def open_suite(request, folio_id):
                                 kwargs={"folio_id": folio_id}))
 
     else:
-        # If one hasn't  been provided
+        # If one hasn't been provided
         return redirect("select_folio")
 
 
@@ -43,7 +44,7 @@ def select_folio(request):
         folio_id = request.POST.get('folio_selected')
 
         # Direct user to suite using folio_id
-        return redirect(reverse("view_folio_projects",
+        return redirect(reverse("edit_folio_projects",
                         kwargs={"folio_id": folio_id}))
 
     else:
@@ -60,40 +61,88 @@ def select_folio(request):
 
 
 @login_required
-def view_folio_projects(request, folio_id):
+def edit_folio_projects(request, folio_id=None):
     """
     Presents the projects tab of the
     folio to the user.
     """
 
-    return render(request, "suite/edit_projects.html")
+    if id_has_been_provided(folio_id):
+
+        folio = get_object_or_404(Folio, pk=folio_id)
+
+        context = {
+            "folio": folio
+        }
+
+        return render(request, "suite/edit_projects.html", context=context)
+
+    else:
+        # If one hasn't been provided
+        return redirect("select_folio")
 
 
 @login_required
-def view_folio_skills(request):
+def edit_folio_skills(request, folio_id=None):
     """
     Presents the skills tab of the
     folio to the user.
     """
 
-    return render(request, "suite/edit_skills.html")
+    if id_has_been_provided(folio_id):
+
+        folio = get_object_or_404(Folio, pk=folio_id)
+
+        context = {
+            "folio": folio
+        }
+
+        return render(request, "suite/edit_skills.html", context=context)
+
+    else:
+        # If one hasn't been provided
+        return redirect("select_folio")
 
 
 @login_required
-def view_folio_profile(request):
+def edit_folio_profile(request, folio_id=None):
     """
     Presents the profile tab of the
     folio to the user.
     """
 
-    return render(request, "suite/edit_profile.html")
+    if id_has_been_provided(folio_id):
+
+        folio = get_object_or_404(Folio, pk=folio_id)
+
+        context = {
+            "folio": folio
+        }
+
+        return render(request, "suite/edit_profile.html", context=context)
+
+    else:
+        # If one hasn't been provided
+        return redirect("select_folio")
+
 
 @login_required
-def view_folio_contact(request):
+def edit_folio_contact(request, folio_id=None):
     """
     Presents the contact tab of the
     folio to the user.
     """
 
-    return render(request, "suite/edit_contact.html")
+    if id_has_been_provided(folio_id):
 
+        folio = get_object_or_404(Folio, pk=folio_id)
+
+        context = {
+            "folio": folio
+        }
+
+        return render(request, "suite/edit_contact.html", context=context)
+
+    else:
+        # If one hasn't been provided
+        return redirect("select_folio")
