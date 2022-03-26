@@ -432,3 +432,17 @@ input.form-control:focus-visible {
 .animate__fourth {
     --animate-duration: 1.75s;
 }
+
+/* Tooltip styling */
+
+.folio-tooltip {
+    display: none;
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+}
+
+.folio-tooltip[data-show] {
+    display: block;
+    opacity: 1;
+    transition: opacity 1000ms ease-in-out;
+}
