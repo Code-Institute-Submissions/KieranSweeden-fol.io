@@ -9,7 +9,7 @@ from django.shortcuts import (
     get_object_or_404
 )
 from django.contrib.auth.decorators import login_required
-from suite.models import Folio
+from suite.models import Folio, Project
 from suite.functions import id_has_been_provided, user_is_author_of_folio
 
 
@@ -118,8 +118,13 @@ def edit_folio_projects(request, folio_id=None):
 
         folio = get_object_or_404(Folio, pk=folio_id)
 
+        projects = list(Project.objects.filter(
+            author_id=request.user
+        ))
+
         context = {
-            "folio": folio
+            "folio": folio,
+            "projects": projects
         }
 
         return render(request, "suite/edit_projects.html", context=context)
