@@ -63,15 +63,20 @@ def create_folio(request):
     # button they selected
     if "submit_only" in request.POST:
 
+        # Redirect to library
         return redirect("view_library")
     
     elif "submit_and_suite" in request.POST:
 
+        # Create response
         response = redirect(reverse("edit_folio_projects",
                             kwargs={"folio_id": folio.id}))
 
+        # Set cookie to store the current folio as
+        # most recently opened folio
         response.set_cookie("latest_folio", folio.id)
 
+        # Re-direct user
         return response
 
 

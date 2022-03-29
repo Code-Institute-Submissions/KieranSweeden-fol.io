@@ -41,3 +41,35 @@ class Folio(models.Model):
     # Method to return name of folio
     def __str__(self):
         return self.name
+
+
+class Project(models.Model):
+    """
+    Project snippet, storing information
+    regarding a user's personal project which
+    is presented within the project tab
+    within a user's folio.
+    """
+
+    # If author is deleted, remove the author's folios
+    author_id = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    # If Folio is deleted, project snippets persists
+    folios = models.ManyToManyField(Folio)
+
+    # Project details
+    project_title = models.CharField(max_length=50)
+    project_description = models.CharField(max_length=100,
+                                           null=True,
+                                           blank=True)
+    tech_list = models.CharField(max_length=50)
+    github_link = models.URLField(null=True, blank=True)
+    live_link = models.URLField(null=True, blank=True)
+
+    # Date related fields
+    date_created = models.DateField(auto_now_add=True)
+    last_updated = models.DateField(auto_now=True)
+
+    # Method to return title of project
+    def __str__(self):
+        return self.project_title
