@@ -1,0 +1,18 @@
+{% extends 'includes/modal/delete_modal_template.html' %}
+{% load crispy_forms_tags %}
+
+{% block modal_title %}Delete {{ project.project_title }}{% endblock %}
+
+{% block modal_body %}
+<form action="{% url 'delete_folio_project' folio_id=folio.id project_id=project.id %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-12 mb-3">
+            Are you sure you want to delete <b>{{ project.project_title }}</b>?
+        </div>
+        <div class="col-12 d-flex justify-content-end align-items-center">
+            <button type="submit" class="btn btn-delete">Delete project</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

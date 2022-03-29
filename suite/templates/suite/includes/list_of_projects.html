@@ -16,13 +16,14 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="folio-dropdown-button">
                       <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal_{{ project.id }}">Edit</button></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="">Delete</button></li>
+                      <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete_modal_{{ project.id }}">Delete</button></li>
                     </ul>
                   </div>
             </div>
         </div>
     </div>
     {% include './modals/update_project.html' with size=undefined id=project.id %}
+    {% include './modals/delete_project.html' with size=undefined id=project.id %}
     {% empty %}
     <div class="col-12">
         <p class="text-center">No Projects</p>

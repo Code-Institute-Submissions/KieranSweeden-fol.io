@@ -128,11 +128,15 @@ def edit_folio_projects(request, folio_id=None):
         # For each project, attach a form to the object
         for project in projects:
             project.form = FolioProjectForm(instance=project)
+
+        # Create an empty project form instance
+        form = FolioProjectForm()
         
         # Create context
         context = {
             "folio": folio,
-            "projects": projects
+            "projects": projects,
+            "form": form
         }
 
         return render(request, "suite/edit_projects.html", context=context)
@@ -161,7 +165,27 @@ def update_folio_project(request, project_id, folio_id):
 
             form.save()
 
-        # Return to folio project page
+        # Return to folio project page using folio id
+        return redirect(reverse("edit_folio_projects",
+                                kwargs={"folio_id": folio_id}))
+
+
+@login_required
+def delete_folio_project(request, project_id, folio_id):
+    """
+    Deletes a user's folio project
+    """
+
+    # Ensure the request made is a POST request
+    if request.method == "POST":
+
+        # Get the project
+        project_in_db = get_object_or_404(Project, pk=project_id)
+
+        # Delete the project from the database
+        project_in_db.delete()
+
+        # Return to folio project page using folio id
         return redirect(reverse("edit_folio_projects",
                                 kwargs={"folio_id": folio_id}))
 
