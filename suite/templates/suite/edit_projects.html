@@ -33,9 +33,10 @@
             <span>/</span>
             <span id="totalNumberOfProjects">4</span>
         </p>
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#">
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_project">
             Create Project
         </button>
+        {% include './includes/modals/create_project.html' with size=undefined id="project" %}
     </div>
 </div>  
 

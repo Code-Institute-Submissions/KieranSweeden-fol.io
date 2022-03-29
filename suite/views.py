@@ -148,6 +148,35 @@ def edit_folio_projects(request, folio_id=None):
 
 
 @login_required
+def create_folio_project(request, folio_id):
+    """
+    Creates a new folio project
+    """
+
+    # Ensure the request made is a POST request
+    if request.method == "POST":
+
+        form = FolioProjectForm(request.POST)
+
+        # If form is valid
+        if form.is_valid():
+
+            # Partially save the form, as author_id
+            # will need to be provided
+            project = form.save(commit=False)
+
+            # Save current user as author of project
+            project.author_id = request.user
+
+            # Fully save project
+            project.save()
+
+            # Return to folio project page using folio id
+            return redirect(reverse("edit_folio_projects",
+                                    kwargs={"folio_id": folio_id}))
+
+
+@login_required
 def update_folio_project(request, project_id, folio_id):
     """
     Updates an existing folio project

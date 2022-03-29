@@ -1,0 +1,20 @@
+<!-- Modal -->
+<div class="modal fade" id="create_modal_{{ id }}" tabindex="-1" aria-labelledby="create_modal_label_{{ id }}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered {% if size %}{{ size }}{% endif %}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="create_modal_label_{{ id }}">
+                    {% block modal_title %}{% endblock %}
+                </h5>
+                <button type="button" class="btn-icon" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {% block modal_body %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
