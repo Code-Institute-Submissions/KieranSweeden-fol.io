@@ -4,11 +4,11 @@
 {% block modal_title %}Update {{ project.project_title }}{% endblock %}
 
 {% block modal_body %}
-<form action="" method="POST">
+<form action="{% url 'update_folio_project' folio_id=folio.id project_id=project.id %}" method="POST">
     {% csrf_token %}
     <div class="row">
         <div class="col-12">
-            {{ form|crispy }}
+            {{ project.form|crispy }}
         </div>
         <div class="col-12 d-flex justify-content-end align-items-center">
             <button type="submit" class="btn btn-secondary">Save Changes</button>

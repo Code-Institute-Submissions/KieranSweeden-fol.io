@@ -11,6 +11,7 @@ from django.shortcuts import (
 from django.contrib.auth.decorators import login_required
 from suite.models import Folio, Project
 from suite.functions import id_has_been_provided, user_is_author_of_folio
+from suite.forms import FolioProjectForm
 
 
 @login_required
@@ -116,12 +117,19 @@ def edit_folio_projects(request, folio_id=None):
 
     if id_has_been_provided(folio_id):
 
+        # Get the specific folio using the id provided
         folio = get_object_or_404(Folio, pk=folio_id)
 
+        # Get the user's projects
         projects = list(Project.objects.filter(
             author_id=request.user
         ))
 
+        # For each project, attach a form to the object
+        for project in projects:
+            project.form = FolioProjectForm(instance=project)
+        
+        # Create context
         context = {
             "folio": folio,
             "projects": projects
@@ -133,6 +141,29 @@ def edit_folio_projects(request, folio_id=None):
 
         # If one hasn't been provided
         return redirect("select_folio")
+
+
+@login_required
+def update_folio_project(request, project_id, folio_id):
+    """
+    Updates an existing folio project
+    """
+
+    # Ensure the request made is a POST request
+    if request.method == "POST":
+
+        # Get current project
+        project_in_db = get_object_or_404(Project, pk=project_id)
+
+        form = FolioProjectForm(request.POST, instance=project_in_db)
+
+        if form.is_valid():
+
+            form.save()
+
+        # Return to folio project page
+        return redirect(reverse("edit_folio_projects",
+                                kwargs={"folio_id": folio_id}))
 
 
 @login_required
