@@ -4,7 +4,54 @@ to the folio model
 """
 
 from django import forms
-from .models import Folio
+from .models import Folio, Project
+
+
+class FolioProjectForm(forms.ModelForm):
+    """
+    This form relates to the project model and
+    is the form the user submits to change
+    a project.
+    """
+
+    class Meta:
+        # Associated with Project model
+        model = Project
+
+        # Include fields that are editable
+        fields = [
+            "project_title",
+            "project_description",
+            "tech_list",
+            "github_link",
+            "live_link"
+        ]
+    
+    # Customize form
+    def __init__(self, *args, **kwargs):
+        """
+        Insert placeholders
+        """
+
+        # Setup form as default
+        super().__init__(*args, **kwargs)
+
+        # Placeholders
+        placeholders = {
+            "project_title": "Project title",
+            "project_description": "Project description",
+            "tech_list": "Technology list (seperated by commas)",
+            "github_link": "GitHub repository link",
+            "live_link": "Live deployment link"
+        }
+
+        # Iterate over the fields, inserting
+        # placeholders along the way
+        for field in self.fields:
+
+            # Give them their respective placeholders & classes
+            placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
 
 
 class FolioContactForm(forms.ModelForm):
