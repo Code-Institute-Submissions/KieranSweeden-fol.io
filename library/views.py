@@ -67,8 +67,12 @@ def create_folio(request):
     
     elif "submit_and_suite" in request.POST:
 
-        return redirect(reverse("edit_folio_projects",
-                                kwargs={"folio_id": folio.id}))
+        response = redirect(reverse("edit_folio_projects",
+                            kwargs={"folio_id": folio.id}))
+
+        response.set_cookie("latest_folio", folio.id)
+
+        return response
 
 
 @login_required
