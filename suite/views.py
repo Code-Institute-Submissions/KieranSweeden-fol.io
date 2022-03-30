@@ -6,12 +6,14 @@ from django.shortcuts import (
     render,
     redirect,
     reverse,
-    get_object_or_404
+    get_object_or_404,
+    HttpResponse
 )
 from django.contrib.auth.decorators import login_required
 from suite.models import Folio, Project
 from suite.functions import id_has_been_provided, user_is_author_of_folio
 from suite.forms import FolioProjectForm
+import json
 
 
 @login_required
@@ -126,12 +128,18 @@ def edit_folio_projects(request, folio_id=None):
         ))
 
         # For each project, attach a form to the object
+        # And assess whether project is attached to form
         for project in projects:
             project.form = FolioProjectForm(instance=project)
 
+            for attached_folio in project.folios.all():
+                project.is_attached_to_current_folio = (
+                    attached_folio.id == folio_id
+                )
+
         # Create an empty project form instance
         form = FolioProjectForm()
-        
+
         # Create context
         context = {
             "folio": folio,
@@ -197,6 +205,24 @@ def update_folio_project(request, project_id, folio_id):
         # Return to folio project page using folio id
         return redirect(reverse("edit_folio_projects",
                                 kwargs={"folio_id": folio_id}))
+
+
+@login_required
+def update_projects_attached_to_folio(request, folio_id):
+    """
+    Updates which projects are attached
+    to the currently viewed folio
+    """
+
+    if request.method == "POST":
+        
+        data = json.loads(request.body)
+        projects = data['projects']
+
+        print(projects)
+
+        # Return an OK response
+        return HttpResponse("OK")
 
 
 @login_required
