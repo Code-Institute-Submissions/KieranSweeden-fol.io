@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load i18n %}
+
+{% block extra_js %}
+    <script src="{% static 'js/suite/folio_projects.js' %}"></script>
+{% endblock %}
 
 {% block extra_title %}Editing Folio Projects{% endblock %}
 
@@ -31,7 +36,7 @@
             <span class="fw-bold">Projects Selected:</span>
             <span id="selectedNumberOfProjects">1</span>
             <span>/</span>
-            <span id="totalNumberOfProjects">4</span>
+            <span id="totalNumberOfProjects">{{ projects|length }}</span>
         </p>
         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_project">
             Create Project
