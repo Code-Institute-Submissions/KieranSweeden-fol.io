@@ -33,25 +33,25 @@ function updateProjectsInFolio(){
     
     // Grab folio from URL & project ID's from checkboxes
     const folioID = window.location.pathname.split('/')[3];
-    const projectCheckBoxes = [...document.getElementsByClassName('form-check-input')];
-    const projectsAttachedIDs = projectCheckBoxes.filter(returnProjectIDIfChecked);
-
-    console.log(projectsAttachedIDs)
+    const projectsAttachedCheckboxes = [...document.getElementsByClassName('form-check-input')].filter(returnProjectIDIfChecked);
+    const projectsAttachedIDs = projectsAttachedCheckboxes.map(checkbox => checkbox.id);
 
     // Create AJAX Request & csrf token
-    // let request = new XMLHttpRequest();
-    // const CSRF_TOKEN = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+    let request = new XMLHttpRequest();
+    const CSRF_TOKEN = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
 
-    // request.onreadystatechange = function() {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //         location.reload();
-    //     }
-    // }
+    // Attach function for when request has been successfully made
+    request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            location.reload();
+        }
+    }
 
-    // request.open("POST", `/suite/projects/update/projects_attached/${folioID}/`, true);
-    // request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    // request.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
-    // request.send(`{"projects":${JSON.stringify(projectIDs)}}`);
+    // Prepare request to be sent with headers & send
+    request.open("POST", `/suite/projects/update/projects_attached/${folioID}/`, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
+    request.send(`{"projects":${JSON.stringify(projectsAttachedIDs)}}`);
 }
 
 function returnProjectIDIfChecked(projectCheckBox){
