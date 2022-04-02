@@ -2,6 +2,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     // Ensure checkboxes can be checked & unchecked
     setupCheckBoxClickListeners();
+
+    // Assess amount of checkboxes checked
+    assessTheAmountOfProjectCheckboxesChecked();
     
     // Setup the abilty to update projects
     setupUpdateProjectsInFolioFunctionality();
@@ -19,6 +22,26 @@ function setupCheckBoxClickListeners(){
             event.target.toggleAttribute("checked");
         });
     });
+}
+
+function assessTheAmountOfProjectCheckboxesChecked(){
+    // Init max amount of projects & grab checkboxes on page
+    const MAX_AMOUNT_OF_PROJECTS_ALLOWED = 4;
+    const projectCheckBoxes = [...document.getElementsByClassName('form-check-input')];
+    const checkedProjectCheckboxes = projectCheckBoxes.filter(checkbox => checkbox.hasAttribute('checked'));
+
+    if (checkedProjectCheckboxes.length === MAX_AMOUNT_OF_PROJECTS_ALLOWED){
+
+        const uncheckedCheckBoxes = projectCheckBoxes.filter(checkbox => !checkbox.hasAttribute('checked'));
+
+        disableUncheckedProjectCheckboxes(uncheckedCheckBoxes);
+    }
+
+}
+
+function disableUncheckedProjectCheckboxes(uncheckedCheckBoxes){
+
+    console.log(uncheckedCheckBoxes)
 }
 
 function setupUpdateProjectsInFolioFunctionality(){

@@ -34,4 +34,4 @@ def sort_by_id(entity):
     Returns the id of provided entity
     which can be used for sorting purposes
     """
-    return entity['id']
+    return int(entity['id'])
