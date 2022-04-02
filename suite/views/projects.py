@@ -38,10 +38,9 @@ def edit_folio_projects(request, folio_id=None):
         for project in projects:
             project.form = FolioProjectForm(instance=project)
 
-            for attached_folio in project.folios.all():
-                project.is_attached_to_current_folio = (
-                    attached_folio.id == folio_id
-                )
+            # Set is attached to true if folio exists
+            # in the projects list of folios
+            project.is_attached = project.folios.filter(pk=folio_id).exists()
 
         # Create an empty project form instance
         form = FolioProjectForm()
@@ -102,10 +101,11 @@ def update_folio_project(request, project_id, folio_id):
         # Get current project
         project_in_db = get_object_or_404(Project, pk=project_id)
 
+        # Save instance of project form
         form = FolioProjectForm(request.POST, instance=project_in_db)
 
+        # Save form if valid
         if form.is_valid():
-
             form.save()
 
         # Return to folio project page using folio id
@@ -150,6 +150,8 @@ def update_projects_attached_to_folio(request, folio_id):
                         project_in_db.folios.remove(folio)
                     else:
                         continue
+            else:
+                print("they didn't match, sorting error")
 
         # Return an OK response
         return HttpResponse("OK")
