@@ -4,7 +4,6 @@ that are commonly used within the
 suite application.
 """
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.models import User
 from suite.models import Folio
 
 
@@ -30,5 +29,9 @@ def user_is_author_of_folio(user, folio_id):
     return True if folio.author_id == user else False
 
 
-def sortByID(entity):
+def sort_by_id(entity):
+    """
+    Returns the id of provided entity
+    which can be used for sorting purposes
+    """
     return entity['id']
