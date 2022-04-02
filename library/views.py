@@ -5,12 +5,8 @@ Views for the pages related to the user's folio library
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 
-from account.models import UserAccount
-from .forms import CreateFolioForm
 from suite.models import Folio
-from django.contrib.auth.models import User
-
-# Create your views here.
+from .forms import CreateFolioForm
 
 
 @login_required
@@ -116,7 +112,6 @@ def update_folio(request, folio_id):
 
                 # Re-direct user
                 return response
-
 
     else:
 

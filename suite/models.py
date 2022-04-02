@@ -59,9 +59,11 @@ class Project(models.Model):
 
     # Project details
     project_title = models.CharField(max_length=50)
-    project_description = models.CharField(max_length=100,
-                                           null=True,
-                                           blank=True)
+    project_description = models.CharField(
+        max_length=100,
+        null=True,
+        blank=True
+    )
     tech_list = models.CharField(max_length=50)
     github_link = models.URLField(null=True, blank=True)
     live_link = models.URLField(null=True, blank=True)
@@ -73,3 +75,47 @@ class Project(models.Model):
     # Method to return title of project
     def __str__(self):
         return self.project_title
+
+
+class Skill(models.Model):
+    """
+    Skills snippet, storing information regarding
+    a user's particular skill which is presented within
+    the skills tab of a user's folio
+    """
+
+    # If author is deleted, remove the author's folios
+    author_id = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    # If Folio is deleted, project snippets persists
+    folios = models.ManyToManyField(Folio)
+
+    # Initialise skill types
+    class SkillTypes(models.TextChoices):
+        """
+        List of skill types
+        """
+        TECH = 'TECH', _('Tech Skill')
+        SOFT = 'SOFT', _('Soft Skill')
+
+    # Skill details
+    skill_type = models.CharField(
+        max_length=4,
+        choices=SkillTypes.choices,
+        default=SkillTypes.TECH,
+    )
+
+    skill_title = models.CharField(max_length=50)
+    skill_description = models.CharField(
+        max_length=100,
+        null=True,
+        blank=True
+    )
+
+    # Date related fields
+    date_created = models.DateField(auto_now_add=True)
+    last_updated = models.DateField(auto_now=True)
+
+    # Method to return title of project
+    def __str__(self):
+        return self.skill_title
