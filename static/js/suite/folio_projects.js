@@ -50,6 +50,30 @@ function updateNumberOfProjectsSelected(checkedProjectsAmount = 0){
 
     // Update value
     elementDisplayed.textContent = checkedProjectsAmount;
+
+    // Update color based on value
+    updateColorForNumberOfProjectsSelected(checkedProjectsAmount, elementDisplayed);
+}
+
+function updateColorForNumberOfProjectsSelected(checkedProjectsAmount, elementDisplayed){
+    // Provide positive feedback colors for amount of projects selected
+    switch (checkedProjectsAmount) {
+        case 0:
+            elementDisplayed.parentElement.style.color = "#a5402d";
+            break;  
+        case 1:
+            elementDisplayed.parentElement.style.color = "#cc782c";
+            break;  
+        case 2:
+            elementDisplayed.parentElement.style.color = "#f3b02b";
+            break;  
+        case 3:
+            elementDisplayed.parentElement.style.color = "#9acd32";
+            break;
+        case 4:
+            elementDisplayed.parentElement.style.color = "#12ba26";
+            break;
+    }
 }
 
 function disableUncheckedProjectCheckboxes(uncheckedCheckBoxes){
