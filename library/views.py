@@ -100,7 +100,24 @@ def update_folio(request, folio_id):
             # Save the updated form
             form.save()
 
-            return redirect("view_library")
+            if "update_only" in request.POST:
+
+                return redirect("view_library")
+            
+            elif "update_&_suite" in request.POST:
+
+                # Create response
+                response = redirect(reverse("edit_folio_projects",
+                                    kwargs={"folio_id": folio_id}))
+
+                # Set cookie to store the current folio as
+                # most recently opened folio
+                response.set_cookie("latest_folio", folio_id)
+
+                # Re-direct user
+                return response
+
+
     else:
 
         form = CreateFolioForm(instance=folio_in_db)
