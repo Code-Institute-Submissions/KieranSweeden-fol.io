@@ -5,8 +5,7 @@ Views for general functionality regarding suite
 from django.shortcuts import (
     render,
     redirect,
-    reverse,
-    get_object_or_404
+    reverse
 )
 from django.contrib.auth.decorators import login_required
 from suite.models import Folio

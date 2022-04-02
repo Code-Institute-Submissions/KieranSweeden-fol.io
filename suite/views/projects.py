@@ -2,6 +2,7 @@
 Views relating to the projects section of folios within suite
 """
 
+import json
 from django.shortcuts import (
     render,
     redirect,
@@ -13,7 +14,6 @@ from django.contrib.auth.decorators import login_required
 from suite.models import Folio, Project
 from suite.functions import id_has_been_provided, sort_by_id
 from suite.forms import FolioProjectForm
-import json
 
 
 @login_required
@@ -52,7 +52,11 @@ def edit_folio_projects(request, folio_id=None):
             "form": form
         }
 
-        return render(request, "suite/edit_projects.html", context=context)
+        return render(
+            request,
+            "suite/edit_projects.html",
+            context=context
+        )
 
     else:
 
@@ -69,6 +73,7 @@ def create_folio_project(request, folio_id):
     # Ensure the request made is a POST request
     if request.method == "POST":
 
+        # Create instance of project form using form data
         form = FolioProjectForm(request.POST)
 
         # If form is valid
@@ -85,8 +90,10 @@ def create_folio_project(request, folio_id):
             project.save()
 
             # Return to folio project page using folio id
-            return redirect(reverse("edit_folio_projects",
-                                    kwargs={"folio_id": folio_id}))
+            return redirect(
+                reverse("edit_folio_projects",
+                        kwargs={"folio_id": folio_id})
+            )
 
 
 @login_required
@@ -109,8 +116,10 @@ def update_folio_project(request, project_id, folio_id):
             form.save()
 
         # Return to folio project page using folio id
-        return redirect(reverse("edit_folio_projects",
-                                kwargs={"folio_id": folio_id}))
+        return redirect(
+            reverse("edit_folio_projects",
+                    kwargs={"folio_id": folio_id})
+        )
 
 
 @login_required
@@ -173,5 +182,7 @@ def delete_folio_project(request, project_id, folio_id):
         project_in_db.delete()
 
         # Return to folio project page using folio id
-        return redirect(reverse("edit_folio_projects",
-                                kwargs={"folio_id": folio_id}))
+        return redirect(
+            reverse("edit_folio_projects",
+                    kwargs={"folio_id": folio_id})
+        )
