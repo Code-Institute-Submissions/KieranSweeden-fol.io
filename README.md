@@ -340,7 +340,11 @@ All information regarding bugs and testing during the development of folio was d
 
 ## Credits
 
+### Code
+
 ### Research
+
+The following links are sources that were used to further understand the problems that needed to be solved during the pre-production stages of folio.
 
 - [Top 4 IT Recruitment Challenges (and How to Overcome Them!)](https://www.codingame.com/work/blog/find-developers/top-it-recruitment-challenges/) by Nathalie Figuière.
     - This article provided solutions backed by data, which helped provide further understanding of the IT recruitment problems and how to fix them.

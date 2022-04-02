@@ -110,6 +110,28 @@ The issue was promptly fixed after applying the following argument within the wo
 
 </details>
 
+#### 403 Forbidden CSRF verification failed
+
+When attempting to create an AJAX request that is involved with the saving of projects attached to a particular folio, the server would return with a 403 forbidden CSRF verification failed error.
+
+<details>
+
+<summary>Read Fix</summary>
+
+After reading [this answer](https://stackoverflow.com/a/6170377/15607265) to a Stack Overflow post, I became aware of the fact that the CSRF middleware token had to be attached to the data within the request. The problem with this solution however was that it was using jQuery and I felt no need to add an entire JavaScript library to this project to complete this minor task.
+
+During some more research, I came across [this answer](https://stackoverflow.com/a/66331048/15607265) to a Stack Overflow post which was more suited to my use case. Although jQuery was used again, this time the CSRF token was added to the header of the AJAX request, which is something I am able to do with standard JavaScript.
+
+Using the request header code shown below, I was able to fix this issue.
+
+```javascript
+const CSRF_TOKEN = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+request.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
+
+```
+
+</details>
+
 
 ### Known
 
