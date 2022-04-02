@@ -20,6 +20,7 @@ function setupCheckBoxClickListeners(){
     projectCheckBoxes.forEach(projectCheckBox => {
         projectCheckBox.addEventListener('change', (event) => {
             event.target.toggleAttribute("checked");
+            assessTheAmountOfProjectCheckboxesChecked();
         });
     });
 }
@@ -29,19 +30,38 @@ function assessTheAmountOfProjectCheckboxesChecked(){
     const MAX_AMOUNT_OF_PROJECTS_ALLOWED = 4;
     const projectCheckBoxes = [...document.getElementsByClassName('form-check-input')];
     const checkedProjectCheckboxes = projectCheckBoxes.filter(checkbox => checkbox.hasAttribute('checked'));
+    const uncheckedCheckBoxes = projectCheckBoxes.filter(checkbox => !checkbox.hasAttribute('checked'));
 
-    if (checkedProjectCheckboxes.length === MAX_AMOUNT_OF_PROJECTS_ALLOWED){
+    // Update number of projects selected on page
+    updateNumberOfProjectsSelected(checkedProjectCheckboxes.length);
 
-        const uncheckedCheckBoxes = projectCheckBoxes.filter(checkbox => !checkbox.hasAttribute('checked'));
-
+    if (checkedProjectCheckboxes.length >= MAX_AMOUNT_OF_PROJECTS_ALLOWED){
         disableUncheckedProjectCheckboxes(uncheckedCheckBoxes);
+    } else {
+        const disabledCheckboxes = projectCheckBoxes.filter(checkbox => checkbox.hasAttribute('disabled'));
+        enableDisabledProjectCheckboxes(disabledCheckboxes);
     }
 
 }
 
-function disableUncheckedProjectCheckboxes(uncheckedCheckBoxes){
+function updateNumberOfProjectsSelected(checkedProjectsAmount = 0){
+    // Grab element on page
+    const elementDisplayed = document.getElementById('selectedNumberOfProjects');
 
-    console.log(uncheckedCheckBoxes)
+    // Update value
+    elementDisplayed.textContent = checkedProjectsAmount;
+}
+
+function disableUncheckedProjectCheckboxes(uncheckedCheckBoxes){
+    for (checkbox of uncheckedCheckBoxes) {
+        checkbox.disabled = true;
+    }
+}
+
+function enableDisabledProjectCheckboxes(disabledCheckboxes){
+    for (checkbox of disabledCheckboxes) {
+        checkbox.disabled = false;
+    }
 }
 
 function setupUpdateProjectsInFolioFunctionality(){
