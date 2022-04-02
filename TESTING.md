@@ -125,8 +125,36 @@ During some more research, I came across [this answer](https://stackoverflow.com
 Using the request header code shown below, I was able to fix this issue.
 
 ```javascript
-const CSRF_TOKEN = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
-request.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
+
+    const CSRF_TOKEN = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+    request.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
+
+```
+
+</details>
+
+#### Project not being added to folio
+
+When attempting to add a project to a folio, the change was not being made within the database.
+
+<details>
+
+<summary>Read Fix</summary>
+
+In order to update the status of a folio being a parent to a project, a status of "is_attached" is sent to the server from the client-side via AJAX. The implementation of AJAX was utilised as forms currently exist for the projects for actions such as update & delete and using a form for the "is_attached" functionality would mean having forms within forms, which is not valid HTML.
+
+The data being sent to the server was a list of projects containing the project's ID and an "is_attached" boolean value. It was the project's ID which was causing the problem, as it was being sent to the server as a string.
+
+Further down the view, the list of projects was being sorted using the project ID as a key. Given it was a string rather than an int, it was not being sorted as intially intended. After applying the code below, the fix was made.
+
+```python
+
+    def sort_by_id(entity):
+    """
+    Returns the id of provided entity
+    which can be used for sorting purposes
+    """
+    return int(entity['id'])
 
 ```
 
