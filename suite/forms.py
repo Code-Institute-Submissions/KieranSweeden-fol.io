@@ -4,7 +4,7 @@ to the folio model
 """
 
 from django import forms
-from .models import Folio, Project
+from .models import Folio, Project, Skill
 
 
 class FolioProjectForm(forms.ModelForm):
@@ -43,6 +43,48 @@ class FolioProjectForm(forms.ModelForm):
             "tech_list": "Technology list (seperated by commas)",
             "github_link": "GitHub repository link",
             "live_link": "Live deployment link"
+        }
+
+        # Iterate over the fields, inserting
+        # placeholders along the way
+        for field in self.fields:
+
+            # Give them their respective placeholders & classes
+            placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+
+
+class FolioSkillForm(forms.ModelForm):
+    """
+    This form relates to the skill model and
+    is the form the user submits to regarding skills
+    """
+
+    class Meta:
+        # Associated with Project model
+        model = Skill
+
+        # Include fields that are editable
+        fields = [
+            "skill_title",
+            "skill_description",
+            "skill_type"
+        ]
+
+    # Customize form
+    def __init__(self, *args, **kwargs):
+        """
+        Insert placeholders
+        """
+
+        # Setup form as default
+        super().__init__(*args, **kwargs)
+
+        # Placeholders
+        placeholders = {
+            "skill_title": "Skill title",
+            "skill_description": "Skill description",
+            "skill_type": "Skill type"
         }
 
         # Iterate over the fields, inserting

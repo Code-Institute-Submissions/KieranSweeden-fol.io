@@ -15,14 +15,31 @@
 
 {% block additional_header_content %}
 <div class="d-flex justify-content-end align-items-center h-100">
-    <a class="btn btn-icon" href="#" target="_blank">
+    <a class="btn btn-icon me-2" href="#" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="View Folio">
         <span class="material-icons-sharp">
             open_in_new
         </span>
     </a>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_skill">
+        Create New Skill
+    </button>
+    {% include './includes/modals/create_skill.html' with size=undefined id="skill" %}
 </div>
 {% endblock %}
 
 {% block content %}
+
+<div class="row mb-3">
+    <section class="col-12 col-lg-6 border-end">
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="h5 mb-0">Tech</h3>
+        </div>
+    </section>
+    <section class="col-12 col-lg-6">
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="h5 mb-0">Soft</h3>
+        </div>
+    </section>
+</div>  
 
 {% endblock %}
