@@ -28,3 +28,7 @@ def user_is_author_of_folio(user, folio_id):
 
     # Return a boolean value
     return True if folio.author_id == user else False
+
+
+def sortByID(entity):
+    return entity['id']

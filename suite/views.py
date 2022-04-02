@@ -11,7 +11,7 @@ from django.shortcuts import (
 )
 from django.contrib.auth.decorators import login_required
 from suite.models import Folio, Project
-from suite.functions import id_has_been_provided, user_is_author_of_folio
+from suite.functions import id_has_been_provided, user_is_author_of_folio, sortByID
 from suite.forms import FolioProjectForm
 import json
 
@@ -215,11 +215,35 @@ def update_projects_attached_to_folio(request, folio_id):
     """
 
     if request.method == "POST":
-        
+        # Retrieve list of project status's sorted by id
         data = json.loads(request.body)
-        projects = data['projects']
+        list_of_projects = data['projects']
+        list_of_projects.sort(reverse=False, key=sortByID)
 
-        print(projects)
+        # Grab users projects from DB using ID's provided
+        projects = Project.objects.filter(
+             id__in=[project['id'] for project in list_of_projects]
+        )
+
+        # Get currently viewed folio
+        folio = get_object_or_404(Folio, pk=folio_id)
+
+        # Iterate through project in db & status given from user actions
+        for project_in_db, project_status in zip(projects, list_of_projects):
+            # Ensure ID's match
+            if project_in_db.id == int(project_status['id']):
+                # Add/remove folio or continue based on is_attached
+                # status & if the folio already exists in project folios
+                if project_status['is_attached']:
+                    if project_in_db.folios.filter(pk=folio_id).exists():
+                        continue
+                    else:
+                        project_in_db.folios.add(folio)
+                else:
+                    if project_in_db.folios.filter(pk=folio_id).exists():
+                        project_in_db.folios.remove(folio)
+                    else:
+                        continue
 
         # Return an OK response
         return HttpResponse("OK")

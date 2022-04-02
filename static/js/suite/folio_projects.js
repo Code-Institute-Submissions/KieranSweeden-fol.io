@@ -33,8 +33,13 @@ function updateProjectsInFolio(){
     
     // Grab folio from URL & project ID's from checkboxes
     const folioID = window.location.pathname.split('/')[3];
-    const projectsAttachedCheckboxes = [...document.getElementsByClassName('form-check-input')].filter(returnProjectIDIfChecked);
-    const projectsAttachedIDs = projectsAttachedCheckboxes.map(checkbox => checkbox.id);
+    const projectCheckboxes = [...document.getElementsByClassName('form-check-input')];
+
+    // Create a list of project objects containing their IDs & a status on if they're attached
+    let listOfProjects = [];
+    for (let projectCheckBox of projectCheckboxes){
+        listOfProjects.push(returnProjectObject(projectCheckBox))
+    }
 
     // Create AJAX Request & csrf token
     let request = new XMLHttpRequest();
@@ -51,9 +56,12 @@ function updateProjectsInFolio(){
     request.open("POST", `/suite/projects/update/projects_attached/${folioID}/`, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
-    request.send(`{"projects":${JSON.stringify(projectsAttachedIDs)}}`);
+    request.send(`{"projects":${JSON.stringify(listOfProjects)}}`);
 }
 
-function returnProjectIDIfChecked(projectCheckBox){
-    return projectCheckBox.hasAttribute("checked") ? projectCheckBox.id : false;
+function returnProjectObject(projectCheckbox){
+    return {
+        id: projectCheckbox.id,
+        is_attached: projectCheckbox.hasAttribute("checked")
+    }
 }
