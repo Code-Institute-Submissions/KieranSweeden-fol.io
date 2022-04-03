@@ -355,7 +355,8 @@ h1, h2, h3, h4, h5, h6,
 
 input.form-control,
 input.form-check-input[type=checkbox], 
-select.form-select {
+select.form-select,
+textarea.form-control {
     border-radius: 0;
     background-color: var(--folio-white-color);
     transition: border-color 400ms ease-in-out, box-shadow 400ms ease-in-out;
@@ -364,7 +365,9 @@ select.form-select {
 input.form-control:focus,
 input.form-control:focus-visible,
 select.form-select:focus,
-select.form-select:focus-visible {
+select.form-select:focus-visible,
+textarea.form-control:focus,
+textarea.form-control:focus-visible {
     border-color: var(--folio-feature-color);
     box-shadow: 0 0 0 .2rem var(--folio-feature-color);
     background-color: var(--folio-white-color);

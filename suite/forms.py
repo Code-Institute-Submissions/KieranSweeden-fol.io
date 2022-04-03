@@ -129,8 +129,8 @@ class FolioProfileForm(forms.ModelForm):
 
         # Placeholders
         placeholders = {
-            "profile_title": "Profile title (Only you can see this)",
-            "profile_bio": "Biography (What's presented on-screen)"
+            "profile_title": "Profile title",
+            "profile_bio": "Biography (What's presented within the folio)"
         }
 
         # Iterate over the fields, inserting

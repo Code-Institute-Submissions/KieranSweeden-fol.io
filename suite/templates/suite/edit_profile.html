@@ -15,11 +15,15 @@
 
 {% block additional_header_content %}
 <div class="d-flex justify-content-end align-items-center h-100">
-    <a class="btn btn-icon" href="#" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="View Folio">
+    <a class="btn btn-icon me-2" href="#" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="View Folio">
         <span class="material-icons-sharp">
             open_in_new
         </span>
     </a>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_profile">
+        Create New Profile
+    </button>
+    {% include './includes/modals/create_profile.html' with size=undefined id="profile" %}
 </div>
 {% endblock %}
 
