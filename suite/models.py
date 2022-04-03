@@ -29,9 +29,9 @@ class Folio(models.Model):
     tagline = models.CharField(max_length=80, null=True, blank=True)
 
     # Profile information
-    about_me = models.TextField(null=True, blank=True)
     current_project_link = models.URLField(null=True, blank=True)
     current_project_desc = models.TextField(null=True, blank=True)
+    future_goal = models.TextField(null=True, blank=True)
 
     # Contact information
     contact_email = models.EmailField(max_length=30, null=True, blank=True)
