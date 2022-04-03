@@ -81,7 +81,7 @@ function getSnippetKeywordForRequests(snippetType){
     } else if (snippetType === "skill"){
         snippetRequestKeyword = "skills";
     } else if (snippetType === "profile"){
-        snippetRequestKeyword = snippetType;
+        snippetRequestKeyword = "profiles";
     }
     return snippetRequestKeyword;
 }

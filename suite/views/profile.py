@@ -2,15 +2,17 @@
 Views relating to the profile section of folios within suite
 """
 
+import json
 from django.shortcuts import (
     render,
     redirect,
     get_object_or_404,
-    reverse
+    reverse,
+    HttpResponse
 )
 from django.contrib.auth.decorators import login_required
 from suite.models import Folio, Profile
-from suite.functions import id_has_been_provided
+from suite.functions import id_has_been_provided, sort_by_id
 from suite.forms import FolioProfileForm
 
 
@@ -110,6 +112,51 @@ def update_folio_profile(request, profile_id, folio_id):
             reverse("edit_folio_profile",
                     kwargs={"folio_id": folio_id})
         )
+
+
+@login_required
+def update_profiles_attached_to_folio(request, folio_id):
+    """
+    Updates which profiles are attached
+    to the currently viewed folio
+    """
+
+    if request.method == "POST":
+        # Retrieve list of project status's sorted by id
+        data = json.loads(request.body)
+        list_of_profiles = data['profiles']
+        list_of_profiles.sort(reverse=False, key=sort_by_id)
+
+        # Grab users profiles from DB using ID's provided
+        profiles_in_db = Profile.objects.filter(
+             id__in=[profile['id'] for profile in list_of_profiles]
+        )
+
+        # Get currently viewed folio
+        folio = get_object_or_404(Folio, pk=folio_id)
+
+        # Iterate through profiles in db & status's given from user actions
+        for profile_in_db, profile_status in zip(profiles_in_db,
+                                                 list_of_profiles):
+            # Ensure ID's match
+            if profile_in_db.id == int(profile_status['id']):
+                # Add/remove folio or continue based on is_attached
+                # status & if the folio already exists in project folios
+                if profile_status['is_attached']:
+                    if profile_in_db.folios.filter(pk=folio_id).exists():
+                        continue
+                    else:
+                        profile_in_db.folios.add(folio)
+                else:
+                    if profile_in_db.folios.filter(pk=folio_id).exists():
+                        profile_in_db.folios.remove(folio)
+                    else:
+                        continue
+            else:
+                print("they didn't match, sorting error")
+
+        # Return an OK response
+        return HttpResponse("OK")
 
 
 @login_required
