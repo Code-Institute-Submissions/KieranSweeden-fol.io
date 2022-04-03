@@ -110,7 +110,7 @@ class FolioProfileForm(forms.ModelForm):
 
     class Meta:
         # Associated with Project model
-        model = Skill
+        model = Profile
 
         # Include fields that are editable
         fields = [
