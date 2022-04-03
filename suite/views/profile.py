@@ -110,3 +110,25 @@ def update_folio_profile(request, profile_id, folio_id):
             reverse("edit_folio_profile",
                     kwargs={"folio_id": folio_id})
         )
+
+
+@login_required
+def delete_folio_profile(request, profile_id, folio_id):
+    """
+    Deletes a user's folio profile
+    """
+
+    # Ensure the request made is a POST request
+    if request.method == "POST":
+
+        # Get the profile
+        profile_in_db = get_object_or_404(Profile, pk=profile_id)
+
+        # Delete the profile from the database
+        profile_in_db.delete()
+
+        # Return to folio profile page using folio id
+        return redirect(
+            reverse("edit_folio_profile",
+                    kwargs={"folio_id": folio_id})
+        )
