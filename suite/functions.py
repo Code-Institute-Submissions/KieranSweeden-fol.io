@@ -35,3 +35,17 @@ def sort_by_id(entity):
     which can be used for sorting purposes
     """
     return int(entity['id'])
+
+
+def is_tech_skill(skill):
+    """
+    Returns true if skill is tech skill
+    """
+    return True if skill.skill_type == "TECH" else False
+
+
+def is_soft_skill(skill):
+    """
+    Returns true if skill is soft skill
+    """
+    return True if skill.skill_type == "SOFT" else False
