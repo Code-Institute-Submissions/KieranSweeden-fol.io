@@ -11,5 +11,14 @@ skill_urlpatterns = [
          name="edit_folio_skills"),
     path('skills/<int:folio_id>/',
          views.edit_folio_skills,
-         name="edit_folio_skills")
+         name="edit_folio_skills"),
+    path('skills/create/<int:folio_id>/',
+         views.create_folio_skill,
+         name="create_folio_skill"),
+    path('skills/update/<int:folio_id>/<int:skill_id>',
+         views.update_folio_skill,
+         name="update_folio_skill"),
+    path('skills/delete/<int:folio_id>/<int:skill_id>',
+         views.delete_folio_skill,
+         name="delete_folio_skill")
 ]
