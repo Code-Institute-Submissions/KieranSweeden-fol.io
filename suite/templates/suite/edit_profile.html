@@ -28,5 +28,30 @@
 {% endblock %}
 
 {% block content %}
-
+<div class="row mb-3">
+    <section class="col-12 col-lg-6 border-end">
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="h5 mb-0">About Me</h3>
+        </div>
+    {% include './includes/list_of_profiles.html' %}
+    </section>
+    <section class="col-12 col-lg-6">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center">
+                <h3 class="h5 mb-0">What I'm Currently Working On</h3>
+            </div>
+            <div class="col-12 d-flex justify-content-between align-items-center">
+                <h3 class="h5 mb-0">My Future Goal</h3>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="row mb-3">
+    <div class="col-12">
+        <hr>
+    </div>
+    <div class="col-12 d-flex justify-content-end align-items-center">
+        <button class="btn btn-primary" id="updateSnippetsBtn" type="submit">Save Changes</button>
+    </div>
+</div>
 {% endblock %}
