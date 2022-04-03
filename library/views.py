@@ -137,5 +137,18 @@ def delete_folio(request, folio_id):
     # Delete the folio
     folio.delete()
 
-    # Redirect the user to the view library page
-    return redirect("view_library")
+    # Create redirect response
+    response = redirect(reverse("view_library"))
+
+    # If the latest_folio cookie exists
+    if 'latest_folio' in request.COOKIES.keys():
+
+        # Get the cookie
+        latest_folio = request.COOKIES['latest_folio']
+
+        # Delete cookie if it's the id of deleted folio
+        if int(folio_id) == int(latest_folio):
+            response.delete_cookie('latest_folio')
+
+    # Re-direct user to library
+    return response
