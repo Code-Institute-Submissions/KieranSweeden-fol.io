@@ -80,7 +80,7 @@ class Project(models.Model):
 
 class Skill(models.Model):
     """
-    Skills snippet, storing information regarding
+    Skill snippet, storing information regarding
     a user's particular skill which is presented within
     the skills tab of a user's folio
     """
@@ -120,3 +120,28 @@ class Skill(models.Model):
     # Method to return title of project
     def __str__(self):
         return self.skill_title
+
+
+class Profile(models.Model):
+    """
+    Profile snippet, storing information regarding
+    a user's background and story with the
+    software development industry
+    """
+
+    # If author is deleted, remove the author's folios
+    author_id = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    # If Folio is deleted, project snippets persists
+    folios = models.ManyToManyField(Folio)
+
+    profile_title = models.CharField(max_length=50)
+    profile_bio = models.TextField()
+
+    # Date related fields
+    date_created = models.DateField(auto_now_add=True)
+    last_updated = models.DateField(auto_now=True)
+
+    # Method to return title of project
+    def __str__(self):
+        return self.profile_title
