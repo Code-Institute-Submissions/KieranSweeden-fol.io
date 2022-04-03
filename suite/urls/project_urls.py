@@ -3,7 +3,7 @@ Project specific urls within the folio suite
 """
 
 from django.urls import path
-from . import views
+from suite import views
 
 project_urlpatterns = [
     path('projects/',

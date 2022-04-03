@@ -3,7 +3,7 @@ General urls regarding the suite specifically
 """
 
 from django.urls import path
-from . import views
+from suite import views
 
 general_urlpatterns = [
     path('open/', views.open_suite, name="open_suite"),

@@ -3,7 +3,7 @@ Contact specific urls within the folio suite
 """
 
 from django.urls import path
-from . import views
+from suite import views
 
 contact_urlpatterns = [
     path('contact/',

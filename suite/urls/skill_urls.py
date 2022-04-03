@@ -3,7 +3,7 @@ Skill specific urls within the folio suite
 """
 
 from django.urls import path
-from . import views
+from suite import views
 
 skill_urlpatterns = [
     path('skills/',

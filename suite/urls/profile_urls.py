@@ -3,7 +3,7 @@ Profile specific urls within the folio suite
 """
 
 from django.urls import path
-from . import views
+from suite import views
 
 profile_urlpatterns = [
     path('profile/',
