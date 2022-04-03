@@ -15,4 +15,7 @@ profile_urlpatterns = [
      path('profile/create/<int:folio_id>/',
           views.create_folio_profile,
           name="create_folio_profile"),
+     path('profiles/update/<int:folio_id>/<int:profile_id>',
+          views.update_folio_profile,
+          name="update_folio_profile"),
 ]

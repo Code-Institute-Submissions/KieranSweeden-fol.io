@@ -84,3 +84,29 @@ def create_folio_profile(request, folio_id):
                 reverse("edit_folio_profile",
                         kwargs={"folio_id": folio_id})
             )
+
+
+@login_required
+def update_folio_profile(request, profile_id, folio_id):
+    """
+    Updates an existing folio profile
+    """
+
+    # Ensure the request made is a POST request
+    if request.method == "POST":
+
+        # Get current profile
+        profile_in_db = get_object_or_404(Profile, pk=profile_id)
+
+        # Save instance of profile form
+        form = FolioProfileForm(request.POST, instance=profile_in_db)
+
+        # Save form if valid
+        if form.is_valid():
+            form.save()
+
+        # Return to folio profile page using folio id
+        return redirect(
+            reverse("edit_folio_profile",
+                    kwargs={"folio_id": folio_id})
+        )

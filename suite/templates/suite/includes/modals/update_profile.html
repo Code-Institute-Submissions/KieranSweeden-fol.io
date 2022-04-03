@@ -4,7 +4,7 @@
 {% block modal_title %}Update {{ profile.profile_title }}{% endblock %}
 
 {% block modal_body %}
-<form action="" method="POST">
+<form action="{% url 'update_folio_profile' profile_id=profile.id folio_id=folio.id %}" method="POST">
     {% csrf_token %}
     <div class="row">
         <div class="col-12">
