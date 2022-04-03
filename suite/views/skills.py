@@ -2,18 +2,21 @@
 Views relating to the skills section of folios within suite
 """
 
+import json
 from django.shortcuts import (
     render,
     redirect,
     get_object_or_404,
-    reverse
+    reverse,
+    HttpResponse
 )
 from django.contrib.auth.decorators import login_required
 from suite.models import Folio, Skill
 from suite.functions import (
     id_has_been_provided,
     is_tech_skill,
-    is_soft_skill
+    is_soft_skill,
+    sort_by_id
 )
 from suite.forms import FolioSkillForm
 
@@ -119,6 +122,50 @@ def update_folio_skill(request, skill_id, folio_id):
             reverse("edit_folio_skills",
                     kwargs={"folio_id": folio_id})
         )
+
+
+@login_required
+def update_skills_attached_to_folio(request, folio_id):
+    """
+    Updates which skills are attached
+    to the currently viewed folio
+    """
+
+    if request.method == "POST":
+        # Retrieve list of project status's sorted by id
+        data = json.loads(request.body)
+        list_of_skills = data['skills']
+        list_of_skills.sort(reverse=False, key=sort_by_id)
+
+        # Grab users skills from DB using ID's provided
+        skills_in_db = Skill.objects.filter(
+             id__in=[skill['id'] for skill in list_of_skills]
+        )
+
+        # Get currently viewed folio
+        folio = get_object_or_404(Folio, pk=folio_id)
+
+        # Iterate through skills in db & status's given from user actions
+        for skill_in_db, skill_status in zip(skills_in_db, list_of_skills):
+            # Ensure ID's match
+            if skill_in_db.id == int(skill_status['id']):
+                # Add/remove folio or continue based on is_attached
+                # status & if the folio already exists in project folios
+                if skill_status['is_attached']:
+                    if skill_in_db.folios.filter(pk=folio_id).exists():
+                        continue
+                    else:
+                        skill_in_db.folios.add(folio)
+                else:
+                    if skill_in_db.folios.filter(pk=folio_id).exists():
+                        skill_in_db.folios.remove(folio)
+                    else:
+                        continue
+            else:
+                print("they didn't match, sorting error")
+
+        # Return an OK response
+        return HttpResponse("OK")
 
 
 @login_required

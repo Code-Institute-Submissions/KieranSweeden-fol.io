@@ -52,8 +52,6 @@ function updateNumberOfProjectsSelected(checkedProjectsAmount = 0){
     elementDisplayed.textContent = checkedProjectsAmount;
 }
 
-
-
 function disableUncheckedProjectCheckboxes(uncheckedCheckBoxes){
     for (checkbox of uncheckedCheckBoxes) {
         checkbox.disabled = true;
