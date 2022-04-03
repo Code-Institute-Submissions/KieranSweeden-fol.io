@@ -142,6 +142,49 @@ class FolioProfileForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
 
 
+class FolioProfileCurrentAndFutureGoalForm(forms.ModelForm):
+    """
+    This form relates to the folio model and
+    is the form the user submits to regarding
+    their current projects & future goals
+    """
+
+    class Meta:
+        # Associated with Project model
+        model = Folio
+
+        # Include fields that are editable
+        fields = [
+            "current_project_link",
+            "current_project_desc",
+            "future_goal"
+        ]
+
+    # Customize form
+    def __init__(self, *args, **kwargs):
+        """
+        Insert placeholders
+        """
+
+        # Setup form as default
+        super().__init__(*args, **kwargs)
+
+        # Placeholders
+        placeholders = {
+            "current_project_link": "Current project link",
+            "current_project_desc": "Current project description",
+            "future_goal": "Insert your future goals"
+        }
+
+        # Iterate over the fields, inserting
+        # placeholders along the way
+        for field in self.fields:
+
+            # Give them their respective placeholders & classes
+            placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+
+
 class FolioContactForm(forms.ModelForm):
     """
     This form relates to the contact information
