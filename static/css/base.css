@@ -354,14 +354,17 @@ h1, h2, h3, h4, h5, h6,
 /* Form Styling */
 
 input.form-control,
-.form-check-input[type=checkbox] {
+input.form-check-input[type=checkbox], 
+select.form-select {
     border-radius: 0;
     background-color: var(--folio-white-color);
     transition: border-color 400ms ease-in-out, box-shadow 400ms ease-in-out;
 }
 
 input.form-control:focus,
-input.form-control:focus-visible {
+input.form-control:focus-visible,
+select.form-select:focus,
+select.form-select:focus-visible {
     border-color: var(--folio-feature-color);
     box-shadow: 0 0 0 .2rem var(--folio-feature-color);
     background-color: var(--folio-white-color);
@@ -387,7 +390,7 @@ input.form-control:focus-visible {
     border-color: var(--folio-feature-color);
 }
 
-.form-check-input:checked {
+input.form-check-input[type=checkbox]:checked {
     background-color: var(--folio-feature-color);
     border-color: var(--folio-feature-color);
 }
