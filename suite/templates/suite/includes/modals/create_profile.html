@@ -4,7 +4,7 @@
 {% block modal_title %}Create new profile{% endblock %}
 
 {% block modal_body %}
-<form action="" method="POST">
+<form action="{% url 'create_folio_profile' folio_id=folio.id %}" method="POST">
     {% csrf_token %}
     <div class="row">
         <div class="col-12">
