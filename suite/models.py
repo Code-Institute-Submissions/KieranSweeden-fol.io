@@ -135,6 +135,7 @@ class Profile(models.Model):
     # If Folio is deleted, project snippets persists
     folios = models.ManyToManyField(Folio)
 
+    # Profile specific fields
     profile_title = models.CharField(max_length=50)
     profile_bio = models.TextField()
 
