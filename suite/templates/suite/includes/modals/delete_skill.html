@@ -4,7 +4,7 @@
 {% block modal_title %}Delete {{ skill.skill_title }}{% endblock %}
 
 {% block modal_body %}
-<form action="{% url 'delete_folio_project' folio_id=folio.id project_id=project.id %}" method="POST">
+<form action="{% url 'delete_folio_project' folio_id=folio.id project_id=skill.id %}" method="POST">
     {% csrf_token %}
     <div class="row">
         <div class="col-12 mb-3">
