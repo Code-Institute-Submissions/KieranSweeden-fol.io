@@ -21,6 +21,9 @@ profile_urlpatterns = [
      path('profiles/update/profiles_attached/<int:folio_id>/',
           views.update_profiles_attached_to_folio,
           name="update_profiles_attached_to_folio"),
+     path('profile/update/current_and_future/<int:folio_id>/',
+          views.update_current_and_future_goal,
+          name="update_current_and_future_goal"),
      path('profile/delete/<int:folio_id>/<int:profile_id>',
           views.delete_folio_profile,
           name="delete_folio_profile")

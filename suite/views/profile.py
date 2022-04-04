@@ -43,7 +43,9 @@ def edit_folio_profile(request, folio_id=None):
 
         create_profile_form = FolioProfileForm()
 
-        current_and_future_goal_form = FolioProfileCurrentAndFutureGoalForm()
+        current_and_future_goal_form = FolioProfileCurrentAndFutureGoalForm(
+            instance=folio
+        )
 
         context = {
             "folio": folio,
@@ -160,6 +162,37 @@ def update_profiles_attached_to_folio(request, folio_id):
 
         # Return an OK response
         return HttpResponse("OK")
+
+
+@login_required
+def update_current_and_future_goal(request, folio_id):
+    """
+    Updates the current project and future goal
+    portion of folio that's presented within the
+    profile tab in the suite.
+    """
+
+    # Ensure the request made is a POST request
+    if request.method == "POST":
+
+        # Get current folio
+        folio_in_db = get_object_or_404(Folio, pk=folio_id)
+
+        # Save instance of profile form
+        form = FolioProfileCurrentAndFutureGoalForm(
+            request.POST,
+            instance=folio_in_db
+        )
+
+        # Save form if valid
+        if form.is_valid():
+            form.save()
+
+        # Return to folio profile page using folio id
+        return redirect(reverse(
+            "edit_folio_profile",
+            kwargs={"folio_id": folio_id}
+        ))
 
 
 @login_required
