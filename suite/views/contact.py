@@ -10,6 +10,7 @@ from django.shortcuts import (
 from django.contrib.auth.decorators import login_required
 from suite.models import Folio
 from suite.functions import id_has_been_provided
+from suite.forms import FolioContactForm
 
 
 @login_required
@@ -23,8 +24,11 @@ def edit_folio_contact(request, folio_id=None):
 
         folio = get_object_or_404(Folio, pk=folio_id)
 
+        form = FolioContactForm(instance=folio)
+
         context = {
-            "folio": folio
+            "folio": folio,
+            "form": form
         }
 
         return render(request, "suite/edit_contact.html", context=context)
