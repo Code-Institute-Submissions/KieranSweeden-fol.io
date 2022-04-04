@@ -5,7 +5,8 @@ Views relating to the contact section of folios within suite
 from django.shortcuts import (
     render,
     redirect,
-    get_object_or_404
+    get_object_or_404,
+    reverse
 )
 from django.contrib.auth.decorators import login_required
 from suite.models import Folio
@@ -36,3 +37,29 @@ def edit_folio_contact(request, folio_id=None):
     else:
         # If one hasn't been provided
         return redirect("select_folio")
+
+
+@login_required
+def update_folio_contact(request, folio_id):
+    """
+    Updates the user's contact information
+    within folio
+    """
+
+    # Ensure the request made is a POST request
+    if request.method == "POST":
+
+        # Get current folio
+        folio_in_db = get_object_or_404(Folio, pk=folio_id)
+
+        # Save instance of project form
+        form = FolioContactForm(request.POST, instance=folio_in_db)
+
+        # Save form if valid
+        if form.is_valid():
+            form.save()
+
+        # Return to folio project page using folio id
+        return redirect(
+            reverse("edit_folio_contact",
+                    kwargs={"folio_id": folio_id}))
