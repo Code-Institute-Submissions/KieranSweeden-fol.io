@@ -13,7 +13,7 @@ from django.shortcuts import (
 from django.contrib.auth.decorators import login_required
 from suite.models import Folio, Profile
 from suite.functions import id_has_been_provided, sort_by_id
-from suite.forms import FolioProfileForm
+from suite.forms import FolioProfileForm, FolioProfileCurrentAndFutureGoalForm
 
 
 @login_required
@@ -43,9 +43,12 @@ def edit_folio_profile(request, folio_id=None):
 
         create_profile_form = FolioProfileForm()
 
+        current_and_future_goal_form = FolioProfileCurrentAndFutureGoalForm()
+
         context = {
             "folio": folio,
             "create_profile_form": create_profile_form,
+            "current_and_future_goal_form": current_and_future_goal_form,
             "profiles": profiles
         }
 
