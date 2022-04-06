@@ -4,8 +4,8 @@ Views for the pages related to the license store
 
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-
-# Create your views here.
+from .models import LicensePurchase
+from .forms import LicensePurchaseForm
 
 
 @login_required
@@ -15,7 +15,14 @@ def purchase_license(request):
     and presents then within the library page
     """
 
-    return render(request, "license/purchase_license.html")
+    # Create a fresh instance of the license purchase form
+    form = LicensePurchaseForm()
+
+    context = {
+        "form": form
+    }
+
+    return render(request, "license/purchase_license.html", context=context)
 
 
 @login_required
