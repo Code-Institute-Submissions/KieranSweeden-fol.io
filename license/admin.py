@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import LicensePurchase
 
-# Register your models here.
+admin.register(LicensePurchase)
