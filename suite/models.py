@@ -38,6 +38,9 @@ class Folio(models.Model):
     contact_github_profile = models.URLField(null=True, blank=True)
     contact_linkedin_profile = models.URLField(null=True, blank=True)
 
+    # License information
+    is_published = models.BooleanField(default=False)
+
     # Method to return name of folio
     def __str__(self):
         return self.name

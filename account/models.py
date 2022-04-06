@@ -33,6 +33,9 @@ class UserAccount(models.Model):
         max_length=20, null=True, blank=True
     )
 
+    # Folio oriented info
+    number_of_licenses = models.PositiveSmallIntegerField(default=0)
+
     # Default billing info
     default_street_address1 = models.CharField(
         max_length=80, null=True, blank=True
