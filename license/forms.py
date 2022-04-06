@@ -54,7 +54,7 @@ class LicensePurchaseForm(forms.ModelForm):
             "purchaser_postcode": "Post Code",
             "purchaser_county": "County",
             "purchaser_country": "Country",
-            "no_of_licenses_purchased": "Amount of Licenses",
+            "no_of_licenses_purchased": "Amount of Licenses"
         }
 
         # Iterate over the fields, inserting

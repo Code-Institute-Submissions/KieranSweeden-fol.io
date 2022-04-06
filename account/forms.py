@@ -17,15 +17,11 @@ class AccountDetailsForm(forms.ModelForm):
         exclude billing oriented details
         """
         model = UserAccount
-        exclude = (
-            'user',
-            'default_street_address1',
-            'default_street_address2',
-            'default_town_or_city',
-            'default_postcode',
-            'default_county',
-            'default_country'
-        )
+        fields = [
+            'first_name',
+            'last_name',
+            'default_phone_number'
+        ]
 
     # Customize the form
     def __init__(self, *args, **kwargs):
@@ -72,12 +68,14 @@ class BillingDetailsForm(forms.ModelForm):
         exclude personal info details
         """
         model = UserAccount
-        exclude = (
-            'user',
-            'first_name',
-            'last_name',
-            'default_phone_number'
-        )
+        fields = [
+            'default_street_address1',
+            'default_street_address2',
+            'default_town_or_city',
+            'default_postcode',
+            'default_county',
+            'default_country'
+        ]
 
     # Customize the form
     def __init__(self, *args, **kwargs):
