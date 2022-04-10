@@ -43,6 +43,9 @@ def create_checkout_session(request):
 
             # Create stripe checkout session
             checkout_session = stripe.checkout.Session.create(
+                customer_email=form.cleaned_data[
+                        'purchaser_email'
+                ],
                 line_items=[
                     {
                         'price': settings.FOLIO_LICENSE_PRICE_ID,
