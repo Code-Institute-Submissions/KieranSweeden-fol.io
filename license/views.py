@@ -57,7 +57,7 @@ def create_checkout_session(request):
                     },
                 ],
                 metadata={
-                        "user": request.user
+                        "user_id": request.user.id
                 },
                 mode='payment',
                 success_url=f'{settings.URL}library/',

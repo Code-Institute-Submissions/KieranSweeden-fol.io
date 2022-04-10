@@ -6,6 +6,7 @@ to process payments from stripe
 
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
 from account.models import UserAccount
 
 
@@ -37,9 +38,20 @@ class StripeWebHookHandlers:
         pid = session.payment_intent
         grand_total = session.amount_total
 
-        user = get_object_or_404(UserAccount, session.metadata.user)
+        # Get logged in user
+        user = get_object_or_404(
+            User,
+            pk=session.metadata.user_id
+        )
 
-        print(user)
+        # Get user's account
+        user_account = get_object_or_404(
+            UserAccount,
+            pk=session.metadata.user_id
+        )
+
+        print(user_account)
+        
         
 
 
