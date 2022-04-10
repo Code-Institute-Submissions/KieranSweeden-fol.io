@@ -2,30 +2,42 @@
 Views for the pages related to the user's folio library
 """
 
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import (
+    render,
+    get_object_or_404,
+    get_list_or_404,
+    redirect,
+    reverse
+)
 from django.contrib.auth.decorators import login_required
 
 from suite.models import Folio
 from .forms import CreateFolioForm
-
+from account.models import UserAccount
 
 @login_required
 def view_library(request):
     """
     Collects the user's list of folios
-    and presents then within the library page
+    and presents them within the library page
     """
 
-    # Get the user's folios
-    folios = Folio.objects.filter(
+    folios = get_list_or_404(
+        Folio,
         author_id=request.user
+    )
+
+    user_account = get_object_or_404(
+        UserAccount,
+        pk=request.user.id
     )
 
     form = CreateFolioForm()
 
     context = {
         "form": form,
-        "folios": folios
+        "folios": folios,
+        "license_amount": user_account.number_of_licenses
     }
 
     return render(request, "library/view_library.html", context=context)

@@ -43,29 +43,24 @@ class StripeWebHookHandlers:
         no_of_licenses_purchased = stripe.checkout.Session.list_line_items(
             session['id'])['data'][0]['quantity']
 
-        print(no_of_licenses_purchased)
         pid = session.payment_intent
         grand_total = session.amount_total
 
-        # # Get logged in user
-        # user = get_object_or_404(
-        #     User,
-        #     pk=session.metadata.user_id
-        # )
+        # Get logged in user
+        user = get_object_or_404(
+            User,
+            pk=session.metadata.user_id
+        )
 
-        # # Get user's account
-        # user_account = get_object_or_404(
-        #     UserAccount,
-        #     pk=session.metadata.user_id
-        # )
+        # Get user's account
+        user_account = get_object_or_404(
+            UserAccount,
+            pk=user.id
+        )
 
-        # print(user_account)
-        
-        
-
-
-
-        
+        user_account.add_licences_to_user_account(
+            no_of_licenses_purchased
+        )
 
         response_message = (
             f"Webhook received: {event['type']} | "
