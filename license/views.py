@@ -29,26 +29,34 @@ def purchase_license(request):
                   context=context)
 
 
+@login_required
 def create_checkout_session(request):
     """
     Creates a stripe checkout session
     """
 
-    stripe.api_key = settings.STRIPE_PRIVATE_KEY
+    if request.method == "POST":
+        form = LicensePurchaseForm(request.POST)
+        if form.is_valid():
+            # Set stripe api key
+            stripe.api_key = settings.STRIPE_PRIVATE_KEY
 
-    checkout_session = stripe.checkout.Session.create(
-        line_items=[
-            {
-                'price': settings.FOLIO_LICENSE_PRICE_ID,
-                'quantity': 1,
-            },
-        ],
-        mode='payment',
-        success_url=f'{settings.URL}/library/',
-        cancel_url=f'{settings.URL}/license/purchase/',
-    )
+            # Create stripe checkout session
+            checkout_session = stripe.checkout.Session.create(
+                line_items=[
+                    {
+                        'price': settings.FOLIO_LICENSE_PRICE_ID,
+                        'quantity': form.cleaned_data[
+                            'no_of_licenses_purchased'
+                        ]
+                    },
+                ],
+                mode='payment',
+                success_url=f'{settings.URL}/library/',
+                cancel_url=f'{settings.URL}/license/purchase/',
+            )
 
-    return redirect(checkout_session.url, status=303)
+            return redirect(checkout_session.url, status=303)
 
 
 @login_required
