@@ -57,6 +57,8 @@ def stripe_webhook(request):
             )
         )
 
+    print(event['type'])
+
     stripe_event_map = {
         'checkout.session.completed':
         StripeWebHookHandlers.handle_checkout_session_completed,

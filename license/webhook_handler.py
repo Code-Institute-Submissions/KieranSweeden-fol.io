@@ -5,6 +5,8 @@ to process payments from stripe
 """
 
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+from account.models import UserAccount
 
 
 class StripeWebHookHandlers:
@@ -31,11 +33,18 @@ class StripeWebHookHandlers:
         Handles successful stripe checkout sessions
         """
 
-        print(event)
-
         session = event['data']['object']
+        pid = session.payment_intent
+        grand_total = session.amount_total
 
-        print(session)
+        user = get_object_or_404(UserAccount, session.metadata.user)
+
+        print(user)
+        
+
+
+
+        
 
         response_message = (
             f"Webhook received: {event['type']} | "
