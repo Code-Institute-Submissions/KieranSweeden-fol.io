@@ -39,10 +39,26 @@ class StripeWebHookHandlers:
 
         response_message = (
             f"Webhook received: {event['type']} | "
-            f"Purchase was successful"
+            f"Purchase was successfully made"
         )
 
         return HttpResponse(
             content=response_message,
             status=200
         )
+    
+    def handle_payment_intent_failed(self, event):
+        """
+        Handles a failed stripe checkout session
+        """
+
+        response_message = (
+            f"Webhook received: {event['type']} | "
+            f"Purchase was unsuccessfully made"
+        )
+
+        return HttpResponse(
+            content=response_message,
+            status=200
+        )
+        
