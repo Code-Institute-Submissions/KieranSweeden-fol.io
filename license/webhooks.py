@@ -7,6 +7,7 @@ from django.conf import settings
 from django.shortcuts import HttpResponse
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
+from .webhook_handler import StripeWebHookHandlers
 
 import stripe
 
@@ -32,19 +33,20 @@ def stripe_webhook(request):
         )
     except ValueError as error:
         # Invalid payload
-        print(error)
         return HttpResponse(status=400)
 
     except stripe.error.SignatureVerificationError as error:
         # Invalid signature
-        print(error)
         return HttpResponse(status=400)
 
-    if event['type'] == 'checkout.session.completed':
-        session = event['data']['object']
+    stripe_event_map = {
+        'checkout.session.completed':
+        StripeWebHookHandlers.handle_checkout_session_completed
+    }
 
-        # Fulfill the purchase...
-        print(session)
+    stripe_event_handler = stripe_event_map.get(
+        event['type'],
+        StripeWebHookHandlers.handle_event
+    )
 
-    # Passed signature verification
-    return HttpResponse(status=200)
+    return stripe_event_handler(request, event)
