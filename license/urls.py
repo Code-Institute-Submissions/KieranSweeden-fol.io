@@ -4,6 +4,7 @@ URL's for the pages related to the license store
 
 from django.urls import path
 from . import views
+from . import webhooks
 
 
 urlpatterns = [
@@ -12,4 +13,7 @@ urlpatterns = [
     path('checkout/',
          views.create_checkout_session,
          name="create_checkout_session"),
+    path('checkout/webhook/',
+         webhooks.stripe_webhook,
+         name="stripe_webhook"),
 ]

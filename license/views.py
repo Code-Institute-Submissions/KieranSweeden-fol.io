@@ -3,8 +3,9 @@ Views for the pages related to the license store
 """
 
 from django.conf import settings
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from .models import LicensePurchase
 from .forms import LicensePurchaseForm
 
@@ -30,6 +31,7 @@ def purchase_license(request):
 
 
 @login_required
+@csrf_exempt
 def create_checkout_session(request):
     """
     Creates a stripe checkout session
@@ -55,8 +57,8 @@ def create_checkout_session(request):
                     },
                 ],
                 mode='payment',
-                success_url=f'{settings.URL}/library/',
-                cancel_url=f'{settings.URL}/license/purchase/',
+                success_url=f'{settings.URL}library/',
+                cancel_url=f'{settings.URL}license/purchase/',
             )
 
             return redirect(checkout_session.url, status=303)
