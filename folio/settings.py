@@ -200,6 +200,26 @@ WSGI_APPLICATION = 'folio.wsgi.application'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CSRF_TRUSTED_ORIGINS = [('https://*8000-kieransweeden-folio-jpgshgnar0y'
-                         '.ws-eu38.gitpod.io/')]
+                         '.ws-eu39.gitpod.io/')]
 
 # AUTH_USER_MODEL = 'auth.User'
+
+# URL
+
+if "DEVELOPMENT" in os.environ:
+    URL_SECTIONS = os.environ.get('GITPOD_WORKSPACE_URL').partition('kieran')
+
+    URL = (
+        f'{URL_SECTIONS[0]}8000-{URL_SECTIONS[1]}{URL_SECTIONS[2]}/'
+    )
+else:
+    URL_SECTIONS = os.environ.get('GITPOD_WORKSPACE_URL').partition('kieran')
+
+    URL = (
+        f'{URL_SECTIONS[0]}8000-{URL_SECTIONS[1]}{URL_SECTIONS[2]}/'
+    )
+
+# Stripe keys
+STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
+STRIPE_PRIVATE_KEY = os.environ.get("STRIPE_PRIVATE_KEY")
+FOLIO_LICENSE_PRICE_ID = os.environ.get("FOLIO_LICENSE_PRICE_ID")

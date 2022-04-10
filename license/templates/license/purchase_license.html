@@ -15,7 +15,7 @@
 {% endblock %}
 
 {% block content %}
-<form action="" method="POST">
+<form action="{% url 'create_checkout_session' %}" method="POST">
     {% csrf_token %}
     <div class="row">
         <div class="col-12 col-md-6">
