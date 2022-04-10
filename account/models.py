@@ -56,8 +56,19 @@ class UserAccount(models.Model):
         blank_label='Country', null=True, blank=True
     )
 
-    # Method that returns the user email
+    def add_licences_to_user_account(self, amount):
+        """
+        Method increments the user's amount of
+        licences provided after a purchase
+        """
+        self.number_of_licenses += int(amount)
+        self.save()
+
     def __str__(self):
+        """
+        When logged via console,
+        the user's email will be returned
+        """
         return self.user.email
 
 

@@ -51,6 +51,11 @@ def create_checkout_session(request):
                 line_items=[
                     {
                         'price': settings.FOLIO_LICENSE_PRICE_ID,
+                        'adjustable_quantity': {
+                            'enabled': True,
+                            'minimum': 1,
+                            'maximum': 50,
+                        },
                         'quantity': form.cleaned_data[
                             'no_of_licenses_purchased'
                         ]

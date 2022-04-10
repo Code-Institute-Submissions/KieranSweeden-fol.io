@@ -4,10 +4,15 @@ containing the handlers required
 to process payments from stripe
 """
 
+from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from account.models import UserAccount
+
+import stripe
+
+stripe.api_key = settings.STRIPE_PRIVATE_KEY
 
 
 class StripeWebHookHandlers:
@@ -35,22 +40,26 @@ class StripeWebHookHandlers:
         """
 
         session = event['data']['object']
+        no_of_licenses_purchased = stripe.checkout.Session.list_line_items(
+            session['id'])['data'][0]['quantity']
+
+        print(no_of_licenses_purchased)
         pid = session.payment_intent
         grand_total = session.amount_total
 
-        # Get logged in user
-        user = get_object_or_404(
-            User,
-            pk=session.metadata.user_id
-        )
+        # # Get logged in user
+        # user = get_object_or_404(
+        #     User,
+        #     pk=session.metadata.user_id
+        # )
 
-        # Get user's account
-        user_account = get_object_or_404(
-            UserAccount,
-            pk=session.metadata.user_id
-        )
+        # # Get user's account
+        # user_account = get_object_or_404(
+        #     UserAccount,
+        #     pk=session.metadata.user_id
+        # )
 
-        print(user_account)
+        # print(user_account)
         
         
 
