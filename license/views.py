@@ -6,10 +6,13 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+
+import stripe
+
 from .models import LicensePurchase
 from .forms import LicensePurchaseForm
 
-import stripe
+stripe.api_key = settings.STRIPE_PRIVATE_KEY
 
 
 @login_required
@@ -40,9 +43,6 @@ def create_checkout_session(request):
     if request.method == "POST":
         form = LicensePurchaseForm(request.POST)
         if form.is_valid():
-            # Set stripe api key
-            stripe.api_key = settings.STRIPE_PRIVATE_KEY
-
             # Create stripe checkout session
             checkout_session = stripe.checkout.Session.create(
                 customer_email=form.cleaned_data[

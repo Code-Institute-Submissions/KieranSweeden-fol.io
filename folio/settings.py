@@ -200,7 +200,7 @@ WSGI_APPLICATION = 'folio.wsgi.application'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CSRF_TRUSTED_ORIGINS = [('https://*8000-kieransweeden-folio-jpgshgnar0y'
-                         '.ws-eu39.gitpod.io/')]
+                         '.ws-eu38.gitpod.io/')]
 
 # AUTH_USER_MODEL = 'auth.User'
 

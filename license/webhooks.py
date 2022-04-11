@@ -22,7 +22,6 @@ def stripe_webhook(request):
     Listens for stripe webhooks
     """
 
-    # Grab payload
     payload = request.body.decode('utf-8')
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
@@ -56,8 +55,6 @@ def stripe_webhook(request):
                 f'ERROR: {error}'
             )
         )
-
-    print(event['type'])
 
     stripe_event_map = {
         'checkout.session.completed':

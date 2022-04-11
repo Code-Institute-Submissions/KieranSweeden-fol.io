@@ -41,8 +41,17 @@ class Folio(models.Model):
     # License information
     is_published = models.BooleanField(default=False)
 
-    # Method to return name of folio
+    def toggle_published_state(self):
+        """
+        Toggle's the folio's published state
+        """
+        self.is_published = not self.is_published
+        self.save()
+
     def __str__(self):
+        """
+        Returns folio name when called
+        """
         return self.name
 
 
