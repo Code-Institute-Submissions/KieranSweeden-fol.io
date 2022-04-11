@@ -34,11 +34,11 @@
             </div>
             <div class="card-footer d-flex justify-content-between align-items-center">
               {% if folio.is_published %}
-                <span class="material-icons-sharp text-feature-color">
+                <span class="material-icons-sharp text-feature-color" data-bs-toggle="tooltip" data-bs-placement="right" title="Folio is published">
                   visibility
                 </span>
               {% else %}
-                <span class="material-icons-sharp text-white-color">
+                <span class="material-icons-sharp text-white-color" data-bs-toggle="tooltip" data-bs-placement="right" title="Folio is concealed">
                   visibility_off
                 </span>
               {% endif %}
