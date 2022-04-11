@@ -33,12 +33,19 @@ def view_library(request):
         pk=request.user.id
     )
 
+    amount_of_published_folios = len(Folio.objects.filter(
+        author_id=request.user
+    ).filter(
+        is_published=True
+    ))
+
     form = CreateFolioForm()
 
     context = {
         "form": form,
         "folios": folios,
-        "license_amount": user_account.number_of_licenses
+        "total_licenses": user_account.number_of_licenses,
+        "used_licenses": amount_of_published_folios
     }
 
     return render(request, "library/view_library.html", context=context)
