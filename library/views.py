@@ -15,6 +15,7 @@ from suite.models import Folio
 from .forms import CreateFolioForm
 from account.models import UserAccount
 
+
 @login_required
 def view_library(request):
     """
@@ -135,6 +136,53 @@ def update_folio(request, folio_id):
         }
 
         return render(request, "library/update_folio.html", context=context)
+
+
+@login_required
+def toggle_folio_published_state(request, folio_id):
+    """
+    Updates the folio's published state
+    """
+
+    # Get the folio
+    folio = get_object_or_404(Folio, pk=folio_id)
+
+    # If folio's published state is true
+    if folio.is_published:
+
+        # Set the folio's published state to false
+        folio.toggle_published_state()
+
+        # Return to library
+        return redirect("view_library")
+    
+    # If the folio's published state is false
+    else:
+
+        # Get the user's amount of licences
+        user_account = get_object_or_404(
+            UserAccount, pk=request.user.id
+        )
+
+        # Get the amount of folio's that are published
+        amount_of_published_folios = len(Folio.objects.filter(
+            author_id=request.user
+        ).filter(
+            is_published=True
+        ))
+
+        # If amount of published folio's is less than user's amount of licences
+        if amount_of_published_folios < user_account.number_of_licenses:
+
+            # Update the folio's published state to true
+            folio.toggle_published_state()
+
+            # Redirect user to library page with message
+            return redirect("view_library")
+        # If amount of folio's published is equal to or greater than the user's amount of licenses
+        else:
+            # Redirect to license purchase page with message
+            return redirect("purchase_license")
 
 
 @login_required

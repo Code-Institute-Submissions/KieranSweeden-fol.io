@@ -11,6 +11,15 @@
                     <span class="material-icons-sharp">more_vert</span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeInUp animate__fast" aria-labelledby="folio-dropdown-button">
+                  <li>
+                    <a class="dropdown-item" href="{% url 'toggle_folio_published_state' folio.id %}">
+                      {% if folio.is_published %}
+                        Conceal
+                      {% else %}
+                        Publish
+                      {% endif %}
+                    </a>
+                  </li>
                   <li><a class="dropdown-item" href="{% url 'open_suite' folio.id %}">Open in Suite</a></li>
                   <li><a class="dropdown-item" href="{% url 'update_folio' folio.id %}">Edit Details</a></li>
                   <li><hr class="dropdown-divider"></li>
