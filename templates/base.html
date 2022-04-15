@@ -84,10 +84,37 @@
   <main class="container">
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2">
-        {% block content %}{% endblock %}
+        {% block content %}
+        {% endblock %}
       </div>
     </div>
   </main>
 
+  {% if messages %}
+    <ul>
+      {% for message in messages %}
+        <li class="card card-message animate__animated animate__fadeInRight">
+          <div class="card-header card-header-{{message.tags}} d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-start align-items-center">
+              <span class="material-icons-sharp">
+                  {% if message.tags == "success" %}
+                    thumb_up
+                  {% elif message.tags == "error" %}
+                    thumb_down
+                  {% endif %}
+              </span>
+              <p class="text-white-color mb-0 ms-2">{{ message.tags|title }}!</p>
+            </div>
+            <button class="btn btn-icon">
+              <span class="material-icons-sharp">close</span>
+            </button>
+          </div>
+          <div class="card-body">
+            {{ message }}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
   </body>
 </html>

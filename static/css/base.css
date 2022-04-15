@@ -6,6 +6,7 @@
     --folio-black-color: hsla(0, 0%, 12%, 1);
     --folio-white-color: hsla(0, 0%, 92%, 1);
     --folio-white-faded-color: hsla(0, 0%, 92%, 0.8);
+    --folio-success-color: hsla(141, 31%, 50%, 1);
     --folio-delete-color: hsla(9, 57%, 41%, 1);
     --folio-sans-font: 'Libre Baskerville', serif;
     --folio-sans-serif-font: 'Inter', sans-serif;
@@ -17,6 +18,7 @@ body {
     font-family: 'Inter', sans-serif;
     color: var(--folio-white-color);
     background-color: var(--folio-bg-black-color);
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -308,6 +310,24 @@ h1, h2, h3, h4, h5, h6,
     border-radius: 0;
     background-color: var(--folio-black-color);
     min-height: min-content;
+}
+
+/* Card Message Styling */
+
+.card.card-message {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.card.card-message .card-header-success {
+    color: var(--folio-success-color);
+    border-bottom: 0.2rem solid var(--folio-success-color);
+}
+
+.card.card-message .card-header-error {
+    color: var(--folio-delete-color);
+    border-bottom: 0.2rem solid var(--folio-delete-color);
 }
 
 /* Dropdown Styling */

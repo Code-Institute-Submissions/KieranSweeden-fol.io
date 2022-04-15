@@ -10,6 +10,7 @@ from django.shortcuts import (
     reverse
 )
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from suite.models import Folio
 from .forms import CreateFolioForm
@@ -160,9 +161,14 @@ def toggle_folio_published_state(request, folio_id):
         # Set the folio's published state to false
         folio.toggle_published_state()
 
+        messages.success(
+            request,
+            f"{folio.name} has been concealed successfully."
+        )
+
         # Return to library
         return redirect("view_library")
-    
+
     # If the folio's published state is false
     else:
 
@@ -183,6 +189,11 @@ def toggle_folio_published_state(request, folio_id):
 
             # Update the folio's published state to true
             folio.toggle_published_state()
+
+            messages.success(
+            request,
+            f"{folio.name} has been published successfully."
+        )
 
             # Redirect user to library page with message
             return redirect("view_library")
