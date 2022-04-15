@@ -38,8 +38,10 @@ class StripeWebHookHandlers:
         """Handles successful stripe checkout sessions"""
 
         session = event['data']['object']
-        no_of_licenses_purchased = stripe.checkout.Session.list_line_items(
-            session['id'])['data'][0]['quantity']
+        no_of_licenses_purchased = (
+            stripe.checkout.Session.list_line_items(
+                session['id'])['data'][0]['quantity']
+            )
         customer_details = session['metadata']
 
         user = get_object_or_404(
@@ -65,6 +67,8 @@ class StripeWebHookHandlers:
             stripe_pid=session.payment_intent
         )
 
+        new_license_purchase.purchase_total /= 100
+
         new_license_purchase.save()
 
         # Get user's account
@@ -86,7 +90,7 @@ class StripeWebHookHandlers:
             content=response_message,
             status=200
         )
-    
+
     def handle_payment_intent_failed(self, event):
         """
         Handles a failed stripe checkout session

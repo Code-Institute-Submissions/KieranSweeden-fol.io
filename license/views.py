@@ -3,7 +3,7 @@ Views for the pages related to the license store
 """
 
 from django.conf import settings
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_list_or_404
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
@@ -96,4 +96,12 @@ def order_history(request):
     and presents then within the library page
     """
 
-    return render(request, "license/order_history.html")
+    user_list_of_prev_purchases = LicensePurchase.objects.filter(
+        user=request.user.id
+    )
+
+    context = {
+        "license_purchases": user_list_of_prev_purchases
+    }
+
+    return render(request, "license/order_history.html", context=context)
