@@ -97,7 +97,9 @@ h1, h2, h3, h4, h5, h6,
     box-shadow: none;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:focus-within {
     color: var(--folio-white-color);
     background-color: transparent;
     border-color: var(--folio-feature-color);
@@ -105,7 +107,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-delete {
     text-transform: uppercase;
     padding: .1rem 1rem;
 }
@@ -118,38 +121,21 @@ h1, h2, h3, h4, h5, h6,
     transition: color 400ms ease-in-out, background-color 400ms ease-in-out;
 }
 
-.btn-secondary:focus {
-    color: var(--folio-black-color);
-    background-color: var(--folio-white-color);
-    border-color: var(--folio-white-color);
-    box-shadow: none;
-}
-
-.btn-secondary:active {
-    color: var(--folio-black-color);
-    background-color: var(--folio-white-color);
-    border-color: var(--folio-white-color);
-}
-
-.btn-secondary:active:focus {
-    box-shadow: none;
-}
-
-.btn-secondary.active {
-    color: var(--folio-white-color);
-    background-color: transparent;
-    border-color: var(--folio-white-color);
-}
-
-.btn-secondary.active:focus {
-    box-shadow: none;
-}
-
-.btn-secondary:hover {
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary:hover,
+.btn-secondary:focus-within {
     color: var(--folio-white-color);
     background-color: transparent;
     border-color: var(--folio-white-color);
     box-shadow: none;
+    transition: transform 100ms ease-in-out;
+}
+
+.btn-primary:active:focus,
+.btn-secondary:active:focus,
+.btn-delete:active:focus {
+    transform: scale(1.025, 1.025);
 }
 
 .btn-tertiary {
@@ -217,11 +203,13 @@ h1, h2, h3, h4, h5, h6,
     display: inline-flex;
     padding: 0.2rem;
     border: none;
-    transition: color 400ms ease-in-out;
+    transition: box-shadow 400ms ease-in-out;
 }
 
-.btn-icon:hover {
-    color: var(--folio-feature-color);
+.btn-icon:hover,
+.btn-icon:focus {
+    color: var(--folio-white-color);
+    box-shadow: 0 0 0 .25rem var(--folio-feature-color);
 }
 
 .btn-icon::after {
