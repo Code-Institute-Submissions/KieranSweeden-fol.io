@@ -25,6 +25,10 @@ h1, h2, h3, h4, h5, h6,
     color: var(--folio-white-color);
 }
 
+:is(h1, h2, h3, h4, h5, h6, p)::selection {
+    background-color: var(--folio-feature-color);
+}
+
 /* Colour Classes */
 
 .text-feature-color {

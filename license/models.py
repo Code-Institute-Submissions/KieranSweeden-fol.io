@@ -41,3 +41,11 @@ class LicensePurchase(models.Model):
         blank=False,
         default=""
     )
+
+    def __str__(self):
+        """
+        Returns folio name when called
+        """
+        return (
+            f"{self.purchaser_email} {self.purchase_date}"
+        )

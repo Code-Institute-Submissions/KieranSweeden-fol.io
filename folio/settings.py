@@ -202,8 +202,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CSRF_TRUSTED_ORIGINS = [('https://*8000-kieransweeden-folio-jpgshgnar0y'
                          '.ws-eu40.gitpod.io/')]
 
-# AUTH_USER_MODEL = 'auth.User'
-
 # URL
 
 if "DEVELOPMENT" in os.environ:

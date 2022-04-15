@@ -43,6 +43,7 @@ def create_checkout_session(request):
     if request.method == "POST":
         form = LicensePurchaseForm(request.POST)
         if form.is_valid():
+
             # Create stripe checkout session
             checkout_session = stripe.checkout.Session.create(
                 customer_email=form.cleaned_data[
@@ -62,7 +63,23 @@ def create_checkout_session(request):
                     },
                 ],
                 metadata={
-                        "user_id": request.user.id
+                    "user_id": request.user.id,
+                    "purchaser_full_name": form.cleaned_data[
+                        'purchaser_full_name'],
+                    "purchaser_phone_number": form.cleaned_data[
+                        'purchaser_phone_number'],
+                    "purchaser_street_address1": form.cleaned_data[
+                        'purchaser_street_address1'],
+                    "purchaser_street_address2": form.cleaned_data[
+                        'purchaser_street_address2'],
+                    "purchaser_town_or_city": form.cleaned_data[
+                        'purchaser_town_or_city'],
+                    "purchaser_postcode": form.cleaned_data[
+                        'purchaser_postcode'],
+                    "purchaser_county": form.cleaned_data[
+                        'purchaser_county'],
+                    "purchaser_country": form.cleaned_data[
+                        'purchaser_country']
                 },
                 mode='payment',
                 success_url=f'{settings.URL}library/',

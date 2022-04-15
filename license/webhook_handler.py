@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from account.models import UserAccount
+from .models import LicensePurchase
 
 import stripe
 
@@ -29,28 +30,42 @@ class StripeWebHookHandlers:
         Handles unknown/unexpected incoming
         webhook events
         """
-
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
 
     def handle_checkout_session_completed(self, event):
-        """
-        Handles successful stripe checkout sessions
-        """
+        """Handles successful stripe checkout sessions"""
 
         session = event['data']['object']
         no_of_licenses_purchased = stripe.checkout.Session.list_line_items(
             session['id'])['data'][0]['quantity']
+        customer_details = session['metadata']
 
-        pid = session.payment_intent
-        grand_total = session.amount_total
-
-        # Get logged in user
         user = get_object_or_404(
             User,
-            pk=session.metadata.user_id
+            pk=customer_details.user_id
         )
+
+        new_license_purchase = LicensePurchase(
+            user=user,
+            purchaser_full_name=customer_details['purchaser_full_name'],
+            purchaser_email=session['customer_email'],
+            purchaser_phone_number=customer_details['purchaser_phone_number'],
+            purchaser_street_address1=customer_details[
+                'purchaser_street_address1'],
+            purchaser_street_address2=customer_details[
+                'purchaser_street_address2'],
+            purchaser_town_or_city=customer_details['purchaser_town_or_city'],
+            purchaser_postcode=customer_details['purchaser_postcode'],
+            purchaser_county=customer_details['purchaser_county'],
+            purchaser_country=customer_details['purchaser_country'],
+            no_of_licenses_purchased=no_of_licenses_purchased,
+            purchase_total=session.amount_total,
+            stripe_pid=session.payment_intent
+        )
+
+        new_license_purchase.save()
 
         # Get user's account
         user_account = get_object_or_404(
