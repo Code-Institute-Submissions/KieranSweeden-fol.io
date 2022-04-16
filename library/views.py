@@ -117,6 +117,11 @@ def update_folio(request, folio_id):
             # Save the updated form
             form.save()
 
+            messages.success(
+                request,
+                f"{folio_in_db.name} has been updated successfully"
+            )
+
             if "update_only" in request.POST:
 
                 return redirect("view_library")
@@ -191,9 +196,9 @@ def toggle_folio_published_state(request, folio_id):
             folio.toggle_published_state()
 
             messages.success(
-            request,
-            f"{folio.name} has been published successfully."
-        )
+                request,
+                f"{folio.name} has been published successfully."
+            )
 
             # Redirect user to library page with message
             return redirect("view_library")
@@ -217,6 +222,11 @@ def delete_folio(request, folio_id):
 
     # Create redirect response
     response = redirect(reverse("view_library"))
+
+    messages.success(
+        request,
+        f"{folio.name} has been deleted successfully"
+    )
 
     # If the latest_folio cookie exists
     if 'latest_folio' in request.COOKIES.keys():
