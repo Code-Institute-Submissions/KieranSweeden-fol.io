@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block extra_title %}{% trans "Purchase Success" %}{% endblock %}
+
+{% block main_nav %}
+    {% include 'includes/main-navs/internal-main-nav.html' with active_nav_link='license_store' %}
+{% endblock %}
+
+{% block header_title %}{% trans "License Purchase Success" %}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <p>
+                Total Licenses: {{ total_licenses }} <span class="text-feature-color">({{used_licenses}} used)</span>
+            </p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_create_folio">
+                New Folio
+            </button>
+        </div>
+    </div>
+    {% include "./includes/list_of_folios.html" %}
+    {% include './includes/modals/create_folio.html' with size=undefined id="create_folio" %}
+{% endblock %}

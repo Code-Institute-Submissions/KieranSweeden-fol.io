@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 
 from django_countries.fields import CountryField
 
+import uuid
+
 
 class LicensePurchase(models.Model):
     """
@@ -33,6 +35,11 @@ class LicensePurchase(models.Model):
     purchase_date = models.DateField(auto_now_add=True)
     no_of_licenses_purchased = models.PositiveSmallIntegerField(default=0)
     purchase_total = models.DecimalField(max_digits=6, decimal_places=2)
+    order_number = models.UUIDField(
+        primary_key=False,
+        default=uuid.uuid4,
+        editable=False
+    )
 
     # Stripe-oriented info
     stripe_pid = models.CharField(

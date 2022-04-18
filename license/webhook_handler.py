@@ -5,9 +5,10 @@ to process payments from stripe
 """
 
 from django.conf import settings
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
+from django.contrib import messages
 from account.models import UserAccount
 from .models import LicensePurchase
 
@@ -22,8 +23,8 @@ class StripeWebHookHandlers:
     incoming stripe webhooks
     """
 
-    def __init__(self, request):
-        self.request = request
+    # def __init__(self, request):
+    #     self.request = request
 
     def handle_event(self, event):
         """
@@ -105,4 +106,3 @@ class StripeWebHookHandlers:
             content=response_message,
             status=200
         )
-        
