@@ -312,6 +312,10 @@ h1, h2, h3, h4, h5, h6,
     min-height: min-content;
 }
 
+.card-header {
+    border-bottom: 1px solid var(--folio-feature-color);
+}
+
 /* Card Message Styling */
 
 .card.card-message {
