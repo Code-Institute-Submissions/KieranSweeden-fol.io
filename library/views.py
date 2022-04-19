@@ -207,7 +207,7 @@ def toggle_folio_published_state(request, folio_id):
 
             # Redirect user to library page with message
             return redirect("view_library")
-        # If amount of folio's published is equal to or greater than the user's amount of licenses
+        # If amount of folio's published is >= than the user's amount of licenses
         else:
             # Redirect to license purchase page with message
             return redirect("purchase_license")

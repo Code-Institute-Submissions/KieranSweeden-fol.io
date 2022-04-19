@@ -43,9 +43,10 @@ class CreateFolioForm(forms.ModelForm):
         self.fields['name'].widget.attrs['autofocus'] = True
 
         # Iterate over the fields, inserting
-        # placeholders along the way
+        # placeholders & labels along the way
         for field in self.fields:
 
             # Give them their respective placeholders & classes
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = placeholder
