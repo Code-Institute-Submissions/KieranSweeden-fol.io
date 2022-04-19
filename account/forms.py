@@ -44,7 +44,7 @@ class AccountDetailsForm(forms.ModelForm):
         self.fields['first_name'].widget.attrs['autofocus'] = True
 
         # Iterate over the fields, inserting
-        # placeholders along the way
+        # placeholders & labels along the way
         for field in self.fields:
             # Add * for each required field
             if self.fields[field].required:
@@ -54,6 +54,7 @@ class AccountDetailsForm(forms.ModelForm):
 
             # Give them their respective placeholders & classes
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = placeholder
 
 
 class BillingDetailsForm(forms.ModelForm):
@@ -111,3 +112,4 @@ class BillingDetailsForm(forms.ModelForm):
 
                 # Give them their respective placeholders & classes
                 self.fields[field].widget.attrs['placeholder'] = placeholder
+                self.fields[field].label = placeholder

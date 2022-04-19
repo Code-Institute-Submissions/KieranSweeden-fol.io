@@ -6,7 +6,6 @@ from django.conf import settings
 from django.shortcuts import (
     render,
     redirect,
-    get_list_or_404,
     get_object_or_404
 )
 from django.contrib.auth.decorators import login_required
@@ -124,29 +123,30 @@ def checkout_session_success(request):
 
     stripe_session_id = request.GET.get('session_id', None)
 
-    if stripe_session_id is not None:
+    if stripe_session_id:
 
         prev_success_session = stripe.checkout.Session.retrieve(
             stripe_session_id
         )
 
-        session_pid = prev_success_session['payment_intent']
+        if prev_success_session:
 
-        prev_success_purchase = get_object_or_404(
-            LicensePurchase,
-            stripe_pid=session_pid
-        )
+            session_pid = prev_success_session['payment_intent']
 
-        context = {
-            "license_purchase": prev_success_purchase
-        }
+            prev_success_purchase = get_object_or_404(
+                LicensePurchase,
+                stripe_pid=session_pid
+            )
 
-        return render(
-            request,
-            "license/purchase_success.html",
-            context=context
-        )
-    
+            context = {
+                "license_purchase": prev_success_purchase
+            }
+
+            return render(
+                request,
+                "license/purchase_success.html",
+                context=context
+            )
+
     else:
         return redirect("view_library")
-
