@@ -11,6 +11,7 @@ from django.shortcuts import (
     HttpResponse
 )
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from suite.models import Folio, Skill
 from suite.functions import (
     id_has_been_provided,
@@ -91,6 +92,12 @@ def create_folio_skill(request, folio_id):
             # Fully save skill
             skill.save()
 
+            messages.success(
+                request,
+                f"The {skill.skill_title} skill has "
+                f"been created successfully."
+            )
+
             # Return to folio skill page using folio id
             return redirect(
                 reverse("edit_folio_skills",
@@ -116,6 +123,11 @@ def update_folio_skill(request, skill_id, folio_id):
         # Save form if valid
         if form.is_valid():
             form.save()
+            messages.success(
+                request,
+                f"The {skill_in_db.skill_title} skill "
+                f"has been updated successfully."
+            )
 
         # Return to folio skill page using folio id
         return redirect(
@@ -161,6 +173,13 @@ def update_skills_attached_to_folio(request, folio_id):
                         skill_in_db.folios.remove(folio)
                     else:
                         continue
+                
+                messages.success(
+                    request,
+                    f"The skills attached to {folio.name} "
+                    f"have been updated successfully."
+                )
+
             else:
                 print("they didn't match, sorting error")
 
@@ -182,6 +201,12 @@ def delete_folio_skill(request, skill_id, folio_id):
 
         # Delete the skill from the database
         skill_in_db.delete()
+
+        messages.success(
+            request,
+            f"The {skill_in_db.skill_title} skill "
+            f"has been deleted successfully."
+        )
 
         # Return to folio skill page using folio id
         return redirect(

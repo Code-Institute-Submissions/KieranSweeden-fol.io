@@ -169,7 +169,7 @@ def update_profiles_attached_to_folio(request, folio_id):
                         profile_in_db.folios.remove(folio)
                     else:
                         continue
-                
+
                 messages.success(
                     request,
                     f"About Me profiles attached to {folio.name} "
