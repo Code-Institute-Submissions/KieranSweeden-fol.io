@@ -57,6 +57,7 @@ class FolioProjectForm(forms.ModelForm):
             # Give them their respective placeholders & classes
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = placeholder
 
 
 class FolioSkillForm(forms.ModelForm):
@@ -93,12 +94,13 @@ class FolioSkillForm(forms.ModelForm):
         }
 
         # Iterate over the fields, inserting
-        # placeholders along the way
+        # placeholders & labels along the way
         for field in self.fields:
 
             # Give them their respective placeholders & classes
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = placeholder
 
 
 class FolioProfileForm(forms.ModelForm):
@@ -136,10 +138,10 @@ class FolioProfileForm(forms.ModelForm):
         # Iterate over the fields, inserting
         # placeholders along the way
         for field in self.fields:
-
             # Give them their respective placeholders & classes
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = placeholder
 
 
 class FolioProfileCurrentAndFutureGoalForm(forms.ModelForm):
@@ -183,6 +185,7 @@ class FolioProfileCurrentAndFutureGoalForm(forms.ModelForm):
             # Give them their respective placeholders & classes
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = placeholder
 
 
 class FolioContactForm(forms.ModelForm):
@@ -205,7 +208,7 @@ class FolioContactForm(forms.ModelForm):
             'contact_github_profile',
             'contact_linkedin_profile'
         ]
-    
+
     # Customize the form
     def __init__(self, *args, **kwargs):
         """
@@ -234,3 +237,4 @@ class FolioContactForm(forms.ModelForm):
             # Give them their respective placeholders & classes
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = placeholder
