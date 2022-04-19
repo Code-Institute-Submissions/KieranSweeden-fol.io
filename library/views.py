@@ -75,6 +75,11 @@ def create_folio(request):
             
             # Save the newly created folio
             folio.save()
+
+            messages.success(
+                request,
+                f"{folio.name} has been created successfully."
+            )
     
     # Direct user to page depending on which
     # button they selected
@@ -225,7 +230,7 @@ def delete_folio(request, folio_id):
 
     messages.success(
         request,
-        f"{folio.name} has been deleted successfully"
+        f"{folio.name} has been deleted successfully."
     )
 
     # If the latest_folio cookie exists
