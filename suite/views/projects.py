@@ -11,6 +11,7 @@ from django.shortcuts import (
     HttpResponse
 )
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from suite.models import Folio, Project
 from suite.functions import id_has_been_provided, sort_by_id
 from suite.forms import FolioProjectForm
@@ -89,6 +90,12 @@ def create_folio_project(request, folio_id):
             # Fully save project
             project.save()
 
+            messages.success(
+                request,
+                f"The {project.project_title} project has "
+                f"been created successfully."
+            )
+
             # Return to folio project page using folio id
             return redirect(
                 reverse("edit_folio_projects",
@@ -114,6 +121,11 @@ def update_folio_project(request, project_id, folio_id):
         # Save form if valid
         if form.is_valid():
             form.save()
+            messages.success(
+                request,
+                f"The {project_in_db.project_title} project "
+                f"has been updated successfully."
+            )
 
         # Return to folio project page using folio id
         return redirect(
@@ -159,6 +171,13 @@ def update_projects_attached_to_folio(request, folio_id):
                         project_in_db.folios.remove(folio)
                     else:
                         continue
+
+                messages.success(
+                    request,
+                    f"The projects attached to the {folio.name} "
+                    f"folio has been successfully updated."
+                )
+
             else:
                 print("they didn't match, sorting error")
 
@@ -180,6 +199,12 @@ def delete_folio_project(request, project_id, folio_id):
 
         # Delete the project from the database
         project_in_db.delete()
+
+        messages.success(
+            request,
+            f"The {project_in_db.project_title} project "
+            f"has been deleted successfully."
+        )
 
         # Return to folio project page using folio id
         return redirect(
