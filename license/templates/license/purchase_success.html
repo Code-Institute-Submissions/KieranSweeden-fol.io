@@ -12,15 +12,47 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-12 d-flex justify-content-between align-items-center">
-            <p>
-                Total Licenses: {{ total_licenses }} <span class="text-feature-color">({{used_licenses}} used)</span>
-            </p>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_create_folio">
-                New Folio
-            </button>
+        <div class="col-12 d-flex justify-content-end align-items-center">
+            <p class="text-muted small"> 13th March 2021</p>
+        </div>
+        <div class="col-12">
+            <p>Your license purchase has successfully been made.</p>
+            <p>A confirmation email has been sent to <span class="text-feature-color">{{ license_purchase.purchaser_email }}</span>.</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <h4>Billing Details</h4>
+            <p class="text-muted small mb-0">Full Name</p>
+            <p class="mb-0">{{ license_purchase.purchaser_full_name }}</p>
+            <p class="text-muted small mb-0">Email Address</p>
+            <p class="mb-0">{{ license_purchase.purchaser_email }}</p>
+            <p class="text-muted small mb-0">Phone Number</p>
+            <p class="mb-0">{{ license_purchase.purchaser_phone_number }}</p>
+            <p class="text-muted small mb-0">Street Address 1</p>
+            <p class="mb-0">{{ license_purchase.purchaser_street_address1 }}</p>
+            <p class="text-muted small mb-0">Street Address 2</p>
+            <p class="mb-0">{{ license_purchase.purchaser_street_address2 }}</p>
+            <p class="text-muted small mb-0">Town / City</p>
+            <p class="mb-0">{{ license_purchase.purchaser_town_or_city }}</p>
+            <p class="text-muted small mb-0">Post Code</p>
+            <p class="mb-0">{{ license_purchase.purchaser_postcode }}</p>
+            <p class="text-muted small mb-0">State / County</p>
+            <p class="mb-0">{{ license_purchase.purchaser_county }}</p>
+            <p class="text-muted small mb-0">Country</p>
+            <p class="mb-0">{{ license_purchase.purchaser_country }}</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <h4>Purchase Information</h4>
+            <p class="text-muted small mb-0">Order Number</p>
+            <p class="mb-0">{{ license_purchase.order_number }}</p>
+            <p class="text-muted small mb-0">Licenses Purchased</p>
+            <p class="mb-0">{{ license_purchase.no_of_licenses_purchased }}</p>
+            <p class="text-muted small mb-0">Order Number</p>
+            <p class="mb-0">£{{ license_purchase.purchase_total }}</p>
+            <p class="text-muted small mb-0">Date Purchased</p>
+            <p class="mb-0">{{ license_purchase.purchase_date }}</p>
+        </div>
+        <div class="col-12 d-flex justify-content-end align-items-center">
+            <a href="{% url 'view_library' %}" class="btn btn-primary">RETURN TO LIBRARY</a>
         </div>
     </div>
-    {% include "./includes/list_of_folios.html" %}
-    {% include './includes/modals/create_folio.html' with size=undefined id="create_folio" %}
 {% endblock %}

@@ -3,7 +3,12 @@ Views for the pages related to the license store
 """
 
 from django.conf import settings
-from django.shortcuts import render, redirect, get_list_or_404
+from django.shortcuts import (
+    render,
+    redirect,
+    get_list_or_404,
+    get_object_or_404
+)
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
@@ -82,7 +87,10 @@ def create_checkout_session(request):
                         'purchaser_country']
                 },
                 mode='payment',
-                success_url=f'{settings.URL}library/',
+                success_url=(
+                    f"{settings.URL}license/success"
+                    f"?session_id={{CHECKOUT_SESSION_ID}}"
+                ),
                 cancel_url=f'{settings.URL}license/purchase/',
             )
 
@@ -105,3 +113,40 @@ def order_history(request):
     }
 
     return render(request, "license/order_history.html", context=context)
+
+
+@login_required
+def checkout_session_success(request):
+    """
+    Presents a license purchase success
+    page to the user confirming their purchase
+    """
+
+    stripe_session_id = request.GET.get('session_id', None)
+
+    if stripe_session_id is not None:
+
+        prev_success_session = stripe.checkout.Session.retrieve(
+            stripe_session_id
+        )
+
+        session_pid = prev_success_session['payment_intent']
+
+        prev_success_purchase = get_object_or_404(
+            LicensePurchase,
+            stripe_pid=session_pid
+        )
+
+        context = {
+            "license_purchase": prev_success_purchase
+        }
+
+        return render(
+            request,
+            "license/purchase_success.html",
+            context=context
+        )
+    
+    else:
+        return redirect("view_library")
+
