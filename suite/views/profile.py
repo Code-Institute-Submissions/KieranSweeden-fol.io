@@ -11,6 +11,7 @@ from django.shortcuts import (
     HttpResponse
 )
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from suite.models import Folio, Profile
 from suite.functions import id_has_been_provided, sort_by_id
 from suite.forms import FolioProfileForm, FolioProfileCurrentAndFutureGoalForm
@@ -86,6 +87,12 @@ def create_folio_profile(request, folio_id):
             # Fully save profile
             profile.save()
 
+            messages.success(
+                request,
+                f"The {profile.profile_title} About Me has "
+                f"been successfully created."
+            )
+
             # Return to folio profile page using folio id
             return redirect(
                 reverse("edit_folio_profile",
@@ -111,6 +118,11 @@ def update_folio_profile(request, profile_id, folio_id):
         # Save form if valid
         if form.is_valid():
             form.save()
+            messages.success(
+                request,
+                f"The {profile_in_db.profile_title} About Me has "
+                f"been successfully updated."
+            )
 
         # Return to folio profile page using folio id
         return redirect(
@@ -157,6 +169,13 @@ def update_profiles_attached_to_folio(request, folio_id):
                         profile_in_db.folios.remove(folio)
                     else:
                         continue
+                
+                messages.success(
+                    request,
+                    f"About Me profiles attached to {folio.name} "
+                    f"have been updated successfully."
+                )
+
             else:
                 print("they didn't match, sorting error")
 
@@ -187,6 +206,11 @@ def update_current_and_future_goal(request, folio_id):
         # Save form if valid
         if form.is_valid():
             form.save()
+            messages.success(
+                request,
+                f"Current & future goals within {folio_in_db.name} "
+                f"have been updated successfully."
+            )
 
         # Return to folio profile page using folio id
         return redirect(reverse(
@@ -209,6 +233,12 @@ def delete_folio_profile(request, profile_id, folio_id):
 
         # Delete the profile from the database
         profile_in_db.delete()
+
+        messages.success(
+            request,
+            f"The {profile_in_db.profile_title} About Me profile "
+            f"has been deleted successfully."
+        )
 
         # Return to folio profile page using folio id
         return redirect(

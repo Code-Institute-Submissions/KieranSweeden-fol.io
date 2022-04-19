@@ -9,6 +9,7 @@ from django.shortcuts import (
     reverse
 )
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from suite.models import Folio
 from suite.functions import id_has_been_provided
 from suite.forms import FolioContactForm
@@ -24,7 +25,6 @@ def edit_folio_contact(request, folio_id=None):
     if id_has_been_provided(folio_id):
 
         folio = get_object_or_404(Folio, pk=folio_id)
-
         form = FolioContactForm(instance=folio)
 
         context = {
@@ -58,6 +58,11 @@ def update_folio_contact(request, folio_id):
         # Save form if valid
         if form.is_valid():
             form.save()
+            messages.success(
+                request,
+                f"The contact information within {folio_in_db.name} "
+                f"has been successfully updated."
+            )
 
         # Return to folio project page using folio id
         return redirect(
