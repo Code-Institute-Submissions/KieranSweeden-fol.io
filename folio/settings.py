@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'suite',
     'license',
     'account.__init__.AccountConfig',
+    'showcase'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
