@@ -17,7 +17,18 @@
     {% include 'includes/header-navs/suite-header-nav.html' with active_tab='skills' %}
 {% endblock %}
 
-{% block header_title %}{{ folio.name }}{% endblock %}
+{% block header_title %}
+{% if folio.is_published %}
+    <span class="material-icons-sharp text-feature-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is published">
+        visibility
+    </span>
+{% else %}
+    <span class="material-icons-sharp text-white-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is concealed">
+        visibility_off
+    </span>
+{% endif %}
+{{ folio.name }}
+{% endblock %}
 
 {% block additional_header_content %}
 <div class="d-flex justify-content-end align-items-center h-100">
