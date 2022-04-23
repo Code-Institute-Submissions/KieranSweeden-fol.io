@@ -33,7 +33,7 @@
 
 {% block additional_header_content %}
 <div class="d-flex justify-content-end align-items-center h-100">
-    <a class="btn btn-icon me-2" href="#" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="View Folio">
+    <a class="btn btn-icon me-2" href="{% url 'view_folio_profile' folio_id=folio.id %}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="View Folio">
         <span class="material-icons-sharp">
             open_in_new
         </span>

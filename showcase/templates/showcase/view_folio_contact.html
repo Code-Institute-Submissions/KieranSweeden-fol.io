@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_js %}
+    <script defer src="{% static 'js/clamp.min.js' %}"></script>
+{% endblock %}
+
+{% block extra_title %}Viewing Folio Contact{% endblock %}
+
+{% block main_nav %}
+    {% include 'includes/main-navs/external-main-nav.html' with active_nav_link='' %}
+{% endblock %}
+
+{% block header_content %}
+    {% include 'includes/header-navs/showcase-header-nav.html' with active_tab='contact' %}
+{% endblock %}
+
+{% block header_title %}
+{{ folio.name }}
+{% endblock %}
+
+{% block additional_header_content %}
+
+{% endblock %}
+
+{% block content %}
+
+<p>working</p>
+
+{% endblock %}
