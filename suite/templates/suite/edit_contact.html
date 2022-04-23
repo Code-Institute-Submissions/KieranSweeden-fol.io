@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% load i18n %}
+
+{% block extra_js %}
+    <script defer src="{% static 'js/clamp.min.js' %}"></script>
+{% endblock %}
 
 {% block extra_title %}Editing Folio Contact{% endblock %}
 
