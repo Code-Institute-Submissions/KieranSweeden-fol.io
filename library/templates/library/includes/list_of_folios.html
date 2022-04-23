@@ -1,9 +1,9 @@
 <div class="row">
   {% for folio in folios %}
-    <div class="col-12 col-lg-6 mt-2">
+    <div class="col-12 col-lg-6 mt-3">
         <div class="folio-card">
             <div class="card-header d-flex justify-content-between align-items-center">
-              <h3 class="h5 mb-0 d-inline-block">
+              <h3 class="h5 mb-0 title-clamp me-2">
                   {{ folio.name }}
               </h3>
               <div class="dropdown">
@@ -27,8 +27,8 @@
                 </ul>
               </div>
             </div>
-            <div class="card-body">
-              <p class="card-text">
+            <div class="card-body card-desc">
+              <p class="card-text desc-clamp">
                 {{ folio.description }}
               </p>
             </div>

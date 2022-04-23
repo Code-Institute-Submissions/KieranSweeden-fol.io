@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load i18n %}
 {% load crispy_forms_tags %}
 
 {% block extra_title %}{% trans "Library" %}{% endblock %}
+
+{% block extra_js %}
+    <script defer src="{% static 'js/clamp.min.js' %}"></script>
+{% endblock %}
 
 {% block main_nav %}
     {% include 'includes/main-navs/internal-main-nav.html' with active_nav_link='library' %}
@@ -13,7 +18,7 @@
 {% block content %}
     <div class="row">
         <div class="col-12 d-flex justify-content-between align-items-center">
-            <p>
+            <p class="mb-0">
                 Total Licenses: {{ total_licenses }} <span class="text-feature-color">({{used_licenses}} used)</span>
             </p>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_create_folio">
