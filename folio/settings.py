@@ -210,9 +210,7 @@ if "DEVELOPMENT" in os.environ:
         f"{url_partitions[1]}{url_partitions[2]}"
     )
 
-    CSRF_TRUSTED_ORIGINS = [
-        (csrf_string)
-    ]
+    CSRF_TRUSTED_ORIGINS = [(csrf_string)]
 
 
 # URL

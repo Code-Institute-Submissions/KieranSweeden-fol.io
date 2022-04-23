@@ -160,6 +160,42 @@ Further down the view, the list of projects was being sorted using the project I
 
 </details>
 
+#### CSRF verification failed: Request aborted
+
+After starting up the application server via Gitpod and submitting a form within the application, an error is presented informing me that the CSRF verifcation process has failed and that the request has been aborted.
+
+<details>
+
+<summary>Read Fix</summary>
+
+When launching the project workspace via Gitpod, there's a chance that the URL given for a new Gitpod workspace session could be slightly different to the URL used in a previous workspace session.
+
+This means that hard-coding the CSRF trusted origin would lead to problems, as the string provided would likely not match the URL given within the next Gitpod workspace session.
+
+To fix this, the Gitpod workspace url environment variable was taken & partitioned into seperate sections. Inserting "*8000-" inbetween the "https://" and "kieran" partitions and combining the partions with f strings, meant that the CSRF trusted origin would be dynamically created and would match any given workspace session for this particular project.
+
+Given that this is an issue that would only occur in development, this was also wrapped in an if statement to ensure this would only occur within e development environment.
+
+The code that fixed this is provided below:
+
+```python
+    # CSRF
+    if "DEVELOPMENT" in os.environ:
+
+        url_partitions = os.environ.get('GITPOD_WORKSPACE_URL').partition('kieran')
+
+        csrf_string = (
+            f"{url_partitions[0]}*8000-"
+            f"{url_partitions[1]}{url_partitions[2]}"
+        )
+
+        CSRF_TRUSTED_ORIGINS = [(csrf_string)]
+
+```
+
+</details>
+
+
 
 ### Known
 
