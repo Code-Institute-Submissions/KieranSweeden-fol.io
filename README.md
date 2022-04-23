@@ -310,6 +310,9 @@ The following libraries & applications were utilized during the development of f
 - [parallax.js](https://github.com/wagerfield/parallax)
     - parallax.js was used to quickly create parallax effects with the images presented on the login & register screen.
 
+- [clamp.js](https://github.com/josephschmitt/Clamp.js)
+    - Clamp.js was used to clamp down specific pieces of text found throughout the folio app to guarantee that pages do not too cluttered with unnecessary text.
+
 ### Applications
 
 The following applications listed were utilized during the development of fol.io:
@@ -341,6 +344,11 @@ All information regarding bugs and testing during the development of folio was d
 ## Credits
 
 ### Code
+
+The following links are to sources of code that are found within folio.
+
+- [clamp.js](https://github.com/josephschmitt/Clamp.js)
+    - Clamp.js was used to clamp down specific pieces of text found throughout the folio app to guarantee that pages do not too cluttered with unnecessary text.
 
 ### Research
 
