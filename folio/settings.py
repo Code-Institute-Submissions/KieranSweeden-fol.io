@@ -199,11 +199,23 @@ WSGI_APPLICATION = 'folio.wsgi.application'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-CSRF_TRUSTED_ORIGINS = [('https://*8000-kieransweeden-folio-jpgshgnar0y'
-                         '.ws-eu41.gitpod.io/')]
+
+# CSRF
+if "DEVELOPMENT" in os.environ:
+
+    url_partitions = os.environ.get('GITPOD_WORKSPACE_URL').partition('kieran')
+
+    csrf_string = (
+        f"{url_partitions[0]}*8000-"
+        f"{url_partitions[1]}{url_partitions[2]}"
+    )
+
+    CSRF_TRUSTED_ORIGINS = [
+        (csrf_string)
+    ]
+
 
 # URL
-
 if "DEVELOPMENT" in os.environ:
     URL_SECTIONS = os.environ.get('GITPOD_WORKSPACE_URL').partition('kieran')
 
