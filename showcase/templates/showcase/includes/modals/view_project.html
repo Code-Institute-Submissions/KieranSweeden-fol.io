@@ -1,0 +1,58 @@
+{% extends 'includes/modal/modal_template.html' %}
+{% load static %}
+
+{% block modal_title %}{{ project.project_title }}{% endblock %}
+
+{% block modal_body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="col-12 mb-2">
+                {% if project.image %}
+                    <img src="{{ project.image.url }}" alt="" class="w-100" style="aspect-ratio: 16 / 9;">
+                {% else %}
+                    <img src="{% static 'images/no-project-image.png' %}" alt="" class="w-100" style="aspect-ratio: 16 / 9;">
+                {% endif %}
+            </div>
+            <div class="col-12">
+                <p class="text-muted small mb-0">Project Description</p>
+                {% if project.project_description %}
+                    <p>{{ project.project_description }}</p>
+                {% else %}
+                    <p class="text-danger">No Description Provided.</p>
+                {% endif %}
+            </div>
+            <div class="col-12">
+                <p class="text-muted small mb-0">Technologies</p>
+                {% if project.tech_list %}
+                    <p>{{ project.tech_list }}</p>
+                {% else %}
+                    <p class="text-danger">No Technologies Listed.</p>
+                {% endif %}
+            </div>
+            <div class="col-12">
+                <p class="text-muted small mb-0">Live Deployment
+                    <span class="material-icons-sharp label-icon">
+                        open_in_new
+                    </span>
+                </p>
+                {% if project.live_link %}
+                    <p><a href="{{ project.live_link }}" class="btn-tertiary title-clamp" target="_blank" rel="noopener noreferrer">{{ project.live_link }}</a></p>
+                {% else %}
+                    <p class="text-danger">No Link.</p>
+                {% endif %}
+            </div>
+            <div class="col-12">
+                <p class="text-muted small mb-0">GitHub Repo
+                    <span class="material-icons-sharp label-icon">
+                        open_in_new
+                    </span>
+                </p>
+                {% if project.github_link %}
+                    <p class="mb-0"><a href="{{ project.github_link }}" class="btn-tertiary title-clamp" target="_blank" rel="noopener noreferrer">{{ project.github_link }}</a></p>
+                {% else %}
+                    <p class="mb-0 text-danger">No Link.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

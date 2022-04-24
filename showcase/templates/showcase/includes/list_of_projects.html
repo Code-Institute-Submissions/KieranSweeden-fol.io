@@ -20,13 +20,21 @@
                                 <img src="{% static 'images/no-project-image.png' %}" alt="" class="w-100" style="aspect-ratio: 16 / 9;">
                             {% endif %}
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 card-desc">
                             <p class="text-muted small mb-0">Project Description</p>
-                            <p class="desc-clamp">{{ project.project_description }}</p>
+                            {% if project.project_description %}
+                                <p class="desc-clamp">{{ project.project_description }}</p>
+                            {% else %}
+                                <p class="text-danger">No Description Provided.</p>
+                            {% endif %}
                         </div>
                         <div class="col-12">
                             <p class="text-muted small mb-0">Technologies</p>
-                            <p>{{ project.tech_list }}</p>
+                            {% if project.tech_list %}
+                                <p>{{ project.tech_list }}</p>
+                            {% else %}
+                                <p class="text-danger">No Technologies Listed.</p>
+                            {% endif %}
                         </div>
                         <div class="col-12 col-md-6">
                             <p class="text-muted small mb-0">Live Deployment
@@ -34,7 +42,11 @@
                                     open_in_new
                                 </span>
                             </p>
-                            <p class="mb-0"><a href="{{ project.live_link }}" class="btn-tertiary title-clamp" target="_blank" rel="noopener noreferrer">{{ project.live_link }}</a></p>
+                            {% if project.live_link %}
+                                <p class="mb-0"><a href="{{ project.live_link }}" class="btn-tertiary title-clamp" target="_blank" rel="noopener noreferrer">{{ project.live_link }}</a></p>
+                            {% else %}
+                                <p class="mb-0 text-danger">No Link.</p>
+                            {% endif %}
                         </div>
                         <div class="col-12 col-md-6">
                             <p class="text-muted small mb-0">GitHub Repo
@@ -42,12 +54,17 @@
                                     open_in_new
                                 </span>
                             </p>
-                            <p class="mb-0"><a href="{{ project.github_link }}" class="btn-tertiary title-clamp" target="_blank" rel="noopener noreferrer">{{ project.github_link }}</a></p>
+                            {% if project.github_link %}
+                                <p class="mb-0"><a href="{{ project.github_link }}" class="btn-tertiary title-clamp" target="_blank" rel="noopener noreferrer">{{ project.github_link }}</a></p>
+                            {% else %}
+                                <p class="mb-0 text-danger">No Link.</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    {% include './modals/view_project.html' with size=undefined id=project.id %}
     {% empty %}
     <div class="col-12">
         <p class="text-center">No Projects</p>
