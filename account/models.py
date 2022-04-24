@@ -32,6 +32,11 @@ class UserAccount(models.Model):
     default_phone_number = models.CharField(
         max_length=20, null=True, blank=True
     )
+    profile_picture = models.ImageField(
+        upload_to="profile-pictures",
+        null=True,
+        blank=True
+    )
 
     # Folio oriented info
     number_of_licenses = models.PositiveSmallIntegerField(default=0)
