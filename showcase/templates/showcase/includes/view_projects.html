@@ -12,7 +12,11 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 mb-2">
-                            <img src="{{ project.image.url }}" alt="" class="w-100">
+                            {% if project.image %}
+                                <img src="{{ project.image.url }}" alt="" class="w-100" style="aspect-ratio: 16 / 9;">
+                            {% else %}
+                                <img src="{% static 'images/no-project-image.png' %}" alt="" class="w-100" style="aspect-ratio: 16 / 9;">
+                            {% endif %}
                         </div>
                         <div class="col-12">
                             <p class="text-muted small mb-0">Project Description</p>
