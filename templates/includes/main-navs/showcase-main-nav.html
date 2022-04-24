@@ -1,0 +1,22 @@
+<div class="container-fluid justify-content-between bg-black-color">
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <h1 class="mb-0 fs-2">fol<span class="d-inline-block text-feature-color animate__animated animate__bounce">.</span>io</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-icons-sharp display-4 mobile-menu-icon first-menu-icon">menu</span>
+        <span class="material-icons-sharp display-4 mobile-menu-icon second-menu-icon">close</span>
+    </button>
+    <div class="collapse navbar-collapse mt-3 mt-md-0" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item">
+                <a class="nav-link px-0" aria-current="page" href="{% url 'edit_folio_projects' %}">return to suite</a>
+            </li>
+            <li class="d-none d-lg-flex justify-content-center align-items-center mx-3"><span class="text-feature-color">|</span></li>
+        </ul>
+        <form class="d-flex" action="{% url 'account_logout' %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit">LOG OUT</button>
+        </form>
+    </div>
+</div>

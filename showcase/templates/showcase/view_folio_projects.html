@@ -9,7 +9,7 @@
 {% block extra_title %}Viewing Folio Projects{% endblock %}
 
 {% block main_nav %}
-    {% include 'includes/main-navs/external-main-nav.html' with active_nav_link='' %}
+    {% include 'includes/main-navs/showcase-main-nav.html' with active_nav_link='' %}
 {% endblock %}
 
 {% block header_content %}
@@ -26,6 +26,6 @@
 
 {% block content %}
 
-<p>working</p>
+<p>{{ user.is_authenticated }}</p>
 
 {% endblock %}

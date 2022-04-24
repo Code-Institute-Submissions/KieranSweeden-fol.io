@@ -10,7 +10,8 @@ def view_folio_projects(request, folio_id=None):
     folio = get_object_or_404(Folio, pk=folio_id)
 
     context = {
-        "folio": folio
+        "folio": folio,
+        "user": request.user
     }
 
     return render(
