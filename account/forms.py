@@ -18,6 +18,7 @@ class AccountDetailsForm(forms.ModelForm):
         """
         model = UserAccount
         fields = [
+            'profile_picture',
             'first_name',
             'last_name',
             'default_phone_number'
@@ -35,6 +36,7 @@ class AccountDetailsForm(forms.ModelForm):
 
         # Prepare placeholders
         placeholders = {
+            'profile_picture': 'Profile Picture (Use square ratios)',
             'first_name': 'First Name',
             'last_name': 'Last Name',
             'default_phone_number': 'Phone Number'

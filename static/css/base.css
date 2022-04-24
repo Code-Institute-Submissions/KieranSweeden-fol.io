@@ -424,6 +424,13 @@ input.form-check-input[type=checkbox]:checked {
     border-color: var(--folio-feature-color);
 }
 
+.input-group span.input-group-text,
+.input-group .form-control {
+    border-radius: 0;
+}
+
+
+
 /* Home/Welcome page styling */
 
 .card-cover {
