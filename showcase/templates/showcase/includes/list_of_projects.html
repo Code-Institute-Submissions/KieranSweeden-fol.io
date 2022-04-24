@@ -67,7 +67,8 @@
     {% include './modals/view_project.html' with size=undefined id=project.id %}
     {% empty %}
     <div class="col-12">
-        <p class="text-center">No Projects</p>
+        <h4 class="text-center">Oops...</h4>
+        <p class="text-center">There are no projects within this folio.</p>
     </div>
     {% endfor %}
 </div>

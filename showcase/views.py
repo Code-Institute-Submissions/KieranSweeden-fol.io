@@ -23,8 +23,8 @@ def view_folio_projects(request, folio_id=None):
     context = {
         "user": request.user,
         "folio": folio,
-        "projects": projects,
-        "author": author
+        "author": author,
+        "projects": projects
     }
 
     return render(
@@ -40,8 +40,15 @@ def view_folio_skills(request, folio_id=None):
 
     folio = get_object_or_404(Folio, pk=folio_id)
 
+    author = get_object_or_404(
+        UserAccount,
+        pk=folio.author_id.id
+    )
+
     context = {
-        "folio": folio
+        "user": request.user,
+        "folio": folio,
+        "author": author,
     }
 
     return render(
@@ -57,8 +64,15 @@ def view_folio_profile(request, folio_id=None):
 
     folio = get_object_or_404(Folio, pk=folio_id)
 
+    author = get_object_or_404(
+        UserAccount,
+        pk=folio.author_id.id
+    )
+
     context = {
-        "folio": folio
+        "user": request.user,
+        "folio": folio,
+        "author": author,
     }
 
     return render(
@@ -74,8 +88,15 @@ def view_folio_contact(request, folio_id=None):
 
     folio = get_object_or_404(Folio, pk=folio_id)
 
+    author = get_object_or_404(
+        UserAccount,
+        pk=folio.author_id.id
+    )
+
     context = {
-        "folio": folio
+        "user": request.user,
+        "folio": folio,
+        "author": author,
     }
 
     return render(
