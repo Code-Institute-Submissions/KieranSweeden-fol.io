@@ -4,7 +4,7 @@
 {% block modal_title %}Create new project{% endblock %}
 
 {% block modal_body %}
-<form action="{% url 'create_folio_project' folio_id=folio.id %}" method="POST">
+<form action="{% url 'create_folio_project' folio_id=folio.id %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="row">
         <div class="col-12">

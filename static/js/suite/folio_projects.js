@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 function setupCheckBoxClickListeners(){
 
-    // Get all project checkboxes on page
+    // Get all checkboxes on page
     const projectCheckBoxes = [...document.getElementsByClassName('form-check-input')];
 
     // Apply click listener to checkboxes
@@ -76,7 +76,10 @@ function updateProjectsInFolio(){
     
     // Grab folio from URL & project ID's from checkboxes
     const folioID = window.location.pathname.split('/')[3];
-    const projectCheckboxes = [...document.getElementsByClassName('form-check-input')];
+    const checkboxes = [...document.getElementsByClassName('form-check-input')];
+
+    // Filters down to project checkboxes only
+    const projectCheckboxes = checkboxes.filter(checkbox => checkbox.id !== "image-clear_id");
 
     // Create a list of project objects containing their IDs & a status on if they're attached
     let listOfProjects = [];

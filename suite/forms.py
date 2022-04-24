@@ -29,7 +29,8 @@ class FolioProjectForm(forms.ModelForm):
             "project_description",
             "tech_list",
             "github_link",
-            "live_link"
+            "live_link",
+            "image"
         ]
     
     # Customize form
@@ -43,11 +44,12 @@ class FolioProjectForm(forms.ModelForm):
 
         # Placeholders
         placeholders = {
-            "project_title": "Project title",
-            "project_description": "Project description",
-            "tech_list": "Technology list (seperated by commas)",
-            "github_link": "GitHub repository link",
-            "live_link": "Live deployment link"
+            "project_title": "Project Title",
+            "project_description": "Project Description",
+            "tech_list": "Technology List (seperated by commas)",
+            "github_link": "GitHub Repository Link",
+            "live_link": "Live Deployment Link",
+            "image": "Project Image"
         }
 
         # Iterate over the fields, inserting

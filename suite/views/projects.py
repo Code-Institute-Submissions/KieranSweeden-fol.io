@@ -75,7 +75,10 @@ def create_folio_project(request, folio_id):
     if request.method == "POST":
 
         # Create instance of project form using form data
-        form = FolioProjectForm(request.POST)
+        form = FolioProjectForm(
+            request.POST,
+            request.FILES
+        )
 
         # If form is valid
         if form.is_valid():
@@ -116,7 +119,11 @@ def update_folio_project(request, project_id, folio_id):
         project_in_db = get_object_or_404(Project, pk=project_id)
 
         # Save instance of project form
-        form = FolioProjectForm(request.POST, instance=project_in_db)
+        form = FolioProjectForm(
+            request.POST,
+            request.FILES,
+            instance=project_in_db
+        )
 
         # Save form if valid
         if form.is_valid():
