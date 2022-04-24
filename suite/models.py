@@ -79,6 +79,11 @@ class Project(models.Model):
     tech_list = models.CharField(max_length=50)
     github_link = models.URLField(null=True, blank=True)
     live_link = models.URLField(null=True, blank=True)
+    image = models.ImageField(
+        upload_to="projects",
+        null=True,
+        blank=True
+    )
 
     # Date related fields
     date_created = models.DateField(auto_now_add=True)

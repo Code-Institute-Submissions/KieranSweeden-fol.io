@@ -63,6 +63,13 @@ class UserAccount(models.Model):
         """
         self.number_of_licenses += int(amount)
         self.save()
+    
+    def get_full_name(self):
+        """
+        Returns the user's first
+        and last name as a string
+        """
+        return f"{self.first_name} {self.last_name}"
 
     def __str__(self):
         """

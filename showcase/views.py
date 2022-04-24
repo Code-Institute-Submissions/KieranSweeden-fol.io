@@ -1,5 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from suite.models import Folio
+from django.shortcuts import (
+    render,
+    get_object_or_404,
+    get_list_or_404
+)
+from suite.models import Folio, Project
+from account.models import UserAccount
 
 
 def view_folio_projects(request, folio_id=None):
@@ -8,10 +13,18 @@ def view_folio_projects(request, folio_id=None):
     """
 
     folio = get_object_or_404(Folio, pk=folio_id)
+    projects = get_list_or_404(Project, folios=folio)
+
+    author = get_object_or_404(
+        UserAccount,
+        pk=folio.author_id.id
+    )
 
     context = {
+        "user": request.user,
         "folio": folio,
-        "user": request.user
+        "projects": projects,
+        "author": author
     }
 
     return render(
