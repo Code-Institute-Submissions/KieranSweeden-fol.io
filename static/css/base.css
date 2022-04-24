@@ -408,6 +408,12 @@ textarea.form-control:focus-visible {
     color: var(--folio-feature-color);
 }
 
+.label-icon {
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: text-top;
+}
+
 .form-check-input:focus {
     box-shadow: var(--folio-feature-color);
     border-color: var(--folio-feature-color);
