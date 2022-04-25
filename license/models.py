@@ -3,6 +3,7 @@ Models related to the license store
 """
 
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
 
 from django_countries.fields import CountryField
@@ -33,7 +34,13 @@ class LicensePurchase(models.Model):
 
     # License information
     purchase_date = models.DateField(auto_now_add=True)
-    no_of_licenses_purchased = models.PositiveSmallIntegerField(default=0)
+    no_of_licenses_purchased = models.PositiveSmallIntegerField(
+        default=1,
+        validators=[
+            MinValueValidator(1),
+            MaxValueValidator(50)
+        ]
+    )
     purchase_total = models.DecimalField(max_digits=6, decimal_places=2)
     order_number = models.UUIDField(
         primary_key=False,

@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% load i18n %}
+
+{% block extra_js %}
+    <script defer src="{% static 'js/contact.js' %}"></script>
+{% endblock %}
 
 {% block extra_title %}{% trans "Purchase License" %}{% endblock %}
 
@@ -38,9 +43,12 @@
             </p>
 
             <div class="col-12 d-flex justify-content-end align-items-end flex-column">
-                <span>Grand Total</span>
-                <span class="fw-bold" ><span>£</span>9.99</span>
-                <button class="btn btn-primary" type="submit">
+                <p class="fw-bold mb-0">Grand Total</p>
+                <p class="fw-bold">
+                    <span>£</span>
+                    <span id="licenseGrandTotal"></span>
+                </p>
+                <button class="btn btn-primary" type="submit" id="submitPurchase">
                     Purchase
                 </button>
             </div>
