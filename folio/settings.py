@@ -252,7 +252,7 @@ if "USE_AWS" in os.environ:
     # Static & media files
     # For static file storage we want to use our
     # StaticStorage class
-    STATICFILES_STORAGE = 'custom_storage.StaticStorage'
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
     # The location django should save to is a folder
     # named static
