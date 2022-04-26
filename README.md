@@ -302,7 +302,10 @@ The following libraries & applications were utilized during the development of f
     - Google Fonts was used to import the fonts utilized by fol.io.
 
 - [Google Material Icons](https://fonts.google.com/icons)
-    - Google Material Icons was used to import visual icons utilized by fol.io.
+    - Google Material Icons was used to import visual icons utilized by fol.io throughout the application.
+
+- [Font Awesome Icons](https://fontawesome.com/)
+    - Font Awesome icons was used for icons not present within Google Material Icons (e.g social media icons).
 
 - [animate.css](https://animate.style/)
     - animate.css was used to quickly create animations within fol.io.
