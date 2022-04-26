@@ -211,6 +211,24 @@ Although other bugs presented themselves after this, the error in which the repo
 
 </details>
 
+#### ERROR: Could not build wheels for backports.zoneinfo...
+
+Despite now having communication with Heroku via their CLI, the build attempts by Heroku were failing due to a backports.zoneinfo related issue. After reading [this Stack Overflow answer](https://stackoverflow.com/a/71735458/15607265), it was clear that the version of Python that Heroku installs by default was not working with the folio codebase.
+
+<details>
+
+<summary>Read Fix</summary>
+
+To rectify the issue, a runtime.txt file containing a specified version of Python was required, to inform Heroku as to which version of Python it should install instead. To find out the particular version of Python I was working with, I entered <code>python -V</code> within the console which gave the following result:
+
+```bash
+python-3.8.11
+```
+
+Inserting this within the runtime.txt file rectified the issue after adding and commiting the file the repository.
+
+</details>
+
 
 ### Known
 
