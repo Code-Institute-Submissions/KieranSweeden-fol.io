@@ -4,7 +4,7 @@
 
 *brief description of application*
 
-*link to deployed application*
+[Link to live deployment of fol.io](https://folio-web-app.herokuapp.com/)
 
 ## Table of Contents
 

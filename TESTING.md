@@ -2,7 +2,7 @@
 
 Within this markdown file, you'll find information regarding bugs, their fixes and the testing process of fol.io.
 
-[Link to deployment of fol.io]()
+[Link to live deployment of fol.io](https://folio-web-app.herokuapp.com/)
 
 To navigate back to the README file, [click here](README.md).
 
@@ -219,7 +219,7 @@ Despite now having communication with Heroku via their CLI, the build attempts b
 
 <summary>Read Fix</summary>
 
-To rectify the issue, a runtime.txt file containing a specified version of Python was required, to inform Heroku as to which version of Python it should install instead. To find out the particular version of Python I was working with, I entered <code>python -V</code> within the console which gave the following result:
+To rectify the issue according to [this Heroku article](https://devcenter.heroku.com/articles/python-runtimes), a runtime.txt file containing a specified version of Python was required, to inform Heroku as to which version of Python it should install instead. To find out the particular version of Python I was working with, I entered <code>python -V</code> within the console which gave the following result:
 
 ```bash
 python-3.8.11
