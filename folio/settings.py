@@ -30,7 +30,10 @@ SECRET_KEY = 'django-insecure-e0+8kwv(u8jk5fv=ok0@p=+l=xk5!87-q2-(v%l-rr)7^xxo(&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'folio-web-app.herokuapp.com',
+    'localhost'
+]
 
 
 # Application definition
