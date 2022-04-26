@@ -338,6 +338,9 @@ The following applications listed were utilized during the development of fol.io
 - [favicon.io](https://favicon.io/favicon-converter/)
     - favicon.io was used to create favicon icons for this project.
 
+- [Affinity Designer](https://affinity.serif.com/en-gb/designer/)
+    - Affinity Designer was used to create numerous graphics that were used within folio.
+
 ## Testing
 
 All information regarding bugs and testing during the development of folio was documented within the [TESTING.md](TESTING.md) file.
