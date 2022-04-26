@@ -385,3 +385,8 @@ The following links are sources that were used to further understand the problem
     - Image author: [Christina @ wocintechchat.com](https://unsplash.com/@wocintechchat)
 
 ## Acknowledgements
+
+Within this section of the README file, I'd like to thank:
+
+- My mentor Sammy, for their guidance and excitement that encourages me to go a step further when developing web applications.
+- Code Institute for their  Diploma in Web Application Development course that has tremendously helped me in learning the fundamentals and advanced topics in Full Stack web development.
