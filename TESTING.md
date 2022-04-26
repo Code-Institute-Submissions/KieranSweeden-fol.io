@@ -195,6 +195,21 @@ The code that fixed this is provided below:
 
 </details>
 
+#### Heroku Error: Items could not be retrieved, Internal server error
+
+When attempting to connect my GitHub account to Heroku so I could assign the Heroku app to folio's GitHub repository, instead of providing me with a list of my GitHub repositories, Heroku threw an error stating "Items could not be retrieved, Internal server error".
+
+<details>
+
+<summary>Read Fix</summary>
+
+After researching the error being given, it was clear after reading [this Stack Overflow answer](https://stackoverflow.com/a/71895325/15607265) that the GitHub connect feature was temporarily disabled due to a security breach. As the answer suggests, the fix was to use the Heroku CLI instead.
+
+[This Stack Overflow answer](https://stackoverflow.com/a/71905270/15607265) tremendously helped in quickly getting the Heroku CLI up and running with the git repository.
+
+Although other bugs presented themselves after this, the error in which the repo could not communicate with Heroku was now fixed.
+
+</details>
 
 
 ### Known
