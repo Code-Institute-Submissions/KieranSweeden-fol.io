@@ -230,12 +230,6 @@ if "DEVELOPMENT" in os.environ:
     URL = (
         f'{URL_SECTIONS[0]}8000-{URL_SECTIONS[1]}{URL_SECTIONS[2]}/'
     )
-else:
-    URL_SECTIONS = os.environ.get('GITPOD_WORKSPACE_URL').partition('kieran')
-
-    URL = (
-        f'{URL_SECTIONS[0]}8000-{URL_SECTIONS[1]}{URL_SECTIONS[2]}/'
-    )
 
 # Stripe keys
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
