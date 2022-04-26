@@ -128,6 +128,8 @@
                     thumb_up
                   {% elif message.tags == "error" %}
                     thumb_down
+                  {% elif message.tags == "warning" %}
+                    warning
                   {% endif %}
               </span>
               <p class="text-white-color mb-0 ms-2">{{ message.tags|title }}!</p>

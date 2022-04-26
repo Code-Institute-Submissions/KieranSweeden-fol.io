@@ -343,6 +343,11 @@ main.container {
     border-bottom: 0.2rem solid var(--folio-delete-color);
 }
 
+.card.card-message .card-header-warning {
+    color: var(--folio-feature-color);
+    border-bottom: 0.2rem solid var(--folio-feature-color);
+}
+
 /* Dropdown Styling */
 
 .dropdown-menu {
