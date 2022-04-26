@@ -64,3 +64,4 @@ class LicensePurchaseForm(forms.ModelForm):
             # Give them their respective placeholders & classes
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = placeholder

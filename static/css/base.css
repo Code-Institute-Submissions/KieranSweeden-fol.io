@@ -31,6 +31,10 @@ h1, h2, h3, h4, h5, h6,
     background-color: var(--folio-feature-color);
 }
 
+main.container {
+    min-height: 45rem;
+}
+
 /* Colour Classes */
 
 .text-feature-color {
@@ -68,12 +72,13 @@ h1, h2, h3, h4, h5, h6,
     display: inline-block;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-primary:disabled {
     color: var(--folio-black-color);
     background-color: var(--folio-feature-color);
     border-color: var(--folio-feature-color);
     border-width: 0.2rem;
-    transition: color 400ms ease-in-out, background-color 400ms ease-in-out;
+    transition: color 400ms ease-in-out, background-color 400ms ease-in-out, opacity 400ms ease-in-out;
 }
 
 .btn-primary:focus {
@@ -427,6 +432,13 @@ input.form-check-input[type=checkbox]:checked {
 .input-group span.input-group-text,
 .input-group .form-control {
     border-radius: 0;
+}
+
+/* Footer styling */
+
+footer.footer-container {
+    height: 15rem;
+    background-color: var(--folio-black-color);
 }
 
 

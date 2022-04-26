@@ -26,6 +26,7 @@
   <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/8d2cb92610.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% endblock %}
@@ -89,6 +90,32 @@
       </div>
     </div>
   </main>
+
+  <footer class="footer-container mt-3">
+    <div class="row h-100">
+      <div class="col-12 d-flex justify-content-center align-items-center flex-column">
+        <a class="navbar-brand me-0" href="{% url 'home' %}">
+          <h2 class="mb-0 h1 text-white-color">fol<span class="text-feature-color">.</span>io</h2>
+        </a>
+        <div class="d-flex justify-content-center align-items-center w-100 mt-3">
+          <a class="btn btn-icon me-5" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" title="Visit our Facebook page.">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a class="btn btn-icon me-5" href="https://twitter.com/" target="_blank" rel="noopener noreferrer" title="Follow our Twitter account.">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="btn btn-icon me-5" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" title="Follow our LinkedIn page.">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a class="btn btn-icon" href="https://github.com/KieranSweeden/fol.io" target="_blank" rel="noopener noreferrer" title="Visit the project's repository.">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <p class="mb-0 mt-3 text-muted">Copyright &copy; fol<span class="text-feature-color">.</span>io</p>
+        <p class="mb-0 text-muted">All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
 
   {% if messages %}
     <ul>
