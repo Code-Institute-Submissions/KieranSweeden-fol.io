@@ -246,3 +246,14 @@ AWS_S3_ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID')
 AWS_S3_SECRET_ACCESS_KEY = os.environ.get('S3_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'folio-project'
 AWS_QUERYSTRING_AUTH = False
+
+if "USE_AWS" in os.environ:
+
+    # Static & media files
+    # For static file storage we want to use our
+    # StaticStorage class
+    STATICFILES_STORAGE = 'custom_storage.StaticStorage'
+
+    # The location django should save to is a folder
+    # named static
+    STATICFILES_LOCATION = 'static'
