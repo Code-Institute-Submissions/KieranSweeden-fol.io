@@ -2,7 +2,7 @@
 
 Within this markdown file, you'll find information regarding bugs, their fixes and the testing process of fol.io.
 
-[Link to live deployment of fol.io](https://folio-web-app.herokuapp.com/)
+<a href="https://folio-web-app.herokuapp.com/" target="_blank">Link to live deployment of fol.io</a>
 
 To navigate back to the README file, [click here](README.md).
 

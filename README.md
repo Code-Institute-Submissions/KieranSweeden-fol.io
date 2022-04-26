@@ -2,9 +2,13 @@
 
 *image of index page on multiple devices*
 
-*brief description of application*
+Fol.io is a CRUD-based web application written with Python using the Django framework.
 
-[Link to live deployment of fol.io](https://folio-web-app.herokuapp.com/)
+Fol.io allows it's users to create folios that are viewable to potential employers who do not have accounts with folio. Users can create, update, delete and swap various portfolio snippets that are often found within tech-oriented portfolios, empowering them to create various folios that present them in their best light to fulfill numerous job descriptions found in the tech industry.
+
+Using Stripe to purchase fol.io licenses, users can "publish" these folios for the outside world to see, helping them on their job searching journeys.
+
+<a href="https://folio-web-app.herokuapp.com/" target="_blank">Link to live deployment of fol.io</a>
 
 ## Table of Contents
 
