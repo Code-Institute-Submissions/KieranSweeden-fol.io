@@ -281,6 +281,8 @@ The logo shown on mobile devices which will also be used as a favicon will be as
 
 <img src="readme/images/surface/fol.io-short-logo-readme-header.png">
 
+[Return to Table of Contents &#8679;](#table-of-contents)
+
 ## Technology
 
 ### Languages
@@ -352,9 +354,13 @@ The following applications listed were utilized during the development of fol.io
 
 To keep the README.md file concise, all information regarding bugs and testing during the development of fol.io was documented within the [TESTING.md](TESTING.md) file.
 
+[Return to Table of Contents &#8679;](#table-of-contents)
+
 ## Deployment
 
 To keep the README.md file concise, the deployment section has been given it's own unique markdown file. To view deployment procedures, please click [here](DEPLOYMENT.md).
+
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ## Credits
 
@@ -393,9 +399,13 @@ The following links are sources that were used to further understand the problem
 - [Woman using MacBook and wearing headphones image](https://unsplash.com/photos/AHfRjkk8QcE)
     - Image author: [Christina @ wocintechchat.com](https://unsplash.com/@wocintechchat)
 
+[Return to Table of Contents &#8679;](#table-of-contents)
+
 ## Acknowledgements
 
 Within this section of the README file, I'd like to thank:
 
 - My mentor Sammy, for their guidance and excitement that encourages me to go a step further when developing web applications.
 - Code Institute for their  Diploma in Web Application Development course that has tremendously helped me in learning the fundamentals and advanced topics in Full Stack web development.
+
+[Return to Table of Contents &#8679;](#table-of-contents)
