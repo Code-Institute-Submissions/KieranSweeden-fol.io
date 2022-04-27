@@ -247,6 +247,20 @@ folios = Folio.objects.filter(author_id=request.user)
 
 </details>
 
+#### No 'Access-Control-Allow-Origin' header is present on the requested resource
+
+When viewing the deployed app on Heroku, certain JavaScript based functionality was not working due to the base.js file not being loaded in properly. According to the browser console, it was a CORS related issue where a required header was missing.
+
+<details>
+
+<summary>Read Fix</summary>
+
+After researching this issue, numerous fixes were presented including the use of django-cors middleware to attach CORS headers to files. These fixes didn't work in my case however.
+
+What I found puzzling was that over JavaScript files were being loaded in fine, however the base.js file was not. Due to this, I investigated the codebase and noticed I had accidently left the attribute of type="module" within the script tag that was loading base.js. After removing this attribute, the problem was fixed.
+
+</details>
+
 
 ### Known
 
