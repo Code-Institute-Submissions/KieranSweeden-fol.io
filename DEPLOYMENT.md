@@ -228,7 +228,23 @@ The following are procedures that need to be undertaken in order to create an AW
 
 ## Provide fol.io access to S3 Bucket via AWS IAM
 
+The following are procedures that need to be undertaken in order to create set of access keys in order for the application to communicate correctly with AWS.
 
+1. Ensure you have the required packages to communicate with AWS:
+    ```bash
+    pip3 install django_storages
+    pip3 install boto3
+    ```
+    
+    If you installed the packages just now, remembder to update your requirements.txt file by entering the following:
+    ```bash
+    pip3 freeze freeze > requirements.txt
+    ```
 
+2. Whilst signed in to AWS, navigate to the dropdown button containing your name and click "Security credentials". 
 
+3. Open the access keys accordion and click "Create New Access Key".
 
+4. Within the modal pop-up, show your keys by clicking the "Show Access Key" link. Keep a record of these keys by downloading the key file.
+
+5. These are the keys you'll be attaching the respective AWS environment variables.
