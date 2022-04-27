@@ -6,6 +6,14 @@ Within this markdown file, you'll find various deployment procedures that need t
 
 To navigate back to the README file, [click here](README.md).
 
+## Table of Contents
+
+* [Prerequisites](#prerequisites)
+* [Clone fol.io Locally](#clone-folio-locally)
+* [Deploy fol.io live with Heroku](#deploy-folio-live-with-heroku)
+* [Create an AWS S3 Bucket](#create-an-aws-s3-bucket)
+* [Provide fol.io access to S3 Bucket via AWS IAM](#provide-folio-access-to-s3-bucket-via-aws-iam)
+
 ## Prerequisites
 
 The following is a list of prerequisites that are required in order to deploy fol.io.
@@ -15,6 +23,8 @@ The following is a list of prerequisites that are required in order to deploy fo
 - An IDE of your choice to access the fol.io codebase.
 - A Stripe account to enable card payment functionality.
 - An AWS account with access to S3 (Along with a created S3 bucket to contain static files).
+
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ## Clone fol.io Locally
 
@@ -88,6 +98,8 @@ The following are procedures that need to be undertaken in order to run a local 
     ```
 
 12. With the application now live on your local environment, you can now add "/admin" to the end of the url and sign in using the superuser account you recently created.
+
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ## Deploy fol.io live with Heroku
 
@@ -193,6 +205,8 @@ The following are procedures that need to be undertaken in order to run a deploy
     ```
     By adding "/admin" to the end of the deployed application url, you can then access the admin dashboard for the app and sign in with your newly created superuser.
 
+[Return to Table of Contents &#8679;](#table-of-contents)
+
 ## Create an AWS S3 Bucket
 
 The following are procedures that need to be undertaken in order to create an AWS S3 bucket that will hold and serve the application's static files.
@@ -225,6 +239,7 @@ The following are procedures that need to be undertaken in order to create an AW
     5. IMPORTANT: Make sure to add "/*" at the end of the resource value.
     6. Click the "Save Changes" button.
 
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ## Provide fol.io access to S3 Bucket via AWS IAM
 
@@ -248,3 +263,5 @@ The following are procedures that need to be undertaken in order to create set o
 4. Within the modal pop-up, show your keys by clicking the "Show Access Key" link. Keep a record of these keys by downloading the key file.
 
 5. These are the keys you'll be attaching the respective AWS environment variables.
+
+[Return to Table of Contents &#8679;](#table-of-contents)
