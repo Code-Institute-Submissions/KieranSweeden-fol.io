@@ -345,6 +345,9 @@ The following applications listed were utilized during the development of fol.io
 - [Affinity Designer](https://affinity.serif.com/en-gb/designer/)
     - Affinity Designer was used to create numerous graphics that were used within folio.
 
+- [GitHub Wiki TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
+    - The GitHub Wiki TOC Generator was used to quickly generate table of contents for various markdown files within this repository.
+
 ## Testing
 
 To keep the README.md file concise, all information regarding bugs and testing during the development of fol.io was documented within the [TESTING.md](TESTING.md) file.
