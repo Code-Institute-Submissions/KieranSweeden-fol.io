@@ -52,6 +52,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
+    #CORS
+    'corsheaders',
+
     # required by crispy forms
     'crispy_forms',
     'crispy_bootstrap5',
@@ -72,6 +75,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -80,6 +84,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'folio.urls'
+
+CORS_ORIGIN_ALLOW_ALL = True 
 
 TEMPLATES = [
     {
