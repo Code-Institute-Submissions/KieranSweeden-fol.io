@@ -5,7 +5,6 @@ Views for the pages related to the user's folio library
 from django.shortcuts import (
     render,
     get_object_or_404,
-    get_list_or_404,
     redirect,
     reverse
 )
@@ -24,10 +23,7 @@ def view_library(request):
     and presents them within the library page
     """
 
-    folios = get_list_or_404(
-        Folio,
-        author_id=request.user
-    )
+    folios = Folio.objects.filter(author_id=request.user)
 
     user_account = get_object_or_404(
         UserAccount,

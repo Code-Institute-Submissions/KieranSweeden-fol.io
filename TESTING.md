@@ -229,6 +229,24 @@ Inserting this within the runtime.txt file rectified the issue after adding and 
 
 </details>
 
+#### No Folios match the given query
+
+When the user has no folios within their account and they attempt to view their folio library, django provides a query related error where "No Folios match the given query".
+
+<details>
+
+<summary>Read Fix</summary>
+
+After researching this error online, it became apparent that it was an obvious user error on my part. This was due to the use of the get_list_or_404 shortcut function to retrieve folios. If no folios were found with the given query, it would throw an error which was not the intended functionality.
+
+To resolve this issue, it was simply replacing the get_list_or_404 function with the following syntax:
+
+```python
+folios = Folio.objects.filter(author_id=request.user)
+```
+
+</details>
+
 
 ### Known
 
