@@ -132,7 +132,7 @@ The following are procedures that need to be undertaken in order to run a deploy
     pip3 freeze > requirements.txt
     ```
 
-8. With gunicorn now installed, we can now apply it to the Heroku Procfile. First create the Procfile then type the following within the Procfile.
+9. With gunicorn now installed, we can now apply it to the Heroku Procfile. First create the Procfile then type the following within the Procfile.
     ```bash
     touch Procfile
     ```
@@ -143,21 +143,21 @@ The following are procedures that need to be undertaken in order to run a deploy
     web: gunicorn folio.wsgi:application
     ```
 
-9. Ensure that the hostname of your heroku app has been added to the list of ALLOWED_HOSTS within the applications settings.py file. Here is what the setting looks like within the original version of the app.
+10. Ensure that the hostname of your heroku app has been added to the list of ALLOWED_HOSTS within the applications settings.py file. Here is what the setting looks like within the original version of the app.
     ```python
     ALLOWED_HOSTS = ['folio-web-app.herokuapp.com', 'localhost']
     ```
 
 > At the time of writing, Heroku disabled the GitHub connect feature that enables one to quickly deploy their GitHub repository to Heroku. For this reason, the following steps will assume that it is still currently the case and will demonstrate how to do it via the Heroku CLI. Given the simplicity & user friendliness of the GitHub connect feature, I do recommend attempting to use it (if it's been re-enabled of course). Steps on how to use this feature can be found [here](https://medium.com/featurepreneur/how-to-connect-github-to-heroku-be6ff27419d3). Credit goes to [this Stack Overflow answer](https://stackoverflow.com/a/71905270/15607265) that helped understand the Heroku CLI deployment flow.
 
-10. To begin the deployment procedure via Heroku, you must first install the Heroku CLI. Steps in order to achieve this can be found [here](https://devcenter.heroku.com/articles/heroku-cli).
+11. To begin the deployment procedure via Heroku, you must first install the Heroku CLI. Steps in order to achieve this can be found [here](https://devcenter.heroku.com/articles/heroku-cli).
 
-11. Once you've got the Heroku CLI installed, you can sign in to your Heroku account via the terminal by entering the following command and entering your details when they're asked of you by the CLI:
+12. Once you've got the Heroku CLI installed, you can sign in to your Heroku account via the terminal by entering the following command and entering your details when they're asked of you by the CLI:
     ```bash
     heroku login -i
     ```
 
-12. Assuming that you've already set up your Heroku app as instructed within previous steps, you now need to add a new remote Git repo using the Heroku CLI. You can do so by entering the following:
+13. Assuming that you've already set up your Heroku app as instructed within previous steps, you now need to add a new remote Git repo using the Heroku CLI. You can do so by entering the following:
     ```bash
     heroku git:remote -a <heroku_app_name>
     ```
@@ -173,12 +173,12 @@ The following are procedures that need to be undertaken in order to run a deploy
     heroku  https://git.heroku.com/<your-heroku-app-name>.git (push)
     ```
 
-13. You can now push the main branch to your newly created Heroku remote repo by entering the following command:
+14. You can now push the main branch to your newly created Heroku remote repo by entering the following command:
     ```bash
-        git push heroku main 
+    git push heroku main 
     ```
 
-14. Now the application has been deployed, you're now going to want to proceed with database migrations for the deployed app on Heroku. To achieve this (whilst logged in to the Heroku CLI), enter the following commands:
+15. Now the application has been deployed, you're now going to want to proceed with database migrations for the deployed app on Heroku. To achieve this (whilst logged in to the Heroku CLI), enter the following commands:
     ```bash
     heroku run python manage.py makemigrations
     ```
@@ -187,13 +187,44 @@ The following are procedures that need to be undertaken in order to run a deploy
     heroku run python manage.py migrate
     ```
 
-15. You can now run the following command to create a new admin account for the deployed application:
+16. You can now run the following command to create a new admin account for the deployed application:
     ```bash
     heroku run python3 manage.py createsuperuser
     ```
     By adding "/admin" to the end of the deployed application url, you can then access the admin dashboard for the app and sign in with your newly created superuser.
 
 ## Create an AWS S3 Bucket
+
+The following are procedures that need to be undertaken in order to create an AWS S3 bucket that will hold and serve the application's static files.
+
+1. Create an account / sign in with [Amazon AWS](https://aws.amazon.com/).
+
+2. Within the search bar found in the navbar, search for S3 and click to open the S3 service within AWS.
+
+3. Click the orange "Create Bucket" button within the S3 dashboard.
+
+4. S3 will provide you with a form to fill out for the new S3 bucket. All you need to be concerned with for now are the following:
+    - Bucket Name - make this unique and relevant to the app.
+    - AWS Region - select the region closest to you.
+    - Uncheck "Block all public access"
+    
+    You can then create the bucket by clicking the "Create Bucket" button and you'll then be re-directed to the S3 dashboard where you can see your newly created bucket.
+
+5. Click the bucket you've recently created, navigate to the "Permissions" tab and click the "Edit" button found within the Bucket policy section. Here we're going to generate a new bucket policy. In order to do this, proceed with the following steps:
+    1. Copy the Bucket ARN found within the bucket policy dashboard.
+    2. Click the "Policy Generator" button at the top right of the dashboard.
+    3. Within the policy generator form, proceed with the following steps:
+        1. Set Type of Policy to S3 bucket.
+        2. Type * in Principal field.
+        3. Set actions to only 1 option being "GetObject".
+        3. Paste the coped ARN into the ARN field.
+        4. Click the "Add Statement" button.
+        5. Click the "Generate Policy" button.
+        6. Copy the provided policy JSON.
+    4. Paste the policy JSON in the policy input found within the Edit bucket policy screen for your S3 bucket.
+    5. IMPORTANT: Make sure to add "/*" at the end of the resource value.
+    6. Click the "Save Changes" button.
+
 
 ## Provide fol.io access to S3 Bucket via AWS IAM
 
