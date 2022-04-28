@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-12 text-center">
+    <div class="col-12 d-none d-sm-block text-center">
         <div class="btn-group mt-3">
             <a href="{% url 'account_details' %}"
                 class="btn btn-primary {% if active_tab == 'account_details' %}active{% endif %}">
@@ -10,5 +10,11 @@
                 Billing Details
             </a>
         </div>
+    </div>
+    <div class="col-12 d-sm-none">
+        <select class="form-select" onchange="window.location.href=this.value">
+            <option {% if active_tab == 'account_details' %}selected{% endif %} value="{% url 'account_details' %}">Purchase License</option>
+            <option {% if active_tab == 'billing_details' %}selected{% endif %} value="{% url 'billing_details' %}">Order History</option>
+        </select>
     </div>
 </div>

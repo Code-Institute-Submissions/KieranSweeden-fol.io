@@ -50,7 +50,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black-color">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black-color">
     {% if user.is_authenticated %}
       {% block main_nav %}{% endblock %}
     {% else %}
@@ -68,15 +68,15 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-4 offset-2">
-        <h2 class="mb-0 title-clamp">
+      <div class="col-12 col-md-4 offset-md-2">
+        <h2 class="mb-3 mb-md-0 title-clamp text-center text-md-start">
           {% block header_title %}{% endblock %}
         </h2>
       </div>
-      <div class="col-4">
+      <div class="col-12 col-md-4 d-flex justify-content-end align-items-center flex-column flex-md-row">
         {% block additional_header_content %}{% endblock %}
       </div>
-      <div class="col-8 offset-2">
+      <div class="col-12 col-md-8 offset-md-2">
         <hr>
       </div>
     </div>

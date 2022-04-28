@@ -10,9 +10,9 @@
         <div class="col-12">
             {{ form|crispy }}
         </div>
-        <div class="col-12 d-flex justify-content-end align-items-center">
-            <button type="submit" name="submit_and_suite" class="btn btn-primary">Create & Open in Suite</button>
-            <button type="submit" name="submit_only" class="btn btn-secondary">Create</button>
+        <div class="col-12 d-flex justify-content-between align-items-center flex-column flex-md-row">
+            <button type="submit" name="submit_only" class="btn btn-primary mb-2 mb-md-0">Create</button>
+            <button type="submit" name="submit_and_suite" class="btn btn-secondary">Create & Open in Suite</button>
         </div>
     </div>
 </form>

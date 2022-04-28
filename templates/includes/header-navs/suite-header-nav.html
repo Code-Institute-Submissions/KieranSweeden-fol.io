@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-12 text-center">
+    <div class="col-12 text-center d-none d-sm-block">
         <div class="btn-group mt-3">
             <a href="{% url 'edit_folio_projects' folio.id %}"
                 class="btn btn-primary {% if active_tab == 'projects' %}active{% endif %}">
@@ -18,5 +18,13 @@
                 Contact
             </a>
         </div>
+    </div>
+    <div class="col-12 d-sm-none">
+        <select class="form-select" onchange="window.location.href=this.value">
+            <option {% if active_tab == 'projects' %}selected{% endif %} value="{% url 'edit_folio_projects' folio.id %}">Projects</option>
+            <option {% if active_tab == 'skills' %}selected{% endif %} value="{% url 'edit_folio_skills' folio.id %}">Skills</option>
+            <option {% if active_tab == 'profile' %}selected{% endif %} value="{% url 'edit_folio_profile' folio.id %}">Profile</option>
+            <option {% if active_tab == 'contact' %}selected{% endif %} value="{% url 'edit_folio_contact' folio.id %}">Contact</option>
+        </select>
     </div>
 </div>

@@ -8,6 +8,7 @@ from django.shortcuts import (
     reverse
 )
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from suite.models import Folio
 from suite.functions import id_has_been_provided, user_is_author_of_folio
 
@@ -93,14 +94,20 @@ def select_folio(request):
                                         kwargs={"folio_id": folio_id}))
 
         else:
+            folios = Folio.objects.filter(author_id=request.user)
 
-            # Get the users folios
-            folios = Folio.objects.filter(
-                author_id=request.user
-            )
+            if len(folios) == 0:
+                messages.info(
+                    request,
+                    "Create a folio to begin using the fol.io suite."
+                )
+                return redirect('view_library')
 
-            context = {
-                "folios": folios
-            }
+            else:
+                context = {"folios": folios}
 
-            return render(request, "suite/select_folio.html", context=context)
+                return render(
+                    request,
+                    "suite/select_folio.html",
+                    context=context
+                )
