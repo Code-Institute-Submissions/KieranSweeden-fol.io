@@ -16,10 +16,9 @@
     </div>
     <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center p-4">
         <div class="mb-4">
-            <a href="" class="btn btn-primary me-4">Try Now</a>
-            <a href="{% url 'account_signup' %}" class="btn btn-secondary">Register</a>
+            <a href="{% url 'account_login' %}" class="btn btn-secondary me-4">log in</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-primary">Register</a>
         </div>
-        <a href="{% url 'account_login' %}" class="btn btn-tertiary">Log In</a>
     </div>
 </div>
 {% endblock %}

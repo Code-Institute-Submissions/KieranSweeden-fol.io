@@ -261,7 +261,6 @@ What I found puzzling was that over JavaScript files were being loaded in fine, 
 
 </details>
 
-
 ### Known
 
 The following are bugs that are still present within the current build of fol.io.

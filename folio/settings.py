@@ -252,6 +252,25 @@ AWS_S3_SECRET_ACCESS_KEY = os.environ.get('S3_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'folio-project'
 AWS_QUERYSTRING_AUTH = False
 
+# Email
+if 'DEVELOPMENT' in os.environ:
+    # Variables for development
+
+    # Default email
+    DEFAULT_FROM_EMAIL = "folio@gmail.com"
+
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+else:
+    # Variables for production
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
 if "USE_AWS" in os.environ:
 
     # Static & media files
