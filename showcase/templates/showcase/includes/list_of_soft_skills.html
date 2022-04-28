@@ -1,0 +1,10 @@
+{% for soft_skill in soft_skills %}
+    <h4 class="h5">{{ soft_skill.skill_title }}</h4>
+    {% if soft_skill.skill_description %}
+        <p>{{ soft_skill.skill_description }}</p>
+    {% else %}
+        <p class="text-danger">No skill description</p>
+    {% endif %}
+{% empty %}
+    <p>{{ author.first_name }} hasn't listed any soft based skills.</p>
+{% endfor %}

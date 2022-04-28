@@ -1,0 +1,10 @@
+{% for tech_skill in tech_skills %}
+    <h4 class="h5">{{ tech_skill.skill_title }}</h4>
+    {% if tech_skill.skill_description %}
+        <p>{{ tech_skill.skill_description }}</p>
+    {% else %}
+        <p class="text-danger">No skill description</p>
+    {% endif %}
+{% empty %}
+    <p>{{ author.first_name }} hasn't listed any technology based skills.</p>
+{% endfor %}

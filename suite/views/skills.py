@@ -33,7 +33,7 @@ def edit_folio_skills(request, folio_id=None):
 
         folio = get_object_or_404(Folio, pk=folio_id)
 
-        # Get the user's tech skills
+        # Get the user's skills
         skills = list(Skill.objects.filter(
             author_id=request.user
         ))
@@ -46,7 +46,7 @@ def edit_folio_skills(request, folio_id=None):
             # Set is attached to true if folio exists
             # in the skills list of folios
             skill.is_attached = skill.folios.filter(pk=folio_id).exists()
-        
+
         tech_skills = list(filter(is_tech_skill, skills))
         soft_skills = list(filter(is_soft_skill, skills))
 
