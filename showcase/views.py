@@ -4,7 +4,7 @@ from django.shortcuts import (
 )
 from account.models import UserAccount
 from suite.models import Folio, Project
-from suite.models import Skill
+from suite.models import Skill, Profile
 from suite.functions import (
     is_tech_skill,
     is_soft_skill
@@ -47,9 +47,7 @@ def view_folio_skills(request, folio_id=None):
         pk=folio.author_id.id
     )
 
-    skills = list(Skill.objects.filter(
-        author_id=request.user
-    ))
+    skills = list(Skill.objects.filter(folios=folio))
 
     tech_skills = list(filter(is_tech_skill, skills))
     soft_skills = list(filter(is_soft_skill, skills))
@@ -79,10 +77,13 @@ def view_folio_profile(request, folio_id=None):
         pk=folio.author_id.id
     )
 
+    profiles = list(Profile.objects.filter(folios=folio))
+
     context = {
         "user": request.user,
         "folio": folio,
         "author": author,
+        "profiles": profiles
     }
 
     return render(

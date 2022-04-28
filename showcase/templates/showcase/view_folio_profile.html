@@ -25,7 +25,33 @@
 {% endblock %}
 
 {% block content %}
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <h3 class="h4 text-feature-color">About Me</h3>
+            {% include './includes/list_of_profiles.html' %}
+        </div>
+        <div class="col-12 d-lg-none">
+            <hr>
+        </div>
+        <div class="col-12 col-lg-6">
+            <h3 class="h4 text-feature-color">Current Project</h3>
+            {% if folio.current_project_link %}
+                <p>{{ folio.current_project_link }}</p>
+            {% else %}
+                <p class="text-danger">A current project link has not been provided.</p>
+            {% endif %}
 
-<p>working</p>
-
+            {% if folio.current_project_desc %}
+                <p>{{ folio.current_project_desc }}</p>
+            {% else %}
+                <p class="text-danger">A current project description has not been provided.</p>
+            {% endif %}
+            <h3 class="h4 text-feature-color">My Future Goal</h3>
+            {% if folio.future_goal %}
+                <p>{{ folio.future_goal }}</p>
+            {% else %}
+                <p class="text-danger">A future goal has not been provided.</p>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
