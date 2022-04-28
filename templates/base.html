@@ -52,7 +52,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black-color">
     {% if user.is_authenticated %}
-      {% block main_nav %}{% endblock %}
+      {% include 'includes/main-navs/internal-main-nav.html' %}
     {% else %}
       {% include 'includes/main-navs/external-main-nav.html' %}
     {% endif %}
