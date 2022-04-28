@@ -333,7 +333,8 @@ main.container {
     bottom: 1rem;
 }
 
-.card.card-message .card-header-success {
+.card.card-message .card-header-success,
+.card.card-message .card-header-info {
     color: var(--folio-success-color);
     border-bottom: 0.2rem solid var(--folio-success-color);
 }

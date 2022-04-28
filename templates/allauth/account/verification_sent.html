@@ -4,11 +4,12 @@
 
 {% block extra_title %}Verify Your Email{% endblock %}
 
-{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+{% block head_title %}{% trans "Verify Your E-mail" %}{% endblock %}
+
+{% block header_title%}{% trans "Verify Your E-mail" %}{% endblock %}
 
 {% block content %}
-    <h1>{% trans "Verify Your E-mail Address" %}</h1>
-
-    <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification e-mail in your main inbox, check your spam folder. Please contact us if you do not receive the verification e-mail within a few minutes.{% endblocktrans %}</p>
-
+    <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification e-mail in your main inbox, check your spam folder.{% endblocktrans %}</p>
+    <p>{% blocktrans %}Please contact us if you do not receive the verification e-mail within a few minutes.{% endblocktrans %}</p>
+    <a class="btn btn-primary" href="{% url 'home' %}">Return to Home</a>
 {% endblock %}
