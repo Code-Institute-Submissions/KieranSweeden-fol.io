@@ -15,7 +15,18 @@ def view_folio_projects(request, folio_id=None):
     """
     View projects within folio
     """
+
+    print(folio_id)
+
     folio = get_object_or_404(Folio, pk=folio_id)
+
+    if not folio.is_published and folio.author_id != request.user:
+
+        return render(
+            request,
+            'showcase/folio_is_not_published.html'
+        )
+
     author = get_object_or_404(
         UserAccount,
         pk=folio.author_id.id
@@ -34,7 +45,7 @@ def view_folio_projects(request, folio_id=None):
         request,
         'showcase/view_folio_projects.html',
         context=context)
-
+ 
 
 def view_folio_skills(request, folio_id=None):
     """
@@ -42,6 +53,14 @@ def view_folio_skills(request, folio_id=None):
     """
 
     folio = get_object_or_404(Folio, pk=folio_id)
+
+    if not folio.is_published and folio.author_id != request.user:
+
+        return render(
+            request,
+            'showcase/folio_is_not_published.html'
+        )
+
     author = get_object_or_404(
         UserAccount,
         pk=folio.author_id.id
@@ -72,6 +91,14 @@ def view_folio_profile(request, folio_id=None):
     """
 
     folio = get_object_or_404(Folio, pk=folio_id)
+
+    if not folio.is_published and folio.author_id != request.user:
+
+        return render(
+            request,
+            'showcase/folio_is_not_published.html'
+        )
+
     author = get_object_or_404(
         UserAccount,
         pk=folio.author_id.id
@@ -98,6 +125,14 @@ def view_folio_contact(request, folio_id=None):
     """
 
     folio = get_object_or_404(Folio, pk=folio_id)
+
+    if not folio.is_published and folio.author_id != request.user:
+
+        return render(
+            request,
+            'showcase/folio_is_not_published.html'
+        )
+
     author = get_object_or_404(
         UserAccount,
         pk=folio.author_id.id

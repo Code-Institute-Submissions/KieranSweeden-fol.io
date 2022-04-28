@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+{% block extra_title %}Folio is not available{% endblock %}
+
+{% block main_nav %}
+    {% include 'includes/main-navs/showcase-main-nav.html' with active_nav_link='skills' %}
+{% endblock %}
+
+{% block header_title %}Folio is not available{% endblock %}
+
+{% block additional_header_content %}
+
+{% endblock %}
+
+{% block content %}
+    <p>Sorry, this folio has not been published by the author.</p>
+    <a class="btn btn-primary" href="{% url 'home' %}">Home</a>
+{% endblock %}
