@@ -4,6 +4,10 @@
 
 {% block extra_title %}Welcome{% endblock %}
 
+{% block main_nav %}
+    {% include 'includes/main-navs/external-main-nav.html' with active_nav_link='' %}
+{% endblock %}
+
 {% block extra_js %}
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
     <script src="{% static 'js/parallax/parallax.js' %}"></script>
