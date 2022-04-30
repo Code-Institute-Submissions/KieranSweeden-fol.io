@@ -5,6 +5,12 @@
 
 {% block extra_title %}{% trans "Billing Details" %}{% endblock %}
 
+{% block help_question %}Why are these details important?{% endblock %}
+{% block help_title %}Why are these details important?{% endblock %}
+{% block help_desc %}
+    {% include './includes/snippets/help_billing_content.html' %}
+{% endblock %}
+
 {% block header_title %}{% trans "Billing Details" %}{% endblock %}
 
 {% block main_nav %}
