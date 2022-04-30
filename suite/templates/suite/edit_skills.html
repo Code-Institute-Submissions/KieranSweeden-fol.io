@@ -6,8 +6,13 @@
     <script defer src="{% static 'js/clamp.min.js' %}"></script>
     <script defer src="{% static 'js/suite/snippets.js' %}"></script>
 {% endblock %}
-
 {% block extra_title %}Editing Folio Skills{% endblock %}
+
+{% block help_question %}What is a folio skill?{% endblock %}
+{% block help_title %}What is a folio skill?{% endblock %}
+{% block help_desc %}
+    {% include './includes/snippets/help_skills_content.html' %}
+{% endblock %}
 
 {% block main_nav %}
     {% include 'includes/main-navs/internal-main-nav.html' with active_nav_link='suite' %}
