@@ -507,21 +507,24 @@ footer.footer-container {
 #helpSection {
     background-color: var(--folio-feature-color);
     color: var(--folio-black-color);
-    height: 27rem;
-    transition: transform 500ms ease-in-out;
     position: absolute;
-    top: 0rem;
+    top: 3.5rem;
     left: 0;
     right: 0;
     z-index: 1000;
 }
 
-#helpSection.hide {
-    transform: translateY(-21.5rem);
+#helpSection #helpSectionContent {
+    transition: height 500ms ease-in-out;
 }
 
-#helpSection.show {
-    transform: translateY(0rem);
+#helpSection.hide #helpSectionContent {
+    height: 0;
+    overflow: hidden;
+}
+
+#helpSection.show #helpSectionContent {
+    height: min-content;
 }
 
 #helpSection h4 {

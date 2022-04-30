@@ -261,6 +261,20 @@ What I found puzzling was that over JavaScript files were being loaded in fine, 
 
 </details>
 
+#### Navbar was wider than html body & overflow-x wasn't working on mobile devices
+
+When looking at the site via the mobile device viewer on Google Chrome, the viewport could be moved slightly to the right which was un-intentional in fol.io's design. Along with the unexpected behaviour of being able to slightly shift the viewport to the right, the elements on the page weren't positioned correctly.
+
+<details>
+
+<summary>Read Fix</summary>
+
+Attempts at fixing this with CSS classes in Bootstrap 5 and other CSS workarounds found through Stack Overflow, did not provide the desired outcome in fixing the max width of certain elements to the width of the body element.
+
+The fix however did come to light via [this Stack Overflow answer](https://stackoverflow.com/a/41407863/15607265) which suggests the inclusion of "user-scalable=no" within the viewport meta tag. After making this change, the elements flowed and fitted on the page as expected.
+
+</details>
+
 ### Known
 
 The following are bugs that are still present within the current build of fol.io.
