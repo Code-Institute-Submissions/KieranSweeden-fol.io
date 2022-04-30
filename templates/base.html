@@ -59,12 +59,23 @@
   </nav>
 
   <!-- Buffer so elements beneath do not appear underneath navbar -->
-  <div id="navbar-buffer"></div>
+  <div class="navbar-buffer"></div>
 
   <section id="helpSection" class="hide">
     <div class="h-100 d-flex flex-column justify-content-between">
       <div class="w-100">
-        <h4>Here's some help</h4>
+        <div class="navbar-buffer"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-8 offset-md-2 py-3">
+              <h4>
+                {% block help_title %}{% endblock %}
+              </h4>
+              <hr>
+              {% block help_desc %}{% endblock %}
+            </div>
+          </div>
+        </div>
       </div>
       <div class="w-100 align-self-end">
         <button id="helpSectionBtn" class="w-100 btn p-0">

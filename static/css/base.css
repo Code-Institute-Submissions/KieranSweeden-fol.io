@@ -72,6 +72,10 @@ main.container {
     display: inline-block;
 }
 
+.btn-check:focus+.btn, .btn:focus {
+    box-shadow: 0 0 0 .2rem var(--folio-black-color);
+}
+
 .btn-primary,
 .btn-primary:disabled {
     color: var(--folio-black-color);
@@ -297,7 +301,7 @@ main.container {
     text-decoration-thickness: .15rem;
 }
 
-#navbar-buffer {
+.navbar-buffer {
     height: 3.5rem;
     width: 100%;
 }
@@ -502,19 +506,46 @@ footer.footer-container {
 
 #helpSection {
     background-color: var(--folio-feature-color);
+    color: var(--folio-black-color);
     height: 27rem;
     transition: transform 500ms ease-in-out;
     position: absolute;
-    top: -1.5rem;
+    top: 0rem;
     left: 0;
     right: 0;
     z-index: 1000;
 }
 
 #helpSection.hide {
-    transform: translateY(-20rem);
+    transform: translateY(-21.5rem);
+}
+
+#helpSection.show {
+    transform: translateY(0rem);
+}
+
+#helpSection h4 {
+    color: var(--folio-black-color);
 }
 
 #helpSection footer {
     height: 2rem;
 }
+
+#helpSection .w-100.align-self-end {
+    transition: background-color 500ms ease-in-out;
+}
+
+#helpSection .w-100.align-self-end:hover,
+#helpSection .w-100.align-self-end:focus {
+    background-color: var(--folio-white-color);
+}
+
+#helpSection span.material-icons-sharp {
+    transition: transform 500ms ease-in-out;
+}
+
+#helpSection.show span.material-icons-sharp {
+    transform: rotate(540deg);
+}
+
