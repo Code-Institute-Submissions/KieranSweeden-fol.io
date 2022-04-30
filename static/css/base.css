@@ -527,8 +527,15 @@ footer.footer-container {
     height: min-content;
 }
 
+#helpSection h2,
+#helpSection h3,
 #helpSection h4 {
     color: var(--folio-black-color);
+}
+
+#helpSection a {
+    color: var(--folio-black-color);
+    font-weight: bold;
 }
 
 #helpSection footer {
@@ -548,7 +555,7 @@ footer.footer-container {
     transition: transform 500ms ease-in-out;
 }
 
-#helpSection.show span.material-icons-sharp {
+#helpSection.show span.material-icons-sharp.icon {
     transform: rotate(540deg);
 }
 

@@ -8,11 +8,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script src="{% static 'js/parallax/parallax.js' %}"></script>
 {% endblock %}
-
 {% block extra_title %}{% trans "Log in" %}{% endblock %}
 
-{% block header_title %}{% trans "Log in" %}{% endblock %}
+{% block help_question %}Why sign up with fol.io?{% endblock %}
+{% block help_title %}Why fol.io?{% endblock %}
+{% block help_desc %}
+    {% include './snippets/external_help_content.html' %}
+{% endblock %}
 
+{% block header_title %}{% trans "Log in" %}{% endblock %}
 {% block header_content %}
     {% include 'includes/header-navs/external-header-nav.html' %}
 {% endblock %}
