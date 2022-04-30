@@ -16,18 +16,19 @@
 {% block header_content %}
 <div class="row">
     <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
-        <p class="text-center">Quickly move your tech career forward with fol<span class="text-feature-color">.</span>io.</p>
+        <p class="text-center">Create an account with fol<span class="text-feature-color">.</span>io to quickly move your tech career forward.
+        </p>
     </div>
     <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center p-4">
         <div class="mb-4">
-            <a href="{% url 'account_login' %}" class="btn btn-secondary me-4">log in</a>
+            <a href="{% url 'account_login' %}" class="btn btn-secondary me-4">Log In</a>
             <a href="{% url 'account_signup' %}" class="btn btn-primary">Register</a>
         </div>
     </div>
 </div>
 {% endblock %}
 
-{% block header_title %}{% trans "Introducing fol.io" %}{% endblock %}
+{% block header_title %}Progress with fol<span class="text-feature-color">.</span>io{% endblock %}
 
 {% block content %}
 <div class="row">

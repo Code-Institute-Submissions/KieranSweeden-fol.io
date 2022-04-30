@@ -497,3 +497,24 @@ footer.footer-container {
 .bs-tooltip-top .tooltip-arrow::before {
     border-top-color: var(--folio-feature-color);
 }
+
+/* Help Section Styling */
+
+#helpSection {
+    background-color: var(--folio-feature-color);
+    height: 27rem;
+    transition: transform 500ms ease-in-out;
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+#helpSection.hide {
+    transform: translateY(-20rem);
+}
+
+#helpSection footer {
+    height: 2rem;
+}

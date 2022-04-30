@@ -2,8 +2,22 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     
     timeoutMessagesIfPresent();
+
+    addHelpSectionClickListener();
 });
 
+
+function addHelpSectionClickListener(){
+    const helpSectionBtn = document.getElementById('helpSectionBtn');
+    helpSectionBtn.addEventListener('click', () => {
+        toggleHelpSectionDisplayState(helpSectionBtn);
+    });
+}
+
+function toggleHelpSectionDisplayState(helpSectionBtn){
+    const helpSection = document.getElementById('helpSection');
+    helpSection.classList.contains('hide') ? helpSection.className = 'show' : helpSection.className = 'hide';
+}
 
 /**
  * If messages exist on page, automatically hide
