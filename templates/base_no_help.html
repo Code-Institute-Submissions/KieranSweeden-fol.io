@@ -61,36 +61,6 @@
   <!-- Buffer so elements beneath do not appear underneath navbar -->
   <div class="navbar-buffer"></div>
 
-  <section id="helpSection" class="hide">
-    <div class="h-100 d-flex flex-column justify-content-between">
-      <div id="helpSectionContent" class="w-100">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-md-8 offset-md-2 py-3">
-              <h2 class="h4">
-                {% block help_title %}{% endblock %}
-              </h2>
-              <hr>
-              {% block help_desc %}{% endblock %}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-100 align-self-end">
-        <button id="helpSectionBtn" class="w-100 btn p-0">
-          <footer class="container d-flex justify-content-center align-items-center">
-            <p class="mb-0">
-              {% block help_question %}{% endblock %}
-            </p>
-            <span class="material-icons-sharp icon">
-              expand_more
-            </span>
-          </footer>
-        </button>
-      </div>
-    </div>
-  </section>
-
   <header class="container">
     <div class="row py-5">
       <div class="col-12 col-md-8 offset-md-2">
