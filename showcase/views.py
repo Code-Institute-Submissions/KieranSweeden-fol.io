@@ -4,6 +4,7 @@ from django.shortcuts import (
     redirect
 )
 from django.core.mail import send_mail
+from django.contrib import messages
 from account.models import UserAccount
 from suite.models import Folio, Project
 from suite.models import Skill, Profile
@@ -154,17 +155,29 @@ def view_folio_contact(request, folio_id=None):
         context=context)
 
 
-def message_author(request, folio_id=None):
+def message_author(request, author_email, folio_id=None):
     """
     Functionality that sends a message
     to the author of the viewed folio.
     """
 
     if request.method == "POST":
+        form = SendAuthorMessageForm(request.POST)
 
-        print(vars(request))
+        if form.is_valid():
+            send_mail(
+                form.cleaned_data['subject'],
+                form.cleaned_data['message'],
+                form.cleaned_data['sender_email'],
+                [author_email]
+            )
 
-        return redirect(
-            'view_folio_contact',
-            folio_id=folio_id
-        )
+            messages.success(
+                request,
+                "Your message has been sent."
+            )
+
+            return redirect(
+                'view_folio_contact',
+                folio_id=folio_id
+            )

@@ -28,7 +28,7 @@ urlpatterns = [
         name='view_folio_contact'
         ),
     path(
-        '<int:folio_id>/contact/message_author/',
+        '<int:folio_id>/contact/message_author/<str:author_email>',
         views.message_author,
         name='message_author'
         )

@@ -17,19 +17,17 @@
     {% include 'includes/header-navs/showcase-header-nav.html' with active_tab='contact' %}
 {% endblock %}
 
-{% block header_title %}
-    Contact {{ author.first_name }}
-{% endblock %}
+{% block header_title %}Get In Touch{% endblock %}
 
 {% block additional_header_content %}
 
 {% endblock %}
 
 {% block content %}
-<form action="{% url 'message_author' folio_id=folio.id%}" method="POST">
+<form action="{% url 'message_author' folio_id=folio.id author_email=user.email %}" method="POST">
     {% csrf_token %}
     <div class="row">
-        <h3 class="h5">Message {{ author.first_name }}</h3>
+        <h3 class="h5">Message Me</h3>
         <p class="text-muted">If you'd like to get in touch with me immediately, send a message using the form below.</p>
         <div class="col-12 col-lg-6">
             {{ form.sender_email|as_crispy_field }}
