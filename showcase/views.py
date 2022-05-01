@@ -166,7 +166,7 @@ def message_author(request, author_email, folio_id=None):
 
         if form.is_valid():
             send_mail(
-                form.cleaned_data['subject'],
+                f"fol.io Direct Message: {form.cleaned_data['subject']}",
                 form.cleaned_data['message'],
                 form.cleaned_data['sender_email'],
                 [author_email]

@@ -14,14 +14,15 @@ class SendAuthorMessageForm(forms.Form):
     """
 
     # Sender information
-    sender_email = forms.CharField(label="Your Name", max_length=30)
+    sender_email = forms.EmailField(label="Your Email Address", max_length=30)
 
     # Message information
     subject = forms.CharField(
-        label="Subject",
+        label="Subject Of Message",
         max_length=30
     )
     message = forms.CharField(
         widget=forms.Textarea(attrs={'rows': 4}),
+        label="Message Content",
         max_length=250
     )
