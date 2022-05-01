@@ -46,7 +46,13 @@
         <p class="text-muted">You can also contact me externally utilising the information listed below.</p>
         <div class="col-12 col-sm-6 col-xl-3">
             <label>Phone Number</label>
-            <p class="text-feature-color"><a href="tel:{{ author.phone_number }}">{{ author.phone_number }}</a></p>
+            <p class="text-feature-color">
+                {% if author.phone_number %}
+                    <a href="tel:{{ author.phone_number }}">{{ author.phone_number }}</a>
+                {% else %}
+                    <span class="text-danger">Number Missing</span>
+                {% endif %}
+            </p>
         </div>
         <div class="col-12 col-sm-6 col-xl-3">
             <label>Email Address</label>
@@ -54,11 +60,23 @@
         </div>
         <div class="col-12 col-sm-6 col-xl-3">
             <label>GitHub Profile</label>
-            <p><a class="title-clamp" href="{{ author.github_profile }}" target="_blank" rel="noopener noreferrer">{{ author.github_profile }}</a></p>
+            <p>
+                {% if author.github_profile %}
+                    <a class="title-clamp" href="{{ author.github_profile }}" target="_blank" rel="noopener noreferrer">{{ author.github_profile }}</a>
+                {% else %}
+                    <span class="text-danger">Profile Missing</span>
+                {% endif %}
+            </p>
         </div>
         <div class="col-12 col-sm-6 col-xl-3">
             <label>LinkedIn Profile</label>
-            <p><a class="title-clamp" href="{{ author.linkedin_profile }}" target="_blank" rel="noopener noreferrer">{{ author.linkedin_profile }}</a></p>
+            <p>
+                {% if author.github_profile %}
+                    <a class="title-clamp" href="{{ author.linkedin_profile }}" target="_blank" rel="noopener noreferrer">{{ author.linkedin_profile }}</a>
+                {% else %}
+                    <span class="text-danger">Profile Missing</span>
+                {% endif %}
+            </p>
         </div>
     </div>
 </form>
