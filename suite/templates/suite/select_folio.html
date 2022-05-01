@@ -16,32 +16,26 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="col-8 offset-2 d-flex justify-content-center">
-    <div class="card p-4">
-        <div class="card-body">
-            <form class="login" method="POST" action="{% url 'select_folio' %}">
-                {% csrf_token %}
-                <div class="row">
-                    <div class="col-12 d-flex justify-content-center align-items-center flex-column text-center">
-                        <p>To enter the folio suite you must first select a folio.</p>
-                        <p>Please select from your library below.</p>
-                        
-                        <select class="form-select" name="folio_selected" id="folio_selected">
-                            {% for folio in folios %}
-                                <option value="{{ folio.id }}">
-                                    {{ folio.name }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                        <div class="d-flex justify-content-end align-items-center">
-                            <button class="btn btn-primary" type="submit">Open in Suite</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+<form class="login" method="POST" action="{% url 'select_folio' %}">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-12">
+            <h3 class="h5">Welcome to the Suite</h3>
+            <p class="text-muted">The suite is where you <strong>interact with various folio snippets</strong> and <strong>add them to your folios</strong>.</p>
+            <p class="text-muted">To enter the suite, you <strong>must select a folio</strong>. After <strong>choosing your folio</strong> and clicking the <strong>Open In Suite</strong> button, you'll be taken to the suite with your chosen folio.</p>
+            <p>Please select from your library below.</p>
+            
+            <select class="form-select" name="folio_selected" id="folio_selected">
+                {% for folio in folios %}
+                    <option value="{{ folio.id }}">
+                        {{ folio.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-12 d-flex justify-content-end align-items-center mt-3">
+            <button class="btn btn-primary" type="submit">Open in Suite</button>
         </div>
     </div>
-</div>
-
+</form>
 {% endblock %}
