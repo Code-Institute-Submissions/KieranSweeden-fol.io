@@ -37,32 +37,44 @@
 
 {% block additional_header_content %}
 <div class="d-flex justify-content-end align-items-center h-100">
-    <a class="btn btn-icon me-2" href="{% url 'view_folio_skills' folio_id=folio.id %}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="View Folio">
-        <span class="material-icons-sharp">
-            open_in_new
-        </span>
-    </a>
-    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_skill">
-        Create New Skill
-    </button>
-    {% include './includes/modals/create_skill.html' with size=undefined id="skill" %}
+    <a class="btn btn-primary me-2" href="{% url 'view_folio_skills' folio_id=folio.id %}" target="_blank">View Live</a>
+    
+    
 </div>
 {% endblock %}
 
 {% block content %}
 
 <div class="row mb-3">
-    <section class="col-12 col-lg-6 border-end">
+    <div class="col-12 col-lg-6 text-center text-lg-start">
+        <p class="mb-0">
+            <span class="fw-bold ">Skills Selected:</span>
+            <span id="selectedNumberOfSkills"></span>
+        </p>
+    </div>
+    <div class="col-12 col-lg-6 text-center text-lg-end mt-2 mt-lg-0">
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_skill">
+            Create Skill
+        </button>
+        {% include './includes/modals/create_skill.html' with size=undefined id="skill" %}
+    </div>
+
+    <section class="col-12 col-xl-6 mt-2 border-end">
         <div class="d-flex justify-content-between align-items-center">
-            <h3 class="h5 mb-0">Tech Skills</h3>
+            <h3 class="h5 mb-3">Tech Skills</h3>
         </div>
-        {% include './includes/list_of_tech_skills.html' %}
+        <div class="list-container">
+            {% include './includes/list_of_tech_skills.html' %}
+        </div>
     </section>
-    <section class="col-12 col-lg-6">
+    <div class="col-12 d-xl-none"><hr></div>
+    <section class="col-12 col-xl-6 mt-2">
         <div class="d-flex justify-content-between align-items-center">
-            <h3 class="h5 mb-0">Soft Skills</h3>
+            <h3 class="h5 mb-3">Soft Skills</h3>
         </div>
-        {% include './includes/list_of_soft_skills.html' %}
+        <div class="list-container">
+            {% include './includes/list_of_soft_skills.html' %}
+        </div>
     </section>
 </div>
 <div class="row mb-3">

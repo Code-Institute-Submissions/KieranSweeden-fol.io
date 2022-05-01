@@ -388,6 +388,28 @@ a:hover {
     overflow-x: hidden;
 }
 
+.list-container::-webkit-scrollbar {
+    width: .5rem;
+}
+
+.list-container::-webkit-scrollbar-track {
+    background-color: var(--folio-bg-black-color);
+}
+
+.list-container::-webkit-scrollbar-thumb {
+    background-color: var(--folio-white-faded-color);
+}
+
+.border-end {
+    border-right: none !important;
+}
+
+@media (min-width: 1200px) {
+    .border-end {
+        border-right: 1px solid #555 !important;
+    }
+}
+
 /* Modal styling */
 
 .modal-content {
