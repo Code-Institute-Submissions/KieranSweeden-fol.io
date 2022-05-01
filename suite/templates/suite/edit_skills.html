@@ -48,8 +48,8 @@
 <div class="row mb-3">
     <div class="col-12 col-lg-6 text-center text-lg-start">
         <p class="mb-0">
-            <span class="fw-bold ">Skills Selected:</span>
-            <span id="selectedNumberOfSkills"></span>
+            <span>Skills Selected:</span>
+            <span id="snippetsSelectedCounter" class="fw-bold"></span>
         </p>
     </div>
     <div class="col-12 col-lg-6 text-center text-lg-end mt-2 mt-lg-0">
@@ -59,7 +59,7 @@
         {% include './includes/modals/create_skill.html' with size=undefined id="skill" %}
     </div>
 
-    <section class="col-12 col-xl-6 mt-2 border-end">
+    <section class="col-12 col-xl-6 mt-3 border-end">
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="h5 mb-3">Tech Skills</h3>
         </div>
@@ -68,7 +68,7 @@
         </div>
     </section>
     <div class="col-12 d-xl-none"><hr></div>
-    <section class="col-12 col-xl-6 mt-2">
+    <section class="col-12 col-xl-6 mt-3">
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="h5 mb-3">Soft Skills</h3>
         </div>
@@ -78,9 +78,6 @@
     </section>
 </div>
 <div class="row mb-3">
-    <div class="col-12">
-        <hr>
-    </div>
     <div class="col-12 d-flex justify-content-end align-items-center">
         <button class="btn btn-primary" id="updateSnippetsBtn" type="submit">Save Changes</button>
     </div>

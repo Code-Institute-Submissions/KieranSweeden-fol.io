@@ -46,10 +46,10 @@
 <div class="row mb-3">
     <div class="col-12 col-lg-6 text-center text-lg-start">
         <p class="mb-0">
-            <span class="fw-bold ">Projects Selected:</span>
-            <span id="selectedNumberOfProjects"></span>
-            <span>/</span>
-            <span id="maxAmountOfProjects">4</span>
+            <span>Projects Selected:</span>
+            <span class="fw-bold" id="selectedNumberOfProjects"></span>
+            <span class="fw-bold">/</span>
+            <span class="fw-bold" id="maxAmountOfProjects">4</span>
         </p>
     </div>
     <div class="col-12 col-lg-6 text-center text-lg-end mt-2 mt-lg-0">
@@ -64,10 +64,7 @@
     {% include './includes/list_of_projects.html' %}
 </div>
 
-<div class="row">
-    <div class="col-12">
-        <hr>
-    </div>
+<div class="row mt-3">
     <div class="col-12 d-flex justify-content-end align-items-center">
         <button class="btn btn-primary" id="updateProjectsInFolioBtn" type="submit">Save Changes</button>
     </div>

@@ -2,10 +2,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // Ensure checkboxes can be checked & unchecked
     setupCheckBoxClickListeners();
 
-
     // Setup the functionality to save changes made
     setupSaveSnippetChangesFunctionality();
+
+    // Update snippets selected counter
+    updateSnippetsSelectedCounter();
 });
+
+function updateSnippetsSelectedCounter(){
+    const snippetCheckBoxes = getSnippetCheckboxes();
+    const snippetsSelectedCounter = document.getElementById('snippetsSelectedCounter');
+    const selectedSnippets = snippetCheckBoxes.filter((snippetCheckbox) => snippetCheckbox.checked === true);
+    snippetsSelectedCounter.textContent = selectedSnippets.length;
+}
 
 function setupCheckBoxClickListeners(){
     // Get all snippet checkboxes on page
@@ -15,6 +24,7 @@ function setupCheckBoxClickListeners(){
     snippetCheckBoxes.forEach(snippetCheckBox => {
         snippetCheckBox.addEventListener('change', (event) => {
             event.target.toggleAttribute("checked");
+            updateSnippetsSelectedCounter();
         });
     });
 }
