@@ -41,7 +41,9 @@ class AccountDetailsForm(forms.ModelForm):
             'profile_picture': 'Profile Picture (Use square ratios)',
             'first_name': 'First Name',
             'last_name': 'Last Name',
-            'default_phone_number': 'Phone Number'
+            'phone_number': 'Phone Number',
+            'github_profile': 'GitHub Profile URL',
+            'linkedin_profile': 'LinkedIn Profile URL'
         }
 
         # Auto focus on the first field

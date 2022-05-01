@@ -16,8 +16,6 @@ def view_folio_projects(request, folio_id=None):
     View projects within folio
     """
 
-    print(folio_id)
-
     folio = get_object_or_404(Folio, pk=folio_id)
 
     if not folio.is_published and folio.author_id != request.user:

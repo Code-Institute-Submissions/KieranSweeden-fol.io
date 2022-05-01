@@ -50,12 +50,12 @@
         <label class="form-label" for="">Email</label>
         <p>{{ user.email }}</p>
         <label class="form-label" for="">Phone Number</label>
-        <p>{{ author.default_phone_number }}</p>
+        <p>{{ author.phone_number }}</p>
         <div class="d-flex justify-content-start align-items-center mt-4">
-            <a class="btn btn-icon me-5" href="{{ folio.contact_github_profile }}" target="_blank" rel="noopener noreferrer" title="Visit {{ author.first_name }}'s github page in a new tab.">
+            <a class="btn btn-icon me-5" href="{{ author.github_profile }}" target="_blank" rel="noopener noreferrer" title="Visit {{ author.first_name }}'s github page in a new tab.">
                 <i class="fab fa-github"></i>
             </a>
-            <a class="btn btn-icon" href="{{ folio.contact_linkedin_profile }}" target="_blank" rel="noopener noreferrer" title="Visit {{ author.first_name }}'s linkedin page in a new tab.">
+            <a class="btn btn-icon" href="{{ author.linkedin_profile }}" target="_blank" rel="noopener noreferrer" title="Visit {{ author.first_name }}'s linkedin page in a new tab.">
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </div>
