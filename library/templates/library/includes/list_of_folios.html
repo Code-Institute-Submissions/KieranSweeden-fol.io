@@ -50,9 +50,12 @@
     </div>
     {% include './modals/delete_folio.html' with size=undefined id=folio.id folio=folio %}
   {% empty %}
-    <div class="col-12 text-center">
-      <p>Uh oh...</p>
-      <p>You have no folios!</p>
+    <div class="col-12 text-center mt-5">
+      <span class="material-icons-sharp text-muted">
+        sentiment_dissatisfied
+      </span>
+      <h3 class="h5">Your folio library is empty.</h3>
+      <p>You can <strong class="text-feature-color">create a new folio</strong> by clicking the <strong class="text-feature-color">New Folio button</strong> above.</p>
     </div>
   {% endfor %}
 </div>
