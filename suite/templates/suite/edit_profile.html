@@ -38,49 +38,51 @@
 
 {% block additional_header_content %}
 <div class="d-flex justify-content-end align-items-center h-100">
-    <a class="btn btn-icon me-2" href="{% url 'view_folio_profile' folio_id=folio.id %}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="View Folio">
-        <span class="material-icons-sharp">
-            open_in_new
-        </span>
-    </a>
-    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_profile">
-        Create New Profile
-    </button>
-    {% include './includes/modals/create_profile.html' with size=undefined id="profile" %}
+    <a class="btn btn-primary" href="{% url 'view_folio_profile' folio_id=folio.id %}" target="_blank">View Live</a>
 </div>
 {% endblock %}
 
 {% block content %}
 <div class="row mb-3">
-    <section class="col-12 col-lg-6 border-end">
+    <div class="col-12 col-lg-6 text-center text-lg-start">
+        <p class="mb-0">
+            <span class="fw-bold ">Profiles Selected:</span>
+            <span id="selectedNumberOfProfiles"></span>
+        </p>
+    </div>
+    <div class="col-12 col-lg-6 text-center text-lg-end mt-2 mt-lg-0">
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_profile">Create Profile</button>
+        {% include './includes/modals/create_profile.html' with size=undefined id="profile" %}
+    </div>
+
+    <section class="col-12">
         <div class="d-flex justify-content-between align-items-center">
-            <h3 class="h5 mb-0">About Me</h3>
+            <h3 class="h5">About Me</h3>
         </div>
-        {% include './includes/list_of_profiles.html' %}
-        <div class="col-12">
-            <hr>
+        <div class="list-container list-container-half">
+            {% include './includes/list_of_profiles.html' %}
         </div>
-        <div class="col-12 d-flex justify-content-end align-items-center">
+        <div class="col-12 d-flex justify-content-end align-items-center mt-3">
             <button class="btn btn-primary" id="updateSnippetsBtn" type="submit">Save Changes</button>
         </div>
     </section>
-    <section class="col-12 col-lg-6">
+
+    <div class="col-6 offset-3"><hr></div>
+
+    <section class="col-12">
         <form action="{% url 'update_current_and_future_goal' folio_id=folio.id %}" method="POST">
             {% csrf_token %}
             <div class="row">
-                <div class="col-12 d-flex justify-content-between align-items-start flex-column">
-                    <h3 class="h5 mb-0">What I'm Currently Working On</h3>
+                <h3 class="h5">What are you working on right now?</h3>
+                <div class="col-12">
                     {{ current_and_future_goal_form.current_project_link|as_crispy_field }}
                     {{ current_and_future_goal_form.current_project_desc|as_crispy_field }}
                 </div>
-                <div class="col-12 d-flex justify-content-between align-items-start flex-column">
-                    <h3 class="h5 mb-0">My Future Goal</h3>
+                <h3 class="h5">Where would you like to be?</h3>
+                <div class="col-12">
                     {{ current_and_future_goal_form.future_goal|as_crispy_field }}
                 </div>
-                <div class="col-12">
-                    <hr>
-                </div>
-                <div class="col-12 d-flex justify-content-end align-items-center">
+                <div class="col-12 d-flex justify-content-end align-items-center mt-2">
                     <button class="btn btn-primary" type="submit">Save Changes</button>
                 </div>
             </div>

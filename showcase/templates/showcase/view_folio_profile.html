@@ -36,7 +36,7 @@
         <div class="col-12 col-lg-6">
             <h3 class="h4 text-feature-color">Current Project</h3>
             {% if folio.current_project_link %}
-                <p>{{ folio.current_project_link }}</p>
+                <p class="title-clamp"><a href="{{ folio.current_project_link }}" target="_blank" rel="noopener noreferrer">{{ folio.current_project_link }}</a></p>
             {% else %}
                 <p class="text-danger">A current project link has not been provided.</p>
             {% endif %}

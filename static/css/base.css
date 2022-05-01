@@ -400,6 +400,10 @@ a:hover {
     background-color: var(--folio-white-faded-color);
 }
 
+.list-container.list-container-half {
+    height: 15rem;
+}
+
 .border-end {
     border-right: none !important;
 }

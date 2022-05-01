@@ -164,6 +164,15 @@ class FolioProfileCurrentAndFutureGoalForm(forms.ModelForm):
             "future_goal"
         ]
 
+        widgets = {
+            'current_project_desc': forms.Textarea(attrs={
+                'rows': 5
+            }),
+            'future_goal': forms.Textarea(attrs={
+                'rows': 3
+            })
+        }
+
     # Customize form
     def __init__(self, *args, **kwargs):
         """
