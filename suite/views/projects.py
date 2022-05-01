@@ -35,7 +35,7 @@ def edit_folio_projects(request, folio_id=None):
         ))
 
         # For each project, attach a form to the object
-        # And assess whether project is attached to form
+        # And assess whether project is attached to folio
         for project in projects:
             project.form = FolioProjectForm(instance=project)
 

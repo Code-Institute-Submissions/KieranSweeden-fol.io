@@ -25,6 +25,9 @@ def view_library(request):
 
     folios = Folio.objects.filter(author_id=request.user)
 
+    for folio in folios:
+        folio.form = CreateFolioForm(instance=folio)
+
     user_account = get_object_or_404(
         UserAccount,
         pk=request.user.id
@@ -61,14 +64,14 @@ def create_folio(request):
 
         # If form is valid, save & send success message
         if form.is_valid():
-            
+
             # Partially save the form, as author_id
             # will need to be provided
             folio = form.save(commit=False)
 
             # Apply current user to author_id
             folio.author_id = request.user
-            
+
             # Save the newly created folio
             folio.save()
 
@@ -76,14 +79,14 @@ def create_folio(request):
                 request,
                 f"{folio.name} has been created successfully."
             )
-    
+
     # Direct user to page depending on which
     # button they selected
     if "submit_only" in request.POST:
 
         # Redirect to library
         return redirect("view_library")
-    
+
     elif "submit_and_suite" in request.POST:
 
         # Create response
@@ -109,7 +112,7 @@ def update_folio(request, folio_id):
 
     # If the request is post
     if request.method == "POST":
-        
+
         form = CreateFolioForm(request.POST, instance=folio_in_db)
 
         # If the form is valid
@@ -126,7 +129,7 @@ def update_folio(request, folio_id):
             if "update_only" in request.POST:
 
                 return redirect("view_library")
-            
+
             elif "update_&_suite" in request.POST:
 
                 # Create response
@@ -139,6 +142,14 @@ def update_folio(request, folio_id):
 
                 # Re-direct user
                 return response
+
+        else:
+            messages.error(
+                request,
+                f"The changes made to {folio_in_db} were invalid."
+            )
+
+            return redirect("view_library")
 
     else:
         form = CreateFolioForm(instance=folio_in_db)

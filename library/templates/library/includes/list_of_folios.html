@@ -21,9 +21,9 @@
                     </a>
                   </li>
                   <li><a class="dropdown-item" href="{% url 'open_suite' folio.id %}">Open in Suite</a></li>
-                  <li><a class="dropdown-item" href="{% url 'update_folio' folio.id %}">Edit Details</a></li>
+                  <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal_{{ folio.id }}">Edit Details</button></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal_{{ folio.id }}">Delete Folio</button></li>
+                  <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete_modal_{{ folio.id }}">Delete Folio</button></li>
                 </ul>
               </div>
             </div>
@@ -48,6 +48,7 @@
             </div>
         </div>
     </div>
+    {% include './modals/update_folio.html' with size=undefined id=folio.id folio=folio %}
     {% include './modals/delete_folio.html' with size=undefined id=folio.id folio=folio %}
   {% empty %}
     <div class="col-12 text-center mt-5">
