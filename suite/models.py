@@ -32,12 +32,6 @@ class Folio(models.Model):
     current_project_desc = models.TextField(null=True, blank=True)
     future_goal = models.TextField(null=True, blank=True)
 
-    # Contact information
-    contact_email = models.EmailField(max_length=30, null=True, blank=True)
-    contact_number = models.CharField(max_length=12, null=True, blank=True)
-    contact_github_profile = models.URLField(null=True, blank=True)
-    contact_linkedin_profile = models.URLField(null=True, blank=True)
-
     # License information
     is_published = models.BooleanField(default=False)
 

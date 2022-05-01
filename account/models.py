@@ -29,7 +29,7 @@ class UserAccount(models.Model):
     last_name = models.CharField(
         max_length=20, null=True, blank=True
     )
-    default_phone_number = models.CharField(
+    phone_number = models.CharField(
         max_length=20, null=True, blank=True
     )
     profile_picture = models.ImageField(
@@ -40,6 +40,8 @@ class UserAccount(models.Model):
 
     # Folio oriented info
     number_of_licenses = models.PositiveSmallIntegerField(default=0)
+    github_profile = models.URLField(null=True, blank=True)
+    linkedin_profile = models.URLField(null=True, blank=True)
 
     # Default billing info
     default_street_address1 = models.CharField(

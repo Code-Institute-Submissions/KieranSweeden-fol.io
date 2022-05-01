@@ -21,7 +21,9 @@ class AccountDetailsForm(forms.ModelForm):
             'profile_picture',
             'first_name',
             'last_name',
-            'default_phone_number'
+            'phone_number',
+            'github_profile',
+            'linkedin_profile'
         ]
 
     # Customize the form
