@@ -26,5 +26,10 @@ urlpatterns = [
         '<int:folio_id>/contact/',
         views.view_folio_contact,
         name='view_folio_contact'
+        ),
+    path(
+        '<int:folio_id>/contact/message_author/',
+        views.message_author,
+        name='message_author'
         )
 ]

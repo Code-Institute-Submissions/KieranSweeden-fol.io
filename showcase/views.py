@@ -1,7 +1,9 @@
 from django.shortcuts import (
     render,
-    get_object_or_404
+    get_object_or_404,
+    redirect
 )
+from django.core.mail import send_mail
 from account.models import UserAccount
 from suite.models import Folio, Project
 from suite.models import Skill, Profile
@@ -9,6 +11,7 @@ from suite.functions import (
     is_tech_skill,
     is_soft_skill
 )
+from .forms import SendAuthorMessageForm
 
 
 def view_folio_projects(request, folio_id=None):
@@ -136,13 +139,32 @@ def view_folio_contact(request, folio_id=None):
         pk=folio.author_id.id
     )
 
+    message_form = SendAuthorMessageForm()
+
     context = {
         "user": request.user,
         "folio": folio,
         "author": author,
+        "form": message_form
     }
 
     return render(
         request,
         'showcase/view_folio_contact.html',
         context=context)
+
+
+def message_author(request, folio_id=None):
+    """
+    Functionality that sends a message
+    to the author of the viewed folio.
+    """
+
+    if request.method == "POST":
+
+        print(vars(request))
+
+        return redirect(
+            'view_folio_contact',
+            folio_id=folio_id
+        )

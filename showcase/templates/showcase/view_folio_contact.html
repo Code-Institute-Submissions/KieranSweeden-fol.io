@@ -1,6 +1,7 @@
 {% extends 'base_no_help.html' %}
 {% load static %}
 {% load i18n %}
+{% load crispy_forms_tags %}
 
 {% block extra_js %}
     <script defer src="{% static 'js/clamp.min.js' %}"></script>
@@ -25,44 +26,43 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-9">
-        <h3 class="h4 text-feature-color">Message {{ author.first_name }}</h3>
-    </div>
-    <div class="col-3">
-        <h3 class="h4 text-feature-color">Info</h3>
-    </div>
-</div>
-<div class="row">
-    <div class="col-3">
-        <label class="form-label" for="">Name</label>
-        <input type="text" class="textinput textInput form-control">
-        <label class="form-label" for="">Email</label>
-        <input type="text" class="textinput textInput form-control">
-        <label class="form-label" for="">Subject</label>
-        <input type="text" class="textinput textInput form-control">
-    </div>
-    <div class="col-6">
-        <p class="mb-0"><label class="form-label" for="">Message</label></p>
-        <textarea class="textarea form-control" name="" id="" cols="30" rows="7"></textarea>
-    </div>
-    <div class="col-3">
-        <label class="form-label" for="">Email</label>
-        <p>{{ user.email }}</p>
-        <label class="form-label" for="">Phone Number</label>
-        <p>{{ author.phone_number }}</p>
-        <div class="d-flex justify-content-start align-items-center mt-4">
-            <a class="btn btn-icon me-5" href="{{ author.github_profile }}" target="_blank" rel="noopener noreferrer" title="Visit {{ author.first_name }}'s github page in a new tab.">
-                <i class="fab fa-github"></i>
-            </a>
-            <a class="btn btn-icon" href="{{ author.linkedin_profile }}" target="_blank" rel="noopener noreferrer" title="Visit {{ author.first_name }}'s linkedin page in a new tab.">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
+<form action="{% url 'message_author' folio_id=folio.id%}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <h3 class="h5">Message {{ author.first_name }}</h3>
+        <p class="text-muted">If you'd like to get in touch with me immediately, send a message using the form below.</p>
+        <div class="col-12 col-lg-6">
+            {{ form.sender_email|as_crispy_field }}
+        </div>
+        <div class="col-12 col-lg-6">
+            {{ form.subject|as_crispy_field }}
+        </div>
+        <div class="col-12">
+            {{ form.message|as_crispy_field }}
+        </div>
+        <div class="col-12 d-flex justify-content-end align-items-center">
+            <button class="btn btn-primary" type="submit">Send Message</button>
+        </div>
+        <div class="col-6 offset-3"><hr></div>
+        <h3 class="h5">Contact Information</h3>
+        <p class="text-muted">You can also contact me externally utilising the information listed below.</p>
+        <div class="col-12 col-sm-6 col-xl-3">
+            <label>Phone Number</label>
+            <p class="text-feature-color"><a href="tel:{{ author.phone_number }}">{{ author.phone_number }}</a></p>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-3">
+            <label>Email Address</label>
+            <p class="text-feature-color"><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-3">
+            <label>GitHub Profile</label>
+            <p><a class="title-clamp" href="{{ author.github_profile }}" target="_blank" rel="noopener noreferrer">{{ author.github_profile }}</a></p>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-3">
+            <label>LinkedIn Profile</label>
+            <p><a class="title-clamp" href="{{ author.linkedin_profile }}" target="_blank" rel="noopener noreferrer">{{ author.linkedin_profile }}</a></p>
         </div>
     </div>
-    <div class="col-9 d-flex justify-content-end align-items-center mt-3">
-        <button class="btn btn-primary">Send Message</button>
-    </div>
-</div>
+</form>
 
 {% endblock %}
