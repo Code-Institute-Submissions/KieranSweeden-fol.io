@@ -9,9 +9,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 function addHelpSectionClickListener(){
     const helpSectionBtn = document.getElementById('helpSectionBtn');
-    helpSectionBtn.addEventListener('click', () => {
-        toggleHelpSectionDisplayState(helpSectionBtn);
-    });
+    if (helpSectionBtn){
+        helpSectionBtn.addEventListener('click', () => {
+            toggleHelpSectionDisplayState(helpSectionBtn);
+        });
+    }
 }
 
 function toggleHelpSectionDisplayState(helpSectionBtn){
