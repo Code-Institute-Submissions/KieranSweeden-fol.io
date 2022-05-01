@@ -380,6 +380,14 @@ a:hover {
     color: var(--folio-feature-color);
 }
 
+/* Container styling */
+
+.list-container {
+    height: 30rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 /* Modal styling */
 
 .modal-content {

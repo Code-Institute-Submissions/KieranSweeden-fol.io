@@ -37,32 +37,32 @@
 
 {% block additional_header_content %}
 <div class="d-flex justify-content-end align-items-center h-100">
-    <a class="btn btn-icon" href="{% url 'view_folio_projects' folio_id=folio.id %}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="View Folio">
-        <span class="material-icons-sharp">
-            open_in_new
-        </span>
-    </a>
+    <a class="btn btn-primary" href="{% url 'view_folio_projects' folio_id=folio.id %}" target="_blank">View Live</a>
 </div>
 {% endblock %}
 
 {% block content %}
 
 <div class="row mb-3">
-    <div class="col-12 d-flex justify-content-between align-items-center flex-column flex-lg-row">
+    <div class="col-12 col-lg-6 text-center text-lg-start">
         <p class="mb-0">
-            <span class="fw-bold">Projects Selected:</span>
+            <span class="fw-bold ">Projects Selected:</span>
             <span id="selectedNumberOfProjects"></span>
             <span>/</span>
             <span id="maxAmountOfProjects">4</span>
         </p>
+    </div>
+    <div class="col-12 col-lg-6 text-center text-lg-end mt-2 mt-lg-0">
         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_project">
             Create Project
         </button>
         {% include './includes/modals/create_project.html' with size=undefined id="project" %}
     </div>
-</div>  
+</div>
 
-{% include './includes/list_of_projects.html' %}
+<div class="list-container">
+    {% include './includes/list_of_projects.html' %}
+</div>
 
 <div class="row">
     <div class="col-12">
