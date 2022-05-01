@@ -231,6 +231,15 @@ main.container {
     display: none;
 }
 
+a {
+    color: var(--folio-feature-color);
+    transition: color 500ms ease-in-out;
+}
+
+a:hover {
+    color: var(--folio-white-color);
+}
+
 /* Navigation Styling */
 
 .navbar {

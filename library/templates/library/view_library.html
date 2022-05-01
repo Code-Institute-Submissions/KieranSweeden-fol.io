@@ -25,7 +25,12 @@
     <div class="row">
         <div class="col-12 d-flex justify-content-between align-items-center flex-column flex-md-row">
             <p class="mb-3 mb-md-0">
-                Total Licenses: <strong>{{ total_licenses }}</strong> <span class="text-feature-color">({{used_licenses}} used)</span>
+                Total Licenses: <strong>{{ total_licenses }}</strong>&nbsp;
+                {% if total_licenses == 0 %}
+                    <a href="{% url 'purchase_license' %}">Make License Purchase</a>
+                {% else %}
+                    <span class="text-feature-color">({{used_licenses}} used)</span>
+                {% endif %}
             </p>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_create_folio">
                 New Folio

@@ -24,8 +24,12 @@
         </div>
         {% include './modals/view_licence_purchase.html' with size="modal-lg" id=license_purchase.id %}
     {% empty %}
-        <div class="col-12">
-            <p class="text-center">No Licence Purchases!</p>
+        <div class="col-12 text-center mt-3">
+            <span class="material-icons-sharp text-muted">
+            sentiment_dissatisfied
+            </span>
+            <h3 class="h5">You haven't made any license purchases yet.</h3>
+            <p>You can <strong class="text-feature-color">purchase folio licenses</strong> by clicking <a href="{% url 'purchase_license' %}">here</a>.</p>
         </div>
     {% endfor %}
 </div>
