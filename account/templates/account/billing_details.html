@@ -22,18 +22,16 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="col-10 offset-1">
-    <form class="login" method="POST" action="{% url 'billing_details' %}">
-        {% csrf_token %}
-        {{ form|crispy }}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <div class="d-flex justify-content-end align-items-center">
-            <button class="btn btn-primary" type="submit">{% trans "Update" %}</button>
-        </div>
-    </form>
-</div>
-
+<form class="login" method="POST" action="{% url 'billing_details' %}">
+    {% csrf_token %}
+    <h3 class="h5">Billing Address</h3>
+    <p class="text-muted">This is your default billing address which is what will be used to <strong>pre-fill the purchase license form</strong> when making a license purchase.</p>
+    {{ form|crispy }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <div class="d-flex justify-content-end align-items-center">
+        <button class="btn btn-primary" type="submit">{% trans "Update" %}</button>
+    </div>
+</form>
 {% endblock %}
