@@ -35,8 +35,12 @@ class CreateFolioForm(forms.ModelForm):
 
         # Prepare placeholders
         placeholders = {
-            'name': 'Enter Folio Name',
-            'description': 'Enter Folio Description'
+            'name': 'e.g. "Front-End Folio" or "MERN Stack Folio"',
+            'description': 'e.g. A folio showcasing my front-end abilities'
+        }
+        labels = {
+            'name': 'Folio Name',
+            'description': 'Folio Description'
         }
 
         # Auto focus on the first field
@@ -47,6 +51,7 @@ class CreateFolioForm(forms.ModelForm):
         for field in self.fields:
 
             # Give them their respective placeholders & classes
-            placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].label = placeholder
+            self.fields[field].widget.attrs['placeholder'] = placeholders[
+                field
+            ]
+            self.fields[field].label = labels[field]
