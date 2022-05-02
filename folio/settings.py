@@ -239,6 +239,9 @@ if "DEVELOPMENT" in os.environ:
         f'{URL_SECTIONS[0]}8000-{URL_SECTIONS[1]}{URL_SECTIONS[2]}/'
     )
 
+else:
+    URL = ()
+
 # Stripe keys
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
 STRIPE_PRIVATE_KEY = os.environ.get("STRIPE_PRIVATE_KEY")

@@ -12,8 +12,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from suite.models import Folio
-from .forms import CreateFolioForm
 from account.models import UserAccount
+from .forms import CreateFolioForm
 
 
 @login_required

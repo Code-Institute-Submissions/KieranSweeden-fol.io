@@ -72,7 +72,7 @@ class BillingDetailsForm(forms.ModelForm):
     class Meta:
         """
         Associate form with UserAccount model &
-        exclude personal info details
+        only include billing info details
         """
         model = UserAccount
         fields = [
@@ -84,24 +84,28 @@ class BillingDetailsForm(forms.ModelForm):
             'default_country'
         ]
 
-    # Customize the form
     def __init__(self, *args, **kwargs):
         """
         Here we insert placeholders & 
         set autofocus to the first field
         """
-
-        # Set the form up as it would be by default
         super().__init__(*args, **kwargs)
 
-        # Prepare placeholders
         placeholders = {
-            'default_postcode': 'Postal Code',
-            'default_town_or_city': 'Town or City',
+            'default_street_address1': 'e.g. 44',
+            'default_street_address2': 'e.g. Chester Road',
+            'default_town_or_city': 'e.g. Crawley',
+            'default_postcode': 'e.g. RH10 1EJ',
+            'default_county': 'e.g. Sussex',
+            'default_country': 'Select Country'
+        }
+        labels = {
             'default_street_address1': 'Street Address 1',
             'default_street_address2': 'Street Address 2',
-            'default_county': 'County, State or Locality',
-            'default_country': 'Country'
+            'default_town_or_city': 'Town / City',
+            'default_postcode': 'Post Code',
+            'default_county': 'County',
+            'default_country': 'Select Country'
         }
 
         # Auto focus on the first field
@@ -110,13 +114,12 @@ class BillingDetailsForm(forms.ModelForm):
         # Iterate over the fields, inserting
         # placeholders along the way
         for field in self.fields:
-            if field != "default_country":
-                # Add * for each required field
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
+            # Add * for each required field
+            if self.fields[field].required:
+                label = f'{labels[field]} *'
+            else:
+                label = labels[field]
 
-                # Give them their respective placeholders & classes
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-                self.fields[field].label = placeholder
+            # Give them their respective placeholders & classes
+            self.fields[field].widget.attrs['placeholder'] = placeholders[field]
+            self.fields[field].label = label
