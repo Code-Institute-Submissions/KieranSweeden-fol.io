@@ -23,6 +23,12 @@ def view_library(request):
     and presents them within the library page
     """
 
+    if 'failed_payment' in request.GET:
+        messages.error(
+            request,
+            "License purchase was unsuccessful"
+        )
+
     folios = Folio.objects.filter(author_id=request.user)
 
     for folio in folios:

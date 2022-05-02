@@ -69,7 +69,6 @@ class StripeWebHookHandlers:
         )
 
         new_license_purchase.purchase_total /= 100
-
         new_license_purchase.save()
 
         # Get user's account
@@ -81,6 +80,11 @@ class StripeWebHookHandlers:
         user_account.add_licences_to_user_account(
             no_of_licenses_purchased
         )
+
+        if 'save_billing_as_default' in customer_details:
+            user_account.save_purchase_info_as_default(
+                customer_details=customer_details
+            )
 
         response_message = (
             f"Webhook received: {event['type']} | "

@@ -8,6 +8,7 @@ from django.shortcuts import (
     redirect,
     get_object_or_404
 )
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
@@ -83,14 +84,19 @@ def create_checkout_session(request):
                     "purchaser_county": form.cleaned_data[
                         'purchaser_county'],
                     "purchaser_country": form.cleaned_data[
-                        'purchaser_country']
+                        'purchaser_country'],
+                    "save_billing_as_default": request.POST.get(
+                        'save_billing_details'),
                 },
                 mode='payment',
                 success_url=(
                     f"{settings.URL}license/success"
                     f"?session_id={{CHECKOUT_SESSION_ID}}"
                 ),
-                cancel_url=f'{settings.URL}license/purchase/',
+                cancel_url=(
+                    f"{settings.URL}license/purchase/"
+                    f"?failed_payment=True"
+                ),
             )
 
             return redirect(checkout_session.url, status=303)
@@ -124,13 +130,11 @@ def checkout_session_success(request):
     stripe_session_id = request.GET.get('session_id', None)
 
     if stripe_session_id:
-
         prev_success_session = stripe.checkout.Session.retrieve(
             stripe_session_id
         )
 
         if prev_success_session:
-
             session_pid = prev_success_session['payment_intent']
 
             prev_success_purchase = get_object_or_404(
@@ -141,6 +145,11 @@ def checkout_session_success(request):
             context = {
                 "license_purchase": prev_success_purchase
             }
+
+            messages.success(
+                request,
+                "License was successfully purchased"
+            )
 
             return render(
                 request,

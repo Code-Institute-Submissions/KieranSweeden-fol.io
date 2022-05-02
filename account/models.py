@@ -70,6 +70,24 @@ class UserAccount(models.Model):
         """
         self.number_of_licenses += int(amount)
         self.save()
+
+    def save_purchase_info_as_default(self, customer_details):
+        """
+        Takes in a customer details object containing
+        billing information from a recent license purchase &
+        sets the user's billing details to given information
+        """
+        self.default_street_address1 = customer_details[
+            'purchaser_street_address1'
+        ]
+        self.default_street_address2 = customer_details[
+            'purchaser_street_address2'
+        ]
+        self.default_town_or_city = customer_details['purchaser_town_or_city']
+        self.default_postcode = customer_details['purchaser_postcode']
+        self.default_county = customer_details['purchaser_county']
+        self.default_country = customer_details['purchaser_country']
+        self.save()
     
     def get_full_name(self):
         """
