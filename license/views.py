@@ -111,6 +111,8 @@ def order_history(request):
 
     user_list_of_prev_purchases = LicensePurchase.objects.filter(
         user=request.user.id
+    ).order_by(
+        '-purchase_date'
     )
 
     context = {

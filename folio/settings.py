@@ -240,7 +240,7 @@ if "DEVELOPMENT" in os.environ:
     )
 
 else:
-    URL = ()
+    URL = os.environ.get('URL')
 
 # Stripe keys
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")

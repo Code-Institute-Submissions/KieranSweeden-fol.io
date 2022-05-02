@@ -29,7 +29,11 @@ def view_library(request):
             "License purchase was unsuccessful"
         )
 
-    folios = Folio.objects.filter(author_id=request.user)
+    folios = Folio.objects.filter(
+        author_id=request.user
+    ).order_by(
+        '-date_created'
+    )
 
     for folio in folios:
         folio.form = CreateFolioForm(instance=folio)
