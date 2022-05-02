@@ -13,16 +13,28 @@ class SendAuthorMessageForm(forms.Form):
     to send a message to a folio author.
     """
 
-    # Sender information
-    sender_email = forms.EmailField(label="Your Email Address", max_length=30)
+    sender_email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={
+                "placeholder": "e.g. kathleenbooth@email.com"
+            }),
+        label="Your Email Address",
+        max_length=30
+    )
 
-    # Message information
     subject = forms.CharField(
+        widget=forms.TextInput(attrs={
+            "placeholder": "e.g. I'd like to collaborate..."
+        }),
         label="Subject Of Message",
         max_length=30
     )
+
     message = forms.CharField(
-        widget=forms.Textarea(attrs={'rows': 4}),
+        widget=forms.Textarea(attrs={
+            'rows': 4,
+            "placeholder": "e.g. I'd like to discuss..."
+        }),
         label="Message Content",
         max_length=250
     )
