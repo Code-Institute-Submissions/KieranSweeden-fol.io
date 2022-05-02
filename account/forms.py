@@ -39,6 +39,14 @@ class AccountDetailsForm(forms.ModelForm):
         # Prepare placeholders
         placeholders = {
             'profile_picture': 'Profile Picture (Use square ratios)',
+            'first_name': 'e.g. Kathleen',
+            'last_name': 'e.g. Booth',
+            'phone_number': 'e.g. 07123456789',
+            'github_profile': 'https://github.com/...',
+            'linkedin_profile': 'https://www.linkedin.com/in/...'
+        }
+        labels = {
+            'profile_picture': 'Profile Picture (Use square ratios)',
             'first_name': 'First Name',
             'last_name': 'Last Name',
             'phone_number': 'Phone Number',
@@ -54,13 +62,15 @@ class AccountDetailsForm(forms.ModelForm):
         for field in self.fields:
             # Add * for each required field
             if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
+                label = f'{labels[field]} *'
             else:
-                placeholder = placeholders[field]
+                label = labels[field]
 
             # Give them their respective placeholders & classes
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].label = placeholder
+            self.fields[field].widget.attrs['placeholder'] = placeholders[
+                field
+            ]
+            self.fields[field].label = label
 
 
 class BillingDetailsForm(forms.ModelForm):

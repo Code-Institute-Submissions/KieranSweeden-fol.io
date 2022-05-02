@@ -39,12 +39,21 @@ class LicensePurchaseForm(forms.ModelForm):
         Insert placeholders
         on intialization
         """
-
-        # Setup form as default
         super().__init__(*args, **kwargs)
 
-        # Prepare placeholders
         placeholders = {
+            "purchaser_full_name": "e.g. Kathleen Booth",
+            "purchaser_email": "e.g. kathleenbooth@email.com",
+            "purchaser_phone_number": "e.g. 07123456789",
+            "purchaser_street_address1": "e.g. 44",
+            "purchaser_street_address2": "e.g. Chester Road",
+            "purchaser_town_or_city": "e.g. Crawley",
+            "purchaser_postcode": "e.g. RH10 1EJ",
+            "purchaser_county": "e.g. Sussex",
+            "purchaser_country": "Select Country",
+            "no_of_licenses_purchased": "Amount of Licenses"
+        }
+        labels = {
             "purchaser_full_name": "Full Name",
             "purchaser_email": "Email Address",
             "purchaser_phone_number": "Phone Number",
@@ -62,6 +71,7 @@ class LicensePurchaseForm(forms.ModelForm):
         for field in self.fields:
 
             # Give them their respective placeholders & classes
-            placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].label = placeholder
+            self.fields[field].widget.attrs['placeholder'] = placeholders[
+                field
+            ]
+            self.fields[field].label = labels[field]
