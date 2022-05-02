@@ -1,7 +1,7 @@
 {% extends 'includes/modal/create_modal_template.html' %}
 {% load crispy_forms_tags %}
 
-{% block modal_title %}Create new project{% endblock %}
+{% block modal_title %}Create New Project{% endblock %}
 
 {% block modal_body %}
 <form action="{% url 'create_folio_project' folio_id=folio.id %}" method="POST" enctype="multipart/form-data">

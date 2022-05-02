@@ -1,7 +1,7 @@
 {% extends 'includes/modal/create_modal_template.html' %}
 {% load crispy_forms_tags %}
 
-{% block modal_title %}Create new profile{% endblock %}
+{% block modal_title %}Create New Profile{% endblock %}
 
 {% block modal_body %}
 <form action="{% url 'create_folio_profile' folio_id=folio.id %}" method="POST">

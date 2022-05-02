@@ -461,6 +461,10 @@ textarea.form-control:focus-visible {
     color: var(--folio-feature-color);
 }
 
+.form-label {
+    float: left;
+}
+
 /* Add text color to all inputs except checkbox */
 [id*="div_id_"]:focus-within label:not([for$="remember"]) {
     color: var(--folio-feature-color);

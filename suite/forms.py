@@ -44,6 +44,15 @@ class FolioProjectForm(forms.ModelForm):
 
         # Placeholders
         placeholders = {
+            "project_title": "e.g. To-do List",
+            "project_description": "e.g. This is a to-do list app that "
+            "features the use of the local storage API and...",
+            "tech_list": "HTML, CSS, JavaScript",
+            "github_link": "https://github.com/...",
+            "live_link": "https://...",
+            "image": "Project Image"
+        }
+        labels = {
             "project_title": "Project Title",
             "project_description": "Project Description",
             "tech_list": "Technology List (seperated by commas)",
@@ -52,14 +61,11 @@ class FolioProjectForm(forms.ModelForm):
             "image": "Project Image"
         }
 
-        # Iterate over the fields, inserting
-        # placeholders along the way
         for field in self.fields:
-
-            # Give them their respective placeholders & classes
-            placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].label = placeholder
+            self.fields[field].widget.attrs['placeholder'] = placeholders[
+                field
+            ]
+            self.fields[field].label = labels[field]
 
 
 class FolioSkillForm(forms.ModelForm):
@@ -85,24 +91,25 @@ class FolioSkillForm(forms.ModelForm):
         Insert placeholders
         """
 
-        # Setup form as default
         super().__init__(*args, **kwargs)
 
-        # Placeholders
         placeholders = {
-            "skill_title": "Skill title",
-            "skill_description": "Skill description",
+            "skill_title": "e.g. Python",
+            "skill_description": "e.g. Examples using Python include "
+            "making use of frameworks such as Flask and Djano...",
             "skill_type": "Skill type"
         }
+        labels = {
+            "skill_title": "Skill Title",
+            "skill_description": "Skill Description",
+            "skill_type": "Skill Type"
+        }
 
-        # Iterate over the fields, inserting
-        # placeholders & labels along the way
         for field in self.fields:
-
-            # Give them their respective placeholders & classes
-            placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].label = placeholder
+            self.fields[field].widget.attrs['placeholder'] = placeholders[
+                field
+            ]
+            self.fields[field].label = labels[field]
 
 
 class FolioProfileForm(forms.ModelForm):
@@ -113,37 +120,35 @@ class FolioProfileForm(forms.ModelForm):
     """
 
     class Meta:
-        # Associated with Project model
         model = Profile
-
-        # Include fields that are editable
         fields = [
             "profile_title",
             "profile_bio"
         ]
 
-    # Customize form
     def __init__(self, *args, **kwargs):
         """
         Insert placeholders
         """
 
-        # Setup form as default
         super().__init__(*args, **kwargs)
 
-        # Placeholders
         placeholders = {
-            "profile_title": "Profile title",
-            "profile_bio": "Biography (What's presented within the folio)"
+            "profile_title": "e.g. Self Teaching",
+            "profile_bio": "e.g. My journey with web development "
+            "began with learning the HTML and CSS on the side "
+            "whilst working full-time..."
+        }
+        labels = {
+            "profile_title": "Profile Title",
+            "profile_bio": "Profile Bio"
         }
 
-        # Iterate over the fields, inserting
-        # placeholders along the way
         for field in self.fields:
-            # Give them their respective placeholders & classes
-            placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].label = placeholder
+            self.fields[field].widget.attrs['placeholder'] = placeholders[
+                field
+            ]
+            self.fields[field].label = labels[field]
 
 
 class FolioProfileCurrentAndFutureGoalForm(forms.ModelForm):
@@ -184,16 +189,20 @@ class FolioProfileCurrentAndFutureGoalForm(forms.ModelForm):
 
         # Placeholders
         placeholders = {
-            "current_project_link": "Current project link",
-            "current_project_desc": "Current project description",
-            "future_goal": "Insert your future goals"
+            "current_project_link": "https://...",
+            "current_project_desc": "e.g. The project I'm currently working "
+            "on is a MERN project that aims to solve the problem of...",
+            "future_goal": "e.g. Within the next few years I'd like"
+            "to continue progressing with my front-end development..."
+        }
+        labels = {
+            "current_project_link": "Current Project Link",
+            "current_project_desc": "Current Project Description",
+            "future_goal": "Your Future Goals"
         }
 
-        # Iterate over the fields, inserting
-        # placeholders along the way
         for field in self.fields:
-
-            # Give them their respective placeholders & classes
-            placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].label = placeholder
+            self.fields[field].widget.attrs['placeholder'] = placeholders[
+                field
+            ]
+            self.fields[field].label = labels[field]
