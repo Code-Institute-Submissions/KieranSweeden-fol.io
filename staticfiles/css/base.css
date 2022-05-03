@@ -1,0 +1,612 @@
+/* CSS Variables */
+
+:root {
+    --folio-feature-color: hsla(40, 89%, 56%, 1);
+    --folio-bg-black-color: hsla(0, 0%, 10%, 1);
+    --folio-black-color: hsla(0, 0%, 12%, 1);
+    --folio-white-color: hsla(0, 0%, 92%, 1);
+    --folio-white-faded-color: hsla(0, 0%, 92%, 0.8);
+    --folio-success-color: hsla(141, 31%, 50%, 1);
+    --folio-delete-color: hsla(9, 57%, 41%, 1);
+    --folio-sans-font: 'Libre Baskerville', serif;
+    --folio-sans-serif-font: 'Inter', sans-serif;
+}
+
+/* Base Styling */
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--folio-white-color);
+    background-color: var(--folio-bg-black-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6,
+.nav-link {
+    font-family: 'Libre Baskerville', serif;
+    color: var(--folio-white-color);
+}
+
+:is(h1, h2, h3, h4, h5, h6, p)::selection {
+    background-color: var(--folio-feature-color);
+}
+
+main.container {
+    min-height: 45rem;
+}
+
+/* Colour Classes */
+
+.text-feature-color {
+    color: var(--folio-feature-color);
+}
+
+.text-black-color {
+    color: var(--folio-black-color);
+}
+
+.text-white-color {
+    color: var(--folio-white-color);
+}
+
+.bg-feature-color {
+    background-color: var(--folio-feature-color);
+    --bs-bg-opacity: 1;
+}
+
+.bg-black-color {
+    background-color: var(--folio-black-color);
+    --bs-bg-opacity: 1;
+}
+
+.bg-white-color {
+    background-color: var(--folio-white-color);
+    --bs-bg-opacity: 1;
+}
+
+/* Button & Link Styling */
+
+.btn {
+    border-radius: 0;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.btn-check:focus+.btn, .btn:focus {
+    box-shadow: 0 0 0 .2rem var(--folio-black-color);
+}
+
+.btn-primary,
+.btn-primary:disabled {
+    color: var(--folio-black-color);
+    background-color: var(--folio-feature-color);
+    border-color: var(--folio-feature-color);
+    border-width: 0.2rem;
+    transition: color 400ms ease-in-out, background-color 400ms ease-in-out, opacity 400ms ease-in-out;
+}
+
+.btn-primary:focus {
+    color: var(--folio-black-color);
+    background-color: var(--folio-feature-color);
+    border-color: var(--folio-feature-color);
+    box-shadow: none;
+}
+
+.btn-primary:active {
+    color: var(--folio-black-color);
+    background-color: var(--folio-feature-color);
+    border-color: var(--folio-feature-color);
+}
+
+.btn-primary:active:focus {
+    box-shadow: none;
+}
+
+.btn-primary.active {
+    color: var(--folio-white-color);
+    background-color: transparent;
+    border-color: var(--folio-feature-color);
+}
+
+.btn-primary.active:focus {
+    box-shadow: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:focus-within {
+    color: var(--folio-white-color);
+    background-color: transparent;
+    border-color: var(--folio-feature-color);
+    box-shadow: none;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-delete {
+    text-transform: uppercase;
+    padding: .1rem 1rem;
+}
+
+.btn-secondary {
+    color: var(--folio-black-color);
+    background-color: var(--folio-white-color);
+    border-color: var(--folio-white-color);
+    border-width: 0.2rem;
+    transition: color 400ms ease-in-out, background-color 400ms ease-in-out;
+}
+
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary:hover,
+.btn-secondary:focus-within {
+    color: var(--folio-white-color);
+    background-color: transparent;
+    border-color: var(--folio-white-color);
+    box-shadow: none;
+    transition: transform 100ms ease-in-out;
+}
+
+.btn-primary:active:focus,
+.btn-secondary:active:focus,
+.btn-delete:active:focus {
+    transform: scale(1.025, 1.025);
+}
+
+.btn-tertiary {
+    color: var(--folio-feature-color);
+    transition: color 400ms ease-in-out;
+    font-family: var(--folio-sans-font);
+    text-decoration: underline;
+    font-weight: 400;
+    text-transform: lowercase;
+}
+
+.btn-tertiary:hover {
+    color: var(--folio-white-color);
+}
+
+.btn-tertiary:focus {
+    box-shadow: none;
+}
+
+.btn-delete {
+    color: var(--folio-white-color);
+    background-color: var(--folio-delete-color);
+    border-color: var(--folio-delete-color);
+    border-width: 0.2rem;
+    transition: color 400ms ease-in-out, background-color 400ms ease-in-out;
+}
+
+.btn-delete:focus {
+    color: var(--folio-black-color);
+    background-color: var(--folio-white-color);
+    border-color: var(--folio-white-color);
+    box-shadow: none;
+}
+
+.btn-delete:active {
+    color: var(--folio-black-color);
+    background-color: var(--folio-white-color);
+    border-color: var(--folio-white-color);
+}
+
+.btn-delete:active:focus {
+    box-shadow: none;
+}
+
+.btn-delete.active {
+    color: var(--folio-white-color);
+    background-color: transparent;
+    border-color: var(--folio-white-color);
+}
+
+.btn-delete.active:focus {
+    box-shadow: none;
+}
+
+.btn-delete:hover {
+    color: var(--folio-white-color);
+    background-color: transparent;
+    border-color: var(--folio-delete-color);
+    box-shadow: none;
+}
+
+.btn-icon {
+    background-color: transparent;
+    color: var(--folio-white-color);
+    display: inline-flex;
+    padding: 0.2rem;
+    border: none;
+    transition: box-shadow 400ms ease-in-out;
+}
+
+.btn-icon:hover,
+.btn-icon:focus {
+    color: var(--folio-white-color);
+    box-shadow: 0 0 0 .25rem var(--folio-feature-color);
+}
+
+.btn-icon::after {
+    display: none;
+}
+
+a {
+    color: var(--folio-feature-color);
+    transition: color 500ms ease-in-out;
+}
+
+a:hover {
+    color: var(--folio-white-color);
+}
+
+/* Navigation Styling */
+
+.navbar {
+    height: 3.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link a {
+    color: var(--folio-white-color);
+}
+
+.navbar-toggler {
+    border-radius: 0;
+    position: relative;
+    height: 2.5rem;
+    width: 3rem;
+}
+
+.navbar-toggler[aria-expanded="false"] .first-menu-icon {
+    opacity: 1;
+    transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+    color: var(--folio-white-color);
+}
+
+.navbar-toggler[aria-expanded="true"] .first-menu-icon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(270deg);
+    transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+    color: var(--folio-white-color);
+}
+
+.navbar-toggler[aria-expanded="false"] .second-menu-icon {
+    opacity: 0;
+    transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+    color: var(--folio-feature-color);
+}
+
+.navbar-toggler[aria-expanded="true"] .second-menu-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(270deg);
+    transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+    color: var(--folio-feature-color);
+}
+
+.mobile-menu-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+}
+
+.second-menu-icon {
+    opacity: 0;
+}
+
+.navbar-dark .navbar-nav a.nav-link {
+    color: var(--folio-white-faded-color);
+}
+
+.navbar-dark .navbar-nav a.nav-link:hover {
+    color: var(--folio-white-color);
+}
+
+.navbar-dark .navbar-nav a.nav-link.active {
+    color: var(--folio-white-color);
+    text-decoration: underline;
+    text-decoration-color: var(--folio-feature-color);
+    text-decoration-thickness: .15rem;
+}
+
+.navbar-buffer {
+    height: 3.5rem;
+    width: 100%;
+}
+
+/* Card Styling */
+
+.card {
+    border-radius: 0;
+    background-color: var(--folio-black-color);
+    max-width: 25rem;
+    min-height: min-content;
+}
+
+.folio-card {
+    border-radius: 0;
+    background-color: var(--folio-black-color);
+    min-height: min-content;
+}
+
+.card-header {
+    border-bottom: 1px solid var(--folio-feature-color);
+}
+
+.card-desc {
+    height: 5rem;
+}
+
+/* Card Message Styling */
+
+.card.card-message {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.card.card-message .card-header-success,
+.card.card-message .card-header-info {
+    color: var(--folio-success-color);
+    border-bottom: 0.2rem solid var(--folio-success-color);
+}
+
+.card.card-message .card-header-error {
+    color: var(--folio-delete-color);
+    border-bottom: 0.2rem solid var(--folio-delete-color);
+}
+
+.card.card-message .card-header-warning {
+    color: var(--folio-feature-color);
+    border-bottom: 0.2rem solid var(--folio-feature-color);
+}
+
+/* Dropdown Styling */
+
+.dropdown-menu {
+    background-color: var(--folio-bg-black-color);
+    color: var(--folio-feature-color);
+    border-radius: 0;
+}
+
+.dropdown-item {
+    background-color: transparent;
+    color: var(--folio-white-color);
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+    color: var(--folio-feature-color);
+}
+
+/* Container styling */
+
+.list-container {
+    height: 30rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.list-container::-webkit-scrollbar {
+    width: .5rem;
+}
+
+.list-container::-webkit-scrollbar-track {
+    background-color: var(--folio-bg-black-color);
+}
+
+.list-container::-webkit-scrollbar-thumb {
+    background-color: var(--folio-white-faded-color);
+}
+
+.list-container.list-container-half {
+    height: 15rem;
+}
+
+.list-container.list-container-xtra {
+    height: 45rem;
+}
+
+.border-end {
+    border-right: none !important;
+}
+
+@media (min-width: 1200px) {
+    .border-end {
+        border-right: 1px solid #555 !important;
+    }
+}
+
+/* Modal styling */
+
+.modal-content {
+    border-radius: 0;
+    background-color: var(--folio-bg-black-color);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--folio-feature-color);
+}
+
+.modal-title {
+    color: var(--folio-white-color);
+}
+
+/* Form Styling */
+
+input.form-control,
+input.form-check-input[type=checkbox], 
+select.form-select,
+textarea.form-control {
+    border-radius: 0;
+    background-color: var(--folio-white-color);
+    transition: border-color 400ms ease-in-out, box-shadow 400ms ease-in-out;
+}
+
+input.form-control:focus,
+input.form-control:focus-visible,
+select.form-select:focus,
+select.form-select:focus-visible,
+textarea.form-control:focus,
+textarea.form-control:focus-visible {
+    border-color: var(--folio-feature-color);
+    box-shadow: 0 0 0 .2rem var(--folio-feature-color);
+    background-color: var(--folio-white-color);
+}
+
+.form-check-label,
+.form-label {
+    font-size: 14px;
+    transition: color 400ms ease-in-out;
+}
+
+.asteriskField {
+    color: var(--folio-feature-color);
+}
+
+.form-label {
+    float: left;
+}
+
+/* Add text color to all inputs except checkbox */
+[id*="div_id_"]:focus-within label:not([for$="remember"]) {
+    color: var(--folio-feature-color);
+}
+
+.label-icon {
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: text-top;
+}
+
+.form-check-input:focus {
+    box-shadow: var(--folio-feature-color);
+    border-color: var(--folio-feature-color);
+}
+
+input.form-check-input[type=checkbox]:checked {
+    background-color: var(--folio-feature-color);
+    border-color: var(--folio-feature-color);
+}
+
+.input-group span.input-group-text,
+.input-group .form-control {
+    border-radius: 0;
+}
+
+/* Footer styling */
+
+footer.footer-container {
+    height: 15rem;
+    background-color: var(--folio-black-color);
+}
+
+
+
+/* Home/Welcome page styling */
+
+.card-cover {
+    height: 20rem;
+    width: 100%;
+}
+
+.card-bg-image {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+}
+
+.card-cover-text {
+    z-index: 2;
+}
+
+/* Animate.css custom CSS variables */
+
+.animate__second {
+    --animate-duration: 1.25s;
+}
+
+.animate__third {
+    --animate-duration: 1.5s;
+}
+
+.animate__fourth {
+    --animate-duration: 1.75s;
+}
+
+/* Tooltip styling */
+
+.tooltip-inner {
+    background-color: var(--folio-feature-color);
+    color: var(--folio-bg-black-color);
+    border-radius: 0;
+    font-weight: bold;
+}
+
+.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: var(--folio-feature-color);
+}
+
+/* Help Section Styling */
+
+#helpSection {
+    background-color: var(--folio-feature-color);
+    color: var(--folio-black-color);
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+#helpSection #helpSectionContent {
+    transition: height 500ms ease-in-out;
+}
+
+#helpSection.hide #helpSectionContent {
+    height: 0;
+    overflow: hidden;
+}
+
+#helpSection.show #helpSectionContent {
+    height: min-content;
+}
+
+#helpSection h2,
+#helpSection h3,
+#helpSection h4 {
+    color: var(--folio-black-color);
+}
+
+#helpSection a {
+    color: var(--folio-black-color);
+    font-weight: bold;
+}
+
+#helpSection footer {
+    height: 2rem;
+}
+
+#helpSection .w-100.align-self-end {
+    transition: background-color 500ms ease-in-out;
+}
+
+#helpSection .w-100.align-self-end:hover,
+#helpSection .w-100.align-self-end:focus {
+    background-color: var(--folio-white-color);
+}
+
+#helpSection span.material-icons-sharp {
+    transition: transform 500ms ease-in-out;
+}
+
+#helpSection.show span.material-icons-sharp.icon {
+    transform: rotate(540deg);
+}
+
