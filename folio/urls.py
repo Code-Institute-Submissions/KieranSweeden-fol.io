@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
@@ -28,3 +29,6 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('showcase/', include('showcase.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'folio.views.page_not_found_404'
+handler500 = 'folio.views.server_error_500'
