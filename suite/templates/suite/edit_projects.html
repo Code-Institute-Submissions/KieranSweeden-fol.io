@@ -37,7 +37,11 @@
 
 {% block additional_header_content %}
 <div class="d-flex justify-content-end align-items-center h-100">
-    <a class="btn btn-primary" href="{% url 'view_folio_projects' folio_id=folio.id %}" target="_blank">View Live</a>
+    <a class="btn btn-primary" href="{% url 'view_folio_projects' folio_id=folio.id %}" target="_blank">View Live
+        <span class="material-icons-sharp align-bottom">
+            open_in_new
+        </span>
+    </a>
 </div>
 {% endblock %}
 

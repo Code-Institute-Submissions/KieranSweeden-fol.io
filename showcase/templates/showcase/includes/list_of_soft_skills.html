@@ -5,6 +5,9 @@
     {% else %}
         <p class="text-danger">No skill description</p>
     {% endif %}
+    <div class="row">
+        <div class="col-6 offset-3"><hr></div>
+    </div>
 {% empty %}
-    <p>{{ author.first_name }} hasn't listed any soft based skills.</p>
+    <p class="text-danger">No soft skills have been listed within this folio.</p>
 {% endfor %}
