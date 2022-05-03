@@ -11,6 +11,7 @@ from django.shortcuts import (
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+from account.models import UserAccount
 
 import stripe
 
@@ -26,8 +27,29 @@ def purchase_license(request):
     Collects the user's list of folios
     and presents then within the library page
     """
-    # Create a fresh instance of the license purchase form
-    form = LicensePurchaseForm()
+
+    user_details = get_object_or_404(
+        UserAccount,
+        user=request.user
+    )
+
+    if user_details.first_name and user_details.last_name:
+        user_details.full_name = (f"{user_details.first_name} "
+                                  f"{user_details.last_name}")
+    else:
+        user_details.full_name = ""
+
+    form = LicensePurchaseForm(initial={
+        'purchaser_full_name': user_details.full_name,
+        'purchaser_email': request.user.email,
+        'purchaser_phone_number': user_details.phone_number,
+        'purchaser_street_address1': user_details.default_street_address1,
+        'purchaser_street_address2': user_details.default_street_address2,
+        'purchaser_town_or_city': user_details.default_town_or_city,
+        'purchaser_postcode': user_details.default_postcode,
+        'purchaser_county': user_details.default_county,
+        'purchaser_country': user_details.default_country
+    })
 
     context = {
         "form": form

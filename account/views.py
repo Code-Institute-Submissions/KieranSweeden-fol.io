@@ -26,7 +26,6 @@ def account_details(request):
         )
         if form.is_valid():
             form.save()
-
             messages.success(
                 request,
                 "Your account details have been updated successfully"
