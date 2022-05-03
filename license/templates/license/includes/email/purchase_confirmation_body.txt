@@ -1,0 +1,35 @@
+Hello {{ purchase.purchaser_full_name }}!
+This is a confirmation of your license purchase with fol.io.
+
+
+Purchaser information for this purchase is below:
+
+Purchaser Name: {{ purchase.purchaser_full_name }}
+Purchaser Email: {{ purchase.purchaser_email }}
+Purchaser Number: {{ purchase.purchaser_phone_number }}
+
+
+Billing Address for this purchase is below:
+
+Purchaser Street Address 1: {{ purchase.purchaser_street_address1 }}
+Purchaser Street Address 2: {{ purchase.purchaser_street_address2 }}
+Purchaser Town / City: {{ purchase.purchaser_town_or_city }}
+Purchaser Post Code: {{ purchase.purchaser_postcode }}
+Purchaser County: {{ purchase.purchaser_county }}
+Purchaser Country: {{ purchase.purchaser_country }}
+
+
+Your license purchase information is below:
+
+Order Number: {{ purchase.order_number }}
+Order Date: {{ purchase.purchase_date }}
+
+License Amount: {{ purchase.no_of_licenses_purchased }}
+Grand Total: £{{ purchase.purchase_total }}
+
+If you have any questions regarding this purchase, please contact us at {{ contact_email }}.
+
+We thank you for your purchase and hope it contributes to helping you achieve your goals!
+
+Yours Sincerely,
+fol.io

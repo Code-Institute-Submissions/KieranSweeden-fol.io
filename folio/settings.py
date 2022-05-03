@@ -257,15 +257,11 @@ AWS_QUERYSTRING_AUTH = False
 
 # Email
 if 'DEVELOPMENT' in os.environ:
-    # Variables for development
-
     # Default email
     DEFAULT_FROM_EMAIL = "folio@gmail.com"
-
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 else:
-    # Variables for production
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587

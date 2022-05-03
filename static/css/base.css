@@ -404,6 +404,10 @@ a:hover {
     height: 15rem;
 }
 
+.list-container.list-container-xtra {
+    height: 45rem;
+}
+
 .border-end {
     border-right: none !important;
 }

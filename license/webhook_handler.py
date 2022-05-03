@@ -5,10 +5,11 @@ to process payments from stripe
 """
 
 from django.conf import settings
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib import messages
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from account.models import UserAccount
 from .models import LicensePurchase
 
@@ -22,9 +23,6 @@ class StripeWebHookHandlers:
     Contains methods that handle
     incoming stripe webhooks
     """
-
-    # def __init__(self, request):
-    #     self.request = request
 
     def handle_event(self, event):
         """
@@ -71,7 +69,26 @@ class StripeWebHookHandlers:
         new_license_purchase.purchase_total /= 100
         new_license_purchase.save()
 
-        # Get user's account
+        email_subject = render_to_string(
+            'license/includes/email/purchase_confirmation_subject.txt',
+            {"order_number": new_license_purchase.order_number}
+        )
+
+        email_body = render_to_string(
+            'license/includes/email/purchase_confirmation_body.txt',
+            {
+                "purchase": new_license_purchase,
+                "contact_email": settings.DEFAULT_FROM_EMAIL
+            }
+        )
+
+        send_mail(
+            email_subject,
+            email_body,
+            settings.DEFAULT_FROM_EMAIL,
+            [session['customer_email']]
+        )
+
         user_account = get_object_or_404(
             UserAccount,
             pk=user.id
