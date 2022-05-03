@@ -1,6 +1,9 @@
 {% for profile in profiles %}
     <h4 class="h5">{{ profile.profile_title }}</h4>
     <p>{{ profile.profile_bio }}</p>
+    <div class="row">
+        <div class="col-6 offset-3"><hr></div>
+    </div>
 {% empty %}
-    <p class="text-danger">{{ author.first_name }} hasn't included a profile within this folio.</p>
+    <p class="text-danger">No "About Me" profiles have been included within this folio.</p>
 {% endfor %}

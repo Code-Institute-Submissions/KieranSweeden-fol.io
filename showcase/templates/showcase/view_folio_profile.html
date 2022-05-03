@@ -27,14 +27,16 @@
 {% block content %}
     <div class="row">
         <div class="col-12 col-lg-6">
-            <h3 class="h4 text-feature-color">About Me</h3>
+            <h3 class="h4">About Me</h3>
+            <p class="text-muted">Here is a brief overview of my background regarding development.</p>
             {% include './includes/list_of_profiles.html' %}
         </div>
         <div class="col-12 d-lg-none">
             <hr>
         </div>
         <div class="col-12 col-lg-6">
-            <h3 class="h4 text-feature-color">Current Project</h3>
+            <h3 class="h4">Current Project</h3>
+            <p class="text-muted">The project I'm currently working on.</p>
             {% if folio.current_project_link %}
                 <p class="title-clamp"><a href="{{ folio.current_project_link }}" target="_blank" rel="noopener noreferrer">{{ folio.current_project_link }}</a></p>
             {% else %}
@@ -46,12 +48,22 @@
             {% else %}
                 <p class="text-danger">A current project description has not been provided.</p>
             {% endif %}
-            <h3 class="h4 text-feature-color">My Future Goal</h3>
+
+            <div class="row">
+                <div class="col-6 offset-3"><hr></div>
+            </div>
+            
+            <h3 class="h4">My Future Goal</h3>
+            <p class="text-muted">Where I see my future in the tech industry.</p>
             {% if folio.future_goal %}
                 <p>{{ folio.future_goal }}</p>
             {% else %}
                 <p class="text-danger">A future goal has not been provided.</p>
             {% endif %}
+
+            <div class="row">
+                <div class="col-6 offset-3"><hr></div>
+            </div>
         </div>
     </div>
 {% endblock %}
