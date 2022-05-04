@@ -55,3 +55,24 @@ class TestBillingDetailsForm(TestCase):
             'default_county',
             'default_country',
         ])
+
+    def test_labels_are_correct(self):
+        form = BillingDetailsForm({})
+        self.assertEqual(
+            form.fields[
+                'default_street_address1'].label, 'Street Address 1')
+        self.assertEqual(
+            form.fields[
+                'default_street_address2'].label, 'Street Address 2')
+        self.assertEqual(
+            form.fields[
+                'default_town_or_city'].label, 'Town / City')
+        self.assertEqual(
+            form.fields[
+                'default_postcode'].label, 'Post Code')
+        self.assertEqual(
+            form.fields[
+                'default_county'].label, 'County')
+        self.assertEqual(
+            form.fields[
+                'default_country'].label, 'Select Country')

@@ -60,17 +60,11 @@ class AccountDetailsForm(forms.ModelForm):
         # Iterate over the fields, inserting
         # placeholders & labels along the way
         for field in self.fields:
-            # Add * for each required field
-            if self.fields[field].required:
-                label = f'{labels[field]} *'
-            else:
-                label = labels[field]
-
             # Give them their respective placeholders & classes
             self.fields[field].widget.attrs['placeholder'] = placeholders[
                 field
             ]
-            self.fields[field].label = label
+            self.fields[field].label = labels[field]
 
 
 class BillingDetailsForm(forms.ModelForm):
@@ -124,12 +118,7 @@ class BillingDetailsForm(forms.ModelForm):
         # Iterate over the fields, inserting
         # placeholders along the way
         for field in self.fields:
-            # Add * for each required field
-            if self.fields[field].required:
-                label = f'{labels[field]} *'
-            else:
-                label = labels[field]
-
             # Give them their respective placeholders & classes
-            self.fields[field].widget.attrs['placeholder'] = placeholders[field]
-            self.fields[field].label = label
+            self.fields[field].widget.attrs[
+                'placeholder'] = placeholders[field]
+            self.fields[field].label = labels[field]
