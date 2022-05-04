@@ -132,11 +132,11 @@ def update_folio(request, folio_id):
                 f"{folio_in_db.name} has been updated successfully"
             )
 
-            if "update_only" in request.POST:
+            if "submit_only" in request.POST:
 
                 return redirect("view_library")
 
-            elif "update_&_suite" in request.POST:
+            elif "submit_and_suite" in request.POST:
 
                 # Create response
                 response = redirect(reverse("edit_folio_projects",
@@ -156,14 +156,6 @@ def update_folio(request, folio_id):
             )
 
             return redirect("view_library")
-
-    else:
-        form = CreateFolioForm(instance=folio_in_db)
-        context = {
-            "form": form,
-            "folio": folio_in_db
-        }
-        return render(request, "library/update_folio.html", context=context)
 
 
 @login_required

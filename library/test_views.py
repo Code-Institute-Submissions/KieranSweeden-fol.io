@@ -24,6 +24,11 @@ class TestViews(TestCase):
             username="test_user",
             password="password_123",
         )
+        self.stored_folio = Folio.objects.create(
+            name="this is a stored folio",
+            description="this is a stored folio description",
+            author_id=self.user
+        )
         self.folio_data_only = urlencode({
             'name': "test folio",
             'description': "this is a test folio description.",
@@ -64,4 +69,27 @@ class TestViews(TestCase):
         self.assertRedirects(
             response,
             f"/suite/projects/{new_folio.id}/"
+        )
+
+    def test_return_to_library_after_folio_update(self):
+        """ Test that user is re-directed to library after updating folio """
+        response = self.client.post(
+            f"/library/update_folio/{self.stored_folio.id}/",
+            self.folio_data_only,
+            content_type="application/x-www-form-urlencoded",
+            follow=True
+        )
+        self.assertRedirects(response, "/library/")
+
+    def test_redirect_to_suite_after_folio_update(self):
+        """ Test that user is re-directed to suite after updating folio """
+        response = self.client.post(
+            f"/library/update_folio/{self.stored_folio.id}/",
+            self.folio_data_and_suite,
+            content_type="application/x-www-form-urlencoded",
+            follow=True
+        )
+        self.assertRedirects(
+            response,
+            f"/suite/projects/{self.stored_folio.id}/"
         )
