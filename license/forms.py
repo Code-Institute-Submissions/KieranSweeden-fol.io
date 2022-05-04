@@ -66,11 +66,8 @@ class LicensePurchaseForm(forms.ModelForm):
             "no_of_licenses_purchased": "Amount of Licenses"
         }
 
-        # Iterate over the fields, inserting
-        # placeholders along the way
         for field in self.fields:
-            # Give them their respective placeholders & classes
-            self.fields[field].widget.attrs['placeholder'] = placeholders[
-                field
-            ]
             self.fields[field].label = labels[field]
+            if field != 'purchaser_country':
+                self.fields[field].widget.attrs[
+                    'placeholder'] = placeholders[field]
