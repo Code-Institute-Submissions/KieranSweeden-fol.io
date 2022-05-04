@@ -23,9 +23,8 @@ class Folio(models.Model):
     last_updated = models.DateField(auto_now=True)
 
     # Folio-oriented details - name is required
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100, null=True, blank=True)
-    tagline = models.CharField(max_length=80, null=True, blank=True)
+    name = models.CharField(max_length=30)
+    description = models.TextField(max_length=50)
 
     # Profile information
     current_project_link = models.URLField(null=True, blank=True)
@@ -64,12 +63,8 @@ class Project(models.Model):
     folios = models.ManyToManyField(Folio)
 
     # Project details
-    project_title = models.CharField(max_length=50)
-    project_description = models.CharField(
-        max_length=100,
-        null=True,
-        blank=True
-    )
+    project_title = models.CharField(max_length=30)
+    project_description = models.TextField(max_length=100)
     tech_list = models.CharField(max_length=50)
     github_link = models.URLField(null=True, blank=True)
     live_link = models.URLField(null=True, blank=True)
@@ -116,12 +111,8 @@ class Skill(models.Model):
         default=SkillTypes.TECH,
     )
 
-    skill_title = models.CharField(max_length=50)
-    skill_description = models.CharField(
-        max_length=100,
-        null=True,
-        blank=True
-    )
+    skill_title = models.CharField(max_length=20)
+    skill_description = models.TextField(max_length=100)
 
     # Date related fields
     date_created = models.DateField(auto_now_add=True)
@@ -146,8 +137,8 @@ class Profile(models.Model):
     folios = models.ManyToManyField(Folio)
 
     # Profile specific fields
-    profile_title = models.CharField(max_length=50)
-    profile_bio = models.TextField()
+    profile_title = models.CharField(max_length=20)
+    profile_bio = models.TextField(max_length=100)
 
     # Date related fields
     date_created = models.DateField(auto_now_add=True)
