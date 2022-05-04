@@ -1,6 +1,6 @@
 # <img src="readme/images/general/fol.io-short-logo-readme-header.png" height="25"> fol.io
 
-*image of index page on multiple devices*
+<img src="readme/images/surface/folio-readme-header.png">
 
 Fol.io is a CRUD-based web application written with Python using the Django framework.
 
