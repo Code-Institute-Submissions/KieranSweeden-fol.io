@@ -31,7 +31,10 @@ def view_library(request):
     )
 
     for folio in folios:
-        folio.form = CreateFolioForm(instance=folio)
+        folio.form = CreateFolioForm(
+            instance=folio,
+            prefix=f"folio-{folio.id}"
+        )
 
     user_account = get_object_or_404(
         UserAccount,
@@ -61,6 +64,7 @@ def create_folio(request):
     """
 
     if request.method == "POST":
+
         form = CreateFolioForm(request.POST)
 
         if form.is_valid():
@@ -108,7 +112,10 @@ def update_folio(request, folio_id):
         folio_in_db = get_object_or_404(Folio, pk=folio_id)
 
         if request.method == "POST":
-            form = CreateFolioForm(request.POST, instance=folio_in_db)
+            post = request.POST.copy()
+            post['name'] = post[f"folio-{folio_id}-name"]
+            post['description'] = post[f"folio-{folio_id}-description"]
+            form = CreateFolioForm(post, instance=folio_in_db)
 
             if form.is_valid():
                 form.save()
