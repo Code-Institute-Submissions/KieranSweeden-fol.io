@@ -289,11 +289,31 @@ After creating the file and inserting the pylint commands found within the Stack
 
 The commands can be found below:
 
-    ```
-    [MASTER]
-    load-plugins=pylint_django
-    django-settings-module=fol.io.settings
-    ```
+```
+[MASTER]
+load-plugins=pylint_django
+django-settings-module=fol.io.settings
+```
+
+</details>
+
+#### Character count too long (100)
+
+After realising that the character count for various descriptions within models needed to be increased, the changes were made and migrated with no issue on the development server. However, an error was occuring on Heroku when submitting a new snippet to the database as the description lengths were too long.
+
+<details>
+
+<summary>Read Fix</summary>
+
+It was self explanatory that it was migration-based on the Heroku deployment side and after looking at [this Stack Overflow post](https://stackoverflow.com/a/54793985/15607265), it provided a helpful way in getting the fix sorted promptly.
+
+After performing the following commands below, the issue was fixed.
+
+```bash
+heroku run python manage.py migrate suite zero
+heroku push heroku main
+heroku run python manage.py migrate
+```
 
 </details>
 
