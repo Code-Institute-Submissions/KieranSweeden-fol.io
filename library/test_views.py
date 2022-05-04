@@ -125,3 +125,4 @@ class TestViews(TestCase):
         response = self.client.get(
             f"/library/toggle_published_state/{self.stored_folio.id}/"
         )
+        self.assertRedirects(response, "/library/")

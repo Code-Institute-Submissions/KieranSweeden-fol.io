@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from suite.models import Folio
+from suite.functions import user_is_author_of_folio
 from account.models import UserAccount
 from .forms import CreateFolioForm
 
@@ -64,8 +65,6 @@ def create_folio(request):
     # If the request is post
     if request.method == "POST":
 
-        print(request.POST)
-
         form = CreateFolioForm(request.POST)
 
         # If form is valid, save & send success message
@@ -113,49 +112,59 @@ def update_folio(request, folio_id):
     Updates an existing folio when called
     """
 
-    # Get the folio using the folio id provided
-    folio_in_db = get_object_or_404(Folio, pk=folio_id)
+    if user_is_author_of_folio(request.user, folio_id):
 
-    # If the request is post
-    if request.method == "POST":
+        # Get the folio using the folio id provided
+        folio_in_db = get_object_or_404(Folio, pk=folio_id)
 
-        form = CreateFolioForm(request.POST, instance=folio_in_db)
+        # If the request is post
+        if request.method == "POST":
 
-        # If the form is valid
-        if form.is_valid():
+            form = CreateFolioForm(request.POST, instance=folio_in_db)
 
-            # Save the updated form
-            form.save()
+            # If the form is valid
+            if form.is_valid():
 
-            messages.success(
-                request,
-                f"{folio_in_db.name} has been updated successfully"
-            )
+                # Save the updated form
+                form.save()
 
-            if "submit_only" in request.POST:
+                messages.success(
+                    request,
+                    f"{folio_in_db.name} has been updated successfully"
+                )
+
+                if "submit_only" in request.POST:
+
+                    return redirect("view_library")
+
+                elif "submit_and_suite" in request.POST:
+
+                    # Create response
+                    response = redirect(reverse("edit_folio_projects",
+                                        kwargs={"folio_id": folio_id}))
+
+                    # Set cookie to store the current folio as
+                    # most recently opened folio
+                    response.set_cookie("latest_folio", folio_id)
+
+                    # Re-direct user
+                    return response
+
+            else:
+                messages.error(
+                    request,
+                    f"The changes made to {folio_in_db} were invalid."
+                )
 
                 return redirect("view_library")
-
-            elif "submit_and_suite" in request.POST:
-
-                # Create response
-                response = redirect(reverse("edit_folio_projects",
-                                    kwargs={"folio_id": folio_id}))
-
-                # Set cookie to store the current folio as
-                # most recently opened folio
-                response.set_cookie("latest_folio", folio_id)
-
-                # Re-direct user
-                return response
-
-        else:
-            messages.error(
-                request,
-                f"The changes made to {folio_in_db} were invalid."
-            )
-
-            return redirect("view_library")
+    
+    else:
+        messages.warning(
+            request,
+            "You cannot interact with "
+            "folios that are not your own."
+        )
+        return redirect("view_library")
 
 
 @login_required
@@ -167,53 +176,62 @@ def toggle_folio_published_state(request, folio_id):
     purchase more licenses.
     """
 
-    folio = get_object_or_404(Folio, pk=folio_id)
+    if user_is_author_of_folio(request.user, folio_id):
 
-    if folio.is_published:
-        folio.toggle_published_state()
-        messages.success(
-            request,
-            f"{folio.name} has been concealed successfully."
-        )
-        return redirect("view_library")
+        folio = get_object_or_404(Folio, pk=folio_id)
 
-    else:
-        user_account = get_object_or_404(
-            UserAccount, pk=request.user.id
-        )
-
-        if user_account.number_of_licenses == 0:
-
-            messages.warning(
+        if folio.is_published:
+            folio.toggle_published_state()
+            messages.success(
                 request,
-                "You need to purchase a license "
-                "before you can publish a folio."
+                f"{folio.name} has been concealed successfully."
             )
-            return redirect("purchase_license")
+            return redirect("view_library")
 
         else:
-            amount_of_published_folios = len(Folio.objects.filter(
-                author_id=request.user
-            ).filter(
-                is_published=True
-            ))
+            user_account = get_object_or_404(
+                UserAccount, pk=request.user.id
+            )
 
-            if amount_of_published_folios < user_account.number_of_licenses:
-                folio.toggle_published_state()
-                messages.success(
-                    request,
-                    f"{folio.name} has been published successfully."
-                )
-                return redirect("view_library")
+            if user_account.number_of_licenses == 0:
 
-            else:
                 messages.warning(
                     request,
-                    "You have used all of your licenses. "
-                    "Please purchase additional "
-                    "licenses to publish more folios."
+                    "You need to purchase a license "
+                    "before you can publish a folio."
                 )
                 return redirect("purchase_license")
+
+            else:
+                amount_of_published_folios = len(Folio.objects.filter(
+                    author_id=request.user
+                ).filter(
+                    is_published=True
+                ))
+                if amount_of_published_folios < \
+                   user_account.number_of_licenses:
+                    folio.toggle_published_state()
+                    messages.success(
+                        request,
+                        f"{folio.name} has been published successfully."
+                    )
+                    return redirect("view_library")
+
+                else:
+                    messages.warning(
+                        request,
+                        "You have used all of your licenses. "
+                        "Please purchase additional "
+                        "licenses to publish more folios."
+                    )
+                    return redirect("purchase_license")
+    else:
+        messages.warning(
+            request,
+            "You cannot interact with "
+            "folios that are not your own."
+        )
+        return redirect("view_library")
 
 
 @login_required
@@ -224,19 +242,26 @@ def delete_folio(request, folio_id):
     if it's the last folio visited
     """
 
-    folio = get_object_or_404(Folio, pk=folio_id)
-    folio.delete()
+    if user_is_author_of_folio(request.user, folio_id):
+        folio = get_object_or_404(Folio, pk=folio_id)
+        folio.delete()
+        response = redirect(reverse("view_library"))
 
-    response = redirect(reverse("view_library"))
+        if 'latest_folio' in request.COOKIES.keys():
+            latest_folio = request.COOKIES['latest_folio']
+            if int(folio_id) == int(latest_folio):
+                response.delete_cookie('latest_folio')
 
-    if 'latest_folio' in request.COOKIES.keys():
-        latest_folio = request.COOKIES['latest_folio']
-        if int(folio_id) == int(latest_folio):
-            response.delete_cookie('latest_folio')
+        messages.success(
+            request,
+            f"{folio.name} has been deleted successfully."
+        )
+        return response
 
-    messages.success(
-        request,
-        f"{folio.name} has been deleted successfully."
-    )
-
-    return response
+    else:
+        messages.warning(
+            request,
+            "You cannot interact with "
+            "folios that are not your own."
+        )
+        return redirect("view_library")
