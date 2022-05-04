@@ -118,3 +118,10 @@ class TestViews(TestCase):
             follow=True
         )
         self.assertRedirects(response, "/library/")
+
+    def test_folio_publish_when_no_licenses(self):
+        """ Test that folio doesn't publish if user has no licences """
+
+        response = self.client.get(
+            f"/library/toggle_published_state/{self.stored_folio.id}/"
+        )

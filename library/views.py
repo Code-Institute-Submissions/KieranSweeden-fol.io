@@ -182,27 +182,38 @@ def toggle_folio_published_state(request, folio_id):
             UserAccount, pk=request.user.id
         )
 
-        amount_of_published_folios = len(Folio.objects.filter(
-            author_id=request.user
-        ).filter(
-            is_published=True
-        ))
+        if user_account.number_of_licenses == 0:
 
-        if amount_of_published_folios < user_account.number_of_licenses:
-            folio.toggle_published_state()
-            messages.success(
-                request,
-                f"{folio.name} has been published successfully."
-            )
-            return redirect("view_library")
-
-        else:
             messages.warning(
                 request,
-                "You have used all of your licenses. "
-                "Please purchase additional licenses to publish more folios."
+                "You need to purchase a license "
+                "before you can publish a folio."
             )
             return redirect("purchase_license")
+
+        else:
+            amount_of_published_folios = len(Folio.objects.filter(
+                author_id=request.user
+            ).filter(
+                is_published=True
+            ))
+
+            if amount_of_published_folios < user_account.number_of_licenses:
+                folio.toggle_published_state()
+                messages.success(
+                    request,
+                    f"{folio.name} has been published successfully."
+                )
+                return redirect("view_library")
+
+            else:
+                messages.warning(
+                    request,
+                    "You have used all of your licenses. "
+                    "Please purchase additional "
+                    "licenses to publish more folios."
+                )
+                return redirect("purchase_license")
 
 
 @login_required
