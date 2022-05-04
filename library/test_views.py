@@ -4,13 +4,6 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 
 from suite.models import Folio
-from .views import (
-    view_library,
-    create_folio,
-    update_folio,
-    toggle_folio_published_state,
-    delete_folio
-)
 
 from urllib.parse import urlencode
 
@@ -94,17 +87,6 @@ class TestViews(TestCase):
             f"/suite/projects/{self.stored_folio.id}/"
         )
 
-    def test_if_update_is_invalid(self):
-        """ Test that user is re-directed to library after invalid update """
-        response = self.client.post(
-            f"/library/update_folio/{self.stored_folio.id}/",{
-
-            },
-            content_type="application/x-www-form-urlencoded",
-            follow=True
-        )
-        self.assertRedirects(response, "/library/")
-
     def test_invalid_update_redirects_correctly(self):
         """ Test that invalid update form redirects user to libary """
 
@@ -125,4 +107,4 @@ class TestViews(TestCase):
         response = self.client.get(
             f"/library/toggle_published_state/{self.stored_folio.id}/"
         )
-        self.assertRedirects(response, "/library/")
+        self.assertRedirects(response, "/license/purchase/")
