@@ -28,6 +28,12 @@ def purchase_license(request):
     and presents then within the library page
     """
 
+    if 'failed_payment' in request.GET:
+        messages.error(
+            request,
+            "License purchase was unsuccessful"
+        )
+
     user_details = get_object_or_404(
         UserAccount,
         user=request.user
