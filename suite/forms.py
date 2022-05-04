@@ -68,10 +68,10 @@ class FolioProjectForm(forms.ModelForm):
         }
 
         for field in self.fields:
-            self.fields[field].widget.attrs['placeholder'] = placeholders[
-                field
-            ]
             self.fields[field].label = labels[field]
+            if field != 'image':
+                self.fields[field].widget.attrs[
+                    'placeholder'] = placeholders[field]
 
 
 class FolioSkillForm(forms.ModelForm):

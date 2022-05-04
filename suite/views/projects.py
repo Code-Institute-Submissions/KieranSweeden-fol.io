@@ -23,30 +23,20 @@ def edit_folio_projects(request, folio_id=None):
     Presents the projects tab of the
     folio to the user.
     """
-
     if id_has_been_provided(folio_id):
-
-        # Get the specific folio using the id provided
         folio = get_object_or_404(Folio, pk=folio_id)
 
-        # Get the user's projects
         projects = list(Project.objects.filter(
             author_id=request.user
         ))
 
-        # For each project, attach a form to the object
-        # And assess whether project is attached to folio
         for project in projects:
-            project.form = FolioProjectForm(instance=project)
-
-            # Set is attached to true if folio exists
-            # in the projects list of folios
+            project.form = FolioProjectForm(
+                instance=project,
+                prefix=f"project-{project.id}")
             project.is_attached = project.folios.filter(pk=folio_id).exists()
 
-        # Create an empty project form instance
         form = FolioProjectForm()
-
-        # Create context
         context = {
             "folio": folio,
             "projects": projects,
