@@ -275,6 +275,28 @@ The fix however did come to light via [this Stack Overflow answer](https://stack
 
 </details>
 
+#### Pylint - Django was not configured error
+
+For each page, a pylint error was present at the top of the page during a GitPod session. Although this had little to no effect on the project itself, from a testing staandpoint it was distracting.
+
+<details>
+
+<summary>Read Fix</summary>
+
+In order to solve this problem, after reading [this Stack Overflow answer](https://stackoverflow.com/a/68346742/15607265), it became clear that a .pylintrc file was needed.
+
+After creating the file and inserting the pylint commands found within the Stack Overflow answer, this soon resolved the issue and allowed me to focus on certain files with legitimate errors.
+
+The commands can be found below:
+
+    ```
+    [MASTER]
+    load-plugins=pylint_django
+    django-settings-module=fol.io.settings
+    ```
+
+</details>
+
 ### Known
 
 The following are bugs that are still present within the current build of fol.io.
