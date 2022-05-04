@@ -53,3 +53,9 @@ class TestUserAccountModel(TestCase):
         user_account.last_name = "user"
         full_name = user_account.get_full_name()
         self.assertEqual(full_name, "testing user")
+
+    def test_email_is_returned(self):
+        """ Test email is returned as string """
+        self.client.force_login(self.user)
+        user_account = UserAccount.objects.get(user=self.user)
+        self.assertEqual(user_account.__str__(), "test_user@testing.com")
