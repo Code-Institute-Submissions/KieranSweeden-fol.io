@@ -17,12 +17,9 @@ class UserAccount(models.Model):
     This stores the user's general info &
     default billing information
     """
-
-    # Link to attach user account to specific user
-    # A specific user can only have one account
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    # Default user info
+    # account info
     first_name = models.CharField(
         max_length=20, null=True, blank=True
     )
@@ -33,17 +30,12 @@ class UserAccount(models.Model):
         max_length=20, null=True, blank=True
     )
     profile_picture = models.ImageField(
-        upload_to="profile-pictures",
-        null=True,
-        blank=True
+        upload_to="profile-pictures", null=True, blank=True
     )
-
-    # Folio oriented info
-    number_of_licenses = models.PositiveSmallIntegerField(default=0)
     github_profile = models.URLField(null=True, blank=True)
     linkedin_profile = models.URLField(null=True, blank=True)
 
-    # Default billing info
+    # billing info
     default_street_address1 = models.CharField(
         max_length=80, null=True, blank=True
     )
@@ -62,6 +54,9 @@ class UserAccount(models.Model):
     default_country = CountryField(
         blank_label='Country', null=True, blank=True
     )
+
+    # license amount
+    number_of_licenses = models.PositiveSmallIntegerField(default=0)
 
     def add_licences_to_user_account(self, amount):
         """
@@ -104,12 +99,10 @@ class UserAccount(models.Model):
         return self.user.email
 
 
-# recieves from the post_save event from the user model
-# if new, create new, otherwise save to existing user
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
-    Create or update the user profile
+    When user is created, create a new user account for that user
     """
     if created:
         UserAccount.objects.create(user=instance)

@@ -1,5 +1,7 @@
 """
-This file contains the form structure for accounts
+This file contains the form structure for the
+Account Details & Billing Details form
+found within the accounts app
 """
 
 from django import forms
@@ -14,7 +16,7 @@ class AccountDetailsForm(forms.ModelForm):
     class Meta:
         """
         Associate form with UserAccount model &
-        exclude billing oriented details
+        only include billing oriented details
         """
         model = UserAccount
         fields = [
@@ -26,17 +28,13 @@ class AccountDetailsForm(forms.ModelForm):
             'linkedin_profile'
         ]
 
-    # Customize the form
     def __init__(self, *args, **kwargs):
         """
-        Here we insert placeholders & 
-        set autofocus to the first field
+        Initialise with placeholders, labels &
+        autofocus
         """
-
-        # Set the form up as it would be by default
         super().__init__(*args, **kwargs)
 
-        # Prepare placeholders
         placeholders = {
             'profile_picture': 'Profile Picture (Use square ratios)',
             'first_name': 'e.g. Kathleen',
@@ -54,13 +52,8 @@ class AccountDetailsForm(forms.ModelForm):
             'linkedin_profile': 'LinkedIn Profile URL'
         }
 
-        # Auto focus on the first field
         self.fields['first_name'].widget.attrs['autofocus'] = True
-
-        # Iterate over the fields, inserting
-        # placeholders & labels along the way
         for field in self.fields:
-            # Give them their respective placeholders & classes
             self.fields[field].widget.attrs['placeholder'] = placeholders[
                 field
             ]
@@ -90,8 +83,8 @@ class BillingDetailsForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Here we insert placeholders & 
-        set autofocus to the first field
+        Initialise with placeholders, labels &
+        autofocus
         """
         super().__init__(*args, **kwargs)
 
@@ -112,13 +105,8 @@ class BillingDetailsForm(forms.ModelForm):
             'default_country': 'Select Country'
         }
 
-        # Auto focus on the first field
         self.fields['default_street_address1'].widget.attrs['autofocus'] = True
-
-        # Iterate over the fields, inserting
-        # placeholders along the way
         for field in self.fields:
-            # Give them their respective placeholders & classes
             self.fields[field].widget.attrs[
                 'placeholder'] = placeholders[field]
             self.fields[field].label = labels[field]

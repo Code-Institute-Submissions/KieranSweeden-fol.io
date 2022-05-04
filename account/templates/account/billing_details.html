@@ -8,30 +8,31 @@
 {% block help_question %}Why are these details important?{% endblock %}
 {% block help_title %}Why are these details important?{% endblock %}
 {% block help_desc %}
-    {% include './includes/snippets/help_billing_content.html' %}
+{% include './includes/snippets/help_billing_content.html' %}
 {% endblock %}
 
 {% block header_title %}{% trans "Billing Details" %}{% endblock %}
 
 {% block main_nav %}
-    {% include 'includes/main-navs/internal-main-nav.html' with active_nav_link='account' %}
+{% include 'includes/main-navs/internal-main-nav.html' with active_nav_link='account' %}
 {% endblock %}
 
 {% block header_content %}
-    {% include 'includes/header-navs/account-header-nav.html' with active_tab='billing_details' %}
+{% include 'includes/header-navs/account-header-nav.html' with active_tab='billing_details' %}
 {% endblock %}
 
 {% block content %}
-<form class="login" method="POST" action="{% url 'billing_details' %}">
-    {% csrf_token %}
-    <h3 class="h5">Billing Address</h3>
-    <p class="text-muted">This is your default billing address which is what will be used to <strong>pre-fill the purchase license form</strong> when making a license purchase.</p>
-    {{ form|crispy }}
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-    {% endif %}
-    <div class="d-flex justify-content-end align-items-center">
-        <button class="btn btn-primary" type="submit">{% trans "Update" %}</button>
-    </div>
-</form>
+    <form class="login" method="POST" action="{% url 'billing_details' %}">
+        {% csrf_token %}
+        <h3 class="h5">Billing Address</h3>
+        <p class="text-muted">This is your default billing address which is what will be used to <strong>pre-fill the
+                purchase license form</strong> when making a license purchase.</p>
+        {{ form|crispy }}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div class="d-flex justify-content-end align-items-center">
+            <button class="btn btn-primary" type="submit">{% trans "Update" %}</button>
+        </div>
+    </form>
 {% endblock %}

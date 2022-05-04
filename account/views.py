@@ -15,7 +15,6 @@ def account_details(request):
     The view that presents and allows the
     user to update their account details.
     """
-
     profile = get_object_or_404(UserAccount, user=request.user)
 
     if request.method == "POST":
@@ -24,6 +23,7 @@ def account_details(request):
             request.FILES,
             instance=profile
         )
+
         if form.is_valid():
             form.save()
             messages.success(
@@ -31,14 +31,22 @@ def account_details(request):
                 "Your account details have been updated successfully"
             )
 
+        else:
+            messages.error(
+                request,
+                "The data that was provided to "
+                "update your account details was invalid."
+            )
+
     else:
         form = AccountDetailsForm(instance=profile)
 
-    template = "account/account_details.html"
-    context = {
-        "form": form
-    }
-    return render(request, template, context)
+    context = {"form": form}
+    return render(
+        request,
+        "account/account_details.html",
+        context
+    )
 
 
 @login_required
@@ -52,11 +60,19 @@ def billing_details(request):
 
     if request.method == "POST":
         form = BillingDetailsForm(request.POST, instance=profile)
+
         if form.is_valid():
             form.save()
             messages.success(
                 request,
                 "Your billing details have been updated successfully"
+            )
+
+        else:
+            messages.error(
+                request,
+                "The data that was provided to "
+                "update your billing details was invalid."
             )
 
     else:
