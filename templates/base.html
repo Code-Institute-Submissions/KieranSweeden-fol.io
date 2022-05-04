@@ -7,7 +7,7 @@
 
   <!-- Meta tags -->
   {% block meta %}
-  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   {% endblock %}
@@ -76,18 +76,15 @@
           </div>
         </div>
       </div>
-      <div class="w-100 align-self-end">
-        <button id="helpSectionBtn" class="w-100 btn p-0">
-          <footer class="container d-flex justify-content-center align-items-center">
-            <p class="mb-0">
-              {% block help_question %}{% endblock %}
-            </p>
+      <footer class="w-100 align-self-end">
+        <button id="helpSectionBtn" class="w-100 h-100 btn p-0 d-flex justify-content-center align-items-center mb-0">
+
+            {% block help_question %}{% endblock %}
             <span class="material-icons-sharp icon">
               expand_more
             </span>
-          </footer>
         </button>
-      </div>
+      </footer>
     </div>
   </section>
 

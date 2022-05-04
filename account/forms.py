@@ -53,11 +53,12 @@ class AccountDetailsForm(forms.ModelForm):
         }
 
         self.fields['first_name'].widget.attrs['autofocus'] = True
+
         for field in self.fields:
-            self.fields[field].widget.attrs['placeholder'] = placeholders[
-                field
-            ]
             self.fields[field].label = labels[field]
+            if field != 'profile_picture':
+                self.fields[field].widget.attrs[
+                    'placeholder'] = placeholders[field]
 
 
 class BillingDetailsForm(forms.ModelForm):
@@ -106,7 +107,10 @@ class BillingDetailsForm(forms.ModelForm):
         }
 
         self.fields['default_street_address1'].widget.attrs['autofocus'] = True
+
         for field in self.fields:
-            self.fields[field].widget.attrs[
-                'placeholder'] = placeholders[field]
             self.fields[field].label = labels[field]
+
+            if field != 'default_country':
+                self.fields[field].widget.attrs[
+                    'placeholder'] = placeholders[field]
