@@ -317,6 +317,37 @@ heroku run python manage.py migrate
 
 </details>
 
+#### Duplicate id's
+
+As I'm using various models containing their respective forms for various objects, after looking through the HTML validator it became clear that a problem had arisen where an object such as a folio had an "update_folio" model with the same id as an "update_folio" from another folio.
+
+<details>
+
+<summary>Read Fix</summary>
+
+A fix for this was making use of the prefix feature within django that allows a user to prefix the id's within forms, in this example specifically, folio update forms.
+
+```python
+for folio in folios:
+    folio.form = CreateFolioForm(
+        instance=folio,
+        prefix=f"folio-{folio.id}"
+    )
+```
+
+Using this meant that each folio model had an individual id and was not causing any errors regarding HTML validation. One problem this did mean however was the prefixes meant that the forms were no longer valid when being submitted to the server.
+
+After looking at [this Stack Overflow answer](https://stackoverflow.com/a/22210263/15607265), a good option was to make a copy of the query dictionary and add to it the required fields by the form (in this case "name" and "description") which enabled the form to be valid. Although this feels like a hack, due to time constriants this was the best option unfortunately. The copy of the query dictionary can be seen below:
+
+```python
+post = request.POST.copy()
+    post['name'] = post[f"folio-{folio_id}-name"]
+    post['description'] = post[f"folio-{folio_id}-description"]
+    form = CreateFolioForm(post, instance=folio_in_db)
+```
+
+</details>
+
 ### Known
 
 The following are bugs that are still present within the current build of fol.io.
