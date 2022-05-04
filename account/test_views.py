@@ -3,6 +3,7 @@
 from django.test import TestCase
 
 from django.contrib.auth.models import User
+from django.core.files.uploadedfile import SimpleUploadedFile
 from .models import UserAccount
 
 
@@ -38,6 +39,28 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         updated_account = UserAccount.objects.get(user=self.user)
         self.assertEqual(updated_account.first_name, 'test')
+
+    def test_image_upload_to_account_details_page(self):
+        """
+        Tests that images are uploaded via the account details page
+        and are placed within the profile-pictures directory
+        """
+        self.client.force_login(self.user)
+        response = self.client.post('/account/account-details/', {
+            'profile_picture': SimpleUploadedFile(
+                name='test_image.jpg',
+                content=open(
+                    'static/images/no-profile-picture.png',
+                    'rb').read(),
+                content_type='image/png'
+            )
+        })
+        self.assertEqual(response.status_code, 200)
+        updated_account = UserAccount.objects.get(user=self.user)
+        self.assertEqual(
+            updated_account.profile_picture,
+            'profile-pictures/test_image.jpg'
+        )
 
     def test_view_billing_details_page(self):
         """ Tests the rendering of billing details page """

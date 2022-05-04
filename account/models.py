@@ -15,9 +15,9 @@ class UserAccount(models.Model):
     A user account that's linked to the
     user's authentication log-in.
     This stores the user's general info &
-    default billing information 
+    default billing information
     """
-    
+
     # Link to attach user account to specific user
     # A specific user can only have one account
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -88,7 +88,7 @@ class UserAccount(models.Model):
         self.default_county = customer_details['purchaser_county']
         self.default_country = customer_details['purchaser_country']
         self.save()
-    
+
     def get_full_name(self):
         """
         Returns the user's first
