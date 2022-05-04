@@ -93,3 +93,28 @@ class TestViews(TestCase):
             response,
             f"/suite/projects/{self.stored_folio.id}/"
         )
+
+    def test_if_update_is_invalid(self):
+        """ Test that user is re-directed to library after invalid update """
+        response = self.client.post(
+            f"/library/update_folio/{self.stored_folio.id}/",{
+
+            },
+            content_type="application/x-www-form-urlencoded",
+            follow=True
+        )
+        self.assertRedirects(response, "/library/")
+
+    def test_invalid_update_redirects_correctly(self):
+        """ Test that invalid update form redirects user to libary """
+
+        response = self.client.post(
+            f"/library/update_folio/{self.stored_folio.id}/",
+            {
+                'name': 'a test folio title',
+                'description': 'a test folio description',
+            },
+            content_type="application/x-www-form-urlencoded",
+            follow=True
+        )
+        self.assertRedirects(response, "/library/")
