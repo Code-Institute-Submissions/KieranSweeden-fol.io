@@ -20,8 +20,8 @@ from .forms import CreateFolioForm
 @login_required
 def view_library(request):
     """
-    Collects the user's list of folios
-    and presents them within the library page
+    Collects the user's list of folios, adds a form to each
+    so they can be updated and presents them within library page
     """
 
     folios = Folio.objects.filter(
@@ -45,39 +45,27 @@ def view_library(request):
     ))
 
     form = CreateFolioForm()
-
     context = {
         "form": form,
         "folios": folios,
         "total_licenses": user_account.number_of_licenses,
         "used_licenses": amount_of_published_folios
     }
-
     return render(request, "library/view_library.html", context=context)
 
 
 @login_required
 def create_folio(request):
     """
-    Creates a brand new folio when called
+    Creates a brand new folio with provided data when called
     """
 
-    # If the request is post
     if request.method == "POST":
-
         form = CreateFolioForm(request.POST)
 
-        # If form is valid, save & send success message
         if form.is_valid():
-
-            # Partially save the form, as author_id
-            # will need to be provided
             folio = form.save(commit=False)
-
-            # Apply current user to author_id
             folio.author_id = request.user
-
-            # Save the newly created folio
             folio.save()
 
             messages.success(
@@ -85,25 +73,29 @@ def create_folio(request):
                 f"{folio.name} has been created successfully."
             )
 
-    # Direct user to page depending on which
-    # button they selected
-    if "submit_only" in request.POST:
+            if "submit_and_suite" in request.POST:
+                response = redirect(reverse("edit_folio_projects",
+                                    kwargs={"folio_id": folio.id}))
+                response.set_cookie("latest_folio", folio.id)
+                return response
 
-        # Redirect to library
+            else:
+                return redirect("view_library")
+
+        else:
+            messages.error(
+                request,
+                "The data you've provided to"
+                "create a folio is invalid."
+            )
+            return redirect("view_library")
+    else:
+        messages.error(
+            request,
+            "Necessary folio data needs to posted "
+            "in order to create a folio."
+        )
         return redirect("view_library")
-
-    elif "submit_and_suite" in request.POST:
-
-        # Create response
-        response = redirect(reverse("edit_folio_projects",
-                            kwargs={"folio_id": folio.id}))
-
-        # Set cookie to store the current folio as
-        # most recently opened folio
-        response.set_cookie("latest_folio", folio.id)
-
-        # Re-direct user
-        return response
 
 
 @login_required
@@ -113,51 +105,42 @@ def update_folio(request, folio_id):
     """
 
     if user_is_author_of_folio(request.user, folio_id):
-
-        # Get the folio using the folio id provided
         folio_in_db = get_object_or_404(Folio, pk=folio_id)
 
-        # If the request is post
         if request.method == "POST":
-
             form = CreateFolioForm(request.POST, instance=folio_in_db)
 
-            # If the form is valid
             if form.is_valid():
-
-                # Save the updated form
                 form.save()
-
                 messages.success(
                     request,
-                    f"{folio_in_db.name} has been updated successfully"
+                    f"{folio_in_db.name} has been updated successfully."
                 )
 
-                if "submit_only" in request.POST:
-
-                    return redirect("view_library")
-
-                elif "submit_and_suite" in request.POST:
-
-                    # Create response
+                if "submit_and_suite" in request.POST:
                     response = redirect(reverse("edit_folio_projects",
                                         kwargs={"folio_id": folio_id}))
-
-                    # Set cookie to store the current folio as
-                    # most recently opened folio
                     response.set_cookie("latest_folio", folio_id)
-
-                    # Re-direct user
                     return response
+
+                else:
+                    return redirect("view_library")
 
             else:
                 messages.error(
                     request,
                     f"The changes made to {folio_in_db} were invalid."
                 )
-
                 return redirect("view_library")
-    
+
+        else:
+            messages.error(
+                request,
+                "Data should be sent when "
+                "attempting to update a folio."
+            )
+            return redirect("view_library")
+
     else:
         messages.warning(
             request,
@@ -177,7 +160,6 @@ def toggle_folio_published_state(request, folio_id):
     """
 
     if user_is_author_of_folio(request.user, folio_id):
-
         folio = get_object_or_404(Folio, pk=folio_id)
 
         if folio.is_published:
@@ -208,6 +190,7 @@ def toggle_folio_published_state(request, folio_id):
                 ).filter(
                     is_published=True
                 ))
+
                 if amount_of_published_folios < \
                    user_account.number_of_licenses:
                     folio.toggle_published_state()
@@ -225,6 +208,7 @@ def toggle_folio_published_state(request, folio_id):
                         "licenses to publish more folios."
                     )
                     return redirect("purchase_license")
+
     else:
         messages.warning(
             request,
