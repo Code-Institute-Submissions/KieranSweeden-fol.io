@@ -323,9 +323,23 @@ The following are bugs that are still present within the current build of fol.io
 
 ## User Testing
 
+To help with the user friendiness of fol.io, I decided to conduct a user test where I handed fol.io to a family member who's tech-savvy (whom I will call tester from now on) and asked them to perform a set of tasks within the site. Although it could be considered more appropriate to put this in front of someone such as a web developer, I thought it was useful to put this in front of someone who is only vaguely familiar with programming, as it would better challenge how well the application informed it's user as to what to do next. The thinking was, if someone who has a general idea on development can get around the application, a web developer or at least someone of that calibre in their understanding of tech would certainly understand the application.
+
+What was clear when first looking at the site, was that the general concept of the application was not being communicated well to the tester. They were initially confused by the suite and the naming of it. It wasn't clear to them what the functionality for this portion of the app was for. Only when I explained the suite app in a different light, did they begin to understand the functionalityi that it provided. With this in mind, I started from square one in terms of the word content presented within the home page as this is the opportunity to inform the user as to what fol.io contains. Myself and the tester agreed that directly addressing the apps by name (such as Suite, Library, License Store) alongside the functionality they could provide helped communicate the concept of the application better.
+
+Another problem that the tester observed was the inconcistency in language regarding particular entities found within the application. An example of which is alternating between "profiles" and "profile snippets" which is absolutely understandable. With this in mind, during the later portion of development, a consistent effort was made to present concepts and entites within fol.io in a consistent manner to make it easier to explain. THese changes will hopefully makie the learning process whilst learning fol.io easier than it was previously.
+
+One issue that was also raised was the lack of guidance when a folio didn't contain any content for a respective reason. This could include a name not being presented or a default profile picture being shown. The tester recommended that rather than informing the user of a problem, it would be better to be directed to the source of the problem and given guidance as to how to fix it. I agreed with the tester's comments, however the trouble of time became a greater issue and given that it was a nice to have rather than an absolutely necessary piece of functionality, it was placed on the "if time allows" to-do list. It's definitely a feature that should appear in a future release of fol.io.
+
 ## File Validation
 
 ## Defensive Programming
+
+Following conventional web development standards, all sensitive information such as id's and keys are kept hidden from source control. This was achieved with the use of Gitpod's environment variables feature and the config variables that are found within the settings tab of the Heroku app.
+
+"Internal" pages all require a logged in session. This is achieved via the use of django's allauth middleware that comes pre-packaged with the python framework. Without this session, the user is re-directed to the log-in page or is presented a custom made error page that fits the design of fol.io and also provides functionality that takes the user back to a reasonable place within the application.
+
+All views that are directly linked to the management of objects stored within the database can only be managed if the current user is the "author" of the object. This is to protect the potential case where one could delete or modify another user's folio or project/skill/profile snippet without being the author.
 
 ## Testing Functionality
 
