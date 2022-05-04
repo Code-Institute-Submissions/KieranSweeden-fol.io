@@ -23,6 +23,12 @@ class CreateFolioForm(forms.ModelForm):
             'description'
         ]
 
+        widgets = {
+            'description': forms.Textarea(attrs={
+                'rows': 3
+            })
+        }
+
     # Customize the form
     def __init__(self, *args, **kwargs):
         """

@@ -24,7 +24,7 @@ class Folio(models.Model):
 
     # Folio-oriented details - name is required
     name = models.CharField(max_length=30)
-    description = models.TextField(max_length=50)
+    description = models.TextField(max_length=100)
 
     # Profile information
     current_project_link = models.URLField(null=True, blank=True)
@@ -64,7 +64,7 @@ class Project(models.Model):
 
     # Project details
     project_title = models.CharField(max_length=30)
-    project_description = models.TextField(max_length=100)
+    project_description = models.TextField(max_length=300)
     tech_list = models.CharField(max_length=50)
     github_link = models.URLField(null=True, blank=True)
     live_link = models.URLField(null=True, blank=True)
@@ -112,7 +112,7 @@ class Skill(models.Model):
     )
 
     skill_title = models.CharField(max_length=20)
-    skill_description = models.TextField(max_length=100)
+    skill_description = models.TextField(max_length=300)
 
     # Date related fields
     date_created = models.DateField(auto_now_add=True)
@@ -138,7 +138,7 @@ class Profile(models.Model):
 
     # Profile specific fields
     profile_title = models.CharField(max_length=20)
-    profile_bio = models.TextField(max_length=100)
+    profile_bio = models.TextField(max_length=300)
 
     # Date related fields
     date_created = models.DateField(auto_now_add=True)

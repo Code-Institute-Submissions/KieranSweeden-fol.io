@@ -32,7 +32,13 @@ class FolioProjectForm(forms.ModelForm):
             "live_link",
             "image"
         ]
-    
+
+        widgets = {
+            'project_description': forms.Textarea(attrs={
+                'rows': 6
+            })
+        }
+
     # Customize form
     def __init__(self, *args, **kwargs):
         """
@@ -85,6 +91,12 @@ class FolioSkillForm(forms.ModelForm):
             "skill_type"
         ]
 
+        widgets = {
+            'skill_description': forms.Textarea(attrs={
+                'rows': 6
+            })
+        }
+
     # Customize form
     def __init__(self, *args, **kwargs):
         """
@@ -125,6 +137,11 @@ class FolioProfileForm(forms.ModelForm):
             "profile_title",
             "profile_bio"
         ]
+        widgets = {
+            'profile_bio': forms.Textarea(attrs={
+                'rows': 6
+            })
+        }
 
     def __init__(self, *args, **kwargs):
         """
