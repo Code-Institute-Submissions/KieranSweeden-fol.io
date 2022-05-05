@@ -1,24 +1,50 @@
-// Base JavaScript file for all pages
-window.addEventListener('DOMContentLoaded', (event) => {
-    
+/**
+ * Base JavaScript file that's present within
+ * all html files in the fol.io application.
+ */
+window.addEventListener('DOMContentLoaded', () => {
     timeoutMessagesIfPresent();
-
     addHelpSectionClickListener();
+    enableTooltips();
 });
 
+/**
+ * Using JavaScript code directly taken from the bootstrap 5
+ * webpage, enable all tooltips present on the page.
+ */
+function enableTooltips(){
+    // Code below was directly taken from https://getbootstrap.com/docs/5.0/components/tooltips/
+    let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+}
 
+/**
+ * If the help section is present within the page,
+ * enable to click listener so the user can open 
+ * the help section.
+ */
 function addHelpSectionClickListener(){
     const helpSectionBtn = document.getElementById('helpSectionBtn');
     if (helpSectionBtn){
         helpSectionBtn.addEventListener('click', () => {
-            toggleHelpSectionDisplayState(helpSectionBtn);
+            toggleHelpSectionDisplayState();
         });
     }
 }
 
-function toggleHelpSectionDisplayState(helpSectionBtn){
+/**
+ * A minor helper function for readability purposes
+ * that toggles the help section display state
+ */
+function toggleHelpSectionDisplayState(){
     const helpSection = document.getElementById('helpSection');
-    helpSection.classList.contains('hide') ? helpSection.className = 'show' : helpSection.className = 'hide';
+    if (helpSection.classList.contains('hide')){
+        helpSection.className = 'show';
+    } else {
+        helpSection.className = 'hide';
+    }
 }
 
 /**
@@ -27,11 +53,11 @@ function toggleHelpSectionDisplayState(helpSectionBtn){
  */
 function timeoutMessagesIfPresent(){
     const messages = [...document.getElementsByClassName('card-message')];
-    if (!messages?.length) return;
-
-    for (let message of messages) {
-        setTimeout(hideMessage, 5000, message);
-        addCloseClickListener(message);
+    if (messages){
+        for (let message of messages) {
+            setTimeout(hideMessage, 5000, message);
+            addCloseClickListener(message);
+        }
     }
 }
 
@@ -59,5 +85,5 @@ function removeMessage(message){
  */
 function addCloseClickListener(message){
     const closeButton = [...message.getElementsByClassName('btn-icon')][0];
-    closeButton.addEventListener('click', () => {hideMessage(message)})
+    closeButton.addEventListener('click', () => hideMessage(message));
 }

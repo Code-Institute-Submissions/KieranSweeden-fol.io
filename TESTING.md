@@ -494,6 +494,24 @@ Given that this is intentional for webkit supported browsers to make the applica
 
 ### JavaScript
 
+Below you will find the results for the JS validation results for the JavaScript files within the application. The source code was directly copied from the IDE and pasted within the direct input field found within the [JSHint](https://jshint.com/) tool.
+
+<details>
+<summary>View base.js results</summary>
+
+The results came back positive with only one warning present and a couple of unused/undefined variables respectively.
+
+<img src="readme/images/validation/js/js-base-validation-results.png">
+
+The warning was regarding a ternary operator expression that wasn't being used to assign to a variable, but instead was simply used as a simply if/else statement. After understanding this minor warning, I changed the ternary operator expression to a simple if/else which cleared the warning as is shown below:
+
+<img src="readme/images/validation/js/js-base-validation-results-post.png">
+
+Regarding the undefined/unused variables, they happen to both be from the code that was directly taken from the Bootstrap website. Given that the code works and it's what Bootstrap themselves recommend, I decided to not take any actions of these minor concerns.
+
+</details>
+
+
 ### Python
 
 ## Defensive Programming

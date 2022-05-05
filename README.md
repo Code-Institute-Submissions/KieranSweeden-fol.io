@@ -374,6 +374,9 @@ The following links are to sources of code that are found within folio.
 - [clamp.js](https://github.com/josephschmitt/Clamp.js)
     - Clamp.js was used to clamp down specific pieces of text found throughout the folio app to guarantee that pages do not too cluttered with unnecessary text.
 
+- [Bootstrap tooltip code](https://getbootstrap.com/docs/5.0/components/tooltips/#example-enable-tooltips-everywhere)
+    - The JavaScript found within the "Enable tooltips everywhere" section was used to enable tooltips throughout the entire application.
+
 ### Research
 
 The following links are sources that were used to further understand the problems that needed to be solved during the pre-production stages of folio.
