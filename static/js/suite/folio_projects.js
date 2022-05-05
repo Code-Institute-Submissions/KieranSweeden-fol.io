@@ -79,7 +79,7 @@ function updateProjectsInFolio(){
     const checkboxes = [...document.getElementsByClassName('form-check-input')];
 
     // Filters down to project checkboxes only
-    const projectCheckboxes = checkboxes.filter(checkbox => checkbox.id !== "image-clear_id");
+    const projectCheckboxes = checkboxes.filter(checkbox => !checkbox.id.includes("image-clear_id"));
 
     // Create a list of project objects containing their IDs & a status on if they're attached
     let listOfProjects = [];

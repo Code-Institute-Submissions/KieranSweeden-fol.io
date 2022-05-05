@@ -101,30 +101,33 @@ def update_folio_project(request, project_id, folio_id):
     """
     Updates an existing folio project
     """
-
-    # Ensure the request made is a POST request
     if request.method == "POST":
+        project = get_object_or_404(Project, pk=project_id)
 
-        # Get current project
-        project_in_db = get_object_or_404(Project, pk=project_id)
+        post = request.POST.copy()
+        for key, value in request.POST.items():
+            prefix_removed_name = key.replace(f"project-{project.id}-", "")
+            post[prefix_removed_name] = value
 
-        # Save instance of project form
+        files = request.FILES.copy()
+        for key, value in request.FILES.items():
+            prefix_removed_name = key.replace(f"project-{project.id}-", "")
+            files[prefix_removed_name] = value
+
         form = FolioProjectForm(
-            request.POST,
-            request.FILES,
-            instance=project_in_db
+            post,
+            files,
+            instance=project
         )
 
-        # Save form if valid
         if form.is_valid():
             form.save()
             messages.success(
                 request,
-                f"The {project_in_db.project_title} project "
+                f"The {project.project_title} project "
                 f"has been updated successfully."
             )
 
-        # Return to folio project page using folio id
         return redirect(
             reverse("edit_folio_projects",
                     kwargs={"folio_id": folio_id})
