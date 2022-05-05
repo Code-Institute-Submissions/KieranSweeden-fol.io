@@ -57,6 +57,17 @@
       </span>
       <h3 class="h5">Your folio library is empty.</h3>
       <p>You can <strong class="text-feature-color">create a new folio</strong> by clicking the <strong class="text-feature-color">New Folio button</strong> above.</p>
+      <p><strong class="text-feature-color">NOTE:</strong> You <strong class="text-feature-color">cannot</strong> access the <strong class="text-feature-color">suite</strong> with an <strong class="text-feature-color">empty folio library</strong>.</p>
     </div>
   {% endfor %}
+  {% if folios|length == 1 %}
+    <div class="col-12 text-center mt-5">
+      <span class="material-icons-sharp text-muted">
+        tips_and_updates
+      </span>
+      <h3 class="h5">You've successfully created a folio!</h3>
+      <p>Head over to the <a href="{% url 'select_folio' %}">suite</a> to <strong class="text-feature-color">create & attach snippets</strong> to your newly created folio.</p>
+      <p>You can then <strong class="text-feature-color">publish your folio</strong> for the world to see by <a href="{% url 'purchase_license' %}">purchasing a license</a> & selecting <strong class="text-feature-color">publish</strong> within the folio's additional menu.</p>
+    </div>
+  {% endif  %}
 </div>
