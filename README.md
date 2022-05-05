@@ -398,12 +398,23 @@ The following links are sources that were used to further understand the problem
 
 ### Media
 
-#### Photos
+#### Images
 
-##### Log-in Page
+- [Man Using 3 Computers](https://www.pexels.com/photo/man-using-3-computers-4974914/)
+    - Credit: [Olia Danilivich](https://www.pexels.com/@olia-danilevich/)
+    - This image was used for the home page of the application
 
-- [Woman using MacBook and wearing headphones image](https://unsplash.com/photos/AHfRjkk8QcE)
-    - Image author: [Christina @ wocintechchat.com](https://unsplash.com/@wocintechchat)
+- [Man Using Laptop Computer](https://www.pexels.com/photo/man-using-laptop-computer-2102415/)
+    - Credit: [Djordje Petrovic](https://www.pexels.com/@djordje-petrovic-590080/)
+    - This image was used for the home page of the application
+
+- [Man Gets The Job](https://www.pexels.com/photo/man-gets-the-job-5439381/)
+    - Credit: [Tima Miroshnichenko](https://www.pexels.com/@tima-miroshnichenko/)
+    - This image was used for the home page of the application.
+
+- [Photo of Woman Smiling While Using Laptop](https://www.pexels.com/photo/photo-of-woman-smiling-while-using-laptop-4458419/)
+    - Credit: [Yan Krukov](https://www.pexels.com/@yankrukov/)
+    - This image was used for the home page of the application.
 
 [Return to Table of Contents &#8679;](#table-of-contents)
 
