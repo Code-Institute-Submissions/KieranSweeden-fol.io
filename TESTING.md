@@ -494,7 +494,9 @@ Given that this is intentional for webkit supported browsers to make the applica
 
 ### JavaScript
 
-Below you will find the results for the JS validation results for the JavaScript files within the application. The source code was directly copied from the IDE and pasted within the direct input field found within the [JSHint](https://jshint.com/) tool.
+Below you will find the results for the JS validation results for the custom JavaScript files within the application. The source code was directly copied from the IDE and pasted within the direct input field found within the [JSHint](https://jshint.com/) tool.
+
+> clamp.min.js is not an original custom JavaScript file, therefore it was not validated for this project.
 
 <details>
 <summary>View base.js results</summary>
