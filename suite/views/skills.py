@@ -41,7 +41,10 @@ def edit_folio_skills(request, folio_id=None):
         # For each skill, attach a form to the object
         # And assess whether skill is attached to form
         for skill in skills:
-            skill.form = FolioSkillForm(instance=skill)
+            skill.form = FolioSkillForm(
+                instance=skill,
+                prefix=f"skill-{skill.id}"
+            )
 
             # Set is attached to true if folio exists
             # in the skills list of folios
@@ -111,25 +114,24 @@ def update_folio_skill(request, skill_id, folio_id):
     Updates an existing folio skill
     """
 
-    # Ensure the request made is a POST request
     if request.method == "POST":
+        skill = get_object_or_404(Skill, pk=skill_id)
 
-        # Get current skill
-        skill_in_db = get_object_or_404(Skill, pk=skill_id)
+        post = request.POST.copy()
+        for key, value in request.POST.items():
+            prefix_removed_name = key.replace(f"skill-{skill.id}-", "")
+            post[prefix_removed_name] = value
 
-        # Save instance of skill form
-        form = FolioSkillForm(request.POST, instance=skill_in_db)
+        form = FolioSkillForm(post, instance=skill)
 
-        # Save form if valid
         if form.is_valid():
             form.save()
             messages.success(
                 request,
-                f"The {skill_in_db.skill_title} skill "
+                f"The {skill.skill_title} skill "
                 f"has been updated successfully."
             )
 
-        # Return to folio skill page using folio id
         return redirect(
             reverse("edit_folio_skills",
                     kwargs={"folio_id": folio_id})

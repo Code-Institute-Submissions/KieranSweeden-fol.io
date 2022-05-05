@@ -118,10 +118,10 @@ class FolioSkillForm(forms.ModelForm):
         }
 
         for field in self.fields:
-            self.fields[field].widget.attrs['placeholder'] = placeholders[
-                field
-            ]
             self.fields[field].label = labels[field]
+            if field != 'skill_type':
+                self.fields[field].widget.attrs[
+                    'placeholder'] = placeholders[field]
 
 
 class FolioProfileForm(forms.ModelForm):

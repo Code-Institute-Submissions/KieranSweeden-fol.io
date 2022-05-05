@@ -10,10 +10,10 @@
                     </h3>
                 </div>
                 <div class="dropdown">
-                    <button class="btn btn-icon dropdown-toggle" type="button" id="folio-dropdown-button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <button class="btn btn-icon dropdown-toggle" type="button" id="project-{{ project.id }}-dropdown-button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
                         <span class="material-icons-sharp">more_vert</span>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeInUp animate__fast" aria-labelledby="folio-dropdown-button">
+                    <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeInUp animate__fast" aria-labelledby="project-{{ project.id }}-dropdown-button">
                       <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal_{{ project.id }}">Edit</button></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete_modal_{{ project.id }}">Delete</button></li>

@@ -142,17 +142,13 @@ def update_projects_attached_to_folio(request, folio_id):
     """
 
     if request.method == "POST":
-        # Retrieve list of project status's sorted by id
         data = json.loads(request.body)
         list_of_projects = data['projects']
         list_of_projects.sort(reverse=False, key=sort_by_id)
 
-        # Grab users projects from DB using ID's provided
         projects = Project.objects.filter(
              id__in=[project['id'] for project in list_of_projects]
         )
-
-        # Get currently viewed folio
         folio = get_object_or_404(Folio, pk=folio_id)
 
         # Iterate through project in db & status given from user actions
