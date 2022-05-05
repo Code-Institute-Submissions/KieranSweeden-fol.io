@@ -316,9 +316,6 @@ The following libraries & applications were utilized during the development of f
 - [animate.css](https://animate.style/)
     - animate.css was used to quickly create animations within fol.io.
 
-- [parallax.js](https://github.com/wagerfield/parallax)
-    - parallax.js was used to quickly create parallax effects with the images presented on the login & register screen.
-
 - [clamp.js](https://github.com/josephschmitt/Clamp.js)
     - Clamp.js was used to clamp down specific pieces of text found throughout the folio app to guarantee that pages do not too cluttered with unnecessary text.
 
