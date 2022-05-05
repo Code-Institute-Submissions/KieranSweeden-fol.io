@@ -369,13 +369,27 @@ To keep the README.md file concise, the deployment section has been given it's o
 
 ### Code
 
-The following links are to sources of code that are found within folio.
+#### Credited
+
+The following links are to the sources of code written by others that's found within the folio codebase.
 
 - [clamp.js](https://github.com/josephschmitt/Clamp.js)
     - Clamp.js was used to clamp down specific pieces of text found throughout the folio app to guarantee that pages do not too cluttered with unnecessary text.
 
 - [Bootstrap tooltip code](https://getbootstrap.com/docs/5.0/components/tooltips/#example-enable-tooltips-everywhere)
     - The JavaScript found within the "Enable tooltips everywhere" section was used to enable tooltips throughout the entire application.
+
+#### Inspiration
+
+The following are links to sources of programming information that I found tremendously useful during the development of fol.io. Code was not directly taken from these sources of information, they were simply helpful in guiding me towards my intended goals during the development process.
+
+- [Django Tutorials Playlist](https://www.youtube.com/playlist?list=PLXmMXHVSvS-DQfOsQdXkzEZyD0Vei7PKf)
+    - Credit: [Pretty Printed](https://www.youtube.com/c/PrettyPrintedTutorials)
+    - I found a bunch of these Django specific videos really useful during the development of the application. It helped deepen my understanding of database relationships, using advanced queries within Django and helped with the use of AWS for database storage.
+
+- [Django Tutorial (Create a Blog)](https://www.youtube.com/playlist?list=PL4cUxeGkcC9ib4HsrXEYpQnTOTZE1x0uc)
+    - Credit: [The Net Ninja](https://www.youtube.com/c/TheNetNinja)
+    - I found this playlist of tutorials particularly useful as it was bringing concepts together within a full mini project. I found another perspective in building a project very useful when used in conjunction with the course material with Code Institute.
 
 ### Research
 
