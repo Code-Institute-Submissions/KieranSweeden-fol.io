@@ -353,6 +353,9 @@ The following applications listed were utilized during the development of fol.io
 - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input)
     - The W3C CSS Validation Service tool was used to validate the base.css file that's shared amongst all html files within the application.
 
+- [JSHint](https://jshint.com/)
+    - The JSHint tool was used to validate the custom-made JavaScript files that are used throughout the application.
+
 ## Testing
 
 To keep the README.md file concise, all information regarding bugs and testing during the development of fol.io was documented within the [TESTING.md](TESTING.md) file.
