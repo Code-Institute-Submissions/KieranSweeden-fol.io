@@ -12,7 +12,49 @@ Using Stripe to purchase fol.io licenses, users can "publish" these folios for t
 
 ## Table of Contents
 
-*table of contents generated from https://ecotrust-canada.github.io/markdown-toc/*
+* [Table of Contents](#table-of-contents)
+* [UX](#ux)
+    + [Strategy](#strategy)
+        - [The Problem](#the-problem)
+        - [The Solutions](#the-solutions)
+        - [The Objectives](#the-objectives)
+        - [The Audience](#the-audience)
+        - [User Stories](#user-stories)
+        - [Potential Features](#potential-features)
+    + [Scope](#scope)
+        - [Current Features](#current-features)
+        - [Future Features](#future-features)
+    + [Structure](#structure)
+    + [Skeleton](#skeleton)
+        - [Wireframes](#wireframes)
+        - [Database Schema](#database-schema)
+            * [AllAuth User Model](#allauth-user-model)
+            * [UserAccount](#useraccount)
+            * [Folio](#folio)
+            * [Project](#project)
+            * [Skill](#skill)
+            * [Profile](#profile)
+            * [License Purchase](#license-purchase)
+    + [Surface](#surface)
+        - [Visual Language](#visual-language)
+            * [Colour](#colour)
+            * [Typography](#typography)
+            * [Imagery & Identity](#imagery---identity)
+* [Technology](#technology)
+    + [Languages](#languages)
+    + [Libraries, Frameworks and API's](#libraries--frameworks-and-api-s)
+    + [Applications](#applications)
+    + [Others](#others)
+* [Testing](#testing)
+* [Deployment](#deployment)
+* [Credits](#credits)
+    + [Code](#code)
+        - [Credited](#credited)
+        - [Inspiration](#inspiration)
+    + [Research](#research)
+    + [Media](#media)
+        - [Images](#images)
+* [Acknowledgements](#acknowledgements)
 
 ## UX
 
@@ -235,7 +277,6 @@ This also holds the amount of licenses the user has purchased which is what's us
 Given that the purchase is processed via Stripe, a record of the Stripe purchase ID is also kept so it can be referred to when presenting a successful purchase view to the user.
 
 The license purchase model will also hold a unique order number using the UUIDv4 hash method. This is to simulate an order number that's often given to a customer when making a purchase, so the customer can later refer to the order number when attempting to contact regarding a recent purchase.
-
 
 ### Surface
 
