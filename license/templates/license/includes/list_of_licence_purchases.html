@@ -14,7 +14,13 @@
                 </div>
                 <div class="card-body d-flex flex-column justify-content-start align-items-start">
                     <p class="text-muted small mb-0">Summary</p>
-                    <p class="mb-0">License Amount: {{ license_purchase.no_of_licenses_purchased }} licenses</p>
+                    <p class="mb-0">License Amount: {{ license_purchase.no_of_licenses_purchased }}
+                        {% if license_purchase.no_of_licenses_purchased == 1 %}
+                            license
+                        {% else %}
+                            licenses
+                        {% endif %}
+                    </p>
                     <p class="mb-0">Grand Total: £{{ license_purchase.purchase_total }}</p> 
                 </div>
                 <div class="card-footer d-flex justify-content-end align-items-center">
