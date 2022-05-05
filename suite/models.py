@@ -14,24 +14,14 @@ class Folio(models.Model):
     information and details related
     to each respective folio.
     """
-
-    # If author is deleted, remove the author's folios
     author_id = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    # Date related fields
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateField(auto_now=True)
-
-    # Folio-oriented details - name is required
     name = models.CharField(max_length=30)
     description = models.TextField(max_length=100)
-
-    # Profile information
     current_project_link = models.URLField(null=True, blank=True)
     current_project_desc = models.TextField(null=True, blank=True)
     future_goal = models.TextField(null=True, blank=True)
-
-    # License information
     is_published = models.BooleanField(default=False)
 
     def toggle_published_state(self):
@@ -55,14 +45,8 @@ class Project(models.Model):
     is presented within the project tab
     within a user's folio.
     """
-
-    # If author is deleted, remove the author's folios
     author_id = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    # If Folio is deleted, project snippets persists
     folios = models.ManyToManyField(Folio)
-
-    # Project details
     project_title = models.CharField(max_length=30)
     project_description = models.TextField(max_length=300)
     tech_list = models.CharField(max_length=50)
@@ -73,12 +57,9 @@ class Project(models.Model):
         null=True,
         blank=True
     )
-
-    # Date related fields
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateField(auto_now=True)
 
-    # Method to return title of project
     def __str__(self):
         return self.project_title
 
@@ -89,14 +70,9 @@ class Skill(models.Model):
     a user's particular skill which is presented within
     the skills tab of a user's folio
     """
-
-    # If author is deleted, remove the author's folios
     author_id = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    # If Folio is deleted, project snippets persists
     folios = models.ManyToManyField(Folio)
 
-    # Initialise skill types
     class SkillTypes(models.TextChoices):
         """
         List of skill types
@@ -104,21 +80,16 @@ class Skill(models.Model):
         TECH = 'TECH', _('Tech Skill')
         SOFT = 'SOFT', _('Soft Skill')
 
-    # Skill details
     skill_type = models.CharField(
         max_length=4,
         choices=SkillTypes.choices,
         default=SkillTypes.TECH,
     )
-
     skill_title = models.CharField(max_length=20)
     skill_description = models.TextField(max_length=300)
-
-    # Date related fields
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateField(auto_now=True)
 
-    # Method to return title of project
     def __str__(self):
         return self.skill_title
 
@@ -129,21 +100,12 @@ class Profile(models.Model):
     a user's background and story with the
     software development industry
     """
-
-    # If author is deleted, remove the author's folios
     author_id = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    # If Folio is deleted, project snippets persists
     folios = models.ManyToManyField(Folio)
-
-    # Profile specific fields
     profile_title = models.CharField(max_length=20)
     profile_bio = models.TextField(max_length=300)
-
-    # Date related fields
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateField(auto_now=True)
 
-    # Method to return title of project
     def __str__(self):
         return self.profile_title

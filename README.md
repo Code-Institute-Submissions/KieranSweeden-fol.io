@@ -188,29 +188,53 @@ In order to gain a better understanding as to what the models would be along wit
 
 <summary>View Database Schema</summary>
 
-<img src="readme/images/skeleton/folio-database-schema.png">
+<img src="readme/images/skeleton/database-schema.png">
 
 </details>
 
-Unfortunately, dbdiagram.io does not support many to many relationships at the time of writing. I attempted a workaround, however it has led to the database schema looking messy. So a clarification of the relationships between the models are present below:
+At the time of writing, dbdiagram does not support the visual representation of many to many relationships between database records. With that being said, a line representing a relationship is presented within the diagram for purely visual purposes and I will best explain what the relationship is in writing.
 
-- The user model has a <b>one to many</b> relationship with the folio model. This is because a user can have many folios, however a folio can only have one author user.
+> id AutoField for the models are not present within the code as the field is automatically created in the background. The inclusion of the id field is used purely for visual purposes in explaining the relationships clearer.
 
-- The user model has a <b>one to many</b> relationship with the following models:
-    - Projects
-    - Skills
-    - About Me Profiles
-  
-  This is because a user can contain many of these snippets however they will only have on author user.
+##### AllAuth User Model
 
-- The folio model has a <b>many to many</b> relationship with the following models:
-    - Projects
-    - Skills
-    - About Me Profiles
-   
-  This is because a folio can contain multiple project, skill, profile snippets within it and project, skill, profile snippets can be contained within multiple folios.
+The application will make use of the user model that's contained within the django allauth app, using it's email, username and password fields along with the id that's automatically given when created. The allauth user model will simply act as the fields that are necessary to register and log in to the app whilst being the foreign key for all other models within the application.
 
-- The licence purchase model has a <b>many to one</b> relationship with the user model. This is because a licence purchase can only have one user, whereas a user can have many licence purchases.
+##### UserAccount
+
+The UserAccount has a one to one relationship with the allauth user model, as an authenticated user will only have one account that's unique to them. The UserAccount model wraps all additional information regarding the user that is not directly linked to the authentication process through the app. This includes account details that are used for pre-filling forms and folios along with billing details that will act as defaults for user convenience when making license purchases. The UserAccount model will also contain the number of licenses a user has, which is referred to primarily within the library app to make sure a user has enough licenses in their account before they attempt to publish a folio.
+
+##### Folio
+
+A folio has a foreign key (i.e. a many to one) relationship with the allauth user model, as an authenticated user can have many folios however a folio can only have one authenticated user as it's author. The last updated and date created fields are automatically filled after particular save events relating to the folio and their purpose is to be used for sorting purposes so user's can sort their folios by last updated or the date they were created.
+
+> Time constraints unfortunately meant that the intended functionality of having mutliple sorting methods wasn't feasible. At the moment the date created is the default and the last updated sorting feature will be applied within a later release of fol.io.
+
+The id of the folio model is what snippet models such as the Project, Skill and Profile models will refer to when making database queries.
+
+The model also holds an is published boolean field which will store the published status of the folio. This is toggled by an authenticated user providing they have at least 1 folio license left to use within their respective user account model.
+
+##### Project
+
+A project has a foreign key (i.e. a many to one) relationship with the allauth user model, as an authenticated user can have many projects however a project can only have one authenticated user as it's author. The project model also has a many to many relationship with the folio model, as a project can have a relationship with multiple folios and a folio can have a relationship with multiple projects.
+
+##### Skill
+
+A skill within the database has a foreign key (i.e. a many to one) relationship with the allauth user model, as an authenticated user can have many skills however a skill can only have one authenticated user as it's author. There's also a a many to many relationship with the folio model, as a skill can have a relationship with multiple folios and a folio can have a relationship with multiple skills.
+
+##### Profile
+
+The profile model has a foreign key (i.e. a many to one) relationship with the allauth user model, as an authenticated user can have many profiles however a profile can only have one authenticated user as it's author. Like the previous snippets mentioned before it, there's a a many to many relationship with the folio model, as a profile can have a relationship with multiple folios and a folio can have a relationship with multiple profiles.
+
+##### License Purchase
+
+The license purchase model has a foreign key (i.e. a many to one) relationship with the allauth user model, as an authenticated user can be the purchaser of multiple license purchases however the license purchase can only have one authenticated user as it's purchaser. This model has fields that hold information and address details that are only applicable to that purchase, so the address and user details could be billed to someone else that's not the authenticated user.
+
+This also holds the amount of licenses the user has purchased which is what's used to increment the number of licenses field found within the user account model.
+
+Given that the purchase is processed via Stripe, a record of the Stripe purchase ID is also kept so it can be referred to when presenting a successful purchase view to the user.
+
+The license purchase model will also hold a unique order number using the UUIDv4 hash method. This is to simulate an order number that's often given to a customer when making a purchase, so the customer can later refer to the order number when attempting to contact regarding a recent purchase.
 
 
 ### Surface
