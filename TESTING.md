@@ -366,6 +366,108 @@ One issue that was also raised was the lack of guidance when a folio didn't cont
 
 ### HTML
 
+To assess the validity of the html pages contained within the application, the following steps were taken for each page listed below:
+
+1. Open the page on a live server
+1. Press <kbd>CTRL</kbd> + <KBD>U</KBD> to get the source code from the browser.
+1. Select & copy all of the code presented within the page.
+1. Paste & enter the copied code within the direct input field found within the [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input) tool.
+
+Performing the previously mentioned steps on the the following pages provided positive results. One exception found throughout was a warning regarding the user-scalable attribute within a html meta tag. This is found throughout due to it's presence on the base templates.
+
+After observing the warning and experimenting with alternatives, I decided to stick with the attribute being present within the base templates as alternative strategies didn't provide results I was happy with. Also time constraints were becoming a bigger problem at the time and it was decided that it would be best to address this issue at a later date.
+
+For accurate validation results, it was also made sure that various folios and snippets were present on the respective pages prior to extracting the source code and validating it. 
+
+#### Home
+
+The validation results for the home app can be found below:
+
+<details>
+<summary>Welcome page results</summary>
+<img src="readme/images/validation/html/html-welcome-validation-results.png">
+</details>
+
+#### Library
+
+The validation results for the library app can be found below:
+
+<details>
+<summary>Library page results</summary>
+<img src="readme/images/validation/html/html-library-validation-results.png">
+</details>
+
+#### Suite
+
+The validation results for the suite app can be found below:
+
+<details>
+<summary>Suite projects page results</summary>
+<img src="readme/images/validation/html/html-suite-projects-validation-results.png">
+</details>
+
+<details>
+<summary>Suite skills page results</summary>
+<img src="readme/images/validation/html/html-suite-skills-validation-results.png">
+</details>
+
+<details>
+<summary>Suite profile page results</summary>
+<img src="readme/images/validation/html/html-suite-profile-validation-results.png">
+</details>
+
+#### Showcase
+
+The validation results for the showcase app can be found below:
+
+<details>
+<summary>Showcase projects page results</summary>
+<img src="readme/images/validation/html/html-showcase-projects-validation-results.png">
+</details>
+
+<details>
+<summary>Showcase skills page results</summary>
+<img src="readme/images/validation/html/html-showcase-skills-validation-results.png">
+</details>
+
+<details>
+<summary>Showcase profile page results</summary>
+<img src="readme/images/validation/html/html-showcase-profile-validation-results.png">
+</details>
+
+<details>
+<summary>Showcase contact page results</summary>
+<img src="readme/images/validation/html/html-showcase-contact-validation-results.png">
+</details>
+
+#### License
+
+The validation results for the license app can be found below:
+
+<details>
+<summary>License purchase page results</summary>
+<img src="readme/images/validation/html/html-license-purchase-validation-results.png">
+</details>
+
+<details>
+<summary>Order history page results</summary>
+<img src="readme/images/validation/html/html-order-history-validation-results.png">
+</details>
+
+#### Account
+
+The validation results for the account app can be found below:
+
+<details>
+<summary>Account details page results</summary>
+<img src="readme/images/validation/html/html-account-details-validation-results.png">
+</details>
+
+<details>
+<summary>Billing details page results</summary>
+<img src="readme/images/validation/html/html-billing-details-validation-results.png">
+</details>
+
 ### CSS
 
 Below you will find the results for the CSS validation results for the base.css file that is shared amongst all html pages within the application.
