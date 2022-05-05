@@ -294,12 +294,15 @@ The following languages were used during the development of fol.io:
 - JavaScript
 - Python
 
-### Libraries & Frameworks
+### Libraries, Frameworks and API's
 
 The following libraries & applications were utilized during the development of fo.io:
 
 - [Django](https://www.djangoproject.com/)
     - The Django python framework was utilized to quickly create and manage fol.io.
+
+- [Stripe](https://stripe.com/en-gb)
+    - The Stripe API was used to process online test card payments to open up functionalit within the application.
 
 - [Bootstrap 5](https://getbootstrap.com/)
     - The Bootstrap 5 CSS framework was utilized to quickly create element & component designs during the development of fol.io.
@@ -338,6 +341,9 @@ The following applications listed were utilized during the development of fol.io
 - [Balsamiq](https://balsamiq.com/)
     - Balsamiq was used to create wireframes during the skeleton phase of fol.io.
 
+- [dbdiagram.io](https://dbdiagram.io/home)
+    - dbdiagram.io was used to create the visual representations of the application's database schema.
+
 - [favicon.io](https://favicon.io/favicon-converter/)
     - favicon.io was used to create favicon icons for this project.
 
@@ -355,6 +361,14 @@ The following applications listed were utilized during the development of fol.io
 
 - [JSHint](https://jshint.com/)
     - The JSHint tool was used to validate the custom-made JavaScript files that are used throughout the application.
+
+### Others
+
+- [Heroku](https://dashboard.heroku.com/login)
+    - Heroku was used as the platform to host the application live.
+
+- [AWS](https://aws.amazon.com/)
+    - AWS was used to host static files and images for the project whilst in deployment
 
 ## Testing
 
