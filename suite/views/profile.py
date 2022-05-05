@@ -36,7 +36,10 @@ def edit_folio_profile(request, folio_id=None):
         # For each profile, attach a form to the object
         # And assess whether profile is attached to form
         for profile in profiles:
-            profile.form = FolioProfileForm(instance=profile)
+            profile.form = FolioProfileForm(
+                instance=profile,
+                prefix=f"profile-{profile.id}"
+            )
 
             # Set is_attached to true if folio exists
             # in the profiles list of folios
@@ -106,25 +109,24 @@ def update_folio_profile(request, profile_id, folio_id):
     Updates an existing folio profile
     """
 
-    # Ensure the request made is a POST request
     if request.method == "POST":
+        profile = get_object_or_404(Profile, pk=profile_id)
 
-        # Get current profile
-        profile_in_db = get_object_or_404(Profile, pk=profile_id)
+        post = request.POST.copy()
+        for key, value in request.POST.items():
+            prefix_removed_name = key.replace(f"profile-{profile.id}-", "")
+            post[prefix_removed_name] = value
 
-        # Save instance of profile form
-        form = FolioProfileForm(request.POST, instance=profile_in_db)
+        form = FolioProfileForm(post, instance=profile)
 
-        # Save form if valid
         if form.is_valid():
             form.save()
             messages.success(
                 request,
-                f"The {profile_in_db.profile_title} About Me has "
+                f"The {profile.profile_title} About Me has "
                 f"been successfully updated."
             )
 
-        # Return to folio profile page using folio id
         return redirect(
             reverse("edit_folio_profile",
                     kwargs={"folio_id": folio_id})
