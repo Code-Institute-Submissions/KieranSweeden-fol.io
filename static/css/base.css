@@ -2,12 +2,14 @@
 
 :root {
     --folio-feature-color: hsla(40, 89%, 56%, 1);
+    --folio-feature-faded-color: hsla(40, 89%, 56%, 0.9);
     --folio-bg-black-color: hsla(0, 0%, 10%, 1);
     --folio-black-color: hsla(0, 0%, 12%, 1);
     --folio-white-color: hsla(0, 0%, 92%, 1);
     --folio-white-faded-color: hsla(0, 0%, 92%, 0.8);
     --folio-success-color: hsla(141, 31%, 50%, 1);
     --folio-delete-color: hsla(9, 57%, 41%, 1);
+    --folio-delete-faded-color: hsla(9, 57%, 41%, 0.9);
     --folio-sans-font: 'Libre Baskerville', serif;
     --folio-sans-serif-font: 'Inter', sans-serif;
 }
@@ -80,7 +82,7 @@ main.container {
 .btn-primary:disabled {
     color: var(--folio-black-color);
     background-color: var(--folio-feature-color);
-    border-color: var(--folio-feature-color);
+    border-color: var(--folio-feature-faded-color);
     border-width: 0.2rem;
     transition: color 400ms ease-in-out, background-color 400ms ease-in-out, opacity 400ms ease-in-out;
 }
@@ -95,7 +97,7 @@ main.container {
 .btn-primary:active {
     color: var(--folio-black-color);
     background-color: var(--folio-feature-color);
-    border-color: var(--folio-feature-color);
+    border-color: var(--folio-feature-faded-color);
 }
 
 .btn-primary:active:focus {
@@ -131,7 +133,7 @@ main.container {
 .btn-secondary {
     color: var(--folio-black-color);
     background-color: var(--folio-white-color);
-    border-color: var(--folio-white-color);
+    border-color: var(--folio-white-faded-color);
     border-width: 0.2rem;
     transition: color 400ms ease-in-out, background-color 400ms ease-in-out;
 }
@@ -144,7 +146,7 @@ main.container {
     background-color: transparent;
     border-color: var(--folio-white-color);
     box-shadow: none;
-    transition: transform 100ms ease-in-out;
+    transition: color 400ms ease-in-out, background-color 400ms ease-in-out;
 }
 
 .btn-primary:active:focus,
@@ -156,7 +158,6 @@ main.container {
 .btn-tertiary {
     color: var(--folio-feature-color);
     transition: color 400ms ease-in-out;
-    font-family: var(--folio-sans-font);
     text-decoration: underline;
     font-weight: 400;
     text-transform: lowercase;
@@ -173,22 +174,17 @@ main.container {
 .btn-delete {
     color: var(--folio-white-color);
     background-color: var(--folio-delete-color);
-    border-color: var(--folio-delete-color);
+    border-color: var(--folio-delete-faded-color);
     border-width: 0.2rem;
     transition: color 400ms ease-in-out, background-color 400ms ease-in-out;
 }
 
-.btn-delete:focus {
-    color: var(--folio-black-color);
-    background-color: var(--folio-white-color);
-    border-color: var(--folio-white-color);
-    box-shadow: none;
-}
-
+.btn-delete:focus,
 .btn-delete:active {
     color: var(--folio-black-color);
     background-color: var(--folio-white-color);
-    border-color: var(--folio-white-color);
+    border-color: var(--folio-white-faded-color);
+    box-shadow: none;
 }
 
 .btn-delete:active:focus {
@@ -341,7 +337,7 @@ a:hover {
 /* Card Message Styling */
 
 .card.card-message {
-    position: absolute;
+    position: fixed;
     right: 1rem;
     bottom: 1rem;
 }
@@ -481,13 +477,13 @@ textarea.form-control:focus-visible {
 }
 
 .form-check-input:focus {
-    box-shadow: var(--folio-feature-color);
+    box-shadow: 0 0 0 0.1rem var(--folio-white-color);
     border-color: var(--folio-feature-color);
 }
 
 input.form-check-input[type=checkbox]:checked {
     background-color: var(--folio-feature-color);
-    border-color: var(--folio-feature-color);
+    border-color: var(--folio-feature-faded-color);
 }
 
 .input-group span.input-group-text,

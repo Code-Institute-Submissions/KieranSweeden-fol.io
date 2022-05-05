@@ -364,6 +364,36 @@ One issue that was also raised was the lack of guidance when a folio didn't cont
 
 ## File Validation
 
+### HTML
+
+### CSS
+
+Below you will find the results for the CSS validation results for the base.css file that is shared amongst all html pages within the application.
+
+<details>
+
+<summary>View CSS Results</summary>
+
+<img src="readme/images/validation/css/css-validation-check.png">
+
+</details>
+
+Despite the positive result, there were 3 warnings given regarding web prefixes:
+
+<details>
+
+<summary>View CSS Warnings</summary>
+
+<img src="readme/images/validation/css/css-validation-warnings.png">
+
+</details>
+
+Given that this is intentional for webkit supported browsers to make the application more aesthetically pleasing, this was not deemed an issue for the application.
+
+### JavaScript
+
+### Python
+
 ## Defensive Programming
 
 Following conventional web development standards, all sensitive information such as id's and keys are kept hidden from source control. This was achieved with the use of Gitpod's environment variables feature and the config variables that are found within the settings tab of the Heroku app.

@@ -1,73 +1,87 @@
 <div class="row">
   {% for folio in folios %}
-    <div class="col-12 col-lg-6 mt-3">
-        <div class="folio-card">
-            <div class="card-header d-flex justify-content-between align-items-center">
-              <h3 class="h5 mb-0 title-clamp me-2">
-                  {{ folio.name }}
-              </h3>
-              <div class="dropdown">
-                <button class="btn btn-icon dropdown-toggle" type="button" id="folio-{{ folio.id }}-dropdown-button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                    <span class="material-icons-sharp">more_vert</span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeInUp animate__fast" aria-labelledby="folio-{{ folio.id }}-dropdown-button">
-                  <li>
-                    <a class="dropdown-item" href="{% url 'toggle_folio_published_state' folio.id %}">
-                      {% if folio.is_published %}
-                        Conceal
-                      {% else %}
-                        Publish
-                      {% endif %}
-                    </a>
-                  </li>
-                  <li><a class="dropdown-item" href="{% url 'open_suite' folio.id %}">Open in Suite</a></li>
-                  <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal_{{ folio.id }}">Edit Details</button></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete_modal_{{ folio.id }}">Delete Folio</button></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body card-desc">
-              <p class="card-text desc-clamp">
-                {{ folio.description }}
-              </p>
-            </div>
-            <div class="card-footer d-flex justify-content-between align-items-center">
-              {% if folio.is_published %}
-                <span class="material-icons-sharp text-feature-color" data-bs-toggle="tooltip" data-bs-placement="right" title="Folio is published">
-                  visibility
-                </span>
-              {% else %}
-                <span class="material-icons-sharp text-white-color" data-bs-toggle="tooltip" data-bs-placement="right" title="Folio is concealed">
-                  visibility_off
-                </span>
-              {% endif %}
-              <small class="text-muted">
-                Created at: {{ folio.date_created }}
-              </small>
-            </div>
+  <div class="col-12 col-lg-6 mt-3">
+    <div class="folio-card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="h5 mb-0 title-clamp me-2">
+          {{ folio.name }}
+        </h3>
+        <div class="dropdown">
+          <button class="btn btn-icon dropdown-toggle" type="button" id="folio-{{ folio.id }}-dropdown-button"
+            data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+            <span class="material-icons-sharp">more_vert</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeInUp animate__fast"
+            aria-labelledby="folio-{{ folio.id }}-dropdown-button">
+            <li>
+              <a class="dropdown-item" href="{% url 'toggle_folio_published_state' folio.id %}">
+                {% if folio.is_published %}
+                Conceal
+                {% else %}
+                Publish
+                {% endif %}
+              </a>
+            </li>
+            <li><a class="dropdown-item" href="{% url 'open_suite' folio.id %}">Open in Suite</a></li>
+            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal_{{ folio.id }}">Edit
+                Details</button></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><button class="dropdown-item" data-bs-toggle="modal"
+                data-bs-target="#delete_modal_{{ folio.id }}">Delete Folio</button></li>
+          </ul>
         </div>
+      </div>
+      <div class="card-body card-desc">
+        <p class="card-text desc-clamp">
+          {{ folio.description }}
+        </p>
+      </div>
+      <div class="card-footer d-flex justify-content-between align-items-center">
+        {% if folio.is_published %}
+        <span class="material-icons-sharp text-feature-color" data-bs-toggle="tooltip" data-bs-placement="right"
+          title="Folio is published">
+          visibility
+        </span>
+        {% else %}
+        <span class="material-icons-sharp text-white-color" data-bs-toggle="tooltip" data-bs-placement="right"
+          title="Folio is concealed">
+          visibility_off
+        </span>
+        {% endif %}
+        <small class="text-muted">
+          Created at: {{ folio.date_created }}
+        </small>
+      </div>
     </div>
-    {% include './modals/update_folio.html' with size=undefined id=folio.id folio=folio %}
-    {% include './modals/delete_folio.html' with size=undefined id=folio.id folio=folio %}
+  </div>
+  {% include './modals/update_folio.html' with size=undefined id=folio.id folio=folio %}
+  {% include './modals/delete_folio.html' with size=undefined id=folio.id folio=folio %}
   {% empty %}
-    <div class="col-12 text-center mt-5">
-      <span class="material-icons-sharp text-muted">
-        sentiment_dissatisfied
-      </span>
-      <h3 class="h5">Your folio library is empty.</h3>
-      <p>You can <strong class="text-feature-color">create a new folio</strong> by clicking the <strong class="text-feature-color">New Folio button</strong> above.</p>
-      <p><strong class="text-feature-color">NOTE:</strong> You <strong class="text-feature-color">cannot</strong> access the <strong class="text-feature-color">suite</strong> with an <strong class="text-feature-color">empty folio library</strong>.</p>
-    </div>
+  <div class="col-12 text-center mt-5">
+    <span class="material-icons-sharp text-muted">
+      sentiment_dissatisfied
+    </span>
+    <h3 class="h5">Your folio library is empty.</h3>
+    <p>You can <strong class="text-feature-color">create a new folio</strong> by clicking the <strong
+        class="text-feature-color">New Folio button</strong> above.</p>
+    <p><strong class="text-feature-color">NOTE:</strong> You <strong class="text-feature-color">cannot</strong> access
+      the <strong class="text-feature-color">suite</strong> with an <strong class="text-feature-color">empty folio
+        library</strong>.</p>
+  </div>
   {% endfor %}
   {% if folios|length == 1 %}
-    <div class="col-12 text-center mt-5">
-      <span class="material-icons-sharp text-muted">
-        tips_and_updates
-      </span>
-      <h3 class="h5">You've successfully created a folio!</h3>
-      <p>Head over to the <a href="{% url 'select_folio' %}">suite</a> to <strong class="text-feature-color">create & attach snippets</strong> to your newly created folio.</p>
-      <p>You can then <strong class="text-feature-color">publish your folio</strong> for the world to see by <a href="{% url 'purchase_license' %}">purchasing a license</a> & selecting <strong class="text-feature-color">publish</strong> within the folio's additional menu.</p>
-    </div>
-  {% endif  %}
+  <div class="col-12 text-center mt-5">
+    <span class="material-icons-sharp text-muted">
+      tips_and_updates
+    </span>
+    <h3 class="h5">You've successfully created a folio!</h3>
+    <p>Head over to the <a href="{% url 'select_folio' %}">suite</a> to <strong class="text-feature-color">create &
+        attach snippets</strong> to your newly created folio.</p>
+    <p>You can then <strong class="text-feature-color">publish your folio</strong> for the world to see by <a
+        href="{% url 'purchase_license' %}">purchasing a license</a> & selecting <strong
+        class="text-feature-color">publish</strong> within the folio's additional menu.</p>
+  </div>
+  {% endif %}
 </div>

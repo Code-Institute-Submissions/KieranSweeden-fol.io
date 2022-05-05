@@ -350,6 +350,12 @@ The following applications listed were utilized during the development of fol.io
 - [GitHub Wiki TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
     - The GitHub Wiki TOC Generator was used to quickly generate table of contents for various markdown files within this repository.
 
+- [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input)
+    - The W3C Markup Validation Service tool was used to validate the source html of the pages contained within the application.
+
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input)
+    - The W3C CSS Validation Service tool was used to validate the base.css file that's shared amongst all html files within the application.
+
 ## Testing
 
 To keep the README.md file concise, all information regarding bugs and testing during the development of fol.io was documented within the [TESTING.md](TESTING.md) file.
