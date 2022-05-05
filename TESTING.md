@@ -532,6 +532,14 @@ The results came back positive for the project-snippets.js with no warnings pres
 <img src="static/images/js-project-snippets-validation-results.png">
 </details>
 
+<details>
+<summary>View skill-profile-snippets.js results</summary>
+
+The only warnings that were present during the validation process of this file was semi-colons. After adding the missing semi-colons, the validation result came back entirely positive as can be seen below:
+
+<img src="readme/images/validation/js/js-skill-profile-snippets-validation-results.png">
+</details>
+
 
 ### Python
 
