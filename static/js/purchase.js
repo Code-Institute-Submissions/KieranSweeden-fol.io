@@ -1,11 +1,20 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-    
+window.addEventListener('DOMContentLoaded', () => {
+    setupLicenseAmountBtn();
+});
+
+/**
+ * Prepares the license amount
+ * button when called
+ */
+function setupLicenseAmountBtn(){
     const licenseAmountInput = document.getElementById('id_no_of_licenses_purchased');
     if (licenseAmountInput) {
         licenseAmountInput.addEventListener('change', ({target}) => updatePrice(target.value));
         updatePrice(licenseAmountInput.value);
+        licenseAmountInput.addEventListener('keyup', ({target}) => updatePrice(target.value));
+        updatePrice(licenseAmountInput.value);
     }
-});
+}
 
 /**
  * Updates price shown within license purchase screen
@@ -25,5 +34,9 @@ function updatePrice(licenseAmountSelected){
  */
 function updateSubmitPurchaseDisabledState(licenseAmountSelected){
     const submitPurchaseBtn = document.getElementById('submitPurchase');
-    licenseAmountSelected < 1 ? submitPurchaseBtn.disabled = true : submitPurchaseBtn.disabled = false;
+    if (licenseAmountSelected < 1){
+        submitPurchaseBtn.disabled = true;
+    } else {
+        submitPurchaseBtn.disabled = false;
+    }
 }

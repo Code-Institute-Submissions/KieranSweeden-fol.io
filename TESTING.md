@@ -507,8 +507,19 @@ The warning was regarding a ternary operator expression that wasn't being used t
 
 <img src="readme/images/validation/js/js-base-validation-results-post.png">
 
-Regarding the undefined/unused variables, they happen to both be from the code that was directly taken from the Bootstrap website. Given that the code works and it's what Bootstrap themselves recommend, I decided to not take any actions of these minor concerns.
+Regarding the undefined/unused variables, they happen to both be from the code that was directly taken from the Bootstrap website. Given that the code works and it's what Bootstrap themselves recommend, I decided to not take any action towards solving these minor concerns.
+</details>
 
+<details>
+<summary>View purchase.js results</summary>
+
+The results came back positive with only one warning which happens to the same warning found within the base.js file, regarding a ternary operator being used as a simple if/else expression rather than a way to assign an expressions result to a variable.
+
+<img src="readme/images/validation/js/js-purchase-validation-results.png">
+
+After changing the ternary operator to a simple if/else statement, the warning was resolved.
+
+<img src="readme/images/validation/js/js-purchase-validation-results-post.png">
 </details>
 
 
