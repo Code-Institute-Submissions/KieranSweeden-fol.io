@@ -470,7 +470,7 @@ The validation results for the account app can be found below:
 
 ### CSS
 
-Below you will find the results for the CSS validation results for the base.css file that is shared amongst all html pages within the application.
+Below you will find the results for the CSS validation results for the base.css file that is shared amongst all html pages within the application. The source code was directly copied from the IDE and pasted within the direct input field found within the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input) tool.
 
 <details>
 
