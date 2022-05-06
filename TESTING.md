@@ -664,3 +664,162 @@ To test the accessibility and performance of the pages within the application, G
 
 You can see the scores for all frequently met pages within the application below, each with a mobile and desktop score for their respective environments.
 
+Generally the scores were mostly positive, especially on the desktop side where most scores land in the green zone. Where problems start to be found is the scores for mobile. After looking at the report however, what this mostly appears to be is either images not being an optimal WebP format or caching settings regarding the content on the page. Given the user experience and loading speed isn't immediately problematic, I decided to leave fixing these minor issues for a future update, as it's largely minor in terms of UX for the time being.
+
+The results can be seen below:
+
+### Home Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-home-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-home-results-mobile.png">
+</details>
+
+### Library Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-library-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-library-results-mobile.png">
+</details>
+
+### Suite Projects Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-suite-projects-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-suite-projects-results-mobile.png">
+</details>
+
+### Suite Skills Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-suite-skills-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-suite-skills-results-mobile.png">
+</details>
+
+### Suite Profile Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-suite-profile-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-suite-profile-results-mobile.png">
+</details>
+
+### Showcase Projects Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-showcase-projects-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-showcase-projects-results-mobile.png">
+</details>
+
+### Showcase Skills Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-showcase-skills-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-showcase-skills-results-mobile.png">
+</details>
+
+### Showcase Profile Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-showcase-profile-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-showcase-profile-results-mobile.png">
+</details>
+
+### Showcase Contact Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-showcase-contact-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-showcase-contact-results-mobile.png">
+</details>
+
+### License Purchase Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-license-purchase-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-license-purchase-results-mobile.png">
+</details>
+
+### Order History Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-order-history-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-order-history-results-mobile.png">
+</details>
+
+### Account Details Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-account-details-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-account-details-results-mobile.png">
+</details>
+
+### Billing Details Page
+
+<details>
+<summary>View desktop results</summary>
+<img src="readme/images/lighthouse/lighthouse-billing-details-results-desktop.png">
+</details>
+
+<details>
+<summary>View mobile results</summary>
+<img src="readme/images/lighthouse/lighthouse-billing-details-results-mobile.png">
+</details>
