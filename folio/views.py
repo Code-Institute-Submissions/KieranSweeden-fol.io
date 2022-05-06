@@ -7,10 +7,23 @@ with custom fol.io error templates
 from django.shortcuts import render
 
 
-def page_not_found_403(request, exception):
+def bad_request_400(request, exception):
     """
-    Renders the page not found template
-    for 404 errors
+    Renders the bad request template
+    for 400 errors
+    """
+
+    return render(
+        request,
+        "400.html",
+        status=400
+    )
+
+
+def user_forbidden_403(request, exception):
+    """
+    Renders the user forbidden template
+    for 403 errors
     """
 
     return render(

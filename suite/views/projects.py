@@ -56,8 +56,6 @@ def edit_folio_projects(request, folio_id=None):
         )
 
     else:
-
-        # If one hasn't been provided
         return redirect("select_folio")
 
 
@@ -67,39 +65,40 @@ def create_folio_project(request, folio_id):
     Creates a new folio project
     """
 
-    # Ensure the request made is a POST request
     if request.method == "POST":
-
-        # Create instance of project form using form data
         form = FolioProjectForm(
             request.POST,
             request.FILES
         )
 
-        # If form is valid
         if form.is_valid():
-
-            # Partially save the form, as author_id
-            # will need to be provided
             project = form.save(commit=False)
-
-            # Save current user as author of project
             project.author_id = request.user
-
-            # Fully save project
             project.save()
-
             messages.success(
                 request,
                 f"The {project.project_title} project has "
                 f"been created successfully."
             )
 
-            # Return to folio project page using folio id
-            return redirect(
-                reverse("edit_folio_projects",
-                        kwargs={"folio_id": folio_id})
+        else:
+            messages.error(
+                request,
+                "Data posted was not valid "
+                "to create a project."
             )
+
+    else:
+        messages.error(
+            request,
+            "Data should be posted when "
+            "attempting to create a project."
+        )
+
+    return redirect(
+        reverse("edit_folio_projects",
+                kwargs={"folio_id": folio_id})
+    )
 
 
 @login_required
@@ -136,21 +135,24 @@ def update_folio_project(request, project_id, folio_id):
                     f"has been updated successfully."
                 )
 
-            return redirect(
-                reverse("edit_folio_projects",
-                        kwargs={"folio_id": folio_id})
-            )
+            else:
+                messages.error(
+                    request,
+                    "Data posted was not valid "
+                    "to update a project."
+                )
 
         else:
             messages.error(
                 request,
-                "Data should be sent when "
-                "attempting to update a folio."
+                "Data should be posted when "
+                "attempting to update a project."
             )
-            return redirect(
-                reverse("edit_folio_projects",
-                        kwargs={"folio_id": folio_id})
-            )
+
+        return redirect(
+            reverse("edit_folio_projects",
+                    kwargs={"folio_id": folio_id})
+        )
 
     else:
         messages.error(
@@ -181,7 +183,8 @@ def update_projects_attached_to_folio(request, folio_id):
             folio = get_object_or_404(Folio, pk=folio_id)
 
             # Iterate through project in db & status given from user actions
-            for project_in_db, project_status in zip(projects, list_of_projects):
+            for project_in_db, project_status in zip(projects,
+                                                     list_of_projects):
                 # Ensure ID's match
                 if project_in_db.id == int(project_status['id']):
                     # Add/remove folio or continue based on is_attached
@@ -210,6 +213,9 @@ def update_projects_attached_to_folio(request, folio_id):
                     )
 
             return HttpResponse("OK")
+
+        else:
+            raise exceptions.BadRequest
 
     else:
         raise exceptions.PermissionDenied

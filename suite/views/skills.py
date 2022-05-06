@@ -10,6 +10,7 @@ from django.shortcuts import (
     reverse,
     HttpResponse
 )
+from django.core import exceptions
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from suite.models import Folio, Skill
@@ -17,7 +18,9 @@ from suite.functions import (
     id_has_been_provided,
     is_tech_skill,
     is_soft_skill,
-    sort_by_id
+    sort_by_id,
+    user_is_author_of_snippet,
+    user_is_author_of_folio
 )
 from suite.forms import FolioSkillForm
 
@@ -30,32 +33,23 @@ def edit_folio_skills(request, folio_id=None):
     """
 
     if id_has_been_provided(folio_id):
-
         folio = get_object_or_404(Folio, pk=folio_id)
 
-        # Get the user's skills
         skills = list(Skill.objects.filter(
             author_id=request.user
         ))
 
-        # For each skill, attach a form to the object
-        # And assess whether skill is attached to form
         for skill in skills:
             skill.form = FolioSkillForm(
                 instance=skill,
                 prefix=f"skill-{skill.id}"
             )
-
-            # Set is attached to true if folio exists
-            # in the skills list of folios
             skill.is_attached = skill.folios.filter(pk=folio_id).exists()
 
         tech_skills = list(filter(is_tech_skill, skills))
         soft_skills = list(filter(is_soft_skill, skills))
 
-        # Create skill form
         form = FolioSkillForm()
-
         context = {
             "folio": folio,
             "form": form,
@@ -66,7 +60,6 @@ def edit_folio_skills(request, folio_id=None):
         return render(request, "suite/edit_skills.html", context=context)
 
     else:
-        # If one hasn't been provided
         return redirect("select_folio")
 
 
@@ -76,32 +69,18 @@ def create_folio_skill(request, folio_id):
     Creates a new folio skill
     """
 
-    # Ensure the request made is a POST request
     if request.method == "POST":
-
-        # Create instance of skill form using form data
         form = FolioSkillForm(request.POST)
 
-        # If form is valid
         if form.is_valid():
-
-            # Partially save the form, as author_id
-            # will need to be provided
             skill = form.save(commit=False)
-
-            # Save current user as author of skill
             skill.author_id = request.user
-
-            # Fully save skill
             skill.save()
-
             messages.success(
                 request,
                 f"The {skill.skill_title} skill has "
                 f"been created successfully."
             )
-
-            # Return to folio skill page using folio id
             return redirect(
                 reverse("edit_folio_skills",
                         kwargs={"folio_id": folio_id})
