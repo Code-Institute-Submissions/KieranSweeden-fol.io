@@ -13,7 +13,11 @@ from django.shortcuts import (
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from suite.models import Folio, Project
-from suite.functions import id_has_been_provided, sort_by_id
+from suite.functions import (
+    id_has_been_provided,
+    sort_by_id,
+    user_is_author_of_snippet
+)
 from suite.forms import FolioProjectForm
 
 
@@ -101,37 +105,58 @@ def update_folio_project(request, project_id, folio_id):
     """
     Updates an existing folio project
     """
-    if request.method == "POST":
+
+    if user_is_author_of_snippet(request.user, "project", project_id):
         project = get_object_or_404(Project, pk=project_id)
 
-        post = request.POST.copy()
-        for key, value in request.POST.items():
-            prefix_removed_name = key.replace(f"project-{project.id}-", "")
-            post[prefix_removed_name] = value
+        if request.method == "POST":
+            post = request.POST.copy()
+            for key, value in request.POST.items():
+                prefix_removed_name = key.replace(f"project-{project.id}-", "")
+                post[prefix_removed_name] = value
 
-        files = request.FILES.copy()
-        for key, value in request.FILES.items():
-            prefix_removed_name = key.replace(f"project-{project.id}-", "")
-            files[prefix_removed_name] = value
+            files = request.FILES.copy()
+            for key, value in request.FILES.items():
+                prefix_removed_name = key.replace(f"project-{project.id}-", "")
+                files[prefix_removed_name] = value
 
-        form = FolioProjectForm(
-            post,
-            files,
-            instance=project
-        )
-
-        if form.is_valid():
-            form.save()
-            messages.success(
-                request,
-                f"The {project.project_title} project "
-                f"has been updated successfully."
+            form = FolioProjectForm(
+                post,
+                files,
+                instance=project
             )
 
-        return redirect(
-            reverse("edit_folio_projects",
-                    kwargs={"folio_id": folio_id})
+            if form.is_valid():
+                form.save()
+                messages.success(
+                    request,
+                    f"The {project.project_title} project "
+                    f"has been updated successfully."
+                )
+
+            return redirect(
+                reverse("edit_folio_projects",
+                        kwargs={"folio_id": folio_id})
+            )
+
+        else:
+            messages.error(
+                request,
+                "Data should be sent when "
+                "attempting to update a folio."
+            )
+            return redirect(
+                reverse("edit_folio_projects",
+                        kwargs={"folio_id": folio_id})
+            )
+
+    else:
+        messages.error(
+            request,
+            "You cannot interact with "
+            "projects that are not your own."
         )
+        return redirect("view_library")
 
 
 @login_required

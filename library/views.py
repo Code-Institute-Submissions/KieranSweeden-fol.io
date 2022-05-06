@@ -149,7 +149,7 @@ def update_folio(request, folio_id):
             return redirect("view_library")
 
     else:
-        messages.warning(
+        messages.error(
             request,
             "You cannot interact with "
             "folios that are not your own."

@@ -40,7 +40,7 @@ def user_is_author_of_snippet(user, snippet_type, snippet_id):
         "skill": Skill,
         "profile": Profile
     }
-    snippet = get_object_or_404(snippet_models[snippet_type], snippet_id)
+    snippet = get_object_or_404(snippet_models[snippet_type], pk=snippet_id)
     return True if snippet.author_id == user else False
 
 
