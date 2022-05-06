@@ -7,6 +7,19 @@ with custom fol.io error templates
 from django.shortcuts import render
 
 
+def page_not_found_403(request, exception):
+    """
+    Renders the page not found template
+    for 404 errors
+    """
+
+    return render(
+        request,
+        "403.html",
+        status=403
+    )
+
+
 def page_not_found_404(request, exception):
     """
     Renders the page not found template

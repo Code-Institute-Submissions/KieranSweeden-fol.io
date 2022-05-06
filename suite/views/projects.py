@@ -10,13 +10,15 @@ from django.shortcuts import (
     get_object_or_404,
     HttpResponse
 )
+from django.core import exceptions
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from suite.models import Folio, Project
 from suite.functions import (
     id_has_been_provided,
     sort_by_id,
-    user_is_author_of_snippet
+    user_is_author_of_snippet,
+    user_is_author_of_folio
 )
 from suite.forms import FolioProjectForm
 
@@ -166,44 +168,51 @@ def update_projects_attached_to_folio(request, folio_id):
     to the currently viewed folio
     """
 
-    if request.method == "POST":
-        data = json.loads(request.body)
-        list_of_projects = data['projects']
-        list_of_projects.sort(reverse=False, key=sort_by_id)
+    if user_is_author_of_folio(request.user, folio_id):
 
-        projects = Project.objects.filter(
-             id__in=[project['id'] for project in list_of_projects]
-        )
-        folio = get_object_or_404(Folio, pk=folio_id)
+        if request.method == "POST":
+            data = json.loads(request.body)
+            list_of_projects = data['projects']
+            list_of_projects.sort(reverse=False, key=sort_by_id)
 
-        # Iterate through project in db & status given from user actions
-        for project_in_db, project_status in zip(projects, list_of_projects):
-            # Ensure ID's match
-            if project_in_db.id == int(project_status['id']):
-                # Add/remove folio or continue based on is_attached
-                # status & if the folio already exists in project folios
-                if project_status['is_attached']:
-                    if project_in_db.folios.filter(pk=folio_id).exists():
-                        continue
+            projects = Project.objects.filter(
+                id__in=[project['id'] for project in list_of_projects]
+            )
+            folio = get_object_or_404(Folio, pk=folio_id)
+
+            # Iterate through project in db & status given from user actions
+            for project_in_db, project_status in zip(projects, list_of_projects):
+                # Ensure ID's match
+                if project_in_db.id == int(project_status['id']):
+                    # Add/remove folio or continue based on is_attached
+                    # status & if the folio already exists in project folios
+                    if project_status['is_attached']:
+                        if project_in_db.folios.filter(pk=folio_id).exists():
+                            continue
+                        else:
+                            project_in_db.folios.add(folio)
                     else:
-                        project_in_db.folios.add(folio)
+                        if project_in_db.folios.filter(pk=folio_id).exists():
+                            project_in_db.folios.remove(folio)
+                        else:
+                            continue
+
+                    messages.success(
+                        request,
+                        f"The projects attached to the {folio.name} "
+                        f"folio has been successfully updated."
+                    )
+
                 else:
-                    if project_in_db.folios.filter(pk=folio_id).exists():
-                        project_in_db.folios.remove(folio)
-                    else:
-                        continue
+                    print(
+                        "DEBUG: Project id's didn't match, "
+                        "likely sorting error"
+                    )
 
-                messages.success(
-                    request,
-                    f"The projects attached to the {folio.name} "
-                    f"folio has been successfully updated."
-                )
+            return HttpResponse("OK")
 
-            else:
-                print("they didn't match, sorting error")
-
-        # Return an OK response
-        return HttpResponse("OK")
+    else:
+        raise exceptions.PermissionDenied
 
 
 @login_required
