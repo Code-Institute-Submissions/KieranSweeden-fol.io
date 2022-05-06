@@ -427,6 +427,9 @@ The following applications listed were utilized during the development of fol.io
 - [JSHint](https://jshint.com/)
     - The JSHint tool was used to validate the custom-made JavaScript files that are used throughout the application.
 
+- [PEP8 Online](http://pep8online.com/)
+    - The PEP8 online python validator was used for sanity checking that the python files were indeed valid. This was carried out as python validation was carried out throughout the development process using the onboard IDE linters such as PyLint and PEP8.
+
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
     - Google Chrome's in-built Lighthouse app was used to test the accessibility and performance of the application.
 
