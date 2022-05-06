@@ -85,14 +85,14 @@ def create_folio_project(request, folio_id):
             messages.error(
                 request,
                 "Data posted was not valid "
-                "to create a project."
+                "to create a new project."
             )
 
     else:
         messages.error(
             request,
             "Data should be posted when "
-            "attempting to create a project."
+            "attempting to create a new project."
         )
 
     return redirect(
@@ -108,9 +108,9 @@ def update_folio_project(request, project_id, folio_id):
     """
 
     if user_is_author_of_snippet(request.user, "project", project_id):
-        project = get_object_or_404(Project, pk=project_id)
 
         if request.method == "POST":
+            project = get_object_or_404(Project, pk=project_id)
             post = request.POST.copy()
             for key, value in request.POST.items():
                 prefix_removed_name = key.replace(f"project-{project.id}-", "")
@@ -228,26 +228,27 @@ def delete_folio_project(request, project_id, folio_id):
     """
 
     if user_is_author_of_snippet(request.user, 'project', project_id):
-        project = get_object_or_404(Project, pk=project_id)
 
         if request.method == "POST":
+            project = get_object_or_404(Project, pk=project_id)
             project.delete()
             messages.success(
                 request,
                 f"The {project.project_title} project "
                 f"has been deleted successfully."
             )
-            return redirect(
-                reverse("edit_folio_projects",
-                        kwargs={"folio_id": folio_id})
+
+        else:
+            messages.error(
+                request,
+                "A delete command should "
+                "be sent as a POST request."
             )
 
-        messages.error(
-            request,
-            "A delete command should "
-            "be sent as a POST request."
+        return redirect(
+            reverse("edit_folio_projects",
+                    kwargs={"folio_id": folio_id})
         )
-        return redirect("view_library")
 
     else:
         messages.error(
