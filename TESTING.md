@@ -547,17 +547,17 @@ Pylint and Pep8 linters within Gitpod were used during the development of the ap
 <details>
 <summary>View validation results the for the project views python file within the suite app</summary>
 <img src="readme/images/validation/python/python-projects-validation-results.png">
-<details>
+</details>
 
 <details>
 <summary>View validation results the for the models python file within the suite app</summary>
 <img src="readme/images/validation/python/python-suite-models-validation-results.png">
-<details>
+</details>
 
 <details>
 <summary>View validation results the for the webhook handler python file within the license app</summary>
 <img src="readme/images/validation/python/python-webhook-handler-validation-results.png">
-<details>
+</details>
 
 ## Defensive Programming
 
