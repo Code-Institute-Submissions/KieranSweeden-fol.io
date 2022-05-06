@@ -42,7 +42,7 @@
                 {% if author.first_name and author.last_name %}
                     <h3 class="h4 mb-0">{{ author.get_full_name }}</h3>
                 {% else %}
-                    <h3 class="h4 text-danger">Provide Full Name</h3>
+                    <a href="{% url 'account_details' %}" class="h4" target="_blank">Display your name</a>
                 {% endif %}
             </div>
         </div>

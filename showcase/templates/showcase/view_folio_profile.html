@@ -6,7 +6,7 @@
     <script defer src="{% static 'js/clamp.min.js' %}"></script>
 {% endblock %}
 
-{% block extra_title %}Viewing Folio Profile{% endblock %}
+{% block extra_title %}My Profile{% endblock %}
 
 {% block main_nav %}
     {% include 'includes/main-navs/showcase-main-nav.html' with active_nav_link='profile' %}
@@ -16,9 +16,7 @@
     {% include 'includes/header-navs/showcase-header-nav.html' with active_tab='profile' %}
 {% endblock %}
 
-{% block header_title %}
-    {{ author.first_name }}'s Profile
-{% endblock %}
+{% block header_title %}My Profile{% endblock %}
 
 {% block additional_header_content %}
 

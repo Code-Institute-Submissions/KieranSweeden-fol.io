@@ -556,7 +556,7 @@ All views that are directly linked to the management of objects stored within th
 
 Automated testing had been conducted during the development of fol.io. However due to time constraints, I opted to abandon automated testing for manual testing as it's more time efficient due to me being more familiar with it after testing previous projects.
 
-What also contributed in pushing me towards that decision was an accouncement within Code Institute's slack, which stated that the criteria for the 4th project had been updated to allow the implementation of manual and/or automated test procedures.
+> What also contributed in pushing me towards that decision was an accouncement within Code Institute's slack, which stated that the criteria for the 4th project had been updated to allow the implementation of manual and/or automated test procedures.
 
 Evidence of the presence of automated testing can be seen within the following app's directories:
 - Account
@@ -636,11 +636,6 @@ This is regarding the links found within the footer of every page.
 - Deleting a folio
     - Following defensive programming standards, when a user clicks Delete within a folio's additional menu, a modal is displayed to the user making sure that they want to proceed with deleting the folio.
     - Clicking DELETE deletes the folio, reloads the library page and informs the user of the deletion as intended.
-
-
-
-
-
 
 ## Accessibility & Performance
 
