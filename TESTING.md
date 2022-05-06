@@ -540,7 +540,6 @@ The only warnings that were present during the validation process of this file w
 <img src="readme/images/validation/js/js-skill-profile-snippets-validation-results.png">
 </details>
 
-
 ### Python
 
 ## Defensive Programming
