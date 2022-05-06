@@ -569,9 +569,13 @@ All views that are directly linked to the management of objects stored within th
 
 ## Testing Functionality
 
+### Test Driven Development
+
+Regarding Test Driven Development, although the methodology wasn't carried out strictly by it's definition (due to my lack of understanding on the topic), testing was continually conducted when new features were being developed. Examples of this include purposefully triggering invalid statuses within forms to be given useful messages as outcomes and testing features when deployed on Heroku, such as the image upload feature for projects, as AWS was being used in deployment instead of the directory itself which is what's used in the development environment. When time was more available during the development of the application, automated tests were being conducted to assert that certain outcomes were being met by models, forms and views within the application. Despite automated testing not being conducted on the whole application, it is something I intend on doing in order to fully understand the testing process and become more fluent with the methodology.
+
 ### Automated Testing
 
-Automated testing had been conducted during the development of fol.io. However due to time constraints, I opted to abandon automated testing for manual testing as it's more time efficient due to me being more familiar with it after testing previous projects.
+Automated unit testing had been conducted during the development of fol.io. However due to time constraints, I opted to abandon automated testing for manual testing as it's more time efficient due to me being more familiar with it after testing previous projects. This is something I'll take onboard in future projects as I was surprised to see how long unit tested could take when done properly.
 
 > What also contributed in pushing me towards that decision was an accouncement within Code Institute's slack, which stated that the criteria for the 4th project had been updated to allow the implementation of manual and/or automated test procedures.
 
