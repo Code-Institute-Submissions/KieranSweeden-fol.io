@@ -660,4 +660,7 @@ This is regarding the links found within the footer of every page.
 
 ## Accessibility & Performance
 
-To test the accessibility and performance of the pages within the application, Google Chrome's in-built Lighthouse reporting application was used.
+To test the accessibility and performance of the pages within the application, Google Chrome's in-built [Lighthouse](https://developers.google.com/web/tools/lighthouse) reporting tool was used.
+
+You can see the scores for all frequently met pages within the application below, each with a mobile and desktop score for their respective environments.
+
