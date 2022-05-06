@@ -427,6 +427,9 @@ The following applications listed were utilized during the development of fol.io
 - [JSHint](https://jshint.com/)
     - The JSHint tool was used to validate the custom-made JavaScript files that are used throughout the application.
 
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+    - Google Chrome's in-built Lighthouse app was used to test the accessibility and performance of the application.
+
 ### Others
 
 - [Heroku](https://dashboard.heroku.com/login)

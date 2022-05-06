@@ -5,7 +5,11 @@
 {% block extra_title %}Welcome{% endblock %}
 
 {% block main_nav %}
-    {% include 'includes/main-navs/external-main-nav.html' with active_nav_link='' %}
+    {% if user.is_authenticated %}
+        {% include 'includes/main-navs/internal-main-nav.html' with active_nav_link='' %}
+    {% else %}
+        {% include 'includes/main-navs/external-main-nav.html' with active_nav_link='' %}
+    {% endif %}
 {% endblock %}
 
 {% block help_question %}Why sign up with fol.io?{% endblock %}
@@ -15,18 +19,18 @@
 {% endblock %}
 
 {% block header_content %}
-<div class="row">
-    <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
-        <p class="text-center">Create an account with fol<span class="text-feature-color">.</span>io to quickly move your tech career forward.
-        </p>
-    </div>
-    <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center p-4">
-        <div class="mb-4">
-            <a href="{% url 'account_login' %}" class="btn btn-secondary me-4">Log In</a>
-            <a href="{% url 'account_signup' %}" class="btn btn-primary">Register</a>
+    <div class="row">
+        <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+            <p class="text-center">Create an account with fol<span class="text-feature-color">.</span>io to quickly move your tech career forward.
+            </p>
+        </div>
+        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center p-4">
+            <div class="mb-4">
+                <a href="{% url 'account_login' %}" class="btn btn-secondary me-4">Log In</a>
+                <a href="{% url 'account_signup' %}" class="btn btn-primary">Register</a>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
 
 {% block header_title %}Progress with fol<span class="text-feature-color">.</span>io{% endblock %}
