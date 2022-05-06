@@ -552,4 +552,20 @@ All views that are directly linked to the management of objects stored within th
 
 ## Testing Functionality
 
+### Automated Testing
+
+Automated testing had been conducted during the development of fol.io. However due to time constraints, I opted to abandon automated testing for manual testing as it's more time efficient due to me being more familiar with it after testing previous projects.
+
+What also contributed in pushing me towards that decision was an accouncement within Code Institute's slack, which stated that the criteria for the 4th project had been updated to allow the implementation of manual and/or automated test procedures.
+
+Evidence of the presence of automated testing can be seen within the following app's directories:
+- Account
+- Home
+- Library
+
+### Manual Testing
+
+
+
+
 ## Accessibility & Performance
