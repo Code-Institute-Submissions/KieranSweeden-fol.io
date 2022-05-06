@@ -171,12 +171,10 @@ def update_skills_attached_to_folio(request, folio_id):
             )
             folio = get_object_or_404(Folio, pk=folio_id)
 
-            # Iterate through skills in db & status's given from user actions
             for skill_in_db, skill_status in zip(skills_in_db, list_of_skills):
-                # Ensure ID's match
+
                 if skill_in_db.id == int(skill_status['id']):
-                    # Add/remove folio or continue based on is_attached
-                    # status & if the folio already exists in project folios
+
                     if skill_status['is_attached']:
                         if skill_in_db.folios.filter(pk=folio_id).exists():
                             continue

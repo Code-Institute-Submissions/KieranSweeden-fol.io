@@ -171,13 +171,11 @@ def update_profiles_attached_to_folio(request, folio_id):
             )
             folio = get_object_or_404(Folio, pk=folio_id)
 
-            # Iterate through profiles in db & status's given from user actions
             for profile_in_db, profile_status in zip(profiles_in_db,
                                                      list_of_profiles):
-                # Ensure ID's match
+
                 if profile_in_db.id == int(profile_status['id']):
-                    # Add/remove folio or continue based on is_attached
-                    # status & if the folio already exists in project folios
+
                     if profile_status['is_attached']:
                         if profile_in_db.folios.filter(pk=folio_id).exists():
                             continue

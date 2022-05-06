@@ -182,14 +182,13 @@ def update_projects_attached_to_folio(request, folio_id):
             )
             folio = get_object_or_404(Folio, pk=folio_id)
 
-            # Iterate through project in db & status given from user actions
             for project_in_db, project_status in zip(projects,
                                                      list_of_projects):
-                # Ensure ID's match
+
                 if project_in_db.id == int(project_status['id']):
-                    # Add/remove folio or continue based on is_attached
-                    # status & if the folio already exists in project folios
+
                     if project_status['is_attached']:
+
                         if project_in_db.folios.filter(pk=folio_id).exists():
                             continue
                         else:
