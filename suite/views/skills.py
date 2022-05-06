@@ -56,7 +56,6 @@ def edit_folio_skills(request, folio_id=None):
             "tech_skills": tech_skills,
             "soft_skills": soft_skills
         }
-
         return render(request, "suite/edit_skills.html", context=context)
 
     else:
@@ -107,9 +106,9 @@ def update_folio_skill(request, skill_id, folio_id):
     """
 
     if user_is_author_of_snippet(request.user, 'skill', skill_id):
-        skill = get_object_or_404(Skill, pk=skill_id)
 
         if request.method == "POST":
+            skill = get_object_or_404(Skill, pk=skill_id)
             post = request.POST.copy()
             for key, value in request.POST.items():
                 prefix_removed_name = key.replace(f"skill-{skill.id}-", "")
@@ -148,7 +147,7 @@ def update_folio_skill(request, skill_id, folio_id):
         messages.error(
             request,
             "You cannot interact with "
-            "skills that are not your own."
+            "skill snippets that are not your own."
         )
         return redirect("view_library")
 
@@ -191,7 +190,7 @@ def update_skills_attached_to_folio(request, folio_id):
 
                     messages.success(
                         request,
-                        f"The skills attached to {folio.name} "
+                        f"The skill snippets attached to {folio.name} "
                         f"have been updated successfully."
                     )
 
@@ -242,7 +241,7 @@ def delete_folio_skill(request, skill_id, folio_id):
     else:
         messages.error(
             request,
-            "You cannot delete skills "
+            "You cannot delete skills snippets"
             "that are not your own."
         )
         return redirect("view_library")

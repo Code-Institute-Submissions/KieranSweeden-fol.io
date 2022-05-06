@@ -158,7 +158,7 @@ def update_folio_project(request, project_id, folio_id):
         messages.error(
             request,
             "You cannot interact with "
-            "projects that are not your own."
+            "project snippets that are not your own."
         )
         return redirect("view_library")
 
@@ -202,8 +202,8 @@ def update_projects_attached_to_folio(request, folio_id):
 
                     messages.success(
                         request,
-                        f"The projects attached to the {folio.name} "
-                        f"folio has been successfully updated."
+                        f"The project snippets attached to the {folio.name} "
+                        f"folio have been successfully updated."
                     )
 
                 else:
@@ -253,7 +253,7 @@ def delete_folio_project(request, project_id, folio_id):
     else:
         messages.error(
             request,
-            "You cannot delete projects "
+            "You cannot delete project snippets "
             "that are not your own."
         )
         return redirect("view_library")
