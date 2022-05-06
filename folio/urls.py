@@ -30,6 +30,7 @@ urlpatterns = [
     path('showcase/', include('showcase.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
 handler400 = 'folio.views.bad_request_400'
 handler403 = 'folio.views.user_forbidden_403'
 handler404 = 'folio.views.page_not_found_404'
