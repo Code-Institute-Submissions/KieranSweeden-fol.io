@@ -268,7 +268,7 @@ def delete_folio_profile(request, profile_id, folio_id):
     """
 
     if user_is_author_of_snippet(request.user, 'profile', profile_id):
-    
+
         if request.method == "POST":
             profile_in_db = get_object_or_404(Profile, pk=profile_id)
             profile_in_db.delete()
@@ -277,7 +277,7 @@ def delete_folio_profile(request, profile_id, folio_id):
                 f"The {profile_in_db.profile_title} About Me profile "
                 f"has been deleted successfully."
             )
-        
+
         else:
             messages.error(
                 request,
@@ -289,7 +289,7 @@ def delete_folio_profile(request, profile_id, folio_id):
             reverse("edit_folio_profile",
                     kwargs={"folio_id": folio_id})
         )
-    
+
     else:
         messages.error(
             request,

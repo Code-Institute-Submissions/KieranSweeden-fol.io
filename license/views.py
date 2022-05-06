@@ -75,9 +75,8 @@ def create_checkout_session(request):
 
     if request.method == "POST":
         form = LicensePurchaseForm(request.POST)
-        if form.is_valid():
 
-            # Create stripe checkout session
+        if form.is_valid():
             checkout_session = stripe.checkout.Session.create(
                 customer_email=form.cleaned_data[
                         'purchaser_email'
@@ -128,6 +127,21 @@ def create_checkout_session(request):
             )
 
             return redirect(checkout_session.url, status=303)
+
+        else:
+            messages.error(
+                request,
+                "The data provided for a license "
+                "purchase was not valid."
+            )
+    else:
+        messages.error(
+                request,
+                "Data must be posted in order "
+                "to process a license purchase."
+            )
+
+    return redirect('purchase_license')
 
 
 @login_required
@@ -187,5 +201,17 @@ def checkout_session_success(request):
                 context=context
             )
 
+        else:
+            messages.error(
+                request,
+                "A checkout session was not "
+                "found with the provided id."
+            )
     else:
-        return redirect("view_library")
+        messages.error(
+            request,
+            "A checkout session id "
+            "was not provided."
+        )
+
+    return redirect("purchase_license")
