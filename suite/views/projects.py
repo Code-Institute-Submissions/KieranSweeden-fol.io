@@ -212,23 +212,32 @@ def delete_folio_project(request, project_id, folio_id):
     Deletes a user's folio project
     """
 
-    # Ensure the request made is a POST request
-    if request.method == "POST":
+    if user_is_author_of_snippet(request.user, 'project', project_id):
+        project = get_object_or_404(Project, pk=project_id)
 
-        # Get the project
-        project_in_db = get_object_or_404(Project, pk=project_id)
+        if request.method == "POST":
+            project.delete()
+            messages.success(
+                request,
+                f"The {project.project_title} project "
+                f"has been deleted successfully."
+            )
+            return redirect(
+                reverse("edit_folio_projects",
+                        kwargs={"folio_id": folio_id})
+            )
 
-        # Delete the project from the database
-        project_in_db.delete()
-
-        messages.success(
+        messages.error(
             request,
-            f"The {project_in_db.project_title} project "
-            f"has been deleted successfully."
+            "A delete command should "
+            "be sent as a POST request."
         )
+        return redirect("view_library")
 
-        # Return to folio project page using folio id
-        return redirect(
-            reverse("edit_folio_projects",
-                    kwargs={"folio_id": folio_id})
+    else:
+        messages.error(
+            request,
+            "You cannot delete projects "
+            "that are not your own."
         )
+        return redirect("view_library")

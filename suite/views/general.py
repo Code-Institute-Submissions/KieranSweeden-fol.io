@@ -99,7 +99,7 @@ def select_folio(request):
                 messages.error(
                     request,
                     "The latest folio viewed was not created by you. "
-                    "It has therefore been removed in your browser"
+                    "It has therefore been removed in your browser "
                     "as the latest folio opened."
                 )
 
