@@ -19,7 +19,6 @@ class UserAccount(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    # account info
     first_name = models.CharField(
         max_length=20, null=True, blank=True
     )
@@ -35,7 +34,6 @@ class UserAccount(models.Model):
     github_profile = models.URLField(null=True, blank=True)
     linkedin_profile = models.URLField(null=True, blank=True)
 
-    # billing info
     default_street_address1 = models.CharField(
         max_length=80, null=True, blank=True
     )
@@ -55,7 +53,6 @@ class UserAccount(models.Model):
         blank_label='Country', null=True, blank=True
     )
 
-    # license amount
     number_of_licenses = models.PositiveSmallIntegerField(default=0)
 
     def add_licences_to_user_account(self, amount):

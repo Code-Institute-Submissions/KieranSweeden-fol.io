@@ -18,10 +18,8 @@ class LicensePurchase(models.Model):
     via the license store & stripe
     """
 
-    # UserAccount the license purchase belongs to
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    # General purchaser information
     purchaser_full_name = models.CharField(max_length=40)
     purchaser_email = models.EmailField()
     purchaser_phone_number = models.CharField(max_length=20)
@@ -32,7 +30,6 @@ class LicensePurchase(models.Model):
     purchaser_county = models.CharField(max_length=20)
     purchaser_country = CountryField(blank_label='Country')
 
-    # License information
     purchase_date = models.DateField(auto_now_add=True)
     no_of_licenses_purchased = models.PositiveSmallIntegerField(
         default=1,
@@ -41,6 +38,7 @@ class LicensePurchase(models.Model):
             MaxValueValidator(50)
         ]
     )
+
     purchase_total = models.DecimalField(max_digits=6, decimal_places=2)
     order_number = models.UUIDField(
         primary_key=False,
@@ -48,7 +46,6 @@ class LicensePurchase(models.Model):
         editable=False
     )
 
-    # Stripe-oriented info
     stripe_pid = models.CharField(
         max_length=254,
         null=False,
@@ -58,7 +55,9 @@ class LicensePurchase(models.Model):
 
     def __str__(self):
         """
-        Returns folio name when called
+        Returns license purchase email
+        and purchase when a license
+        purchase is being referred to
         """
         return (
             f"{self.purchaser_email} {self.purchase_date}"
