@@ -118,32 +118,42 @@ As a self-taught and aspiring developer, I want to be able to:
 - Register an account.
 - Log in to the account I've registered.
 - Change my account details.
-- Reset my password.
-- See the amount of portfolio licences I have and when they were purchased.
+- Reset the password of my account.
+- See the amount of folio licences I have.
+- Find information regarding previous license purchases I've made.
 
-**Portfolio Management**
+**Folio Management**
 
-- Create a new portfolio.
-- Edit an existing portfolio.
-- Delete a portfolio.
-- Duplicate a portfolio.
+- Create a brand new folio.
+- Edit an existing folio within my library.
+- Toggle as to whether I want a folio to be viewable or not to the outside world.
+- View the folio in it's live state despite being published or not.
+- Delete a folio from my library.
+
+**Snippet Management**
+
+- Create snippets (that represent common portfolio sections) that can be re-used throughout my libary of folios.
+- Select which snippets make it to each respective folio.
+- Modify & update the content of a snippet within my collection.
+- Delete a snippet from my collection.
 
 **Billing**
 
 - Insert my billing details and have them be saved to my account.
-- Select & change the amount of portfolio licences I'd like to purchase.
-- Receive a confirmation e-mail confirming the purchase of portfolio licences.
+- Select & change the amount of folio licences I'd like to purchase.
+- Receive a confirmation e-mail confirming the purchase of folio licences.
 
 As an employer interested in the developer, I want to be able to:
 
-**Portfolio Viewing**
+**Folio Viewing**
 
-- View their portfolio.
+- View a potential employee's folio.
 - See what they're currently up to.
-- Investigate what they've already created.
+- Investigate what projects they've already created.
+- Find out what skills they current posess.
 - Discern what their future aspirations are.
-- Focus solely on the content that I'm interested in.
 - Promptly know how I can contact them.
+- Message the author of the folio directly.
 
 #### Potential Features
 
@@ -191,6 +201,9 @@ The following is a list of features that will be left for future release of the 
 - Themes
     - The themes feature allows the user to further personalize their portfolio with a particular styling of their choice.
     - Although this would help the user differentiate themselves, it's not integral to the core functionality of the application. For this reason, it will be left for a future update of the application.
+
+- Duplicate folios/snippets
+    - This feature will be a must have for the next release of the application. This is where a user is able to create a duplicate of a folio or snippet they already have.
 
 ### Structure
 
