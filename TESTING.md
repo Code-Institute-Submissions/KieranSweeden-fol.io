@@ -384,7 +384,7 @@ As an employer interested in the developer, I want to be able to:
 
 This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below. The employer landing on this page, is them viewing a potential employee's folio which meets the user story requirement.
 
-<img src="">
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-projects.png">
 
 </details>
 
@@ -393,11 +393,15 @@ This user story assumes that a URL link has been sent to an employer, therefore 
 
 This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below.
 
-<img src="">
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-projects.png">
 
-From this page, the employer can click the profile link within the header section in order to be directed to the folio's profile page. From here they can see the folio author's current project information along with a link.
+From this page, the employer can click the profile link within the header section in order to be directed to the folio's profile page.
 
-<img src="">
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-projects-arrow-profile.png">
+
+From here they can see the folio author's current project information along with a link.
+
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-arrow-current-project.png">
 
 </details>
 
@@ -406,11 +410,13 @@ From this page, the employer can click the profile link within the header sectio
 
 This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below.
 
-<img src="">
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-projects.png">
 
 From this page, the employer will immediately see what projects the folio author has created in the past. They can also click the expand icon for each project to view the project in more detail.
 
-<img src="">
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-projects-arrow-expand.png">
+
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-projects-modal.png">
 
 </details>
 
@@ -419,11 +425,15 @@ From this page, the employer will immediately see what projects the folio author
 
 This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below.
 
-<img src="">
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-projects.png">
 
-From this page, the employer can click the profile link within the header section in order to be directed to the folio's profile page. From here they can see the folio author's future goal information.
+From this page, the employer can click the profile link within the header section in order to be directed to the folio's profile page.
 
-<img src="">
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-projects-arrow-profile.png">
+
+From here they can see the folio author's future goal information.
+
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-profile-future.png">
 
 </details>
 
@@ -432,11 +442,15 @@ From this page, the employer can click the profile link within the header sectio
 
 This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below.
 
-<img src="">
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-projects.png">
 
-From this page, the employer can click the contact link within the header section in order to be directed to the folio's contact page. From here they can see the folio author's contact information.
+From this page, the employer can click the contact link within the header section in order to be directed to the folio's contact page.
 
-<img src="">
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-arrow-contact.png">
+
+From here they can see the folio author's contact information.
+
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-contact-info.png">
 
 </details>
 
@@ -445,13 +459,19 @@ From this page, the employer can click the contact link within the header sectio
 
 This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below.
 
-<img src="">
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-projects.png">
 
-From this page, the employer can click the contact link within the header section in order to be directed to the folio's contact page. From here they can see a direct message form which allows them to directly message the folio author.
+From this page, the employer can click the contact link within the header section in order to be directed to the folio's contact page.
 
-<img src="">
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-arrow-contact.png">
+
+From here they can see a direct message form which allows them to directly message the folio author.
+
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-contact-message.png">
 
 Provided that the employer fills in all the required fields, they can press the send message button and a message will be sent to the folio author. After clicking the send message button, a message will also be presented informing that the message has indeed been sent.
+
+<img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-contact-send-message.png">
 
 </details>
 
