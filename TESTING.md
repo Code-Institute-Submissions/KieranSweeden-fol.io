@@ -250,6 +250,29 @@ After clicking the save changes button, the selection of skills attached to the 
 
 <details>
 <summary>Modify & update the content of a snippet within my collection</summary>
+
+> For the sake of not repeated myself & being concise, I'll only present this user story with profiles as the snippets. All other snippets within the Suite app follow the same process for user familiarity.
+
+When signed in, the user is presented the library page. From here, the user can select a folio to open in the suite using the additional menu. They'll then be directed to the the edit folio projects page within the Suite app.
+
+<img src="readme/images/user-stories/update-snippet/user-stories-update-snippet-library.png">
+
+<img src="readme/images/user-stories/update-snippet/user-stories-update-snippet-projects.png">
+
+Given that the user is dealing specifically with profiles in this user story, the user can navigate to this page by clicking the profile tab in the header section of the page.
+
+<img src="readme/images/user-stories/update-snippet/user-stories-update-snippet-profile-btn.png">
+
+From here the user can select which profile they'd like to modify by clicking the additional menu and selecting "edit" within the options of the dropdown list presented. This will present a modal to the user with data from the database pre-filling the profile form.
+
+<img src="readme/images/user-stories/update-snippet/user-stories-update-snippet-additional-menu.png">
+
+<img src="readme/images/user-stories/update-snippet/user-stories-update-snippet-modal-before.png">
+
+When the user is happy with the changes they've made to their profile, they can click the save changes button. This will refresh the page and inform the user that their changes have been made via a message.
+
+<img src="readme/images/user-stories/update-snippet/user-stories-update-snippet-modal-after.png">
+
 </details>
 
 <details>
