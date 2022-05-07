@@ -120,7 +120,6 @@ As a self-taught and aspiring developer, I want to be able to:
 - Change my account details.
 - Reset the password of my account.
 - See the amount of folio licences I have.
-- Find information regarding previous license purchases I've made.
 
 **Folio Management**
 
@@ -140,8 +139,8 @@ As a self-taught and aspiring developer, I want to be able to:
 **Billing**
 
 - Insert my billing details and have them be saved to my account.
-- Select & change the amount of folio licences I'd like to purchase.
-- Receive a confirmation e-mail confirming the purchase of folio licences.
+- Make a license purchase.
+- Find information regarding previous license purchases I've made.
 
 As an employer interested in the developer, I want to be able to:
 

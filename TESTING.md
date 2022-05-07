@@ -107,27 +107,6 @@ When signed in, the user is presented the library page. From here, the user can 
 
 </details>
 
-<details>
-<summary>Find information regarding previous license purchases I've made</summary>
-
-When signed in, the user is presented the library page. From here, the user can click the license store link in the navigation, which directs the user to license purchase oriented pages.
-
-<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-purchase-store.png">
-
-After clicking on the link they land on the license purchase page. From here they can click the order history link that directs them to the order history page that contains all of their previous license purchases.
-
-<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-purchase-order-history-btn.png">
-
-<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-order-history-page.png">
-
-From here they can click the expand button for each license purchase to find out more information surrounding it.
-
-<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-purchase-expand-btn.png">
-
-<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-order-history-modal.png">
-
-</details>
-
 ### Folio Management
 
 <details>
@@ -223,28 +202,97 @@ If the user is confident that it's the folio they'd like to to delete, they can 
 
 ### Snippet Management
 
-- Create snippets (that represent common portfolio sections) that can be re-used throughout my libary of folios.
-- Select which snippets make it to each respective folio.
-- Modify & update the content of a snippet within my collection.
-- Delete a snippet from my collection.
+<details>
+<summary>Create snippets (that represent common portfolio sections) that can be re-used throughout my libary of folios</summary>
+
+> For the sake of not repeated myself & being concise, I'll only present this user story with a project as the snippet. All other snippets within the Suite app following the same process for user familiarity.
+
+When signed in, the user is presented the library page. From here, the user can select a folio to open in the suite using the additional menu. They'll then be directed to the the edit folio projects page within the Suite app.
+
+<img src="readme/images/user-stories/create-snippet/user-stories-create-snippet-library.png">
+
+From here, they can create a new project snippet by clicking the new project button, filling in the required fields with the form and clicking create button.
+
+<img src="readme/images/user-stories/create-snippet/user-stories-create-snippet-projects-btn.png">
+
+<img src="readme/images/user-stories/create-snippet/user-stories-create-snippet-create-modal.png">
+
+After clicking the create button, they can see their newly created snippet within the list in front of them they'll also be presented a message confirmed the creation of the project snippet.
+
+<img src="readme/images/user-stories/create-snippet/user-stories-create-snippet-complete.png">
+
+</details>
+
+<details>
+<summary>Select which snippets make it to each respective folio</summary>
+</details>
+
+<details>
+<summary>Modify & update the content of a snippet within my collection</summary>
+</details>
+
+<details>
+<summary>Delete a snippet from my collection</summary>
+</details>
 
 ### Billing
 
-- Insert my billing details and have them be saved to my account.
-- Select & change the amount of folio licences I'd like to purchase.
-- Receive a confirmation e-mail confirming the purchase of folio licences.
+<details>
+<summary>Insert my billing details and have them be saved to my account</summary>
+</details>
+
+<details>
+<summary>Make a license purchase</summary>
+</details>
+
+<details>
+<summary>Find information regarding previous license purchases I've made</summary>
+
+When signed in, the user is presented the library page. From here, the user can click the license store link in the navigation, which directs the user to license purchase oriented pages.
+
+<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-purchase-store.png">
+
+After clicking on the link they land on the license purchase page. From here they can click the order history link that directs them to the order history page that contains all of their previous license purchases.
+
+<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-purchase-order-history-btn.png">
+
+<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-order-history-page.png">
+
+From here they can click the expand button for each license purchase to find out more information surrounding it.
+
+<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-purchase-expand-btn.png">
+
+<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-order-history-modal.png">
+
+</details>
 
 As an employer interested in the developer, I want to be able to:
 
 ### Folio Viewing
 
-- View a potential employee's folio.
-- See what they're currently up to.
-- Investigate what projects they've already created.
-- Find out what skills they current posess.
-- Discern what their future aspirations are.
-- Promptly know how I can contact them.
-- Message the author of the folio directly.
+<details>
+<summary>View a potential employee's folio</summary>
+</details>
+
+<details>
+<summary>See what they're currently up to</summary>
+</details>
+
+<details>
+<summary>Investigate what projects they've already created</summary>
+</details>
+
+<details>
+<summary>Discern what their future aspirations are</summary>
+</details>
+
+<details>
+<summary>Promptly know how I can contact them</summary>
+</details>
+
+<details>
+<summary>Message the author of the folio directly</summary>
+</details>
 
 ## Bugs
 
