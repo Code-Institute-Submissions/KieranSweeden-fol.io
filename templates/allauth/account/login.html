@@ -32,6 +32,18 @@
                 <div class="col-12 col-lg-6">
                     {{ form.password|as_crispy_field }}
                 </div>
+                <div class="col-12">
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <p class="text-danger small"><strong>{{ error|escape }}</strong></p>
+                            {% endfor %}
+                        {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <p class="text-danger small"><strong>{{ error|escape }}</strong></p>
+                            {% endfor %}
+                    {% endif %}
+                </div>
             </div>
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
