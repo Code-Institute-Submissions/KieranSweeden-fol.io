@@ -166,8 +166,28 @@ From here, the user can make the changes they'd like and click save changes, in 
 
 </details>
 
+<details>
+<summary>Toggle as to whether I want a folio to be viewable or not to the outside world</summary>
 
-- Toggle as to whether I want a folio to be viewable or not to the outside world.
+When signed in, the user is presented the library page. From here, the user can click the additional menu of any folio they choose and click Publish or Conceal.
+
+Provided the user has enough licenses, clicking the Publish button will toggle the folio state and refresh the page in which the user can see their changes reflected along with a message.
+
+Irrespective of the amount of folios the user has, if they click Conceal for a published folio, the folio is toggled to not published and it's reflected within the library page along with a message.
+
+> Due to the screenshot application I'm using for this, it's not able to screenshot dropdowns as they close before a screenshot is taken. The dropdown and the edit details options mentioned are absolutely within the application.
+
+- Before
+    <img src="readme/images/user-stories/toggle-folio-published-state/user-stories-before-publish.png">
+
+- After
+    <img src="readme/images/user-stories/toggle-folio-published-state/user-stories-after-publish.png">
+
+
+ Notice also that the eye is change to the application's feature orange colour and that the toggle published state is also communicated to the user via the amount of licenses used above and a message that appears.
+ 
+</details>
+
 - View the folio in it's live state despite being published or not.
 - Delete a folio from my library.
 
