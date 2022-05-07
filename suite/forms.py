@@ -20,10 +20,7 @@ class FolioProjectForm(forms.ModelForm):
     """
 
     class Meta:
-        # Associated with Project model
         model = Project
-
-        # Include fields that are editable
         fields = [
             "project_title",
             "project_description",
@@ -32,23 +29,18 @@ class FolioProjectForm(forms.ModelForm):
             "live_link",
             "image"
         ]
-
         widgets = {
             'project_description': forms.Textarea(attrs={
                 'rows': 6
             })
         }
 
-    # Customize form
     def __init__(self, *args, **kwargs):
         """
-        Insert placeholders
+        Insert placeholders & labels
         """
-
-        # Setup form as default
         super().__init__(*args, **kwargs)
 
-        # Placeholders
         placeholders = {
             "project_title": "e.g. To-do List",
             "project_description": "e.g. This is a to-do list app that "
@@ -64,7 +56,7 @@ class FolioProjectForm(forms.ModelForm):
             "tech_list": "Technology List (seperated by commas)",
             "github_link": "GitHub Repository Link",
             "live_link": "Live Deployment Link",
-            "image": "Project Image"
+            "image": "Project Image (NOTE: 16:9 ratio heavily recommended)"
         }
 
         for field in self.fields:

@@ -819,32 +819,58 @@ This is regarding the links found within the footer of every page.
 
 #### Showcase App
 
+##### Header
+
+- Authenticated
+    - No matter if the user is the author of the folio or not, if a registered user clicks a warning link that's displayed when a field is missing within the header, namely the default profile picture or name, the user is re-directed to the account details page for their OWN account. Any changes they make within the account details page will only affect their own account which is the expected behaviour.
+
+- Not authenticated
+    - If an un-registered user clicks either of the profile picture or name warning links within the header, they are re-directed to the log-in screen.
+
 ##### Projects Page
 
 - Authenticated
     - Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
     - If the author of the folio is looking at this page, the link within the no projects attached message re-directs the user to the edit projects page within the suite app which is expected.
-    - If the person logged in is not the author of the folio but is authenticated with a different account, the user is re-directed to the select folio screen and informed via a message that they cannot interact with folios that are not their own.
+    - If the person logged in is not the author of the folio but is authenticated with a different account, the link within the no projects attached message re-directs the user to the select folio screen and informs them via a message that they cannot interact with folios that are not their own.
 
 - Not authenticated
-    - Navigation presents log in and REGISTER links when signed in which is expected.
+    - Navigation presents log in and REGISTER links when not signed in which is expected.
+    - If an un-registered user clicks the link within the "no projects" message, they are re-directed to the log-in screen.
 
 - If there are no projects attached, a message is presented to the user encouraging them to attach projects to the folio currently being viewed.
 
 ##### Skills Page
 
-- Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
-- Navigation presents log in and REGISTER links when signed in which is expected.
+- Authenticated
+    - Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
+    - If the author of the folio is looking at this page, the links within both of the no skills attached messages re-directs the user to the edit skills page within the suite app, which is expected.
+    - If the person logged in is not the author of the folio but is authenticated with a different account, both links within the no skills attached messages re-directs the user to the select folio screen and informs them via a message that they cannot interact with folios that are not their own.
+
+- Not authenticated
+    - Navigation presents log in and REGISTER links when not signed in which is expected.
+    - If an un-registered user clicks either one of the links within the "no skills" messages, they are re-directed to the log-in screen.
 
 ##### Profile Page
 
-- Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
-- Navigation presents log in and REGISTER links when signed in which is expected.
+- Authenticated
+    - Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
+    - If the user logged in is not the author of the currently published and viewed folio, clicking the link that appears in the "no projects are attached to this folio" message directs the user to the select folio page and informs them via a message that they cannot interact with folios that are not their own.
+
+- Not authenticated
+    - Navigation presents log in and REGISTER links when not signed in which is expected.
+    - If an un-registered user clicks the link within the "no projects" message, they are re-directed to the log-in screen.
+    - If an un-registered user clicks any of the "add one here" links for information that's not given within the folio, they're re-directed to the log in page.
 
 ##### Contact Page
 
-- Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
-- Navigation did not initially preent the log in and REGISTER links, as it initially displayed the return to suite and REGISTER links which was not intended.
+- Authenticated
+    - Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
+    - No matter if the user is the author of the folio or not, if a registered user clicks a warning link that's displayed when a field is missing within the contact page such as a mobile number or the social media links, the user is re-directed to the account details page for their OWN account. Any changes they make within the account details page will only affect their own account which is the expected behaviour.
+
+- Not authenticated
+    - Navigation did not initially present the log in and REGISTER links, as it initially displayed the return to suite and REGISTER links which was not intended. The problem was quickly understood and resolved and now the navigation presents the log in and REGISTER links when not signed in which is the expected behaviour.
+    - If an un-registered user clicks any of the "Add" links for information that's not given within the contact page of the folio, they're re-directed to the log in page.
 
 #### License App
 
