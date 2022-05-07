@@ -350,7 +350,10 @@ post = request.POST.copy()
 
 ### Known
 
-The following are bugs that are still present within the current build of fol.io.
+The following are bugs that are still present within the current build of fol.io. Attempts to resolve these bugs will be made after the MVP release of the application.
+
+- Order history page - The titles of previous license purchases within the order history page do not clamp down. Instead they go onto the next line and therefore vertically expands the card header section of the license purchase. This is due to the order number acting as one large "word" and clamp.js not having the ability (to my knowledge) to break down the order number so it can be clamped.
+
 
 ## User Testing
 
@@ -588,13 +591,15 @@ Evidence of the presence of automated testing can be seen within the following a
 
 The following manual tests were conducted on every page within the application to test that the intended functionality for each page was working as expected.
 
-#### External Nav Links
+#### Navigations
+
+##### External Nav Links
 
 This is regarding the nav links are presented when the user is not authenticated.
 - Log in link directs the user to the log in page.
 - Register link directs the user to the register page.
 
-#### Interal Nav Links
+##### Interal Nav Links
 
 This is regarding the nav links are presented when the user is authenticated.
 - Suite link is dynamic depending on the user's latest folio status as intended. It directs the user to the suite if a latest folio cookie exists, otherwise it takes the user to the page where they decide what folio to open within the suite.
@@ -603,18 +608,20 @@ This is regarding the nav links are presented when the user is authenticated.
 - The account link directs the user to the account details page view within the account app as intended.
 - The log out button logs the currently authenticated user out as intended.
 
-#### Showcase Nav Links
+##### Showcase Nav Links
 
 This is regarding the navigation that is displayed if a user is authenticated and is viewing a folio.
 - Return to suite link directs the user back to the suite projects page as intended. If an autheticated user clicks this while viewing another user's published folio, the authenticated user is re-directed to the select folio page within the suite as intended.
 - The log out button logs the currently authenticated user out as intended.
 
-#### Footer Links
+##### Footer Links
 
 This is regarding the links found within the footer of every page.
 - All direct the user to their intended website destinations within a new tab.
 
-#### Home Page
+#### Home App / Authentication
+
+##### Home 
 
 - The log in button within header section directs the user to the log in page if not already authenticated which is expected behaviour. It also directs the user to their library if they're already authenticated.
 - The register button within the header section directs the user to the register page if not already autheticated and directs authenticated uers to their library which is expected behaviour.
@@ -622,26 +629,34 @@ This is regarding the links found within the footer of every page.
 - Hover transitions for buttons all work as intended.
 - Page content and images animate onto the page as expected.
 
-#### Log in Page
+##### Log in Page
 
 - Sign up link directs the user to the registration page as expected.
 - The forgot password directs the user to the forgot password page as expected.
 - The page does not have a help section as intended.
 - Email validator checks for correct email format as expected.
 
-#### Register Page
+##### Register Page
 
 - Sign in link directs the user to the sign in page as expected.
 - Email validator checks for correct email format as expected.
 - Email validation that a user doesn't already exist with the given email.
 - Username validation that a user doesn't already exist with the provided username.
 
-#### Library Page
+#### Library App
+
+##### Library Page
 
 - Help section opens and closes on click as intended.
 - Names and descriptions are clamped for symmetrical visuals as intended.
 - Publish link is displayed within a folio's additional menu if that folio is not published which is expected behaviour.
 - Conceal link is displayed within a folio's additional menu if that folio is published which is intended.
+- Link to license purchase screen appears near the total number of licenses if total amount of licenses is equal to 0 and re-directs the user to the license purchase screen as intended.
+- Message to inform the user to create a folio is presented when they have no folios within their library.
+- Message to inform the user to create snippets for their new folio or purchase a license is presented when the user has only 1 folio within their library. This is the expected behaviour. Links to the suite and license purchase pages within the message works as intended also.
+- List of folios is scrollable once the amount of license purchases get too large for the screen which is the intended behaviour.
+- Folio's are sorted by the date in which they were created which is the expected behaviour.
+
 - Creating a folio
     - Validation that both fields are required works as intended.
     - Clicking CREATE creates folio, stays on library page and informs the user as intended.
@@ -654,9 +669,36 @@ This is regarding the links found within the footer of every page.
     - If a user has no licenses, clicking the Publish button within the folio's dropdown menu will direct the user to the license purchase screen with a message informing them to but a license as expected.
     - If a user has enough licenses, clicking the Publish button within the folio's dropdown menu will toggle the folio's published state to true, reload the library page, inform the user of the folio's published state change and show a coloured icon to represent it being published.
     - Clicking the Conceal button , toggles the folio's published state to false, reloads the library page, informs the user of the folio's published state change and shows a white hidden eye icon to represent the folio being concealed.
+    - The total amount of licenses used updates as expected when a folio is either published or concealed.
 - Deleting a folio
     - Following defensive programming standards, when a user clicks Delete within a folio's additional menu, a modal is displayed to the user making sure that they want to proceed with deleting the folio.
     - Clicking DELETE deletes the folio, reloads the library page and informs the user of the deletion as intended.
+
+#### License App
+
+##### License Purchase Page
+
+- Help section opens and closes when clicked as intended. Links within the help section re-direct the user to their intended destinations as expected.
+- The submit button can only be submitted if the number of licenses is 1 or more. If it's below 1, the submit button will be disabled as intended.
+- All fields except for the save billing details checkbox need to be filled before moving on to Stripe which is expected behaviour.
+- Grand total is dynamically updated depending on the value present within the number of licenses field, which is the expected behaviour.
+
+- Save billing details checkbox
+    - Clicking the checkbox saves the users billing details as the user's default which is the expected behaviour.
+    - Not clicking the checkbox ensures that the purchase billing details will not affect the user's default billing details as intended.
+
+- Autofill
+    - Email address is always inserted within the email field as intended.
+    - Full name is inserted when a first and last name is given within the account details which is expected behaviour (but is something I want to improve further down the line).
+    - Phone number is inserted when a phone number is provided via the account details page as intended.
+    - Each field within the billing details is inserted provided they are filled within the account billing details page respectively.
+
+##### Order History Page
+
+- Help section opens and closes when clicked as intended. Links within the help section re-direct the user to their intended destinations as expected.
+- When no license purchases have been made, a message to user is presented to user encouraging them to purchase a license which is the expected behaviour. The link within this message that re-directs the user to the license purchase page works as expected.
+- Provided that the user has license purchases, clicking the expand icon for each license purchase gives the user a more detailed view of the license purchase within a model, which is the intended behaviour.
+- List of license purchases is scrollable once the amount of license purchases get too large for the screen which is the intended behaviour.
 
 ## Accessibility & Performance
 

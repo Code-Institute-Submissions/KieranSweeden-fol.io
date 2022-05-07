@@ -37,6 +37,8 @@
             </button>
         </div>
     </div>
-    {% include "./includes/list_of_folios.html" %}
+    <div class="list-container list-container-xtra mt-3">
+        {% include "./includes/list_of_folios.html" %}
+    </div>
     {% include './includes/modals/create_folio.html' with size=undefined id="create_folio" %}
 {% endblock %}
