@@ -5,6 +5,7 @@ from django.shortcuts import (
 )
 from django.core.mail import send_mail
 from django.contrib import messages
+from django.contrib.auth.models import User
 from account.models import UserAccount
 from suite.models import Folio, Project
 from suite.models import Skill, Profile
@@ -47,7 +48,7 @@ def view_folio_projects(request, folio_id=None):
         request,
         'showcase/view_folio_projects.html',
         context=context)
- 
+
 
 def view_folio_skills(request, folio_id=None):
     """
@@ -140,10 +141,15 @@ def view_folio_contact(request, folio_id=None):
         pk=folio.author_id.id
     )
 
+    author_user_account = get_object_or_404(
+        User,
+        pk=folio.author_id.id
+    )
+
     message_form = SendAuthorMessageForm()
 
     context = {
-        "user": request.user,
+        "user": author_user_account,
         "folio": folio,
         "author": author,
         "form": message_form
