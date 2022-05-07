@@ -711,11 +711,15 @@ This is regarding the links found within the footer of every page.
 - Billing and license purchase details are all presented to the user in a clear and concise way with sub-headings as intended.
 - Link to re-direct the user to their library works as intended.
 
+- Autofill
+    - Saved fields from database are inserted within the fields as expected.
+
 #### Account App
 
 ##### Account Details Page
 
 - Help section opens and closes when clicked as intended.
+- A reload of the page and message is presented when updated successfully.
 - Placeholders for each field within the account details form are exactly as intended.
 - Althought the imagefield does not immediately reflect when an image has been provided, a message informs the user that it has been and a message is also provided under the field to inform them of this potential issue. (This has been mentioned within the known bugs section of this file.)
 - Clearing the imagefield does present immediately to the user that it has been updated to have no profile picture attached.
@@ -728,6 +732,16 @@ This is regarding the links found within the footer of every page.
     - An email is submitted to the user's email address to help them in creating a new password.
     - Clicking the link within the email re-directs the user to the create new password page as intended.
     - After creating the password, the home and log in links take the user to their respective pages as expected.
+
+##### Billing Details Page
+
+- Help section opens and closes when clicked as intended.
+- Placeholders are presented when no saved data has been found within the user's account from the database.
+- A reload of the page and message is presented when updated successfully.
+
+
+
+
 
 ## Accessibility & Performance
 
