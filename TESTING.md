@@ -691,36 +691,65 @@ This is regarding the links found within the footer of every page.
 
 - Suite is presented as the current app the user is located within in the navigation, which is the expected behaviour as this page is part of the Suite app.
 - Click functions for help section works as expected and contains information that's specific to the projects page within the suite app.
-- THe folio's name is presented within the header section of the app.
+- The folio's name is presented within the header section of the app.
 - The folio's published state correctly reflects the folio's current published state.
 - Hovering over the folio's published state icon tells the user what it means, which is the expected behaviour and it provides a way communicate further information to the user in an interactive way.
 - The VIEW LIVE link re-directs the user to the showcase view of the folio and specifically directs the user to the projects page as it's the projects they were originally on. It also opens the folio within the showcase app in a new tab so the user can jump between editing and viewing their folio projects.
 
 - Create project
     - The create project form is shown when CREATE PROJECT is clicked which is the expected behaviour.
-    - Project title, description and tech list are provided as required fields as expected. The user cannot create a folio without these fields being filled with content which is what's intended.
+    - Project title, description and tech list are provided as required fields as expected. The user cannot create a project without these fields being filled with content which is what's intended.
     - Expected placeholders are displayed and the URL placeholders guide the user as to what URL's are expected when providing one within the form.
     - Clicking CREATE PROJECT creates a project provided the required fields are given which is to be expected. The user is then re-directed to the projects page with their new project being presented and a message informing them that they've created a new project.
 
 - Update project
     - The create project form is shown when Edit is clicked within a project's additional menu which is the expected behaviour.
-    - Project title, description and tech list are provided as required fields as expected. The user cannot update a folio without these fields being filled with content which is what's intended.
+    - Project title, description and tech list are provided as required fields as expected. The user cannot update a project without these fields being filled with content which is what's intended.
     - If fields have not been auto-filled by data taken from the database, expected placeholders are displayed to the user.
     - Providing that the required fields have been fulfilled, clicking SAVE CHANGES updates the currently viewed project with data supplied within the form, re-directs the user to the projects page and informs them that the changes have been made successfully.
     - Checking clear data and clicking SAVE CHANGES within the update project form removes the image attached to the project which is what's intended. 
     - Uploading an image whilst an image is already attached to the project, replaces the existing image with the new one provided. This is the expected behaviour and is immediately reflected after saving the changes and looking at the edit form afterwards.
 
-- Select projects
+- Selecting projects
     - Amount of projects selected is presented to the user and is dyanamic to the amount of projects checked on the page.
     - If 4 projects are checked on the page, all other checkboxes are disabled and cannot be additionally selected. This is the expected behaviour and is utilised in order to limit the user to only 4 projects, as it meets the convnentional amount of projects you typically see in modern day portfolios.
     - If a user unchecks a project from their folio, bringing their total selected projects from 4 to 3, all disabled checkboxes are now enabled again to allow the user to add a different project to their folio. This is the expected behaviour and the current implementation achieves it's intentions.
-    - Clicking SAVE CHANGES. takes the checked projects and adds them to the folio which is the expected behaviour.
+    - Clicking SAVE CHANGES, takes the currently checked projects on the page and adds them to the folio which is the expected behaviour. After this is done, the user is then re-directed back to the projects page within the Suite app and informed via a message that the projects attached to the folio have been updated successfully.
 
 - Deleting projects
     - Following defensive programming standards, clicking delete within a project's additional menu provides a model making sure that the user does want to proceed in deleting the project in question. The model also displays the project's name to the user, giving them extra security in making sure it's that particular project that they want to delete.
     - Clicking DELETE PROJECT within a project's delete form, will delete that project from the database, re-direct the user to the projects page within the suite and provide a handy message to inform them that the deletion was successful.
 
 ##### Skills Page
+
+- Suite is presented as the current app the user is located within in the navigation, which is the expected behaviour as the skills page is part of the Suite app.
+- Click functions for help section works as expected and contains information that's specific to the skills page within the suite app.
+- The folio's name is presented within the header section of the app.
+- The folio's published state correctly reflects the folio's current published state.
+- Hovering over the folio's published state icon tells the user what it means, which is the expected behaviour and it provides a way communicate further information to the user in an interactive way.
+- The VIEW LIVE link re-directs the user to the showcase view of the folio and specifically directs the user to the skills page as it's the skills page that they were originally on in the Suite app. It also opens the folio within the showcase app in a new tab so the user can jump between editing and viewing their folio skills.
+
+- Create skill
+    - The create skill form is shown when CREATE skill is clicked which is what's intended.
+    - All fields being the skill title, description and type are provided as required fields as expected. The user cannot create a skill without these fields being filled with content which is what's intended.
+    - The skill type field is always a select element with only soft skills and tech skill as options which is the expected behaviour.
+    - Expected placeholders (except for the skill type) are displayed to the user.
+    - Clicking CREATE SKILL creates a new skill and the option selected within the select box dictates as to what skill it is. The user is then re-directed to the skills page with their new skill being presented within it's correct skill type list and a message appears, informing them that they've created a new skill.
+
+- Update skill
+    - The create skill form is shown when Edit is clicked within a skill's additional menu which is the expected behaviour.
+    - skill title, description and tech list are provided as required fields as expected. The user cannot update a skill without these fields being filled with content which is what's intended.
+    - If fields have not been auto-filled by data taken from the database, expected placeholders are displayed to the user.
+    - Providing that the required fields have been fulfilled, clicking SAVE CHANGES updates the currently viewed skill with data supplied within the form, this includes the ablity to change a skill's type from soft to tech. The user is then re-directed back to the skills page within the Suite app, where the skills can be seen within it's correct skill type section and a message is provided informing the user of the update being successful.
+
+- Selecting skills
+    - Amount of skills selected is presented to the user and is dyanamic to the amount of all skills checked on the page. This ignores whether the skill is a soft or tech skill and simply sums the total amount of skills checked on the page.
+    - Clicking SAVE CHANGES, collects all of the checked skills and adds them to the folio which is the expected behaviour. When this is done, the user is re-directed to the skills page within the suite app along with a message informing that the skills attached to the folio have been updated successfully.
+
+- Deleting skills
+    - Following typical defensive programming protocols, clicking delete within a skill's additional menu provides a model making sure that the user does want to proceed in deleting the skill they've selected.
+    - The model also contains the name of the skill to help make sure that the user does indeed want to delete the skill they've currently selected.
+    - Clicking DELETE skill within a skill's delete form, will delete that skill from the database, re-direct the user to the skills page within the suite and provide a handy message to inform them that the deletion was successful.
 
 ##### Profile Page
 
