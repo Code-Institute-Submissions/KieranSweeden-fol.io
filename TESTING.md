@@ -330,21 +330,27 @@ After clicking the save changes button, a message will appear to inform the user
 <details>
 <summary>Make a license purchase</summary>
 
-When signed in, the user is presented the library page. From here, the user can navigate to the navigation bar and click the license store link that'll direct them straight to the license purchase page.
+When signed in, the user is presented the library page. From here, the user can navigate to the navigation bar and click the license store link that'll direct them straight to the license purchase page. Pay attention to the total amount of licenses displayed here also.
 
-<img src="">
+<img src="readme/images/user-stories/purchase-license/user-stories-purchase-license-library.png">
 
 On the license purchase page, the user will need to enter their information into every field within the form, select the amount of licenses they'd like, decide if they'd like to save the given billing details as the default for their account and click Continue to continue the purchase with Stripe. Clicking continue will direct the user to a Stripe checkout session.
 
-<img src="">
+<img src="readme/images/user-stories/purchase-license/user-stories-purchase-license-form.png">
 
 Within the Stripe checkout session, the user will need to confirm the amount of licenses they'd like, enter additional information that's requested from Stripe and press pay.
 
-<img src="">
+<img src="readme/images/user-stories/purchase-license/user-stories-purchase-license-stripe.png">
 
-Provided the payment was successful, the user will be re-directed to a purchase confirmation page confirming that their license purchase was processed successfully. From here the user can navigate back to their library by clicking the view library button.
+Provided the payment was successful, the user will be re-directed to a purchase confirmation page confirming that their license purchase was processed successfully. It also informs the user that a confirmation email has been sent to their email, which contents is displayed below. From here the user can navigate back to their library by clicking the return to library button.
 
-<img src="">
+<img src="readme/images/user-stories/purchase-license/user-stories-purchase-success.png">
+
+<img src="readme/images/user-stories/purchase-license/user-stories-purchase-email.png">
+
+Now you can see that the amount of licenses had increased due to the recent purchase.
+
+<img src="readme/images/user-stories/purchase-license/user-stories-purchase-license-license-increase.png">
 
 </details>
 
