@@ -205,7 +205,7 @@ If the user is confident that it's the folio they'd like to to delete, they can 
 <details>
 <summary>Create snippets (that represent common portfolio sections) that can be re-used throughout my libary of folios</summary>
 
-> For the sake of not repeated myself & being concise, I'll only present this user story with a project as the snippet. All other snippets within the Suite app following the same process for user familiarity.
+> For the sake of not repeated myself & being concise, I'll only present this user story with a project as the snippet. All other snippets within the Suite app follow the same process for user familiarity.
 
 When signed in, the user is presented the library page. From here, the user can select a folio to open in the suite using the additional menu. They'll then be directed to the the edit folio projects page within the Suite app.
 
@@ -225,6 +225,27 @@ After clicking the create button, they can see their newly created snippet withi
 
 <details>
 <summary>Select which snippets make it to each respective folio</summary>
+
+> For the sake of not repeated myself & being concise, I'll only present this user story with skills as the snippets. All other snippets within the Suite app follow the same process for user familiarity. The only difference is that a user can only select 4 project snippets whereas the user can choose as many skill and profile snippets as they'd like.
+
+When signed in, the user is presented the library page. From here, the user can select a folio to open in the suite using the additional menu. They'll then be directed to the the edit folio projects page within the Suite app.
+
+<img src="readme/images/user-stories/select-snippets/user-stories-select-snippets-library.png">
+
+<img src="readme/images/user-stories/select-snippets/user-stories-select-snippets-suite-projects.png">
+
+Given that the user is dealing specifically with skills in this user story, the user can navigate to this page by clicking the skills tab in the header section of the page.
+
+<img src="readme/images/user-stories/select-snippets/user-stories-select-snippets-suite-skills-btn.png">
+
+With their selection of skills listed (provided they've created some), the user can select the specific skills they'd like and press save changes to confirm the changes made to the folio.
+
+<img src="readme/images/user-stories/select-snippets/user-stories-select-snippets-skills-selection.png">
+
+After clicking the save changes button, the selection of skills attached to the folio is updated, the page is refreshed and the user can see their changes reflected on-screen which is also paired with a message informing them that the changes were made successfully.
+
+<img src="readme/images/user-stories/select-snippets/user-stories-select-snippets-skills-saved.png">
+
 </details>
 
 <details>
