@@ -30,7 +30,8 @@ def edit_folio_profile(request, folio_id=None):
     folio to the user.
     """
 
-    if id_has_been_provided(folio_id):
+    if id_has_been_provided(folio_id) and user_is_author_of_folio(request.user,
+                                                                  folio_id):
         folio = get_object_or_404(Folio, pk=folio_id)
 
         profiles = list(Profile.objects.filter(
@@ -58,6 +59,11 @@ def edit_folio_profile(request, folio_id=None):
         return render(request, "suite/edit_profile.html", context=context)
 
     else:
+        messages.error(
+            request,
+            "You're not permitted "
+            "to access this folio."
+        )
         return redirect("select_folio")
 
 

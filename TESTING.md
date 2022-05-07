@@ -821,8 +821,15 @@ This is regarding the links found within the footer of every page.
 
 ##### Projects Page
 
-- Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
-- Navigation presents log in and REGISTER links when signed in which is expected.
+- Authenticated
+    - Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
+    - If the author of the folio is looking at this page, the link within the no projects attached message re-directs the user to the edit projects page within the suite app which is expected.
+    - If the person logged in is not the author of the folio but is authenticated with a different account, 
+
+- Not authenticated
+    - Navigation presents log in and REGISTER links when signed in which is expected.
+
+- If there are no projects attached, a message is presented to the user encouraging them to attach projects to the folio currently being viewed.
 
 ##### Skills Page
 

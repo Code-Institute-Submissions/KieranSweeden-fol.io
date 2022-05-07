@@ -29,7 +29,8 @@ def edit_folio_projects(request, folio_id=None):
     Presents the projects tab of the
     folio to the user.
     """
-    if id_has_been_provided(folio_id):
+    if id_has_been_provided(folio_id) and user_is_author_of_folio(request.user,
+                                                                  folio_id):
         folio = get_object_or_404(Folio, pk=folio_id)
 
         projects = list(Project.objects.filter(
@@ -56,6 +57,11 @@ def edit_folio_projects(request, folio_id=None):
         )
 
     else:
+        messages.error(
+            request,
+            "You're not permitted "
+            "to access this folio."
+        )
         return redirect("select_folio")
 
 
