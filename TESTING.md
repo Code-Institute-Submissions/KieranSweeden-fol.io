@@ -353,7 +353,7 @@ post = request.POST.copy()
 The following are bugs that are still present within the current build of fol.io. Attempts to resolve these bugs will be made after the MVP release of the application.
 
 - Order history page - The titles of previous license purchases within the order history page do not clamp down. Instead they go onto the next line and therefore vertically expands the card header section of the license purchase. This is due to the order number acting as one large "word" and clamp.js not having the ability (to my knowledge) to break down the order number so it can be clamped.
-
+- When uploading an image to the application, the imagefield doesn't immediately indicate that an image has been provided. It only presents this after refreshing the page. I spent some time attempting to fix this with solutions such as adding a sleep timer to ensure the file was uploaded amongst many others. in which none provided the desired outcome. Due to time constraints I had to withdraw from solving this bug for now, however it is something I intend to fix in the future. For the time being, a message is presented to the user informing them that if they don't see the changes being reflected, they can click a link that refreshes the current page. Although this isn't ideal, I felt it was important to be transpents to the user and help them with the problem. This seems to only be a problem with the account details page also.
 
 ## User Testing
 
@@ -710,6 +710,24 @@ This is regarding the links found within the footer of every page.
 - An order number UUID is generated and displayed to the user within this page.
 - Billing and license purchase details are all presented to the user in a clear and concise way with sub-headings as intended.
 - Link to re-direct the user to their library works as intended.
+
+#### Account App
+
+##### Account Details Page
+
+- Help section opens and closes when clicked as intended.
+- Placeholders for each field within the account details form are exactly as intended.
+- Althought the imagefield does not immediately reflect when an image has been provided, a message informs the user that it has been and a message is also provided under the field to inform them of this potential issue. (This has been mentioned within the known bugs section of this file.)
+- Clearing the imagefield does present immediately to the user that it has been updated to have no profile picture attached.
+- Form fields are saved when UPDATE is clicked within the form.
+- Validation for the URL fields do work and require that if the user does enter a value, that they follow the URL format exactly. Https:// placeholders are provided to help guide the user as to what is expected from the URL.
+
+- Reset password
+    - Re-directs the user the reset password page as intended.
+    - The page informs the user that they're currently signed in as expected.
+    - An email is submitted to the user's email address to help them in creating a new password.
+    - Clicking the link within the email re-directs the user to the create new password page as intended.
+    - After creating the password, the home and log in links take the user to their respective pages as expected.
 
 ## Accessibility & Performance
 

@@ -61,6 +61,7 @@
             <div class="col-12">
                 {{ form.profile_picture|as_crispy_field }}
             </div>
+            <p class="text-danger">It takes a short while for fol.io to save an image. If you don't see it being reflected immediately after saving, <a href="{% url 'account_details' %}">click here.</a></p>
         </div>
         {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
