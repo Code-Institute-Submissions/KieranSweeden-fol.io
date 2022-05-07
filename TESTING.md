@@ -308,10 +308,44 @@ Provided they're happy with the deletion going through, they can click the Delet
 
 <details>
 <summary>Insert my billing details and have them be saved to my account</summary>
+
+When signed in, the user is presented the library page. From here, the user can navigate to the navigation bar and click the account link that'll direct them to the account oriented pages.
+
+<img src="readme/images/user-stories/save-billing/user-stories-save-billing-library.png">
+
+After clicking the account link, they'll arrive on the account details page. From here a user can click the billing details option within the header navigation to get to the billing details page.
+
+<img src="readme/images/user-stories/save-billing/user-stories-save-billing-billing-btn.png">
+
+Now the user is on the billing details page, they can make the adjustments that they'd like to make and save them by clicking the update button.
+
+<img src="readme/images/user-stories/save-billing/user-stories-save-billing-update.png">
+
+After clicking the save changes button, a message will appear to inform the user that the changes they've made have been successful and they'll be able to see that on the page as the form will now contain their newly provided data.
+
+<img src="readme/images/user-stories/save-billing/user-stories-save-billing-complete.png">
+
 </details>
 
 <details>
 <summary>Make a license purchase</summary>
+
+When signed in, the user is presented the library page. From here, the user can navigate to the navigation bar and click the license store link that'll direct them straight to the license purchase page.
+
+<img src="">
+
+On the license purchase page, the user will need to enter their information into every field within the form, select the amount of licenses they'd like, decide if they'd like to save the given billing details as the default for their account and click Continue to continue the purchase with Stripe. Clicking continue will direct the user to a Stripe checkout session.
+
+<img src="">
+
+Within the Stripe checkout session, the user will need to confirm the amount of licenses they'd like, enter additional information that's requested from Stripe and press pay.
+
+<img src="">
+
+Provided the payment was successful, the user will be re-directed to a purchase confirmation page confirming that their license purchase was processed successfully. From here the user can navigate back to their library by clicking the view library button.
+
+<img src="">
+
 </details>
 
 <details>
@@ -335,32 +369,84 @@ From here they can click the expand button for each license purchase to find out
 
 </details>
 
-As an employer interested in the developer, I want to be able to:
-
 ### Folio Viewing
+
+As an employer interested in the developer, I want to be able to:
 
 <details>
 <summary>View a potential employee's folio</summary>
+
+This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below. The employer landing on this page, is them viewing a potential employee's folio which meets the user story requirement.
+
+<img src="">
+
 </details>
 
 <details>
 <summary>See what they're currently up to</summary>
+
+This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below.
+
+<img src="">
+
+From this page, the employer can click the profile link within the header section in order to be directed to the folio's profile page. From here they can see the folio author's current project information along with a link.
+
+<img src="">
+
 </details>
 
 <details>
 <summary>Investigate what projects they've already created</summary>
+
+This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below.
+
+<img src="">
+
+From this page, the employer will immediately see what projects the folio author has created in the past. They can also click the expand icon for each project to view the project in more detail.
+
+<img src="">
+
 </details>
 
 <details>
 <summary>Discern what their future aspirations are</summary>
+
+This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below.
+
+<img src="">
+
+From this page, the employer can click the profile link within the header section in order to be directed to the folio's profile page. From here they can see the folio author's future goal information.
+
+<img src="">
+
 </details>
 
 <details>
 <summary>Promptly know how I can contact them</summary>
+
+This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below.
+
+<img src="">
+
+From this page, the employer can click the contact link within the header section in order to be directed to the folio's contact page. From here they can see the folio author's contact information.
+
+<img src="">
+
 </details>
 
 <details>
 <summary>Message the author of the folio directly</summary>
+
+This user story assumes that a URL link has been sent to an employer, therefore the employer will land on the projects page for the folio that's linked to them which is shown below.
+
+<img src="">
+
+From this page, the employer can click the contact link within the header section in order to be directed to the folio's contact page. From here they can see a direct message form which allows them to directly message the folio author.
+
+<img src="">
+
+Provided that the employer fills in all the required fields, they can press the send message button and a message will be sent to the folio author. After clicking the send message button, a message will also be presented informing that the message has indeed been sent.
+
 </details>
 
 ## Bugs
