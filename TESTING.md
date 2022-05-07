@@ -631,6 +631,7 @@ This is regarding the links found within the footer of every page.
 
 ##### Log in Page
 
+- Log in is presented as the active tab within the navigation as expected.
 - Sign up link directs the user to the registration page as expected.
 - The forgot password directs the user to the forgot password page as expected.
 - The page does not have a help section as intended.
@@ -648,6 +649,7 @@ This is regarding the links found within the footer of every page.
 ##### Library Page
 
 - Help section opens and closes on click as intended.
+- Library is presented as the active page within the navigation.
 - Names and descriptions are clamped for symmetrical visuals as intended.
 - Publish link is displayed within a folio's additional menu if that folio is not published which is expected behaviour.
 - Conceal link is displayed within a folio's additional menu if that folio is published which is intended.
@@ -674,11 +676,70 @@ This is regarding the links found within the footer of every page.
     - Following defensive programming standards, when a user clicks Delete within a folio's additional menu, a modal is displayed to the user making sure that they want to proceed with deleting the folio.
     - Clicking DELETE deletes the folio, reloads the library page and informs the user of the deletion as intended.
 
+#### Suite App
+
+##### Select Folio Page
+
+- Page is skipped provided a latest cookie is stored within the user's browser which is the intended behaviour.
+- Suite is presented as the current app the user is located within in the navigation, which is the expected behaviour as this page is part of the Suite app.
+- If the current user is not the author of the latest folio stored within the browser, the user is re-direct to the select folio page with a message informing them that the browser has now forgotten the latest folio opened as they're not the author of the folio. This is the expected behaviour and is designed to protect a user's folio.
+- If the user has no folios within their library, they cannot access this page which is to be expected. They're re-directed to the library page which a message informing them to create a folio to access the suite.
+- The user's list of folios is presented within a select box as expected.
+- Clicking OPEN IN SUITE will open the suite with the folio selected within the select box on the page which is the expected behaviour.
+
+##### Projects Page
+
+- Suite is presented as the current app the user is located within in the navigation, which is the expected behaviour as this page is part of the Suite app.
+- Click functions for help section works as expected and contains information that's specific to the projects page within the suite app.
+- THe folio's name is presented within the header section of the app.
+- The folio's published state correctly reflects the folio's current published state.
+- Hovering over the folio's published state icon tells the user what it means, which is the expected behaviour and it provides a way communicate further information to the user in an interactive way.
+- The VIEW LIVE link re-directs the user to the showcase view of the folio and specifically directs the user to the projects page as it's the projects they were originally on. It also opens the folio within the showcase app in a new tab so the user can jump between editing and viewing their folio projects.
+
+- Create project
+    - The create project form is shown when CREATE PROJECT is clicked which is the expected behaviour.
+    - Project title, description and tech list are provided as required fields as expected. The user cannot create a folio without these fields being filled with content which is what's intended.
+    - Expected placeholders are displayed and the URL placeholders guide the user as to what URL's are expected when providing one within the form.
+    - Clicking CREATE PROJECT creates a project provided the required fields are given which is to be expected. The user is then re-directed to the projects page with their new project being presented and a message informing them that they've created a new project.
+
+- Update project
+    - The create project form is shown when Edit is clicked within a project's additional menu which is the expected behaviour.
+    - Project title, description and tech list are provided as required fields as expected. The user cannot update a folio without these fields being filled with content which is what's intended.
+    - If fields have not been auto-filled by data taken from the database, expected placeholders are displayed to the user.
+    - Providing that the required fields have been fulfilled, clicking SAVE CHANGES updates the currently viewed project with data supplied within the form, re-directs the user to the projects page and informs them that the changes have been made successfully.
+    - Checking clear data and clicking SAVE CHANGES within the update project form removes the image attached to the project which is what's intended. 
+    - Uploading an image whilst an image is already attached to the project, replaces the existing image with the new one provided. This is the expected behaviour and is immediately reflected after saving the changes and looking at the edit form afterwards.
+
+- Select projects
+    - Amount of projects selected is presented to the user and is dyanamic to the amount of projects checked on the page.
+    - If 4 projects are checked on the page, all other checkboxes are disabled and cannot be additionally selected. This is the expected behaviour and is utilised in order to limit the user to only 4 projects, as it meets the convnentional amount of projects you typically see in modern day portfolios.
+    - If a user unchecks a project from their folio, bringing their total selected projects from 4 to 3, all disabled checkboxes are now enabled again to allow the user to add a different project to their folio. This is the expected behaviour and the current implementation achieves it's intentions.
+    - Clicking SAVE CHANGES. takes the checked projects and adds them to the folio which is the expected behaviour.
+
+- Deleting projects
+    - Following defensive programming standards, clicking delete within a project's additional menu provides a model making sure that the user does want to proceed in deleting the project in question. The model also displays the project's name to the user, giving them extra security in making sure it's that particular project that they want to delete.
+    - Clicking DELETE PROJECT within a project's delete form, will delete that project from the database, re-direct the user to the projects page within the suite and provide a handy message to inform them that the deletion was successful.
+
+##### Skills Page
+
+##### Profile Page
+
+#### Showcase App
+
+##### Projects Page
+
+##### Skills Page
+
+##### Profile Page
+
+##### Contact Page
+
 #### License App
 
 ##### License Purchase Page
 
 - Help section opens and closes when clicked as intended. Links within the help section re-direct the user to their intended destinations as expected.
+- License is presented as the current app the user is located within in the navigation, which is the expected behaviour as this page is part of the License app.
 - The submit button can only be submitted if the number of licenses is 1 or more. If it's below 1, the submit button will be disabled as intended.
 - All fields except for the save billing details checkbox need to be filled before moving on to Stripe which is expected behaviour.
 - Grand total is dynamically updated depending on the value present within the number of licenses field, which is the expected behaviour.
@@ -738,10 +799,6 @@ This is regarding the links found within the footer of every page.
 - Help section opens and closes when clicked as intended.
 - Placeholders are presented when no saved data has been found within the user's account from the database.
 - A reload of the page and message is presented when updated successfully.
-
-
-
-
 
 ## Accessibility & Performance
 
