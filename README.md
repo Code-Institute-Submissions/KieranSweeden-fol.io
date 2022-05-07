@@ -467,6 +467,9 @@ The following links are to the sources of code written by others that's found wi
 - [Bootstrap tooltip code](https://getbootstrap.com/docs/5.0/components/tooltips/#example-enable-tooltips-everywhere)
     - The JavaScript found within the "Enable tooltips everywhere" section was used to enable tooltips throughout the entire application.
 
+- [Looping through errors within django form to display error messages](https://stackoverflow.com/a/24273898/15607265)
+    -  Partial amount of this code was copied and used within login page of the application.
+
 #### Inspiration
 
 The following are links to sources of programming information that I found tremendously useful during the development of fol.io. Code was not directly taken from these sources of information, they were simply helpful in guiding me towards my intended goals during the development process.

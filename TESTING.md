@@ -348,6 +348,30 @@ post = request.POST.copy()
 
 </details>
 
+#### No log in error messages
+
+Despite error messages automatically appearing on the registration page from allauth, it was not performing the same behaviour for the login page.
+
+<details>
+<summary>Read Fix</summary>
+
+After reading [this Stack Overflow answer](https://stackoverflow.com/a/24273898/15607265), it became apparent that it was a non-field error which meant that the errors were appearing elsewhere in the form object. It was simply a case of looping through the errors within each field for the form and presenting them in a design similar to what was being presented within the registration page.
+
+```html
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <p class="text-danger small"><strong>{{ error|escape }}</strong></p>
+        {% endfor %}
+    {% endfor %}
+        {% for error in form.non_field_errors %}
+            <p class="text-danger small"><strong>{{ error|escape }}</strong></p>
+        {% endfor %}
+{% endif %}
+```
+
+</details>
+
 ### Known
 
 The following are bugs that are still present within the current build of fol.io. Attempts to resolve these bugs will be made after the MVP release of the application.

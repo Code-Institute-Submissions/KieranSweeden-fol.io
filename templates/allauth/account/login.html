@@ -33,6 +33,7 @@
                     {{ form.password|as_crispy_field }}
                 </div>
                 <div class="col-12">
+                    {# partially copied from https://stackoverflow.com/a/24273898/15607265 and credited in README.md #}
                     {% if form.errors %}
                         {% for field in form %}
                             {% for error in field.errors %}
