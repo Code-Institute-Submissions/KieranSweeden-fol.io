@@ -19,25 +19,25 @@ As a self-taught and aspiring developer, I want to be able to:
 
 When the user arrives on the home page, the register button is immediately presented at the top of the page. Although a register button exists within the hamburger menu for mobile and tablet devices, having the register button on the main helps make the process only 1 click.
 
-<img src="readme/images/user-stories/user-stories-register-home-page.png">
+<img src="readme/images/user-stories/register-account/user-stories-register-home-page.png">
 
 After clicking the register button, the user is taken to the register page so they can make an account.
 
-<img src="readme/images/user-stories/user-stories-register-making-account.png">
+<img src="readme/images/user-stories/register-account/user-stories-register-making-account.png">
 
 After making a successful account attempt, they're informed that an email has been sent to the email they've provided and they will see it in their inbox for that email.
 
-<img src="readme/images/user-stories/user-stories-register-email-sent.png">
+<img src="readme/images/user-stories/register-account/user-stories-register-email-sent.png">
 
-<img src="readme/images/user-stories/user-stories-register-email-inbox.png">
+<img src="readme/images/user-stories/register-account/user-stories-register-email-inbox.png">
 
 After clicking the link within the inbox, they're re-directed to a page to confirm that the email address is indeed theirs.
 
-<img src="readme/images/user-stories/user-stories-register-email-confirm.png">
+<img src="readme/images/user-stories/register-account/user-stories-register-email-confirm.png">
 
 Once confirming that it is indeed the case, they're told the account is created via a message and re-directed to the log in screen.
 
-<img src="readme/images/user-stories/user-stories-register-login-page.png">
+<img src="readme/images/user-stories/register-account/user-stories-register-login-page.png">
 
 </details>
 
@@ -46,11 +46,11 @@ Once confirming that it is indeed the case, they're told the account is created 
 
 When the user arrives at the home page, a log in button is immediately present to them both within the navigation and header section of the page.
 
-<img src="readme/images/user-stories/user-stories-register-home-page.png">
+<img src="readme/images/user-stories/register-account/user-stories-register-home-page.png">
 
 When the user clicks the log in link, they're re-directed to the log in page where they can log in to the account they've registered.
 
-<img src="readme/images/user-stories/user-stories-login-completing-form.png">
+<img src="readme/images/user-stories/login/user-stories-login-completing-form.png">
 
 </details>
 
@@ -59,13 +59,13 @@ When the user clicks the log in link, they're re-directed to the log in page whe
 
 When signed in, the user is presented the library page. From here, the user can click the account link within the navigation above to navigate to more account oriented pages, in which the account details page is immediately presented to them.
 
-<img src="readme/images/user-stories/user-stories-change-account-library.png">
+<img src="readme/images/user-stories/change-account-details/user-stories-change-account-library.png">
 
-<img src="readme/images/user-stories/user-stories-change-account-details-page.png">
+<img src="readme/images/user-stories/change-account-details/user-stories-change-account-details-page.png">
 
 After making some changes to their account, they can then save the changes by clicking the save changes button on the page.
 
-<img src="readme/images/user-stories/user-stories-change-account-save-changes.png">
+<img src="readme/images/user-stories/change-account-details/user-stories-change-account-save-changes.png">
 
 </details>
 
@@ -74,27 +74,27 @@ After making some changes to their account, they can then save the changes by cl
 
 When signed in, the user is presented the library page. From here, the user can click the account link within the navigation above to navigate to more account oriented pages, in which the account details page is immediately presented to them, which is where the reset password button happens to be.
 
-<img src="readme/images/user-stories/user-stories-change-account-library.png">
+<img src="readme/images/user-stories/reset-password/user-stories-change-account-library.png">
 
-<img src="readme/images/user-stories/user-stories-reset-password-button.png">
+<img src="readme/images/user-stories/reset-password/user-stories-reset-password-button.png">
 
 After clicking this button, the user is presented the reset password page where they're able to enter their email to confirm that they want to reset their password.
 
-<img src="readme/images/user-stories/user-stories-reset-password-email-confirm.png">
+<img src="readme/images/user-stories/reset-password/user-stories-reset-password-email-confirm.png">
 
 After confirming with their email, the user is presented this confirmation page which tells that that they should expect a reset password email in their inbox soon.
 
-<img src="readme/images/user-stories/user-stories-reset-password-email-sent.png">
+<img src="readme/images/user-stories/reset-password/user-stories-reset-password-email-sent.png">
 
-<img src="readme/images/user-stories/user-stories-reset-password-email-content.png">
+<img src="readme/images/user-stories/reset-password/user-stories-reset-password-email-content.png">
 
 After clicking the link within the email, they're directed to this page where they get to create their new password for their account.
 
-<img src="readme/images/user-stories/user-stories-reset-password-create-new.png">
+<img src="readme/images/user-stories/reset-password/user-stories-reset-password-create-new.png">
 
 After successfully created a new password, they're re-direct to a success page providing them links to either view the home page or log in.
 
-<img src="readme/images/user-stories/user-stories-reset-password-completed.png">
+<img src="readme/images/user-stories/reset-password/user-stories-reset-password-completed.png">
 
 </details>
 
@@ -103,7 +103,7 @@ After successfully created a new password, they're re-direct to a success page p
 
 When signed in, the user is presented the library page. From here, the user can immediately see the amount of licenses their account has.
 
-<img src="readme/images/user-stories/user-stories-license-amount.png">
+<img src="readme/images/user-stories/amount-of-licenses/user-stories-license-amount.png">
 
 </details>
 
@@ -112,19 +112,19 @@ When signed in, the user is presented the library page. From here, the user can 
 
 When signed in, the user is presented the library page. From here, the user can click the license store link in the navigation, which directs the user to license purchase oriented pages.
 
-<img src="readme/images/user-stories/user-stories-license-purchase-store.png">
+<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-purchase-store.png">
 
 After clicking on the link they land on the license purchase page. From here they can click the order history link that directs them to the order history page that contains all of their previous license purchases.
 
-<img src="readme/images/user-stories/user-stories-license-purchase-order-history-btn.png">
+<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-purchase-order-history-btn.png">
 
-<img src="readme/images/user-stories/user-stories-license-order-history-page.png">
+<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-order-history-page.png">
 
 From here they can click the expand button for each license purchase to find out more information surrounding it.
 
-<img src="readme/images/user-stories/user-stories-license-purchase-expand-btn.png">
+<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-purchase-expand-btn.png">
 
-<img src="readme/images/user-stories/user-stories-license-order-history-modal.png">
+<img src="readme/images/user-stories/previous-license-purchase/user-stories-license-order-history-modal.png">
 
 </details>
 
