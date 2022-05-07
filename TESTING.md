@@ -98,8 +98,15 @@ After successfully created a new password, they're re-direct to a success page p
 
 </details>
 
-- .
-- See the amount of folio licences I have.
+<details>
+<summary>See the amount of folio licences I have</summary>
+
+When signed in, the user is presented the library page. From here, the user can immediately see the amount of licenses their account has.
+
+<img src="readme/images/user-stories/user-stories-license-amount.png">
+
+</details>
+
 - Find information regarding previous license purchases I've made.
 
 ### Folio Management
