@@ -147,7 +147,26 @@ After filling in all fields, the user can confirm the creation of the folio and 
 
 </details>
 
-- Edit an existing folio within my library.
+<details>
+<summary>Edit an existing folio within my library</summary>
+
+When signed in, the user is presented the library page. From here, the user can click the additional menu of any folio they choose and click Edit Details.
+
+<img src="readme/images/user-stories/update-folio/user-stories-update-folio-additional-menu.png">
+
+After they click edit details, they're shown the update folio modal which has the folio's existing data pre-filled within.
+
+<img src="readme/images/user-stories/update-folio/user-stories-update-folio-existing-modal.png">
+
+From here, the user can make the changes they'd like and click save changes, in which they'll then be re-direct to the library where they can see their changes to the folio reflected and be given a confirmation of changes message.
+
+<img src="readme/images/user-stories/update-folio/user-stories-update-folio-changes-modal.png">
+
+<img src="readme/images/user-stories/update-folio/user-stories-update-folio-complete.png">
+
+</details>
+
+
 - Toggle as to whether I want a folio to be viewable or not to the outside world.
 - View the folio in it's live state despite being published or not.
 - Delete a folio from my library.
