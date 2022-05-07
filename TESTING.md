@@ -12,7 +12,7 @@ To navigate back to the README file, [click here](README.md).
 
 As a self-taught and aspiring developer, I want to be able to:
 
-**Account Management**
+### Account Management
 
 <details>
 <summary>Register an account</summary>
@@ -57,11 +57,9 @@ When the user clicks the log in link, they're re-directed to the log in page whe
 <details>
 <summary>Change my account details</summary>
 
-When signed in, the user is presented the library page.
+When signed in, the user is presented the library page. From here, the user can click the account link within the navigation above to navigate to more account oriented pages, in which the account details page is immediately presented to them.
 
 <img src="readme/images/user-stories/user-stories-change-account-library.png">
-
-From here, the user can click the account link within the navigation above to navigate to more account oriented pages, in which the account details page is immediately presented to them.
 
 <img src="readme/images/user-stories/user-stories-change-account-details-page.png">
 
@@ -71,12 +69,40 @@ After making some changes to their account, they can then save the changes by cl
 
 </details>
 
+<details>
+<summary>Reset the password of my account</summary>
 
-- Reset the password of my account.
+When signed in, the user is presented the library page. From here, the user can click the account link within the navigation above to navigate to more account oriented pages, in which the account details page is immediately presented to them, which is where the reset password button happens to be.
+
+<img src="readme/images/user-stories/user-stories-change-account-library.png">
+
+<img src="readme/images/user-stories/user-stories-reset-password-button.png">
+
+After clicking this button, the user is presented the reset password page where they're able to enter their email to confirm that they want to reset their password.
+
+<img src="readme/images/user-stories/user-stories-reset-password-email-confirm.png">
+
+After confirming with their email, the user is presented this confirmation page which tells that that they should expect a reset password email in their inbox soon.
+
+<img src="readme/images/user-stories/user-stories-reset-password-email-sent.png">
+
+<img src="readme/images/user-stories/user-stories-reset-password-email-content.png">
+
+After clicking the link within the email, they're directed to this page where they get to create their new password for their account.
+
+<img src="readme/images/user-stories/user-stories-reset-password-create-new.png">
+
+After successfully created a new password, they're re-direct to a success page providing them links to either view the home page or log in.
+
+<img src="readme/images/user-stories/user-stories-reset-password-completed.png">
+
+</details>
+
+- .
 - See the amount of folio licences I have.
 - Find information regarding previous license purchases I've made.
 
-**Folio Management**
+### Folio Management
 
 - Create a brand new folio.
 - Edit an existing folio within my library.
@@ -84,14 +110,14 @@ After making some changes to their account, they can then save the changes by cl
 - View the folio in it's live state despite being published or not.
 - Delete a folio from my library.
 
-**Snippet Management**
+### Snippet Management
 
 - Create snippets (that represent common portfolio sections) that can be re-used throughout my libary of folios.
 - Select which snippets make it to each respective folio.
 - Modify & update the content of a snippet within my collection.
 - Delete a snippet from my collection.
 
-**Billing**
+### Billing
 
 - Insert my billing details and have them be saved to my account.
 - Select & change the amount of folio licences I'd like to purchase.
@@ -99,7 +125,7 @@ After making some changes to their account, they can then save the changes by cl
 
 As an employer interested in the developer, I want to be able to:
 
-**Folio Viewing**
+### Folio Viewing
 
 - View a potential employee's folio.
 - See what they're currently up to.
