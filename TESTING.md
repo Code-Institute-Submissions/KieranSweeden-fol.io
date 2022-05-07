@@ -74,7 +74,7 @@ After making some changes to their account, they can then save the changes by cl
 
 When signed in, the user is presented the library page. From here, the user can click the account link within the navigation above to navigate to more account oriented pages, in which the account details page is immediately presented to them, which is where the reset password button happens to be.
 
-<img src="readme/images/user-stories/reset-password/user-stories-change-account-library.png">
+<img src="readme/images/user-stories/change-account-details/user-stories-change-account-library.png">
 
 <img src="readme/images/user-stories/reset-password/user-stories-reset-password-button.png">
 
