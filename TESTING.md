@@ -39,15 +39,21 @@ Once confirming that it is indeed the case, they're told the account is created 
 
 <img src="readme/images/user-stories/user-stories-register-login-page.png">
 
+</details>
 
+<details>
+<summary>Log in to the account I've registered</summary>
 
+When the user arrives at the home page, a log in button is immediately present to them both within the navigation and header section of the page.
 
+<img src="readme/images/user-stories/user-stories-register-home-page.png">
+
+When the user clicks the log in link, they're re-directed to the log in page where they can log in to the account they've registered.
+
+<img src="readme/images/user-stories/user-stories-login-completing-form.png">
 
 </details>
 
-
-
-- Log in to the account I've registered.
 - Change my account details.
 - Reset the password of my account.
 - See the amount of folio licences I have.
