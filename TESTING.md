@@ -183,12 +183,27 @@ Irrespective of the amount of folios the user has, if they click Conceal for a p
 - After
     <img src="readme/images/user-stories/toggle-folio-published-state/user-stories-after-publish.png">
 
+Notice also that the eye is change to the application's feature orange colour and that the toggle published state is also communicated to the user via the amount of licenses used above and a message that appears.
 
- Notice also that the eye is change to the application's feature orange colour and that the toggle published state is also communicated to the user via the amount of licenses used above and a message that appears.
- 
 </details>
 
-- View the folio in it's live state despite being published or not.
+<details>
+<summary>View the folio in it's live state despite being published or not</summary>
+
+When signed in, the user is presented the library page. From here, the user can select the folio they'd like to open by clicking the folio's additional menu and selecting "open in suite", which will direct the user to the edit projects in folio suite page.
+
+<img src="readme/images/user-stories/view-live/user-stories-view-live-library-menu.png">
+
+<img src="readme/images/user-stories/view-live/user-stories-view-live-projects-page.png">
+
+Once arriving at the edit projects in suite page, the user can click the view live button to view their folio in a live state regardless of it being published or not.
+
+<img src="readme/images/user-stories/view-live/user-stories-view-live-btn.png">
+
+<img src="readme/images/user-stories/view-live/user-stories-view-live-showcase.png">
+
+</details>
+
 - Delete a folio from my library.
 
 ### Snippet Management
