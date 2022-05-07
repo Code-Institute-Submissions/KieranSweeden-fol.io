@@ -149,7 +149,7 @@ def view_folio_contact(request, folio_id=None):
     message_form = SendAuthorMessageForm()
 
     context = {
-        "user": author_user_account,
+        "author_user": author_user_account,
         "folio": folio,
         "author": author,
         "form": message_form

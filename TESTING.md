@@ -821,11 +821,23 @@ This is regarding the links found within the footer of every page.
 
 ##### Projects Page
 
+- Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
+- Navigation presents log in and REGISTER links when signed in which is expected.
+
 ##### Skills Page
+
+- Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
+- Navigation presents log in and REGISTER links when signed in which is expected.
 
 ##### Profile Page
 
+- Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
+- Navigation presents log in and REGISTER links when signed in which is expected.
+
 ##### Contact Page
+
+- Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
+- Navigation did not initially preent the log in and REGISTER links, as it initially displayed the return to suite and REGISTER links which was not intended.
 
 #### License App
 

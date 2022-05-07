@@ -10,7 +10,7 @@
 {% block extra_title %}Contact Me{% endblock %}
 
 {% block main_nav %}
-    {% include 'includes/main-navs/showcase-main-nav.html' with active_nav_link='contact' %}
+    {% include 'includes/main-navs/showcase-main-nav.html' with active_nav_link='' %}
 {% endblock %}
 
 {% block header_content %}
@@ -19,12 +19,8 @@
 
 {% block header_title %}Get In Touch{% endblock %}
 
-{% block additional_header_content %}
-
-{% endblock %}
-
 {% block content %}
-<form action="{% url 'message_author' folio_id=folio.id author_email=user.email %}" method="POST">
+<form action="{% url 'message_author' folio_id=folio.id author_email=author_user.email %}" method="POST">
     {% csrf_token %}
     <div class="row">
         <h3 class="h5">Message Me</h3>
@@ -58,7 +54,7 @@
         </div>
         <div class="col-12 col-sm-6 col-xl-3">
             <label>Email Address</label>
-            <p class="text-feature-color"><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+            <p class="text-feature-color"><a href="mailto:{{ author_user.email }}">{{ author_user.email }}</a></p>
         </div>
         <div class="col-12 col-sm-6 col-xl-3">
             <label>GitHub Profile</label>
