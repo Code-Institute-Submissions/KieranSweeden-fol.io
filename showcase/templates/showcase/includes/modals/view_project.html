@@ -38,7 +38,9 @@
                 {% if project.live_link %}
                     <p><a href="{{ project.live_link }}" class="btn-tertiary title-clamp" target="_blank" rel="noopener noreferrer">{{ project.live_link }}</a></p>
                 {% else %}
-                    <p class="text-danger">No Link.</p>
+                    <a href="{% url 'edit_folio_projects' folio_id=folio.id %}">
+                        Add<span class="material-icons-sharp align-middle">warning_amber</span>
+                    </a>
                 {% endif %}
             </div>
             <div class="col-12">
@@ -50,7 +52,9 @@
                 {% if project.github_link %}
                     <p class="mb-0"><a href="{{ project.github_link }}" class="btn-tertiary title-clamp" target="_blank" rel="noopener noreferrer">{{ project.github_link }}</a></p>
                 {% else %}
-                    <p class="mb-0 text-danger">No Link.</p>
+                    <a href="{% url 'edit_folio_projects' folio_id=folio.id %}">
+                        Add<span class="material-icons-sharp align-middle">warning_amber</span>
+                    </a>
                 {% endif %}
             </div>
         </div>

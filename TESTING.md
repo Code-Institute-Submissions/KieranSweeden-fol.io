@@ -833,12 +833,19 @@ This is regarding the links found within the footer of every page.
     - Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
     - If the author of the folio is looking at this page, the link within the no projects attached message re-directs the user to the edit projects page within the suite app which is expected.
     - If the person logged in is not the author of the folio but is authenticated with a different account, the link within the no projects attached message re-directs the user to the select folio screen and informs them via a message that they cannot interact with folios that are not their own.
+    - If the user logged in is not the author of the folio and clicks either one of the add links that appear when a link has not been provided for a project, it directs them to the select folio page and informs them that they cannot interact with folios that are not their own.
 
 - Not authenticated
     - Navigation presents log in and REGISTER links when not signed in which is expected.
     - If an un-registered user clicks the link within the "no projects" message, they are re-directed to the log-in screen.
 
+- Projects is displayed as the active tab within the showcase view as intended.
 - If there are no projects attached, a message is presented to the user encouraging them to attach projects to the folio currently being viewed.
+- Displayed data for projects are clamped for visual concistency on page.
+- Icon button in project card header opens the project to view it in more detail via a model. This is where users can read more about a project meaning the clamp functionality is disabled, which works as intended.
+- Provided links have been given for the projects, they direct the user to the intended destination within a new tab as expected and visually indicated.
+- Provided the user follows the guidelines in uploading images that have an aspect ratio of 16:9, they load and are presented exactly as intended.
+- Projects are presented in two columns on desktops and one for mobile as intended.
 
 ##### Skills Page
 
@@ -851,16 +858,26 @@ This is regarding the links found within the footer of every page.
     - Navigation presents log in and REGISTER links when not signed in which is expected.
     - If an un-registered user clicks either one of the links within the "no skills" messages, they are re-directed to the log-in screen.
 
+- Skills is displayed as the active tab within the showcase view as intended.
+- If there are no skills attached for either skill type within the folio, a message is presented for each skill type respectively to the user encouraging them to attach skills to the folio currently being viewed.
+- When skills are attached to the folio, they are presented simply as a header title and paragraph body which is segregated from other skills with the horizontal line as expected.
+- Two columns on desktop screens slowly transition to a single column for mobile screens as expected.
+
 ##### Profile Page
 
 - Authenticated
     - Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
-    - If the user logged in is not the author of the currently published and viewed folio, clicking the link that appears in the "no projects are attached to this folio" message directs the user to the select folio page and informs them via a message that they cannot interact with folios that are not their own.
+    - If the user logged in is not the author of the currently published and viewed folio, clicking the link that appears in the "no projects are attached to this folio" message directs the user to the select folio page and informs them via a message that they cannot interact with folios that are not their own. This is also the case for the "add one here" links that appear when current project & future goal data has not been inserted within the folio profile.
+    - If the user logged in is the author of the folio & logged in, the "add on here" links direct them to edit folio profile page within the suite as expected.
 
 - Not authenticated
     - Navigation presents log in and REGISTER links when not signed in which is expected.
     - If an un-registered user clicks the link within the "no projects" message, they are re-directed to the log-in screen.
     - If an un-registered user clicks any of the "add one here" links for information that's not given within the folio, they're re-directed to the log in page.
+
+- Profile is displayed as the active tab within the showcase view as intended.
+- If there are no profile snippets attached to the folio, a message is presented to the user encouraging them to attach profiles to the folio currently being viewed.
+- Provided a link has been provided, the current project link re-directs the user to the intended destination which is the expected behaviour.
 
 ##### Contact Page
 
@@ -871,6 +888,13 @@ This is regarding the links found within the footer of every page.
 - Not authenticated
     - Navigation did not initially present the log in and REGISTER links, as it initially displayed the return to suite and REGISTER links which was not intended. The problem was quickly understood and resolved and now the navigation presents the log in and REGISTER links when not signed in which is the expected behaviour.
     - If an un-registered user clicks any of the "Add" links for information that's not given within the contact page of the folio, they're re-directed to the log in page.
+
+- Provided a phone number has been provided within the user's account, clicking it initiates a call attempt depending on what device the user is currently on. This is the intended behaviour.
+- Clicking the email address link re-directs their device email service and sets up a new email using the folio author's email as the email recipient.
+- Provided link's have been inserted into the user's account within the correct format, the github and linkedin links direct the user to their respective destinations within a new tab which is the expected behaviour.
+- Fields within the message form are all required before the user can submit a message as intended.
+- The contact the author messaging system works, where an email is sent to the folio author's email address and looks as expected.
+- When the user sends a message to the folio author, the page is refreshed and they're provided a message informing them that their message has been sent to the author of the folio.
 
 #### License App
 
