@@ -54,7 +54,24 @@ When the user clicks the log in link, they're re-directed to the log in page whe
 
 </details>
 
-- Change my account details.
+<details>
+<summary>Change my account details</summary>
+
+When signed in, the user is presented the library page.
+
+<img src="readme/images/user-stories/user-stories-change-account-library.png">
+
+From here, the user can click the account link within the navigation above to navigate to more account oriented pages, in which the account details page is immediately presented to them.
+
+<img src="readme/images/user-stories/user-stories-change-account-details-page.png">
+
+After making some changes to their account, they can then save the changes by clicking the save changes button on the page.
+
+<img src="readme/images/user-stories/user-stories-change-account-save-changes.png">
+
+</details>
+
+
 - Reset the password of my account.
 - See the amount of folio licences I have.
 - Find information regarding previous license purchases I've made.
