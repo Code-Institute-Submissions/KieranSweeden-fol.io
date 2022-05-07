@@ -682,6 +682,8 @@ This is regarding the links found within the footer of every page.
 - The submit button can only be submitted if the number of licenses is 1 or more. If it's below 1, the submit button will be disabled as intended.
 - All fields except for the save billing details checkbox need to be filled before moving on to Stripe which is expected behaviour.
 - Grand total is dynamically updated depending on the value present within the number of licenses field, which is the expected behaviour.
+- Submit button directs the user to the Stripe checkout screen with the correct amount of licenses and auto-fills their e-mail address within the checkout form as expected.
+- After cancelling or clicking the back button within the Stripe checkout session, the user is re-directed to the license purchase page with a message informing them that the recent attempt at a license purchase was unsuccessful.
 
 - Save billing details checkbox
     - Clicking the checkbox saves the users billing details as the user's default which is the expected behaviour.
@@ -699,6 +701,15 @@ This is regarding the links found within the footer of every page.
 - When no license purchases have been made, a message to user is presented to user encouraging them to purchase a license which is the expected behaviour. The link within this message that re-directs the user to the license purchase page works as expected.
 - Provided that the user has license purchases, clicking the expand icon for each license purchase gives the user a more detailed view of the license purchase within a model, which is the intended behaviour.
 - List of license purchases is scrollable once the amount of license purchases get too large for the screen which is the intended behaviour.
+- List of license purchases are sorted by the date in which they were created which is the intended behaviour.
+
+##### License Purchase Successful Page
+
+- License purchase takes on the amount of licenses selected within the Stripe checkout session. So if the user decides at the last minute to increase/decrease the amount of licenses they'd like within the Stripe session, the license purchase will take on that recently set amount of licenses rather than the initial amount given within the purchase license form.
+- A confirmation email is sent to the user's email address. A message is also provided to the user informing them of this email being sent to them with their email being highlighted as expected.
+- An order number UUID is generated and displayed to the user within this page.
+- Billing and license purchase details are all presented to the user in a clear and concise way with sub-headings as intended.
+- Link to re-direct the user to their library works as intended.
 
 ## Accessibility & Performance
 
