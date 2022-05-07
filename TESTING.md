@@ -130,7 +130,23 @@ From here they can click the expand button for each license purchase to find out
 
 ### Folio Management
 
-- Create a brand new folio.
+<details>
+<summary>Create a brand new folio</summary>
+
+When signed in, the user is presented the library page. From here, the user can click the new folio to create a new folio. Clicking this will open a create new folio modal.
+
+<img src="readme/images/user-stories/create-new-folio/user-story-create-folio-library-btn.png">
+
+<img src="readme/images/user-stories/create-new-folio/user-story-create-folio-modal.png">
+
+After filling in all fields, the user can confirm the creation of the folio and see it immediately present within their library along with a confirmation message.
+
+<img src="readme/images/user-stories/create-new-folio/user-story-create-folio-modal-complete.png">
+
+<img src="readme/images/user-stories/create-new-folio/user-story-create-folio-done.png">
+
+</details>
+
 - Edit an existing folio within my library.
 - Toggle as to whether I want a folio to be viewable or not to the outside world.
 - View the folio in it's live state despite being published or not.
