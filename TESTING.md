@@ -251,7 +251,7 @@ After clicking the save changes button, the selection of skills attached to the 
 <details>
 <summary>Modify & update the content of a snippet within my collection</summary>
 
-> For the sake of not repeated myself & being concise, I'll only present this user story with profiles as the snippets. All other snippets within the Suite app follow the same process for user familiarity.
+> For the sake of not repeated myself & being concise, I'll only present this user story with a profile as the snippet. All other snippets within the Suite app follow the same process for user familiarity.
 
 When signed in, the user is presented the library page. From here, the user can select a folio to open in the suite using the additional menu. They'll then be directed to the the edit folio projects page within the Suite app.
 
@@ -277,6 +277,31 @@ When the user is happy with the changes they've made to their profile, they can 
 
 <details>
 <summary>Delete a snippet from my collection</summary>
+
+> For the sake of not repeated myself & being concise, I'll only present this user story with a skill as the snippet. All other snippets within the Suite app follow the same process for user familiarity.
+
+When signed in, the user is presented the library page. From here, the user can select a folio to open in the suite using the additional menu. They'll then be directed to the the edit folio projects page within the Suite app.
+
+<img src="readme/images/user-stories/select-snippets/user-stories-select-snippets-library.png">
+
+<img src="readme/images/user-stories/select-snippets/user-stories-select-snippets-suite-projects.png">
+
+Given that the user is dealing specifically with skills in this user story, the user can navigate to this page by clicking the skills tab in the header section of the page.
+
+<img src="readme/images/user-stories/select-snippets/user-stories-select-snippets-suite-skills-btn.png">
+
+When landing on the skills page within the suite app, the user can select a skill they'd like to delete by clicking it's additional menu and clicking the "delete" option.
+
+<img src="readme/images/user-stories/delete-snippet/user-stories-delete-snippet-additional-menu.png">
+
+This presents a warning modal to the user, ensuring that this snippet is the one that they want to delete.
+
+<img src="readme/images/user-stories/delete-snippet/user-stories-delete-snippet-modal.png">
+
+Provided they're happy with the deletion going through, they can click the Delete Skill button and see that the skill is no longer present within their list of skills. Alongside this, a message is presented to the user informing them that the skill has been deleted.
+
+<img src="readme/images/user-stories/delete-snippet/user-stories-delete-snippet-complete.png">
+
 </details>
 
 ### Billing
