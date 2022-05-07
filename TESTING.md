@@ -204,7 +204,22 @@ Once arriving at the edit projects in suite page, the user can click the view li
 
 </details>
 
-- Delete a folio from my library.
+<details>
+<summary>Delete a folio from my library</summary>
+
+When signed in, the user is presented the library page. From here, the user can select the folio they'd like to delete, click the folio's additional menu and click the delete option within the menu.
+
+<img src="readme/images/user-stories/delete-folio/user-stories-delete-folio-library-before.png">
+
+This opens a modal to the user, which acts as warning in making sure that the user does indeed want to delete this particular folio.
+
+<img src="readme/images/user-stories/delete-folio/user-stories-delete-folio-modal.png">
+
+If the user is confident that it's the folio they'd like to to delete, they can click the delete folio button and see their changes reflected on the library page along with a message informing them that the deletion was successful.
+
+<img src="readme/images/user-stories/delete-folio/user-stories-delete-folio-library-after.png">
+
+</details>
 
 ### Snippet Management
 
