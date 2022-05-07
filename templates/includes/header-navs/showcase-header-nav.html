@@ -35,7 +35,9 @@
                 {% if author.profile_picture %}
                     <img src="{{ author.profile_picture.url }}" alt="The author's profile picture" class="rounded-circle" width="100">
                 {% else %}
-                    <img src="{% static 'images/no-profile-picture.png' %}" alt="A placeholder folio user image" class="rounded-circle" width="100">
+                    <a href="{% url 'account_details' %}/#id_profile_picture" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to upload your own profile picture.">
+                        <img src="{% static 'images/no-profile-picture.png' %}" alt="A placeholder folio user image" class="rounded-circle" width="100">
+                    </a>
                 {% endif %}
             </div>
             <div class="col-6 d-flex justify-content-start align-items-center">
