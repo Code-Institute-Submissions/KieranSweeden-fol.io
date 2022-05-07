@@ -46,7 +46,7 @@
                 {% if author.phone_number %}
                     <a href="tel:{{ author.phone_number }}">{{ author.phone_number }}</a>
                 {% else %}
-                    <a href="{% url 'account_details' %}/#id_phone_number" target="_blank" rel="noopener noreferrer">
+                    <a href="{% url 'account_details' %}#id_phone_number" target="_blank" rel="noopener noreferrer">
                         Add<span class="material-icons-sharp align-middle">warning_amber</span>
                     </a>
                 {% endif %}
@@ -62,7 +62,7 @@
                 {% if author.github_profile %}
                     <a class="title-clamp" href="{{ author.github_profile }}" target="_blank" rel="noopener noreferrer">{{ author.github_profile }}</a>
                 {% else %}
-                    <a href="{% url 'account_details' %}/#id_github_profile" target="_blank" rel="noopener noreferrer">
+                    <a href="{% url 'account_details' %}#id_github_profile" target="_blank" rel="noopener noreferrer">
                         Add<span class="material-icons-sharp align-middle">warning_amber</span>
                     </a>
                 {% endif %}
@@ -74,7 +74,7 @@
                 {% if author.linkedin_profile %}
                     <a class="title-clamp" href="{{ author.linkedin_profile }}" target="_blank" rel="noopener noreferrer">{{ author.linkedin_profile }}</a>
                 {% else %}
-                    <a href="{% url 'account_details' %}/#id_linkedin_profile" target="_blank" rel="noopener noreferrer">
+                    <a href="{% url 'account_details' %}#id_linkedin_profile" target="_blank" rel="noopener noreferrer">
                         Add<span class="material-icons-sharp align-middle">warning_amber</span>
                     </a>
                 {% endif %}

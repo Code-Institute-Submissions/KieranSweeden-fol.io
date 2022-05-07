@@ -824,7 +824,7 @@ This is regarding the links found within the footer of every page.
 - Authenticated
     - Navigation presents return to suite and LOG OUT links when signed in which is the expected behaviour.
     - If the author of the folio is looking at this page, the link within the no projects attached message re-directs the user to the edit projects page within the suite app which is expected.
-    - If the person logged in is not the author of the folio but is authenticated with a different account, 
+    - If the person logged in is not the author of the folio but is authenticated with a different account, the user is re-directed to the select folio screen and informed via a message that they cannot interact with folios that are not their own.
 
 - Not authenticated
     - Navigation presents log in and REGISTER links when signed in which is expected.

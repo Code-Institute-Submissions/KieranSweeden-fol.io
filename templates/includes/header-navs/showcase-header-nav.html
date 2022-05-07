@@ -35,7 +35,7 @@
                 {% if author.profile_picture %}
                     <img src="{{ author.profile_picture.url }}" alt="The author's profile picture" class="rounded-circle" width="100">
                 {% else %}
-                    <a href="{% url 'account_details' %}/#id_profile_picture" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to upload your own profile picture.">
+                    <a href="{% url 'account_details' %}#id_profile_picture" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to upload your own profile picture.">
                         <img src="{% static 'images/no-profile-picture.png' %}" alt="A placeholder folio user image" class="rounded-circle" width="100">
                     </a>
                 {% endif %}
@@ -44,7 +44,7 @@
                 {% if author.first_name and author.last_name %}
                     <h3 class="h4 mb-0">{{ author.get_full_name }}</h3>
                 {% else %}
-                    <a href="{% url 'account_details' %}/#id_first_name" class="h4" target="_blank">
+                    <a href="{% url 'account_details' %}#id_first_name" class="h4" target="_blank">
                         Insert Your Name<span class="material-icons-sharp align-middle">warning_amber</span>
                     </a>
                 {% endif %}
