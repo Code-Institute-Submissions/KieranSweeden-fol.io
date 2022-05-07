@@ -632,6 +632,7 @@ This is regarding the links found within the footer of every page.
 ##### Log in Page
 
 - Log in is presented as the active tab within the navigation as expected.
+- Log in is presented as the currently viewed tab within the header as intended.
 - Sign up link directs the user to the registration page as expected.
 - The forgot password directs the user to the forgot password page as expected.
 - The page does not have a help section as intended.
@@ -640,6 +641,7 @@ This is regarding the links found within the footer of every page.
 ##### Register Page
 
 - Sign in link directs the user to the sign in page as expected.
+- Register is presented as the currently viewed tab within the header as intended.
 - Email validator checks for correct email format as expected.
 - Email validation that a user doesn't already exist with the given email.
 - Username validation that a user doesn't already exist with the provided username.
@@ -690,11 +692,13 @@ This is regarding the links found within the footer of every page.
 ##### Projects Page
 
 - Suite is presented as the current app the user is located within in the navigation, which is the expected behaviour as this page is part of the Suite app.
+- Projects is presented as the currently viewed tab within the suite app as intended.
 - Click functions for help section works as expected and contains information that's specific to the projects page within the suite app.
 - The folio's name is presented within the header section of the app.
 - The folio's published state correctly reflects the folio's current published state.
 - Hovering over the folio's published state icon tells the user what it means, which is the expected behaviour and it provides a way communicate further information to the user in an interactive way.
 - The VIEW LIVE link re-directs the user to the showcase view of the folio and specifically directs the user to the projects page as it's the projects they were originally on. It also opens the folio within the showcase app in a new tab so the user can jump between editing and viewing their folio projects.
+- List of projects becomes a scrollable container when the amount of projects exceed the height of the container which is the expected behaviour.
 
 - Create project
     - The create project form is shown when CREATE PROJECT is clicked which is the expected behaviour.
@@ -723,11 +727,13 @@ This is regarding the links found within the footer of every page.
 ##### Skills Page
 
 - Suite is presented as the current app the user is located within in the navigation, which is the expected behaviour as the skills page is part of the Suite app.
+- Skills is presented as the currently viewed tab within the suite app as intended.
 - Click functions for help section works as expected and contains information that's specific to the skills page within the suite app.
 - The folio's name is presented within the header section of the app.
 - The folio's published state correctly reflects the folio's current published state.
 - Hovering over the folio's published state icon tells the user what it means, which is the expected behaviour and it provides a way communicate further information to the user in an interactive way.
 - The VIEW LIVE link re-directs the user to the showcase view of the folio and specifically directs the user to the skills page as it's the skills page that they were originally on in the Suite app. It also opens the folio within the showcase app in a new tab so the user can jump between editing and viewing their folio skills.
+- List of skills becomes a scrollable container when the amount of skills exceed the height of the container which is the expected behaviour.
 
 - Create skill
     - The create skill form is shown when CREATE skill is clicked which is what's intended.
@@ -739,7 +745,6 @@ This is regarding the links found within the footer of every page.
 - Update skill
     - The create skill form is shown when Edit is clicked within a skill's additional menu which is the expected behaviour.
     - skill title, description and tech list are provided as required fields as expected. The user cannot update a skill without these fields being filled with content which is what's intended.
-    - If fields have not been auto-filled by data taken from the database, expected placeholders are displayed to the user.
     - Providing that the required fields have been fulfilled, clicking SAVE CHANGES updates the currently viewed skill with data supplied within the form, this includes the ablity to change a skill's type from soft to tech. The user is then re-directed back to the skills page within the Suite app, where the skills can be seen within it's correct skill type section and a message is provided informing the user of the update being successful.
 
 - Selecting skills
@@ -752,6 +757,41 @@ This is regarding the links found within the footer of every page.
     - Clicking DELETE skill within a skill's delete form, will delete that skill from the database, re-direct the user to the skills page within the suite and provide a handy message to inform them that the deletion was successful.
 
 ##### Profile Page
+
+- Suite is presented as the current app the user is located within in the navigation, which is the expected behaviour as the profile page is part of the Suite app.
+- Profile is presented as the currently viewed tab within the suite app as intended.
+- Click functions for help section works as expected and contains information that's specific to the skills page within the suite app.
+- The folio's name is presented within the header section of the app.
+- The folio's published state correctly reflects the folio's current published state.
+- Hovering over the folio's published state icon tells the user what it means, which is the expected behaviour and it provides a way communicate further information to the user in an interactive way.
+- The VIEW LIVE link re-directs the user to the showcase view of the folio and specifically directs the user to the profile page as it's the profile page that they were originally on in the Suite app. It also opens the folio within the showcase app in a new tab so the user can jump between editing and viewing their folio profile.
+- List of profiles becomes a scrollable container when the amount of folio's exceed the height of the container which is the expected behaviour.
+
+- Create profile
+    - The create profile form is shown when CREATE profile is clicked which is what's intended.
+    - All fields being the profile title and description are provided as required fields as expected. The user cannot create a profile without these fields being filled with content which is what's intended.
+    - Expected placeholders to help guide the user are displayed to the user.
+    - Clicking CREATE profile creates a new profile and the option selected within the select box dictates as to what profile it is. The user is then re-directed to the profiles page with their new profile being presented within it's correct profile type list and a message appears, informing them that they've created a new profile.
+
+- Update profile
+    - The create profile form is shown when Edit is clicked within a profile's additional menu which is the expected behaviour.
+    - Profile title & description are provided as required fields as expected. The user cannot update a profile without these fields being filled with content which is what's intended.
+    - Providing that the required fields have been fulfilled, clicking SAVE CHANGES updates the currently viewed profile with data supplied within the form. When update is complete, the user is then re-directed back to the profiles page within the Suite app and a message is provided informing the user that the update has being successful.
+
+- Selecting profiles
+    - Amount of profiles selected is presented to the user and is dyanamic to the amount of profiles checked on the page.
+    - Clicking SAVE CHANGES, collects all of the checked profiles and adds them to the folio which is the expected behaviour. When this is done, the user is re-directed to the profiles page within the suite app along with a message informing that the profiles attached to the folio have been updated successfully.
+
+- Deleting profiles
+    - With defensive programming protocols in mind, clicking delete within a profile's additional menu provides a model making sure that the user does want to proceed in deleting the profile they've currently selected.
+    - The model also contains the name of the profile. This helps make sure that user is sure that it's that particular profile that they wish to delete.
+    - Clicking DELETE PROFILE within a profile's delete form, will delete that profile from the database, re-direct the user to the profiles page within the suite and provide a handy message to inform them that the deletion was successful.
+
+- Updating the current project/future goal form
+    - Provided no data has been brought back from the database, the fields present placeholders that act as guidance for the user which is the expected behaviour.
+    - Neither is required, so the user can update the fields they wish which is the intended behaviour.
+    - The current project URL field validates the input prior to form submission as expected, making sure that the URL provided fits the URL format. The placeholder also acts as a handy helper to help guide the user as to what the URL should start with.
+    - Clicking the SAVE CHANGES button underneath the fields, will update the folio's current project and future goal fields, re-direct the user to the same page with the changes being reflected with the form and a handy message informing them that the change has been successfully made.
 
 #### Showcase App
 
@@ -768,6 +808,7 @@ This is regarding the links found within the footer of every page.
 ##### License Purchase Page
 
 - Help section opens and closes when clicked as intended. Links within the help section re-direct the user to their intended destinations as expected.
+- License purchase is presented as the currently viewed tab within the license app as intended.
 - License is presented as the current app the user is located within in the navigation, which is the expected behaviour as this page is part of the License app.
 - The submit button can only be submitted if the number of licenses is 1 or more. If it's below 1, the submit button will be disabled as intended.
 - All fields except for the save billing details checkbox need to be filled before moving on to Stripe which is expected behaviour.
@@ -788,6 +829,7 @@ This is regarding the links found within the footer of every page.
 ##### Order History Page
 
 - Help section opens and closes when clicked as intended. Links within the help section re-direct the user to their intended destinations as expected.
+- Order history is presented as the currently viewed tab within the license app as intended.
 - When no license purchases have been made, a message to user is presented to user encouraging them to purchase a license which is the expected behaviour. The link within this message that re-directs the user to the license purchase page works as expected.
 - Provided that the user has license purchases, clicking the expand icon for each license purchase gives the user a more detailed view of the license purchase within a model, which is the intended behaviour.
 - List of license purchases is scrollable once the amount of license purchases get too large for the screen which is the intended behaviour.
@@ -809,6 +851,7 @@ This is regarding the links found within the footer of every page.
 ##### Account Details Page
 
 - Help section opens and closes when clicked as intended.
+- Account details is presented as the currently viewed tab within the account app as intended.
 - A reload of the page and message is presented when updated successfully.
 - Placeholders for each field within the account details form are exactly as intended.
 - Althought the imagefield does not immediately reflect when an image has been provided, a message informs the user that it has been and a message is also provided under the field to inform them of this potential issue. (This has been mentioned within the known bugs section of this file.)
@@ -826,6 +869,7 @@ This is regarding the links found within the footer of every page.
 ##### Billing Details Page
 
 - Help section opens and closes when clicked as intended.
+- Billing details is presented as the currently viewed tab within the account app as intended.
 - Placeholders are presented when no saved data has been found within the user's account from the database.
 - A reload of the page and message is presented when updated successfully.
 
