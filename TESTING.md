@@ -107,7 +107,26 @@ When signed in, the user is presented the library page. From here, the user can 
 
 </details>
 
-- Find information regarding previous license purchases I've made.
+<details>
+<summary>Find information regarding previous license purchases I've made</summary>
+
+When signed in, the user is presented the library page. From here, the user can click the license store link in the navigation, which directs the user to license purchase oriented pages.
+
+<img src="readme/images/user-stories/user-stories-license-purchase-store.png">
+
+After clicking on the link they land on the license purchase page. From here they can click the order history link that directs them to the order history page that contains all of their previous license purchases.
+
+<img src="readme/images/user-stories/user-stories-license-purchase-order-history-btn.png">
+
+<img src="readme/images/user-stories/user-stories-license-order-history-page.png">
+
+From here they can click the expand button for each license purchase to find out more information surrounding it.
+
+<img src="readme/images/user-stories/user-stories-license-purchase-expand-btn.png">
+
+<img src="readme/images/user-stories/user-stories-license-order-history-modal.png">
+
+</details>
 
 ### Folio Management
 
