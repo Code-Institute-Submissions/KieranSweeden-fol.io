@@ -38,13 +38,13 @@
             {% if folio.current_project_link %}
                 <p class="title-clamp"><a href="{{ folio.current_project_link }}" target="_blank" rel="noopener noreferrer">{{ folio.current_project_link }}</a></p>
             {% else %}
-                <p class="text-danger">A current project link has not been provided.</p>
+                <p>A current project link has not been provided. Add one <a href="{% url 'edit_folio_profile' folio_id=folio.id %}/#id_current_project_link" target="_blank" rel="noopener noreferrer">here</a>.</p>
             {% endif %}
 
             {% if folio.current_project_desc %}
                 <p>{{ folio.current_project_desc }}</p>
             {% else %}
-                <p class="text-danger">A current project description has not been provided.</p>
+                <p>A current project description has not been provided. Add one <a href="{% url 'edit_folio_profile' folio_id=folio.id %}/#id_current_project_desc" target="_blank" rel="noopener noreferrer">here</a>.</p>
             {% endif %}
 
             <div class="row">
@@ -56,7 +56,7 @@
             {% if folio.future_goal %}
                 <p>{{ folio.future_goal }}</p>
             {% else %}
-                <p class="text-danger">A future goal has not been provided.</p>
+                <p>A future goal has not been provided. Add one <a href="{% url 'edit_folio_profile' folio_id=folio.id %}/#id_future_goal" target="_blank" rel="noopener noreferrer">here</a>.</p>
             {% endif %}
 
             <div class="row">
