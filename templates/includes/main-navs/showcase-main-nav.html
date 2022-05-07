@@ -14,7 +14,7 @@
             </li>
             <li class="d-none d-lg-flex justify-content-center align-items-center mx-3"><span class="text-feature-color">|</span></li>
         </ul>
-        <form class="d-flex" action="{% url 'account_logout' %}" method="POST">
+        <form class="d-flex mb-3 mb-lg-0" action="{% url 'account_logout' %}" method="POST">
             {% csrf_token %}
             <button class="btn btn-primary" type="submit">LOG OUT</button>
         </form>
