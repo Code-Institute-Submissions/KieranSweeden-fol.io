@@ -1106,7 +1106,7 @@ After changing the ternary operator to a simple if/else statement, the warning w
 
 The results came back positive for the project-snippets.js with no warnings present after making some last minute adjustments prior to testing it's validation.
 
-<img src="static/images/js-project-snippets-validation-results.png">
+<img src="readme/images/validation/js/js-project-snippets-validation-results.png">
 </details>
 
 <details>
