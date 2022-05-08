@@ -12,7 +12,6 @@ Using Stripe to purchase fol.io licenses, users can "publish" these folios for t
 
 ## Table of Contents
 
-* [Table of Contents](#table-of-contents)
 * [UX](#ux)
     + [Strategy](#strategy)
         - [The Problem](#the-problem)
@@ -168,6 +167,8 @@ Below is a table of opportunities/problems that could potentially be included wi
 | Themes                      | 2          | 3           |
 | Creation Suite              | 5          | 4           |
 
+[Return to Table of Contents &#8679;](#table-of-contents)
+
 ### Scope
 
 #### Current Features
@@ -204,6 +205,8 @@ The following is a list of features that will be left for future release of the 
 - Duplicate folios/snippets
     - This feature will be a must have for the next release of the application. This is where a user is able to create a duplicate of a folio or snippet they already have.
 
+[Return to Table of Contents &#8679;](#table-of-contents)
+
 ### Structure
 
 In order to gain a better understanding as to how the application will be divided in terms of user scope, core functionality & it's contained apps, a spreadsheet was created which can be viewed here: https://docs.google.com/spreadsheets/d/1DoUd4K2EvncLdwspScBpB-SKJV1YkRlqaxTjj5FSsyo/edit?usp=sharing.
@@ -225,6 +228,8 @@ Click below to view this tree structure:
 The tree structure presents the core pages that are closely tied to user objectives. These pages will of course be expanded into multiple, however the tree structure will remain despite this.
 
 Following common practice, along with the tree structure there will be top navigation that will collapse within a hamburger menu for mobile users. Taking advantage of this industry standard will help make the application's UX friendly and approachable to the user.
+
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ### Skeleton
 
@@ -289,6 +294,8 @@ This also holds the amount of licenses the user has purchased which is what's us
 Given that the purchase is processed via Stripe, a record of the Stripe purchase ID is also kept so it can be referred to when presenting a successful purchase view to the user.
 
 The license purchase model will also hold a unique order number using the UUIDv4 hash method. This is to simulate an order number that's often given to a customer when making a purchase, so the customer can later refer to the order number when attempting to contact regarding a recent purchase.
+
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ### Surface
 
@@ -452,6 +459,8 @@ The following applications listed were utilized during the development of fol.io
 
 - [AWS](https://aws.amazon.com/)
     - AWS was used to host static files and images for the project whilst in deployment
+
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ## Testing
 

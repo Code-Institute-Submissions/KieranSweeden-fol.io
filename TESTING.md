@@ -6,7 +6,7 @@ Within this markdown file, you'll find information regarding bugs, their fixes a
 
 To navigate back to the README file, [click here](README.md).
 
-## Contents
+## Table of Contents
 
 * [User Stories](#user-stories)
     + [Account Management](#account-management)
@@ -389,6 +389,8 @@ Provided they're happy with the deletion going through, they can click the Delet
 
 </details>
 
+
+
 ### Billing
 
 <details>
@@ -559,6 +561,8 @@ Provided that the employer fills in all the required fields, they can press the 
 <img src="readme/images/user-stories/view-published-folio/user-stories-view-published-folio-contact-send-message.png">
 
 </details>
+
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ## Bugs
 
@@ -922,12 +926,16 @@ After reading [this Stack Overflow answer](https://stackoverflow.com/a/24273898/
 
 </details>
 
+[Return to Table of Contents &#8679;](#table-of-contents)
+
 ### Known
 
 The following are bugs that are still present within the current build of fol.io. Attempts to resolve these bugs will be made after the MVP release of the application.
 
 - Order history page - The titles of previous license purchases within the order history page do not clamp down. Instead they go onto the next line and therefore vertically expands the card header section of the license purchase. This is due to the order number acting as one large "word" and clamp.js not having the ability (to my knowledge) to break down the order number so it can be clamped.
 - When uploading an image to the application, the imagefield doesn't immediately indicate that an image has been provided. It only presents this after refreshing the page. I spent some time attempting to fix this with solutions such as adding a sleep timer to ensure the file was uploaded amongst many others. in which none provided the desired outcome. Due to time constraints I had to withdraw from solving this bug for now, however it is something I intend to fix in the future. For the time being, a message is presented to the user informing them that if they don't see the changes being reflected, they can click a link that refreshes the current page. Although this isn't ideal, I felt it was important to be transpents to the user and help them with the problem. This seems to only be a problem with the account details page also.
+
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ## User Testing
 
@@ -938,6 +946,8 @@ What was clear when first looking at the site, was that the general concept of t
 Another problem that the tester observed was the inconcistency in language regarding particular entities found within the application. An example of which is alternating between "profiles" and "profile snippets" which is absolutely understandable. With this in mind, during the later portion of development, a consistent effort was made to present concepts and entites within fol.io in a consistent manner to make it easier to explain. THese changes will hopefully makie the learning process whilst learning fol.io easier than it was previously.
 
 One issue that was also raised was the lack of guidance when a folio didn't contain any content for a respective reason. This could include a name not being presented or a default profile picture being shown. The tester recommended that rather than informing the user of a problem, it would be better to be directed to the source of the problem and given guidance as to how to fix it. I agreed with the tester's comments, however the trouble of time became a greater issue and given that it was a nice to have rather than an absolutely necessary piece of functionality, it was placed on the "if time allows" to-do list. It's definitely a feature that should appear in a future release of fol.io.
+
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ## File Validation
 
@@ -1138,6 +1148,8 @@ The only exception was the __init__.py file within the suite's views folder, whi
 <img src="readme/images/validation/python/python-webhook-handler-validation-results.png">
 </details>
 
+[Return to Table of Contents &#8679;](#table-of-contents)
+
 ## Defensive Programming
 
 Following conventional web development standards, all sensitive information such as id's and keys are kept hidden from source control. This was achieved with the use of Gitpod's environment variables feature and the config variables that are found within the settings tab of the Heroku app.
@@ -1146,11 +1158,15 @@ Following conventional web development standards, all sensitive information such
 
 All views that are directly linked to the management of objects stored within the database can only be managed if the current user is the "author" of the object. This is to protect the potential case where one could delete or modify another user's folio or project/skill/profile snippet without being the author.
 
+[Return to Table of Contents &#8679;](#table-of-contents)
+
 ## Testing Functionality
 
 ### Test Driven Development
 
 Regarding Test Driven Development, although the methodology wasn't carried out strictly by it's definition (due to my lack of understanding on the topic), testing was continually conducted when new features were being developed. Examples of this include purposefully triggering invalid statuses within forms to be given useful messages as outcomes and testing features when deployed on Heroku, such as the image upload feature for projects, as AWS was being used in deployment instead of the directory itself which is what's used in the development environment. When time was more available during the development of the application, automated tests were being conducted to assert that certain outcomes were being met by models, forms and views within the application. Despite automated testing not being conducted on the whole application, it is something I intend on doing in order to fully understand the testing process and become more fluent with the methodology.
+
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ### Automated Testing
 
@@ -1162,6 +1178,8 @@ Evidence of the presence of automated testing can be seen within the following a
 - Account
 - Home
 - Library
+
+[Return to Table of Contents &#8679;](#table-of-contents)
 
 ### Manual Testing
 
@@ -1518,6 +1536,8 @@ This is regarding the links found within the footer of every page.
 - Placeholders are presented when no saved data has been found within the user's account from the database.
 - A reload of the page and message is presented when updated successfully.
 
+[Return to Table of Contents &#8679;](#table-of-contents)
+
 ## Accessibility & Performance
 
 To test the accessibility and performance of the pages within the application, Google Chrome's in-built [Lighthouse](https://developers.google.com/web/tools/lighthouse) reporting tool was used.
@@ -1683,3 +1703,5 @@ The results can be seen below:
 <summary>View mobile results</summary>
 <img src="readme/images/lighthouse/lighthouse-billing-details-results-mobile.png">
 </details>
+
+[Return to Table of Contents &#8679;](#table-of-contents)
