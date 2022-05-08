@@ -24,13 +24,13 @@ The following wireframes are for pages which are "external", meaning they're ava
 
 ### View Folio
 
-This view folio page is only available if the author of the folio has 
+This view folio page is only available to the outside world if set to published by author.
 
 <img src="readme/images/skeleton/wireframe-view-folio-contact-external.png">
 
 ## Internal
 
-The following wireframes are for pages which are "internal", meaning they're only available to authenticated users.
+The following wireframes are for pages which are "internal", meaning they're the pages the author of the folio can interact with in order to modify the snippets within their folio.
 
 ### My Folios
 
