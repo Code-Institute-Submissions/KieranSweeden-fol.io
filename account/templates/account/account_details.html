@@ -8,17 +8,17 @@
 {% block help_question %}Why are these details important?{% endblock %}
 {% block help_title %}Why are these details important?{% endblock %}
 {% block help_desc %}
-{% include './includes/snippets/help_account_content.html' %}
+    {% include './includes/snippets/help_account_content.html' %}
 {% endblock %}
 
 {% block header_title %}{% trans "Account Details" %}{% endblock %}
 
 {% block main_nav %}
-{% include 'includes/main-navs/internal-main-nav.html' with active_nav_link='account' %}
+    {% include 'includes/main-navs/internal-main-nav.html' with active_nav_link='account' %}
 {% endblock %}
 
 {% block header_content %}
-{% include 'includes/header-navs/account-header-nav.html' with active_tab='account_details' %}
+    {% include 'includes/header-navs/account-header-nav.html' with active_tab='account_details' %}
 {% endblock %}
 
 {% block content %}
@@ -61,10 +61,11 @@
             <div class="col-12">
                 {{ form.profile_picture|as_crispy_field }}
             </div>
-            <p class="text-danger">It takes a short while for fol.io to save an image. If you don't see it being reflected immediately after saving, <a href="{% url 'account_details' %}">click here.</a></p>
+            <p class="text-danger">It takes a short while for fol.io to save an image. If you don't see it being reflected
+                immediately after saving, <a href="{% url 'account_details' %}">click here.</a></p>
         </div>
         {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
         <div class="d-flex justify-content-between justify-content-lg-end align-items-center mt-4">
             <a href="{% url 'account_reset_password' %}" class="btn btn-secondary me-3">{% trans "Reset Password" %}</a>
