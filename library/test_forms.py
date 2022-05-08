@@ -1,4 +1,6 @@
-""" Testing for forms within account app """
+"""
+Testing for forms within account app
+"""
 
 from django.test import TestCase
 

@@ -1121,6 +1121,8 @@ The only warnings that were present during the validation process of this file w
 
 Pylint and Pep8 linters within Gitpod were used during the development of the application in checking that the python files were valid and are all void of any warnings/errors. However for good measure, the more complex python files within the application were validated using the [PEP8 Online](http://pep8online.com/) validator to make sure that this objectively was the case. These all came back positively and matched the validations made within the IDE python linters.
 
+The only exception was the __init__.py file within the suite's views folder, which combines all the views in the folder together for django. Given that this is what django recommends and is the recommended method on answers within Stack Overflow, I decided to withdraw from attempting to fix this minor linting problem.
+
 <details>
 <summary>View validation results the for the project views python file within the suite app</summary>
 <img src="readme/images/validation/python/python-projects-validation-results.png">

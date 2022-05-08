@@ -1,3 +1,6 @@
+"""
+This file contains the views for the showcase app
+"""
 from django.shortcuts import (
     render,
     get_object_or_404,
