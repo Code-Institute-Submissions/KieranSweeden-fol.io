@@ -20,67 +20,66 @@
 {% block header_title %}Get In Touch{% endblock %}
 
 {% block content %}
-<form action="{% url 'message_author' folio_id=folio.id author_email=author_user.email %}" method="POST">
-    {% csrf_token %}
-    <div class="row">
-        <h3 class="h5">Message Me</h3>
-        <p class="text-muted">If you'd like to get in touch with me immediately, send a message using the form below.</p>
-        <div class="col-12 col-lg-6">
-            {{ form.sender_email|as_crispy_field }}
+    <form action="{% url 'message_author' folio_id=folio.id author_email=author_user.email %}" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <h3 class="h5">Message Me</h3>
+            <p class="text-muted">If you'd like to get in touch with me immediately, send a message using the form below.</p>
+            <div class="col-12 col-lg-6">
+                {{ form.sender_email|as_crispy_field }}
+            </div>
+            <div class="col-12 col-lg-6">
+                {{ form.subject|as_crispy_field }}
+            </div>
+            <div class="col-12">
+                {{ form.message|as_crispy_field }}
+            </div>
+            <div class="col-12 d-flex justify-content-end align-items-center">
+                <button class="btn btn-primary" type="submit">Send Message</button>
+            </div>
+            <div class="col-6 offset-3"><hr></div>
+            <h3 class="h5">Contact Information</h3>
+            <p class="text-muted">You can also contact me externally utilising the information listed below.</p>
+            <div class="col-12 col-sm-6 col-xl-3">
+                <label>Phone Number</label>
+                <p class="text-feature-color">
+                    {% if author.phone_number %}
+                        <a href="tel:{{ author.phone_number }}">{{ author.phone_number }}</a>
+                    {% else %}
+                        <a href="{% url 'account_details' %}#id_phone_number" target="_blank" rel="noopener noreferrer">
+                            Add<span class="material-icons-sharp align-middle">warning_amber</span>
+                        </a>
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+                <label>Email Address</label>
+                <p class="text-feature-color"><a href="mailto:{{ author_user.email }}">{{ author_user.email }}</a></p>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+                <label>GitHub Profile</label>
+                <p>
+                    {% if author.github_profile %}
+                        <a class="title-clamp" href="{{ author.github_profile }}" target="_blank" rel="noopener noreferrer">{{ author.github_profile }}</a>
+                    {% else %}
+                        <a href="{% url 'account_details' %}#id_github_profile" target="_blank" rel="noopener noreferrer">
+                            Add<span class="material-icons-sharp align-middle">warning_amber</span>
+                        </a>
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+                <label>LinkedIn Profile</label>
+                <p>
+                    {% if author.linkedin_profile %}
+                        <a class="title-clamp" href="{{ author.linkedin_profile }}" target="_blank" rel="noopener noreferrer">{{ author.linkedin_profile }}</a>
+                    {% else %}
+                        <a href="{% url 'account_details' %}#id_linkedin_profile" target="_blank" rel="noopener noreferrer">
+                            Add<span class="material-icons-sharp align-middle">warning_amber</span>
+                        </a>
+                    {% endif %}
+                </p>
+            </div>
         </div>
-        <div class="col-12 col-lg-6">
-            {{ form.subject|as_crispy_field }}
-        </div>
-        <div class="col-12">
-            {{ form.message|as_crispy_field }}
-        </div>
-        <div class="col-12 d-flex justify-content-end align-items-center">
-            <button class="btn btn-primary" type="submit">Send Message</button>
-        </div>
-        <div class="col-6 offset-3"><hr></div>
-        <h3 class="h5">Contact Information</h3>
-        <p class="text-muted">You can also contact me externally utilising the information listed below.</p>
-        <div class="col-12 col-sm-6 col-xl-3">
-            <label>Phone Number</label>
-            <p class="text-feature-color">
-                {% if author.phone_number %}
-                    <a href="tel:{{ author.phone_number }}">{{ author.phone_number }}</a>
-                {% else %}
-                    <a href="{% url 'account_details' %}#id_phone_number" target="_blank" rel="noopener noreferrer">
-                        Add<span class="material-icons-sharp align-middle">warning_amber</span>
-                    </a>
-                {% endif %}
-            </p>
-        </div>
-        <div class="col-12 col-sm-6 col-xl-3">
-            <label>Email Address</label>
-            <p class="text-feature-color"><a href="mailto:{{ author_user.email }}">{{ author_user.email }}</a></p>
-        </div>
-        <div class="col-12 col-sm-6 col-xl-3">
-            <label>GitHub Profile</label>
-            <p>
-                {% if author.github_profile %}
-                    <a class="title-clamp" href="{{ author.github_profile }}" target="_blank" rel="noopener noreferrer">{{ author.github_profile }}</a>
-                {% else %}
-                    <a href="{% url 'account_details' %}#id_github_profile" target="_blank" rel="noopener noreferrer">
-                        Add<span class="material-icons-sharp align-middle">warning_amber</span>
-                    </a>
-                {% endif %}
-            </p>
-        </div>
-        <div class="col-12 col-sm-6 col-xl-3">
-            <label>LinkedIn Profile</label>
-            <p>
-                {% if author.linkedin_profile %}
-                    <a class="title-clamp" href="{{ author.linkedin_profile }}" target="_blank" rel="noopener noreferrer">{{ author.linkedin_profile }}</a>
-                {% else %}
-                    <a href="{% url 'account_details' %}#id_linkedin_profile" target="_blank" rel="noopener noreferrer">
-                        Add<span class="material-icons-sharp align-middle">warning_amber</span>
-                    </a>
-                {% endif %}
-            </p>
-        </div>
-    </div>
-</form>
-
+    </form>
 {% endblock %}

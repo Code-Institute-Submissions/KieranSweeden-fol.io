@@ -9,11 +9,11 @@
         <div class="col-6 offset-3"><hr></div>
     </div>
 {% empty %}
-<div class="col-12 text-center mt-5">
-    <span class="material-icons-sharp text-muted">
-    sentiment_dissatisfied
-    </span>
-    <h3 class="h5">No tech skill snippets are attached to this folio.</h3>
-    <p><strong class="text-feature-color">Attach tech skills</strong> to this folio by <strong class="text-feature-color">selecting</strong> them and <strong class="text-feature-color">saving the changes</strong> at <a href="{% url 'edit_folio_skills' folio_id=folio.id  %}">this page</a>.</p>
-</div>
+    <div class="col-12 text-center mt-5">
+        <span class="material-icons-sharp text-muted">
+            sentiment_dissatisfied
+        </span>
+        <h3 class="h5">No tech skill snippets are attached to this folio.</h3>
+        <p><strong class="text-feature-color">Attach tech skills</strong> to this folio by <strong class="text-feature-color">selecting</strong> them and <strong class="text-feature-color">saving the changes</strong> at <a href="{% url 'edit_folio_skills' folio_id=folio.id  %}">this page</a>.</p>
+    </div>
 {% endfor %}
