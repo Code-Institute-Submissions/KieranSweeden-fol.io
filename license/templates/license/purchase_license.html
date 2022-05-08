@@ -4,8 +4,9 @@
 {% load i18n %}
 
 {% block extra_js %}
-<script defer src="{% static 'js/license/purchase.js' %}"></script>
+    <script defer src="{% static 'js/license/purchase.js' %}"></script>
 {% endblock %}
+
 {% block extra_title %}{% trans "Purchase License" %}{% endblock %}
 
 {% block help_question %}What's the license store?{% endblock %}
@@ -25,56 +26,55 @@
 {% endblock %}
 
 {% block content %}
-<form action="{% url 'create_checkout_session' %}" method="POST">
-    {% csrf_token %}
-    <div class="row">
-        <h3 class="h5">Purchaser Details</h3>
-        <p class="text-muted">Personal details regarding the person making the license purchase.</p>
-        <div class="col-12 col-lg-6">
-            {{ form.purchaser_full_name|as_crispy_field }}
+    <form action="{% url 'create_checkout_session' %}" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <h3 class="h5">Purchaser Details</h3>
+            <p class="text-muted">Personal details regarding the person making the license purchase.</p>
+            <div class="col-12 col-lg-6">
+                {{ form.purchaser_full_name|as_crispy_field }}
+            </div>
+            <div class="col-12 col-lg-6">
+                {{ form.purchaser_email|as_crispy_field }}
+            </div>
+            <div class="col-12 col-lg-6">
+                {{ form.purchaser_phone_number|as_crispy_field }}
+            </div>
+            <div class="col-6 offset-3"><hr></div>
+            <h3 class="h5">Billing Details</h3>
+            <p class="text-muted">Billing details of the person making the license purchase. Clicking the checkbox saves the submitted billing details as the account's default.</p>
+            <div class="col-12 col-lg-6">
+                {{ form.purchaser_street_address1|as_crispy_field }}
+            </div>
+            <div class="col-12 col-lg-6">
+                {{ form.purchaser_street_address2|as_crispy_field }}
+            </div>
+            <div class="col-12 col-lg-6">
+                {{ form.purchaser_town_or_city|as_crispy_field }}
+            </div>
+            <div class="col-12 col-lg-6">
+                {{ form.purchaser_postcode|as_crispy_field }}
+            </div>
+            <div class="col-12 col-lg-6">
+                {{ form.purchaser_county|as_crispy_field }}
+            </div>
+            <div class="col-12 col-lg-6">
+                {{ form.purchaser_country|as_crispy_field }}
+            </div>
+            <p>
+                <input id="save_billing_details" name="save_billing_details" type="checkbox" class="form-check-input me-1">
+                <label for="save_billing_details">Save Billing Details as Default</label>
+            </p>
+            <div class="col-6 offset-3"><hr></div>
+            <h3 class="h5">License Details</h3>
+            <p class="text-muted">Here you decide <strong>how many folio licenses</strong> you'd like to purchase. After clicking continue, you'll be <strong>re-directed to Stripe</strong> to continue the purchase.</p>
+            <div class="col-12 col-lg-6">
+                {{ form.no_of_licenses_purchased|as_crispy_field }}
+            </div>
+            <div class="col-12 col-lg-6 d-flex justify-content-center align-items-end flex-column">
+                <p class="fw-bold mb-2">Grand Total:&nbsp;<span>£</span><span id="licenseGrandTotal"></span></p>
+                <button class="btn btn-primary" type="submit" id="submitPurchase">Continue</button>
+            </div>
         </div>
-        <div class="col-12 col-lg-6">
-            {{ form.purchaser_email|as_crispy_field }}
-        </div>
-        <div class="col-12 col-lg-6">
-            {{ form.purchaser_phone_number|as_crispy_field }}
-        </div>
-        <div class="col-6 offset-3"><hr></div>
-        <h3 class="h5">Billing Details</h3>
-        <p class="text-muted">Billing details of the person making the license purchase. Clicking the checkbox saves the submitted billing details as the account's default.</p>
-        <div class="col-12 col-lg-6">
-            {{ form.purchaser_street_address1|as_crispy_field }}
-        </div>
-        <div class="col-12 col-lg-6">
-            {{ form.purchaser_street_address2|as_crispy_field }}
-        </div>
-        <div class="col-12 col-lg-6">
-            {{ form.purchaser_town_or_city|as_crispy_field }}
-        </div>
-        <div class="col-12 col-lg-6">
-            {{ form.purchaser_postcode|as_crispy_field }}
-        </div>
-        <div class="col-12 col-lg-6">
-            {{ form.purchaser_county|as_crispy_field }}
-        </div>
-        <div class="col-12 col-lg-6">
-            {{ form.purchaser_country|as_crispy_field }}
-        </div>
-        <p>
-            <input id="save_billing_details" name="save_billing_details" type="checkbox" class="form-check-input me-1">
-            <label for="save_billing_details">Save Billing Details as Default</label>
-        </p>
-        <div class="col-6 offset-3"><hr></div>
-        <h3 class="h5">License Details</h3>
-        <p class="text-muted">Here you decide <strong>how many folio licenses</strong> you'd like to purchase. After clicking continue, you'll be <strong>re-directed to Stripe</strong> to continue the purchase.</p>
-        <div class="col-12 col-lg-6">
-            {{ form.no_of_licenses_purchased|as_crispy_field }}
-        </div>
-        <div class="col-12 col-lg-6 d-flex justify-content-center align-items-end flex-column">
-            <p class="fw-bold mb-2">Grand Total:&nbsp;<span>£</span><span id="licenseGrandTotal"></span></p>
-            <button class="btn btn-primary" type="submit" id="submitPurchase">Continue</button>
-        </div>
-    </div>
-</form>
-
+    </form>
 {% endblock %}
