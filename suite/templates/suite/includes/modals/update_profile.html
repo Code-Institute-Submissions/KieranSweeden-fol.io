@@ -4,15 +4,15 @@
 {% block modal_title %}Update {{ profile.profile_title }}{% endblock %}
 
 {% block modal_body %}
-<form action="{% url 'update_folio_profile' profile_id=profile.id folio_id=folio.id %}" method="POST">
-    {% csrf_token %}
-    <div class="row">
-        <div class="col-12">
-            {{ profile.form|crispy }}
+    <form action="{% url 'update_folio_profile' profile_id=profile.id folio_id=folio.id %}" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12">
+                {{ profile.form|crispy }}
+            </div>
+            <div class="col-12 d-flex justify-content-end align-items-center">
+                <button type="submit" class="btn btn-secondary">Save Changes</button>
+            </div>
         </div>
-        <div class="col-12 d-flex justify-content-end align-items-center">
-            <button type="submit" class="btn btn-secondary">Save Changes</button>
-        </div>
-    </div>
-</form>
+    </form>
 {% endblock %}

@@ -4,15 +4,15 @@
 {% block modal_title %}Create New Profile{% endblock %}
 
 {% block modal_body %}
-<form action="{% url 'create_folio_profile' folio_id=folio.id %}" method="POST">
-    {% csrf_token %}
-    <div class="row">
-        <div class="col-12">
-            {{ create_profile_form|crispy }}
+    <form action="{% url 'create_folio_profile' folio_id=folio.id %}" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12">
+                {{ create_profile_form|crispy }}
+            </div>
+            <div class="col-12 d-flex justify-content-end align-items-center">
+                <button type="submit" class="btn btn-secondary">Create Profile</button>
+            </div>
         </div>
-        <div class="col-12 d-flex justify-content-end align-items-center">
-            <button type="submit" class="btn btn-secondary">Create Profile</button>
-        </div>
-    </div>
-</form>
+    </form>
 {% endblock %}

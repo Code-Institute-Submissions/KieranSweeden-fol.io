@@ -4,15 +4,15 @@
 {% block modal_title %}Delete {{ skill.skill_title }}{% endblock %}
 
 {% block modal_body %}
-<form action="{% url 'delete_folio_skill' folio_id=folio.id skill_id=skill.id %}" method="POST">
-    {% csrf_token %}
-    <div class="row">
-        <div class="col-12 mb-3">
-            Are you sure you want to delete <b>{{ skill.skill_title }}</b>?
+    <form action="{% url 'delete_folio_skill' folio_id=folio.id skill_id=skill.id %}" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12 mb-3">
+                Are you sure you want to delete <b>{{ skill.skill_title }}</b>?
+            </div>
+            <div class="col-12 d-flex justify-content-end align-items-center">
+                <button type="submit" class="btn btn-delete">Delete skill</button>
+            </div>
         </div>
-        <div class="col-12 d-flex justify-content-end align-items-center">
-            <button type="submit" class="btn btn-delete">Delete skill</button>
-        </div>
-    </div>
-</form>
+    </form>
 {% endblock %}

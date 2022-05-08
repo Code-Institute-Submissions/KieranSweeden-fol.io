@@ -4,15 +4,15 @@
 {% block modal_title %}Create New Project{% endblock %}
 
 {% block modal_body %}
-<form action="{% url 'create_folio_project' folio_id=folio.id %}" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="row">
-        <div class="col-12">
-            {{ form|crispy }}
+    <form action="{% url 'create_folio_project' folio_id=folio.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12">
+                {{ form|crispy }}
+            </div>
+            <div class="col-12 d-flex justify-content-end align-items-center">
+                <button type="submit" class="btn btn-secondary">Create Project</button>
+            </div>
         </div>
-        <div class="col-12 d-flex justify-content-end align-items-center">
-            <button type="submit" class="btn btn-secondary">Create Project</button>
-        </div>
-    </div>
-</form>
+    </form>
 {% endblock %}

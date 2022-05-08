@@ -6,6 +6,7 @@
     <script defer src="{% static 'js/clamp.min.js' %}"></script>
     <script defer src="{% static 'js/suite/project-snippets.js' %}"></script>
 {% endblock %}
+
 {% block extra_title %}Editing Folio Projects{% endblock %}
 
 {% block help_question %}What is a folio project?{% endblock %}
@@ -23,56 +24,53 @@
 {% endblock %}
 
 {% block header_title %}
-{% if folio.is_published %}
-    <span class="material-icons-sharp text-feature-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is published">
-        visibility
-    </span>
-{% else %}
-    <span class="material-icons-sharp text-white-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is concealed">
-        visibility_off
-    </span>
-{% endif %}
+    {% if folio.is_published %}
+        <span class="material-icons-sharp text-feature-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is published">
+            visibility
+        </span>
+    {% else %}
+        <span class="material-icons-sharp text-white-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is concealed">
+            visibility_off
+        </span>
+    {% endif %}
 {{ folio.name }}
 {% endblock %}
 
 {% block additional_header_content %}
-<div class="d-flex justify-content-end align-items-center h-100">
-    <a class="btn btn-primary" href="{% url 'view_folio_projects' folio_id=folio.id %}" target="_blank">View Live
-        <span class="material-icons-sharp align-bottom">
-            open_in_new
-        </span>
-    </a>
-</div>
+    <div class="d-flex justify-content-end align-items-center h-100">
+        <a class="btn btn-primary" href="{% url 'view_folio_projects' folio_id=folio.id %}" target="_blank">View Live
+            <span class="material-icons-sharp align-bottom">
+                open_in_new
+            </span>
+        </a>
+    </div>
 {% endblock %}
 
 {% block content %}
-
-<div class="row mb-3">
-    <div class="col-12 col-lg-6 text-center text-lg-start">
-        <p class="mb-0">
-            <span>Projects Selected:</span>
-            <span class="fw-bold" id="selectedNumberOfProjects"></span>
-            <span class="fw-bold">/</span>
-            <span class="fw-bold" id="maxAmountOfProjects">4</span>
-        </p>
+    <div class="row mb-3">
+        <div class="col-12 col-lg-6 text-center text-lg-start">
+            <p class="mb-0">
+                <span>Projects Selected:</span>
+                <span class="fw-bold" id="selectedNumberOfProjects"></span>
+                <span class="fw-bold">/</span>
+                <span class="fw-bold" id="maxAmountOfProjects">4</span>
+            </p>
+        </div>
+        <div class="col-12 col-lg-6 text-center text-lg-end mt-2 mt-lg-0">
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_project">
+                Create Project
+            </button>
+            {% include './includes/modals/create_project.html' with size=undefined id="project" %}
+        </div>
     </div>
-    <div class="col-12 col-lg-6 text-center text-lg-end mt-2 mt-lg-0">
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_project">
-            Create Project
-        </button>
-        {% include './includes/modals/create_project.html' with size=undefined id="project" %}
+
+    <div class="list-container">
+        {% include './includes/list_of_projects.html' %}
     </div>
-</div>
 
-<div class="list-container">
-    {% include './includes/list_of_projects.html' %}
-</div>
-
-<div class="row mt-3">
-    <div class="col-12 d-flex justify-content-end align-items-center">
-        <button class="btn btn-primary" id="updateProjectsInFolioBtn" type="submit">Save Changes</button>
+    <div class="row mt-3">
+        <div class="col-12 d-flex justify-content-end align-items-center">
+            <button class="btn btn-primary" id="updateProjectsInFolioBtn" type="submit">Save Changes</button>
+        </div>
     </div>
-</div>
-
-
 {% endblock %}

@@ -4,8 +4,9 @@
 {% load i18n %}
 
 {% block extra_js %}
-<script defer src="{% static 'js/clamp.min.js' %}"></script>
+    <script defer src="{% static 'js/clamp.min.js' %}"></script>
 {% endblock %}
+
 {% block extra_title %}Editing Folio Contact{% endblock %}
 
 {% block help_question %}What is the suite?{% endblock %}
@@ -23,51 +24,50 @@
 {% endblock %}
 
 {% block header_title %}
-{% if folio.is_published %}
-    <span class="material-icons-sharp text-feature-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is published">
-        visibility
-    </span>
-{% else %}
-    <span class="material-icons-sharp text-white-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is concealed">
-        visibility_off
-    </span>
-{% endif %}
+    {% if folio.is_published %}
+        <span class="material-icons-sharp text-feature-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is published">
+            visibility
+        </span>
+    {% else %}
+        <span class="material-icons-sharp text-white-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is concealed">
+            visibility_off
+        </span>
+    {% endif %}
 {{ folio.name }}
 {% endblock %}
 
 {% block additional_header_content %}
-<div class="d-flex justify-content-end align-items-center h-100">
-    <a class="btn btn-icon" href="{% url 'view_folio_contact' folio_id=folio.id %}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="View Folio"> 
-        <span class="material-icons-sharp">
-            open_in_new
-        </span>
-    </a>
-</div>
+    <div class="d-flex justify-content-end align-items-center h-100">
+        <a class="btn btn-icon" href="{% url 'view_folio_contact' folio_id=folio.id %}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="View Folio"> 
+            <span class="material-icons-sharp">
+                open_in_new
+            </span>
+        </a>
+    </div>
 {% endblock %}
 
 {% block content %}
-<div class="row mb-3">
-    <section class="col-12">
-        <div class="d-flex justify-content-between align-items-center">
-            <h3 class="h5 mb-0">Contact details</h3>
-        </div>
-    </section>
-    <div class="col-12 d-flex justify-content-center">
-        <div class="card p-4">
-            <div class="card-body">
-                <form method="POST" action="{% url 'update_folio_contact' folio_id=folio.id %}">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                    {% endif %}
-                    <div class="d-flex justify-content-end align-items-center mt-4">
-                        <button class="btn btn-primary" type="submit">{% trans "Save Changes" %}</button>
-                    </div>
-                </form>
+    <div class="row mb-3">
+        <section class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="h5 mb-0">Contact details</h3>
+            </div>
+        </section>
+        <div class="col-12 d-flex justify-content-center">
+            <div class="card p-4">
+                <div class="card-body">
+                    <form method="POST" action="{% url 'update_folio_contact' folio_id=folio.id %}">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <div class="d-flex justify-content-end align-items-center mt-4">
+                            <button class="btn btn-primary" type="submit">{% trans "Save Changes" %}</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
 {% endblock %}

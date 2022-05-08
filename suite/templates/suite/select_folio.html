@@ -16,25 +16,25 @@
 {% endblock %}
 
 {% block content %}
-<form class="login" method="POST" action="{% url 'select_folio' %}">
-    {% csrf_token %}
-    <div class="row">
-        <div class="col-12">
-            <h3 class="h5">Welcome to the Suite</h3>
-            <p class="text-muted">The suite is where you <strong>interact with various folio snippets</strong> and <strong>add them to your folios</strong>. To enter the suite, you <strong>must select a folio</strong>.</p>
-            <p>Please select from your library below.</p>
-            
-            <select class="form-select" name="folio_selected" id="folio_selected">
-                {% for folio in folios %}
-                    <option value="{{ folio.id }}">
-                        {{ folio.name }}
-                    </option>
-                {% endfor %}
-            </select>
+    <form class="login" method="POST" action="{% url 'select_folio' %}">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12">
+                <h3 class="h5">Welcome to the Suite</h3>
+                <p class="text-muted">The suite is where you <strong>interact with various folio snippets</strong> and <strong>add them to your folios</strong>. To enter the suite, you <strong>must select a folio</strong>.</p>
+                <p>Please select from your library below.</p>
+                
+                <select class="form-select" name="folio_selected" id="folio_selected">
+                    {% for folio in folios %}
+                        <option value="{{ folio.id }}">
+                            {{ folio.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-12 d-flex justify-content-end align-items-center mt-3">
+                <button class="btn btn-primary" type="submit">Open in Suite</button>
+            </div>
         </div>
-        <div class="col-12 d-flex justify-content-end align-items-center mt-3">
-            <button class="btn btn-primary" type="submit">Open in Suite</button>
-        </div>
-    </div>
-</form>
+    </form>
 {% endblock %}

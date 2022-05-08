@@ -7,6 +7,7 @@
     <script defer src="{% static 'js/clamp.min.js' %}"></script>
     <script defer src="{% static 'js/suite/skill-profile-snippets.js' %}"></script>
 {% endblock %}
+
 {% block extra_title %}Editing Folio Profile{% endblock %}
 
 {% block help_question %}What constitutes a folio profile?{% endblock %}
@@ -24,73 +25,73 @@
 {% endblock %}
 
 {% block header_title %}
-{% if folio.is_published %}
-    <span class="material-icons-sharp text-feature-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is published">
-        visibility
-    </span>
-{% else %}
-    <span class="material-icons-sharp text-white-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is concealed">
-        visibility_off
-    </span>
-{% endif %}
+    {% if folio.is_published %}
+        <span class="material-icons-sharp text-feature-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is published">
+            visibility
+        </span>
+    {% else %}
+        <span class="material-icons-sharp text-white-color" data-bs-toggle="tooltip" data-bs-placement="top" title="Folio is concealed">
+            visibility_off
+        </span>
+    {% endif %}
 {{ folio.name }}
 {% endblock %}
 
 {% block additional_header_content %}
-<div class="d-flex justify-content-end align-items-center h-100">
-    <a class="btn btn-primary" href="{% url 'view_folio_profile' folio_id=folio.id %}" target="_blank">View Live
-        <span class="material-icons-sharp align-bottom">
-            open_in_new
-        </span>
-    </a>
-</div>
+    <div class="d-flex justify-content-end align-items-center h-100">
+        <a class="btn btn-primary" href="{% url 'view_folio_profile' folio_id=folio.id %}" target="_blank">View Live
+            <span class="material-icons-sharp align-bottom">
+                open_in_new
+            </span>
+        </a>
+    </div>
 {% endblock %}
 
 {% block content %}
-<div class="row mb-3">
-    <div class="col-12 col-lg-6 text-center text-lg-start">
-        <p class="mb-0">
-            <span>Profiles Selected:</span>
-            <span class="fw-bold" id="snippetsSelectedCounter"></span>
-        </p>
-    </div>
-    <div class="col-12 col-lg-6 text-center text-lg-end mt-2 mt-lg-0">
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_profile">Create Profile</button>
-        {% include './includes/modals/create_profile.html' with size=undefined id="profile" %}
-    </div>
-
-    <section class="col-12">
-        <div class="d-flex justify-content-between align-items-center mt-3">
-            <h3 class="h5">About Me</h3>
+    <div class="row mb-3">
+        <div class="col-12 col-lg-6 text-center text-lg-start">
+            <p class="mb-0">
+                <span>Profiles Selected:</span>
+                <span class="fw-bold" id="snippetsSelectedCounter"></span>
+            </p>
         </div>
-        <div class="list-container list-container-half">
-            {% include './includes/list_of_profiles.html' %}
+        <div class="col-12 col-lg-6 text-center text-lg-end mt-2 mt-lg-0">
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#create_modal_profile">Create Profile</button>
+            {% include './includes/modals/create_profile.html' with size=undefined id="profile" %}
         </div>
-        <div class="col-12 d-flex justify-content-end align-items-center mt-3">
-            <button class="btn btn-primary" id="updateSnippetsBtn" type="submit">Save Changes</button>
-        </div>
-    </section>
 
-    <div class="col-6 offset-3"><hr></div>
-
-    <section class="col-12">
-        <form action="{% url 'update_current_and_future_goal' folio_id=folio.id %}" method="POST">
-            {% csrf_token %}
-            <div class="row">
-                <h3 class="h5">What are you working on right now?</h3>
-                <div class="col-12">
-                    {{ current_and_future_goal_form.current_project_link|as_crispy_field }}
-                    {{ current_and_future_goal_form.current_project_desc|as_crispy_field }}
-                </div>
-                <h3 class="h5">Where would you like to be?</h3>
-                <div class="col-12">
-                    {{ current_and_future_goal_form.future_goal|as_crispy_field }}
-                </div>
-                <div class="col-12 d-flex justify-content-end align-items-center mt-2">
-                    <button class="btn btn-primary" type="submit">Save Changes</button>
-                </div>
+        <section class="col-12">
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <h3 class="h5">About Me</h3>
             </div>
-        </form>
-    </section>
-</div>
+            <div class="list-container list-container-half">
+                {% include './includes/list_of_profiles.html' %}
+            </div>
+            <div class="col-12 d-flex justify-content-end align-items-center mt-3">
+                <button class="btn btn-primary" id="updateSnippetsBtn" type="submit">Save Changes</button>
+            </div>
+        </section>
+
+        <div class="col-6 offset-3"><hr></div>
+
+        <section class="col-12">
+            <form action="{% url 'update_current_and_future_goal' folio_id=folio.id %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <h3 class="h5">What are you working on right now?</h3>
+                    <div class="col-12">
+                        {{ current_and_future_goal_form.current_project_link|as_crispy_field }}
+                        {{ current_and_future_goal_form.current_project_desc|as_crispy_field }}
+                    </div>
+                    <h3 class="h5">Where would you like to be?</h3>
+                    <div class="col-12">
+                        {{ current_and_future_goal_form.future_goal|as_crispy_field }}
+                    </div>
+                    <div class="col-12 d-flex justify-content-end align-items-center mt-2">
+                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
 {% endblock %}
