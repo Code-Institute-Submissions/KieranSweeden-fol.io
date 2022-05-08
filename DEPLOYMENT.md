@@ -124,6 +124,9 @@ The following are procedures that need to be undertaken in order to run a deploy
     | FOLIO_LICENSE_PRICE_ID | {found within product dash on stripe}          |
     | S3_ACCESS_KEY_ID       | {found within IAM in AWS dash}                 |
     | S3_SECRET_ACCESS_KEY   | {found within IAM in AWS dash}                 |
+    | EMAIL_HOST_PASS        | {password for application access to mail}      |
+    | EMAIL_HOST_USER        | {email that'll appear on default mail messages}|
+    | URL                    | {deployed app url - is planned to change}      |
 
 6. We're now going to install the packages needed to utilise Postgres when deployed on Heroku. Install dj_database_url and psychopg2 using the following commands:
     ```bash
