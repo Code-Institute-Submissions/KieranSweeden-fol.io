@@ -18,14 +18,11 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e0+8kwv(u8jk5fv=ok0@p=+l=xk5!87-q2-(v%l-rr)7^xxo(&'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,7 +33,6 @@ ALLOWED_HOSTS = [
 ]
 
 # Application definition
-
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.admin',
@@ -52,7 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-    #CORS
+    # CORS
     'corsheaders',
 
     # required by crispy forms
@@ -86,7 +82,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'folio.urls'
 
-CORS_ORIGIN_ALLOW_ALL = True 
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
@@ -170,13 +166,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -204,7 +196,6 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 # make user enter email twice to reduce likelihood of typos
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 
@@ -221,24 +212,18 @@ WSGI_APPLICATION = 'folio.wsgi.application'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-
 # CSRF
 if "DEVELOPMENT" in os.environ:
-
     url_partitions = os.environ.get('GITPOD_WORKSPACE_URL').partition('kieran')
-
     csrf_string = (
         f"{url_partitions[0]}*8000-"
         f"{url_partitions[1]}{url_partitions[2]}"
     )
-
     CSRF_TRUSTED_ORIGINS = [(csrf_string)]
-
 
 # URL
 if "DEVELOPMENT" in os.environ:
     URL_SECTIONS = os.environ.get('GITPOD_WORKSPACE_URL').partition('kieran')
-
     URL = (
         f'{URL_SECTIONS[0]}8000-{URL_SECTIONS[1]}{URL_SECTIONS[2]}/'
     )
@@ -259,6 +244,17 @@ AWS_S3_SECRET_ACCESS_KEY = os.environ.get('S3_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'folio-project'
 AWS_QUERYSTRING_AUTH = False
 
+if "USE_AWS" in os.environ:
+
+    # Static & media files
+    # For static file storage we want to use our
+    # StaticStorage class
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+
+    # The location django should save to is a folder
+    # named static
+    STATICFILES_LOCATION = 'static'
+
 # Email
 if 'DEVELOPMENT' in os.environ:
     # Default email
@@ -273,14 +269,3 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-
-if "USE_AWS" in os.environ:
-
-    # Static & media files
-    # For static file storage we want to use our
-    # StaticStorage class
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-
-    # The location django should save to is a folder
-    # named static
-    STATICFILES_LOCATION = 'static'

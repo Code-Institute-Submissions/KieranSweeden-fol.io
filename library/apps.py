@@ -1,3 +1,6 @@
+"""
+Here is the configuration for the library app
+"""
 from django.apps import AppConfig
 
 

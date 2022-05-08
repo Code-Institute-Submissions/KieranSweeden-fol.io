@@ -1,3 +1,6 @@
+"""
+Here is the configuration for the home app
+"""
 from django.apps import AppConfig
 
 

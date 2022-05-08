@@ -1,4 +1,6 @@
-""" Here is the configuration for the account app """
+"""
+Here is the configuration for the account app
+"""
 from django.apps import AppConfig
 
 

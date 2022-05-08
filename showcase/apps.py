@@ -1,3 +1,6 @@
+"""
+Here is the configuration for the showcase app
+"""
 from django.apps import AppConfig
 
 
